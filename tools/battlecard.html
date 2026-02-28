@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>BATTLECARD: Amplify360 vs. ekwa</title>
+    <meta name="description" content="Sales battlecard comparing ekwa to Amplify360 for dental marketing agencies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Header Navigation */
+        .header {
+            background: #1B4F72;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(27, 79, 114, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-link {
+            color: #C9A84C;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: white;
+        }
+        
+        .print-btn {
+            background: #C9A84C;
+            color: #1B4F72;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .print-btn:hover {
+            background: #d4b75a;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1B4F72;
+            margin-bottom: 12px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background: #1B4F72;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2a5a8a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #1B4F72;
+            border: 2px solid #1B4F72;
+        }
+        
+        .btn-secondary:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Comparison Grid */
+        .comparison-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1B4F72;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #C9A84C;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr;
+            gap: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-header {
+            background: #1B4F72;
+            color: white;
+            padding: 16px;
+            font-weight: 700;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-row {
+            display: contents;
+        }
+        
+        .comparison-cell {
+            padding: 18px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            min-height: 80px;
+        }
+        
+        .comparison-cell:nth-child(3n+1) {
+            background: #f9f9f9;
+            font-weight: 600;
+            color: #1B4F72;
+        }
+        
+        .comparison-cell:nth-child(3n+2) {
+            background: #ffe8e8;
+            color: #555;
+        }
+        
+        .comparison-cell:nth-child(3n) {
+            background: #e8f4f8;
+            color: #555;
+        }
+        
+        .comparison-grid > div:nth-child(3n) {
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        .comparison-grid > div:nth-child(3n+1):not(:nth-child(4)),
+        .comparison-grid > div:nth-child(3n+2):not(:nth-child(5)) {
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        /* Objections Section */
+        .objections-section {
+            margin-bottom: 60px;
+        }
+        
+        .objection-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+        
+        .objection-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .objection-header {
+            background: linear-gradient(135deg, #1B4F72 0%, #2a5a8a 100%);
+            color: white;
+            padding: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .objection-header:hover {
+            background: linear-gradient(135deg, #2a5a8a 0%, #3a6a9a 100%);
+        }
+        
+        .objection-toggle {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .objection-card.active .objection-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .objection-card.active .objection-body {
+            max-height: 1000px;
+            transition: max-height 0.3s ease-in;
+        }
+        
+        .objection-body-content {
+            padding: 24px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .objection-body-content p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .objection-stat {
+            background: #e8f4f8;
+            border-left: 4px solid #1B4F72;
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 4px;
+            font-style: italic;
+            color: #333;
+        }
+        
+        .objection-question {
+            background: #fff4e8;
+            border-left: 4px solid #C9A84C;
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 4px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Discovery Questions */
+        .questions-section {
+            background: #f5f5f5;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+        
+        .questions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .question-item {
+            padding: 12px;
+        }
+        
+        .question-item strong {
+            color: #1B4F72;
+        }
+        
+        .killer-question {
+            background: linear-gradient(135deg, #C9A84C 0%, #d4b75a 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.6;
+            grid-column: 1 / -1;
+        }
+        
+        /* Proof Points */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .proof-card {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%);
+            padding: 28px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #d0e8f2;
+        }
+        
+        .proof-card.ekwa {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fb 100%);
+            border-color: #1B4F72;
+            box-shadow: 0 2px 8px rgba(27, 79, 114, 0.1);
+        }
+        
+        .proof-card.amplify360 {
+            background: linear-gradient(135deg, #ffe8e8 0%, #fff0f0 100%);
+            border-color: #d32f2f;
+        }
+        
+        .proof-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #1B4F72;
+            margin-bottom: 8px;
+        }
+        
+        .proof-card.amplify360 .proof-label {
+            color: #d32f2f;
+        }
+        
+        .proof-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1B4F72;
+            margin-bottom: 4px;
+        }
+        
+        .proof-card.amplify360 .proof-value {
+            color: #d32f2f;
+        }
+        
+        .proof-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        /* Closing Scripts */
+        .scripts-section {
+            margin-bottom: 60px;
+        }
+        
+        .script-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .script-header {
+            background: #1B4F72;
+            color: white;
+            padding: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .script-header:hover {
+            background: #2a5a8a;
+        }
+        
+        .script-toggle {
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+        
+        .script-card.active .script-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .script-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .script-card.active .script-body {
+            max-height: 800px;
+            transition: max-height 0.3s ease-in;
+        }
+        
+        .script-body-content {
+            padding: 24px;
+            border-top: 1px solid #e0e0e0;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .script-body-content p {
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #1B4F72 0%, #2a5a8a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .final-cta h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .final-cta p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 13px;
+            background: #f9f9f9;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .header,
+            .footer,
+            .print-btn {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .comparison-grid,
+            .objection-card,
+            .script-card {
+                page-break-inside: avoid;
+            }
+            
+            .objection-card,
+            .script-card {
+                border: 1px solid #ccc;
+                margin-bottom: 12px;
+            }
+            
+            .objection-body,
+            .script-body {
+                max-height: none !important;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-cell {
+                padding: 12px 16px;
+            }
+            
+            .comparison-cell:nth-child(3n+1) {
+                background: #f9f9f9;
+                font-weight: 600;
+                grid-column: 1;
+            }
+            
+            .comparison-cell:nth-child(3n+2),
+            .comparison-cell:nth-child(3n) {
+                grid-column: 1;
+            }
+            
+            .proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 20px 16px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="back-link">← Back to Dashboard</a>
+            <h1 style="margin: 0; font-size: 20px; font-weight: 700;">BATTLECARD</h1>
+            <button class="print-btn" onclick="window.print()">🖨 Print / PDF</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>BATTLECARD: Amplify360 vs. ekwa</h1>
+            <p>The definitive competitive positioning guide</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.querySelector('.comparison-section').scrollIntoView({behavior:'smooth'})">View Comparison</button>
+                <button class="btn btn-secondary" onclick="document.querySelector('.objections-section').scrollIntoView({behavior:'smooth'})">See Objections</button>
+            </div>
+        </div>
+        
+        <!-- Quick Comparison Grid -->
+        <div class="comparison-section">
+            <h2 class="section-title">Quick Comparison: 8 Key Dimensions</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-header">Dimension</div>
+                <div class="comparison-header">Amplify360</div>
+                <div class="comparison-header">ekwa</div>
+                
+                <div class="comparison-cell">1. Exclusivity</div>
+                <div class="comparison-cell">800+ clients, no territorial limits</div>
+                <div class="comparison-cell">1 practice per specialty per market</div>
+                
+                <div class="comparison-cell">2. Dental Expertise</div>
+                <div class="comparison-cell">Healthcare generalist (merged SmartBox + Dental Rev)</div>
+                <div class="comparison-cell">Dental-only specialist, 16 years</div>
+                
+                <div class="comparison-cell">3. Content Approach</div>
+                <div class="comparison-cell">Templated, PPC-heavy, one-size-fits-all</div>
+                <div class="comparison-cell">Custom, human-written, practice-specific</div>
+                
+                <div class="comparison-cell">4. Client Focus</div>
+                <div class="comparison-cell">Scaled approach to 800+ clients</div>
+                <div class="comparison-cell">Dedicated expert per practice</div>
+                
+                <div class="comparison-cell">5. Pricing</div>
+                <div class="comparison-cell">$1,500–$3,000/month</div>
+                <div class="comparison-cell">$2,500–$4,500/month</div>
+                
+                <div class="comparison-cell">6. Client Base</div>
+                <div class="comparison-cell">800 mixed quality, higher churn post-merger</div>
+                <div class="comparison-cell">400 premium clients, 16-year retention</div>
+                
+                <div class="comparison-cell">7. Switching Pain</div>
+                <div class="comparison-cell">May still serve your competitors</div>
+                <div class="comparison-cell">95% migration handled, no conflicts</div>
+                
+                <div class="comparison-cell">8. Track Record</div>
+                <div class="comparison-cell">Founded 2008, merged 2022, integration challenges</div>
+                <div class="comparison-cell">Founded 2008, consistent growth, stable leadership</div>
+            </div>
+        </div>
+        
+        <!-- Objections Section -->
+        <div class="objections-section">
+            <h2 class="section-title">Top 5 Objections & Your Response</h2>
+            
+            <!-- Objection 1 -->
+            <div class="objection-card">
+                <div class="objection-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>"Amplify360 is cheaper"</span>
+                    <span class="objection-toggle">▼</span>
+                </div>
+                <div class="objection-body">
+                    <div class="objection-body-content">
+                        <p>You're right, they're cheaper. And you know why? Because they're cheaper to everyone — 800 practices pay them, and they treat all of you the same. Here's the real math: If Amplify360 brings you 2 new patients/month at $1,500, that's $750/patient. If ekwa brings you 3 new patients/month because we're not distracted by your competitors, that's $833/patient. But you also get one thing priceless: an agency that isn't working against you.</p>
+                        <p><strong>What would 25% better results be worth?</strong></p>
+                        <div class="objection-stat">
+                            📊 Orthodontics practice: 37% new patient growth by switching from a non-exclusive agency
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Objection 2 -->
+            <div class="objection-card">
+                <div class="objection-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>"But Amplify360 says they give us dedicated account support"</span>
+                    <span class="objection-toggle">▼</span>
+                </div>
+                <div class="objection-body">
+                    <div class="objection-body-content">
+                        <p>They might. But here's the conflict: that account manager's day is split between you and 7–10 other practices. When you need strategy, they're updating content for someone else. At ekwa, your account expert's entire week is built around your goals. No context-switching. Just focus on your growth.</p>
+                        <div class="objection-question">
+                            ❓ How quickly does your Amplify360 rep typically respond to your questions? (Honest answer usually tells the story.)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Objection 3 -->
+            <div class="objection-card">
+                <div class="objection-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>"Switching agencies is too much work"</span>
+                    <span class="objection-toggle">▼</span>
+                </div>
+                <div class="objection-body">
+                    <div class="objection-body-content">
+                        <p>We handle the lift. Week 1: audit. Week 2: strategy. Week 3: migrate all accounts, analytics, historical data. Week 4: go live. We've done this 400 times. We know the painful parts — and we eliminate them. You don't lose momentum. Your campaigns stay live the entire time.</p>
+                        <div class="objection-stat">
+                            ⏱️ Average transition: 3–4 weeks. Zero loss of momentum. Zero downtime.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Objection 4 -->
+            <div class="objection-card">
+                <div class="objection-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>"Amplify360 is running our Google Ads and they're working okay"</span>
+                    <span class="objection-toggle">▼</span>
+                </div>
+                <div class="objection-body">
+                    <div class="objection-body-content">
+                        <p>Okay is the enemy of great. What if we could improve those same Google Ads by 20–30% just by making them dental-specific and market-specific? Same budget, smarter strategy. We've seen this pattern repeatedly: practitioners come to us with "okay" campaigns that Amplify360 stopped optimizing years ago.</p>
+                        <div class="objection-question">
+                            ❓ Does Amplify360 ever proactively suggest optimizations? Or do you have to ask?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Objection 5 -->
+            <div class="objection-card">
+                <div class="objection-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>"We've been with Amplify360 for 3 years"</span>
+                    <span class="objection-toggle">▼</span>
+                </div>
+                <div class="objection-body">
+                    <div class="objection-body-content">
+                        <p>That's the best time to evaluate. You've seen what 3 years looks like. Are you where you want to be? Switching doesn't mean starting over — you're bringing 3 years of market data to an agency that specializes in dentistry and won't work for your competitors. Some of our best clients were with non-exclusive agencies for years.</p>
+                        <p><strong>Their typical response: "Why didn't we do this sooner?"</strong></p>
+                        <div class="objection-stat">
+                            💡 Context: 35% of ekwa's new clients came from Amplify360 or similar non-exclusive agencies
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Discovery Questions -->
+        <div class="questions-section">
+            <h2 class="section-title">13 Discovery Questions to Ask</h2>
+            
+            <div class="questions-grid">
+                <div style="grid-column: 1; font-weight: 700; color: #1B4F72; margin-bottom: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em;">Current Pain (Questions 1–5)</div>
+                <div style="grid-column: 2; font-weight: 700; color: #1B4F72; margin-bottom: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em;">Marketing Reality (Questions 6–10)</div>
+                
+                <div class="question-item"><strong>1.</strong> What's your biggest frustration with your current marketing agency?</div>
+                <div class="question-item"><strong>6.</strong> How much of your new patient growth comes from SEO vs. paid ads?</div>
+                
+                <div class="question-item"><strong>2.</strong> Do you feel like your agency knows your practice intimately?</div>
+                <div class="question-item"><strong>7.</strong> Are your Google rankings improving or staying flat?</div>
+                
+                <div class="question-item"><strong>3.</strong> How often does your agency proactively bring you strategy recommendations?</div>
+                <div class="question-item"><strong>8.</strong> Do you know if your agency works for your competitors? Have you asked?</div>
+                
+                <div class="question-item"><strong>4.</strong> What's your cost per new patient from digital marketing?</div>
+                <div class="question-item"><strong>9.</strong> How quickly do you typically get responses when you have a question?</div>
+                
+                <div class="question-item"><strong>5.</strong> When was the last time you evaluated an alternative agency?</div>
+                <div class="question-item"><strong>10.</strong> If you could change one thing about your current setup, what would it be?</div>
+            </div>
+            
+            <div class="questions-grid" style="margin-top: 12px;">
+                <div style="grid-column: 1 / -1; font-weight: 700; color: #1B4F72; margin-bottom: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em;">The Competitive Insight (Questions 11–13)</div>
+                
+                <div class="question-item" style="grid-column: 1 / -1;"><strong>11.</strong> What would make you consider switching to an exclusive, dental-only agency?</div>
+                <div class="question-item" style="grid-column: 1 / -1;"><strong>12.</strong> If I could show you how to reduce your cost per patient acquisition by 25%, would that be worth a conversation?</div>
+                <div class="question-item" style="grid-column: 1 / -1;"><strong>13.</strong> What's the biggest risk you see in switching agencies?</div>
+            </div>
+            
+            <div class="killer-question">
+                ⚡ THE KILLER QUESTION: "If I could show you an agency that guarantees they won't work for your competitors, specializes in dentistry, and can improve your results by 25%, would that be worth a conversation?"
+            </div>
+        </div>
+        
+        <!-- Proof Points -->
+        <div class="comparison-section">
+            <h2 class="section-title">Proof Points: By The Numbers</h2>
+            
+            <div class="proof-grid">
+                <div class="proof-card ekwa">
+                    <div class="proof-label">ekwa Track Record</div>
+                    <div class="proof-value">16+</div>
+                    <div class="proof-desc">Years dental-only specialist</div>
+                </div>
+                
+                <div class="proof-card ekwa">
+                    <div class="proof-label">ekwa Client Base</div>
+                    <div class="proof-value">400+</div>
+                    <div class="proof-desc">Premium dental practices</div>
+                </div>
+                
+                <div class="proof-card ekwa">
+                    <div class="proof-label">ekwa Specialization</div>
+                    <div class="proof-value">100%</div>
+                    <div class="proof-desc">Dental-only focus</div>
+                </div>
+                
+                <div class="proof-card ekwa">
+                    <div class="proof-label">ekwa Exclusivity</div>
+                    <div class="proof-value">1</div>
+                    <div class="proof-desc">Per specialty per market</div>
+                </div>
+                
+                <div class="proof-card amplify360">
+                    <div class="proof-label">Amplify360 Scale</div>
+                    <div class="proof-value">800+</div>
+                    <div class="proof-desc">Clients (all industries)</div>
+                </div>
+                
+                <div class="proof-card amplify360">
+                    <div class="proof-label">Amplify360 Dental Depth</div>
+                    <div class="proof-value">Mixed</div>
+                    <div class="proof-desc">Generalist + merged 2022</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Closing Scripts -->
+        <div class="scripts-section">
+            <h2 class="section-title">4 Closing Scripts</h2>
+            
+            <!-- Script 1 -->
+            <div class="script-card">
+                <div class="script-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>The Scarcity Close</span>
+                    <span class="script-toggle">▼</span>
+                </div>
+                <div class="script-body">
+                    <div class="script-body-content">
+                        <p>"Here's the thing: we work with one practice per specialty per market. In your area, the [Your Specialty] slot is [open/taken, but we might have another practice switching]. I want to be direct: that exclusivity is why we can dedicate the level of attention your practice deserves. If you're interested in exploring this, now is the right time."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Script 2 -->
+            <div class="script-card">
+                <div class="script-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>The Confidence Close</span>
+                    <span class="script-toggle">▼</span>
+                </div>
+                <div class="script-body">
+                    <div class="script-body-content">
+                        <p>"I've reviewed your current setup, and I'm confident we can improve your new patient acquisition by 20–30% within 90 days without increasing your budget. That's not typical agency talk—that's based on what I'm seeing in your data. Let's do a deep dive and I'll show you exactly where that improvement comes from."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Script 3 -->
+            <div class="script-card">
+                <div class="script-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>The Future Close</span>
+                    <span class="script-toggle">▼</span>
+                </div>
+                <div class="script-body">
+                    <div class="script-body-content">
+                        <p>"Fast-forward 24 months. You're working with an agency that specializes in dentistry, doesn't work for your competitors, and knows your market better than anyone. Your cost per patient is down 15–20%. Your Google rankings are climbing. Your team is happier because they're not managing conflicted advice. That's the option B. Option A is staying where you are. Which future do you want?"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Script 4 -->
+            <div class="script-card">
+                <div class="script-header" onclick="this.parentElement.classList.toggle('active')">
+                    <span>The Honesty Close</span>
+                    <span class="script-toggle">▼</span>
+                </div>
+                <div class="script-body">
+                    <div class="script-body-content">
+                        <p>"I'm not going to tell you switching is painless. It's not. But I'm going to tell you that the cost of staying with a non-exclusive agency—the missed growth, the diluted focus, the risk that someone else is getting the same insights you are—that cost is way higher than the short-term friction of switching. We handle the transition. You focus on patients."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final CTA -->
+        <div class="final-cta">
+            <h2>Ready to Have the Conversation?</h2>
+            <p>Schedule a free 20-minute call to discuss your specific situation and explore if ekwa is the right fit.</p>
+            <button class="btn btn-primary" style="margin: 0 auto; display: block;" onclick="alert('Schedule call button - integrate with your CRM or calendar tool')">Schedule a Call</button>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2026 ekwa. This battlecard is for internal sales use and represents competitive positioning as of February 2026.</p>
+    </footer>
+    
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.objection-header, .script-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const card = this.parentElement;
+                const isActive = card.classList.contains('active');
+                
+                // Close all cards in the same section
+                const section = card.parentElement;
+                section.querySelectorAll('.objection-card.active, .script-card.active').forEach(openCard => {
+                    if (openCard !== card) {
+                        openCard.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current card
+                card.classList.toggle('active');
+            });
+        });
+        
+        // Open first objection and script by default
+        document.querySelectorAll('.objection-card')[0]?.classList.add('active');
+        document.querySelectorAll('.script-card')[0]?.classList.add('active');
+    </script>
+</body>
+</html>

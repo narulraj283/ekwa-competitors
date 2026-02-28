@@ -77,11 +77,31 @@
   /* PLAYBOOK FILE CARDS */
   .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #F8FAFD; border: 1px solid #D6E4F0; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
   .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(27,79,114,0.12); }
+  .playbook-file-card.live { background: #F0FFF4; border-color: #A9DFBF; }
+  .playbook-file-card.live:hover { background: #EAFAF1; border-color: var(--green); box-shadow: 0 3px 10px rgba(30,132,73,0.15); }
   .pf-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
   .pf-info { flex: 1; min-width: 0; }
   .pf-title { font-size: 13px; font-weight: 700; color: var(--ekwa); margin-bottom: 4px; }
+  .pf-title-live { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
+  .live-badge { font-size: 9px; font-weight: 800; background: var(--green); color: white; padding: 2px 5px; border-radius: 3px; letter-spacing: 0.5px; }
   .pf-desc { font-size: 11px; color: var(--gray); line-height: 1.4; margin-bottom: 6px; }
   .pf-tag { font-size: 10px; font-family: monospace; background: #EBF5FB; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+  .pf-tag-live { font-size: 10px; font-family: monospace; background: #EAFAF1; color: var(--green); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+  /* PARTIAL / CANNOT IMPLEMENT SECTIONS */
+  .impl-section { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
+  .impl-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
+  .impl-section .sub-note { font-size: 12px; color: var(--gray); margin-bottom: 18px; }
+  .impl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; }
+  .impl-card { border-radius: 8px; padding: 14px; }
+  .impl-card.partial { background: #FEF9E7; border: 1px solid #F9E79F; }
+  .impl-card.cannot { background: #FDEDEC; border: 1px solid #F1948A; }
+  .impl-card .ic-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .impl-card.partial .ic-title { color: #B7770D; }
+  .impl-card.cannot .ic-title { color: #C0392B; }
+  .impl-card .ic-what { font-size: 11px; color: var(--gray); margin-bottom: 6px; line-height: 1.4; }
+  .impl-card .ic-needs { font-size: 11px; font-weight: 600; }
+  .impl-card.partial .ic-needs { color: #D68910; }
+  .impl-card.cannot .ic-needs { color: var(--red); }
 
   /* COMPETITOR CARDS */
   .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 20px; }
@@ -569,9 +589,25 @@
         <a href="maneuvers/exclusivity-lock/battlecard.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">⚔️</div>
           <div class="pf-info">
-            <div class="pf-title">Sales Battlecard</div>
+            <div class="pf-title">Sales Battlecard (Source)</div>
             <div class="pf-desc">8-dimension comparison, 5 objection handlers, 13 discovery questions</div>
             <div class="pf-tag">battlecard.md</div>
+          </div>
+        </a>
+        <a href="tools/battlecard.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive Battlecard</div>
+            <div class="pf-desc">Clickable web battlecard with objection scripts, print-to-PDF, discovery questions</div>
+            <div class="pf-tag-live">tools/battlecard.html</div>
+          </div>
+        </a>
+        <a href="tools/market-checker.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🗺️</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Market Availability Checker</div>
+            <div class="pf-desc">Interactive tool: "Check if your market is available" — with lead capture form</div>
+            <div class="pf-tag-live">tools/market-checker.html</div>
           </div>
         </a>
         <a href="maneuvers/exclusivity-lock/linkedin-outreach.md" class="playbook-file-card" target="_blank">
@@ -620,9 +656,17 @@
         <a href="maneuvers/ai-credibility-shield/blog-post.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">✍️</div>
           <div class="pf-info">
-            <div class="pf-title">Flagship Blog Post</div>
+            <div class="pf-title">Flagship Blog Post (Source)</div>
             <div class="pf-desc">"Why Your Practice Can't Afford AI-Generated Marketing in 2026" — 1,500 words</div>
             <div class="pf-tag">blog-post.md</div>
+          </div>
+        </a>
+        <a href="content/ai-credibility-blog.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">📰</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Published Blog Article</div>
+            <div class="pf-desc">Fully styled, publishable article with TOC, callout boxes, and lead capture — copy to ekwa.com</div>
+            <div class="pf-tag-live">content/ai-credibility-blog.html</div>
           </div>
         </a>
         <a href="maneuvers/ai-credibility-shield/email-nurture.md" class="playbook-file-card" target="_blank">
@@ -711,9 +755,17 @@
         <a href="maneuvers/dso-frontier/roi-calculator.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">🧮</div>
           <div class="pf-info">
-            <div class="pf-title">ROI Calculator</div>
+            <div class="pf-title">ROI Calculator (Framework)</div>
             <div class="pf-desc">Conservative / Moderate / Aggressive scenarios with full math</div>
             <div class="pf-tag">roi-calculator.md</div>
+          </div>
+        </a>
+        <a href="tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">📊</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive ROI Calculator</div>
+            <div class="pf-desc">Real-time calculator: enter locations, spend & patients → see Year 1 ROI across 3 scenarios</div>
+            <div class="pf-tag-live">tools/roi-calculator.html</div>
           </div>
         </a>
         <a href="maneuvers/dso-frontier/partnerships-list.md" class="playbook-file-card" target="_blank">
@@ -740,6 +792,77 @@
             <div class="pf-tag">DEPLOYMENT-CHECKLIST.txt</div>
           </div>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= DIVIDER ======= -->
+  <div style="border-top: 3px solid var(--border); margin: 32px 0 24px; position:relative;">
+    <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#F0F4F8; padding:0 16px; font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Implementation Status</span>
+  </div>
+
+  <!-- ======= PARTIALLY IMPLEMENTABLE ======= -->
+  <div class="impl-section">
+    <h3 style="color:#B7770D">⚠️ Partially Implementable via GitHub</h3>
+    <p class="sub-note">Front-end built and live. These need one free third-party service to go fully operational — typically a 5-minute setup.</p>
+    <div class="impl-grid">
+      <div class="impl-card partial">
+        <div class="ic-title">📬 Lead Capture Forms (All 3 Landing Pages)</div>
+        <div class="ic-what">Form UI is live on all landing pages. Needs a Formspree endpoint to actually receive submissions. Free plan: 50 leads/month, $8/mo for unlimited.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://formspree.io/register" target="_blank" style="color:#B7770D">formspree.io</a> — create a free account, replace YOUR_FORM_ID in each HTML file, redeploy.</div>
+      </div>
+      <div class="impl-card partial">
+        <div class="ic-title">🗺️ "Check Market Availability" Tool</div>
+        <div class="ic-what">Static version is live with 20 hardcoded taken markets. Shows "Available" or "Taken" based on city search. For real-time data (actual ekwa client list) needs a database.</div>
+        <div class="ic-needs">🔧 Current state: Fully usable as-is for demos. Real-time version: <a href="https://airtable.com" target="_blank" style="color:#B7770D">Airtable</a> + simple API call ($20/mo).</div>
+      </div>
+      <div class="impl-card partial">
+        <div class="ic-title">📧 Email Signup on Blog Post</div>
+        <div class="ic-what">Blog post page is published with a lead form. Needs Mailchimp/ConvertKit embed to add subscribers to a list automatically.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://mailchimp.com" target="_blank" style="color:#B7770D">Mailchimp</a> (free up to 500 contacts) or <a href="https://convertkit.com" target="_blank" style="color:#B7770D">ConvertKit</a> — swap in their embed code.</div>
+      </div>
+      <div class="impl-card partial">
+        <div class="ic-title">📊 Analytics on Live Pages</div>
+        <div class="ic-what">No tracking on any live pages currently. Need to add GA4 or Plausible snippet to understand which pages and CTAs are converting.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://analytics.google.com" target="_blank" style="color:#B7770D">Google Analytics 4</a> (free) — add one script tag to each HTML file header.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= CANNOT IMPLEMENT ======= -->
+  <div class="impl-section">
+    <h3 style="color:#C0392B">❌ Cannot Implement via GitHub Alone</h3>
+    <p class="sub-note">These require external platforms by nature. GitHub Pages is a static host — no email sending, no CRM, no ad management.</p>
+    <div class="impl-grid">
+      <div class="impl-card cannot">
+        <div class="ic-title">✉️ Email Automation (Sending Sequences)</div>
+        <div class="ic-what">The 5-email cold sequence, DSO outreach, and nurture flows are written and ready. But sending requires a mail platform.</div>
+        <div class="ic-needs">❌ Needs: HubSpot (CRM + sequences), Mailchimp, ActiveCampaign, or Instantly.ai for cold outreach at scale.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">💼 LinkedIn Outreach Automation</div>
+        <div class="ic-what">Scripts are written. Actual outreach to Amplify360 dentists requires LinkedIn Sales Navigator or automation tools.</div>
+        <div class="ic-needs">❌ Needs: LinkedIn Sales Navigator ($80/mo) + Expandi or Dripify ($40/mo) for automated connection sequences.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">📣 Paid Ad Campaigns</div>
+        <div class="ic-what">Campaign briefs specify Google Ads, LinkedIn Ads, and Facebook Ads budgets and targeting. Execution requires ad platform accounts.</div>
+        <div class="ic-needs">❌ Needs: Google Ads + LinkedIn Campaign Manager + Facebook Ads Manager. Budget: ~$63K (Op 1), $25–35K (Op 2), per campaign brief.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">🏥 CRM + Pipeline Management</div>
+        <div class="ic-what">Tracking DSO prospects, Amplify360 displacement pipeline, and AI Shield leads requires a CRM with deal stages.</div>
+        <div class="ic-needs">❌ Needs: HubSpot CRM (free tier available) or Salesforce. Setup takes ~1 day with the prospect data from these playbooks.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">📈 Looker Studio Performance Dashboard</div>
+        <div class="ic-what">Tracking campaign ROI, new patient growth, and conversion rates requires live data from your clients' websites and the campaigns above.</div>
+        <div class="ic-needs">❌ Needs: Google Analytics 4 + Search Console + Looker Studio connected to ekwa client accounts (you already have access to this).</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">🤝 DSO Partnership Outreach</div>
+        <div class="ic-what">The 20+ DSO ecosystem partners list is ready. But outreach to dental CPAs, M&amp;A advisors, and DSO consultants needs human relationship-building.</div>
+        <div class="ic-needs">❌ Needs: Direct outreach from Naren or business development team. Conference appearances at DSO Summit, DSO Evolution (in-person).</div>
       </div>
     </div>
   </div>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Market Availability Checker - ekwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ekwa: #1B4F72;
+            --gold: #C9A84C;
+            --green: #1E8449;
+            --red: #C41E3A;
+            --light-bg: #F8F9FA;
+            --border: #E0E0E0;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--ekwa);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-back {
+            color: var(--ekwa);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-back:hover {
+            opacity: 0.7;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Social Proof Counter */
+        .social-proof {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .proof-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .proof-number {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--ekwa);
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--ekwa);
+            box-shadow: 0 0 0 4px rgba(27, 79, 114, 0.1);
+        }
+
+        input[type="text"]::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-btn {
+            padding: 14px 32px;
+            background-color: var(--ekwa);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background-color: #0D47A1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(27, 79, 114, 0.3);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Status Card */
+        .status-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--border);
+        }
+
+        .status-card.taken {
+            border-top-color: var(--red);
+        }
+
+        .status-card.available {
+            border-top-color: var(--green);
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .market-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.taken {
+            background-color: #FFE5E5;
+            color: var(--red);
+        }
+
+        .status-badge.available {
+            background-color: #E5F5E5;
+            color: var(--green);
+        }
+
+        .status-icon {
+            font-size: 16px;
+        }
+
+        .status-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* Forms */
+        .form-container {
+            background-color: var(--light-bg);
+            border-radius: 6px;
+            padding: 24px;
+        }
+
+        .form-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .form-grid.full {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--ekwa);
+            box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231B4F72' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+        }
+
+        select option {
+            background-color: var(--white);
+            color: var(--text-primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+        }
+
+        .submit-btn.taken {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        .submit-btn.taken:hover {
+            background-color: #A01830;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+
+        .submit-btn.available {
+            background-color: var(--green);
+            color: var(--white);
+        }
+
+        .submit-btn.available:hover {
+            background-color: #156636;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 132, 73, 0.3);
+        }
+
+        /* FAQ / Guidance Section */
+        .guidance-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .guidance-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--ekwa);
+        }
+
+        .guidance-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer-nav {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .back-link {
+            color: var(--ekwa);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .page-subtitle {
+                font-size: 16px;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .market-name {
+                font-size: 24px;
+            }
+
+            .status-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-section,
+            .status-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">ekwa</div>
+            <a href="../index.html" class="nav-back">← Back to Dashboard</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <p class="proof-text"><span class="proof-number">47</span> markets claimed this month</p>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Check Your Market Availability</h1>
+            <p class="page-subtitle">Discover if your market is available for exclusive dental marketing representation</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="marketInput" placeholder="Enter your city or state..." autocomplete="off">
+                <button class="search-btn" onclick="checkMarket()">Check Market</button>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px;">Example: "Austin TX" or "Seattle"</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="status-card" id="statusCard">
+                <div class="status-header">
+                    <div>
+                        <div class="market-name" id="marketNameDisplay"></div>
+                    </div>
+                    <span class="status-badge" id="statusBadge">
+                        <span class="status-icon" id="statusIcon"></span>
+                        <span id="statusText"></span>
+                    </span>
+                </div>
+
+                <p class="status-description" id="statusDescription"></p>
+
+                <div class="form-container">
+                    <h3 class="form-title" id="formTitle"></h3>
+                    
+                    <form id="statusForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" name="name" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Practice Name</label>
+                                <input type="text" name="practice_name" placeholder="Your practice name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" name="phone" placeholder="(555) 123-4567" required>
+                            </div>
+                            <div class="form-group full">
+                                <label class="form-label">Specialty</label>
+                                <select name="specialty" required>
+                                    <option value="">Select your specialty</option>
+                                    <option value="general-dentistry">General Dentistry</option>
+                                    <option value="orthodontics">Orthodontics</option>
+                                    <option value="cosmetic-dentistry">Cosmetic Dentistry</option>
+                                    <option value="oral-surgery">Oral Surgery</option>
+                                    <option value="periodontics">Periodontics</option>
+                                    <option value="pediatric-dentistry">Pediatric Dentistry</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <button type="submit" class="submit-btn" id="submitBtn"></button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io/register -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Guidance Section -->
+        <div class="guidance-section">
+            <h3 class="guidance-title">About Our Exclusive Market Protection</h3>
+            <p class="guidance-text">
+                At ekwa, we understand that effective dental marketing requires focus and attention. That's why we maintain strict one-practice-per-specialty-per-market exclusivity. When you partner with ekwa, your market is protected. No competitor in your specialty receives our services in your area. This gives you the strategic advantage to build your patient base without competing against other dental practices using the same marketing partner.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <a href="../index.html" class="back-link">← Back to Dashboard</a>
+    </div>
+
+    <script>
+        // Hardcoded list of TAKEN markets
+        const takenMarkets = [
+            'austin tx',
+            'dallas tx',
+            'houston tx',
+            'denver co',
+            'seattle wa',
+            'portland or',
+            'phoenix az',
+            'san diego ca',
+            'los angeles ca',
+            'chicago il',
+            'boston ma',
+            'new york ny',
+            'miami fl',
+            'atlanta ga',
+            'charlotte nc',
+            'nashville tn',
+            'minneapolis mn',
+            'san francisco ca',
+            'las vegas nv',
+            'tampa fl'
+        ];
+
+        const marketInput = document.getElementById('marketInput');
+
+        // Allow Enter key to trigger search
+        marketInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkMarket();
+            }
+        });
+
+        function checkMarket() {
+            const input = marketInput.value.trim().toLowerCase();
+            
+            if (!input) {
+                alert('Please enter a city or state');
+                return;
+            }
+
+            // Check if market is taken
+            const isTaken = takenMarkets.some(market => 
+                market.includes(input) || input.includes(market.split(' ')[0])
+            );
+
+            displayResult(input, isTaken);
+        }
+
+        function displayResult(marketInput, isTaken) {
+            const resultsSection = document.getElementById('resultsSection');
+            const statusCard = document.getElementById('statusCard');
+            const marketNameDisplay = document.getElementById('marketNameDisplay');
+            const statusBadge = document.getElementById('statusBadge');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusText = document.getElementById('statusText');
+            const statusDescription = document.getElementById('statusDescription');
+            const formTitle = document.getElementById('formTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            const statusForm = document.getElementById('statusForm');
+
+            // Format market name (title case)
+            const formattedMarket = marketInput
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+
+            marketNameDisplay.textContent = formattedMarket;
+
+            if (isTaken) {
+                // TAKEN state
+                statusCard.classList.remove('available');
+                statusCard.classList.add('taken');
+                
+                statusBadge.classList.remove('available');
+                statusBadge.classList.add('taken');
+                
+                statusIcon.textContent = '❌';
+                statusText.textContent = 'Market Taken — Exclusivity Held';
+                
+                statusDescription.textContent = 'This market is exclusively held by an ekwa client. We maintain strict one-practice-per-specialty-per-market exclusivity. Join our waitlist to be notified if availability opens.';
+                
+                formTitle.textContent = 'Join the Waitlist';
+                submitBtn.textContent = 'Join Waitlist';
+                submitBtn.classList.remove('available');
+                submitBtn.classList.add('taken');
+
+                // Add hidden field for form type
+                let formType = statusForm.querySelector('input[name="form_type"]');
+                if (!formType) {
+                    formType = document.createElement('input');
+                    formType.type = 'hidden';
+                    formType.name = 'form_type';
+                    formType.value = 'waitlist';
+                    statusForm.appendChild(formType);
+                } else {
+                    formType.value = 'waitlist';
+                }
+
+                // Add hidden field for market
+                let marketField = statusForm.querySelector('input[name="market"]');
+                if (!marketField) {
+                    marketField = document.createElement('input');
+                    marketField.type = 'hidden';
+                    marketField.name = 'market';
+                    marketField.value = formattedMarket;
+                    statusForm.appendChild(marketField);
+                } else {
+                    marketField.value = formattedMarket;
+                }
+            } else {
+                // AVAILABLE state
+                statusCard.classList.remove('taken');
+                statusCard.classList.add('available');
+                
+                statusBadge.classList.remove('taken');
+                statusBadge.classList.add('available');
+                
+                statusIcon.textContent = '✅';
+                statusText.textContent = 'Market Available — Act Now';
+                
+                statusDescription.textContent = `Your market is open for exclusive dental marketing representation. This exclusivity cannot be shared — once claimed, no competitor in your specialty will receive our services in ${formattedMarket}. This is a limited-time opportunity to secure your market before another practice does.`;
+                
+                formTitle.textContent = 'Claim Your Market';
+                submitBtn.textContent = 'Claim Your Market';
+                submitBtn.classList.remove('taken');
+                submitBtn.classList.add('available');
+
+                // Add hidden field for form type
+                let formType = statusForm.querySelector('input[name="form_type"]');
+                if (!formType) {
+                    formType = document.createElement('input');
+                    formType.type = 'hidden';
+                    formType.name = 'form_type';
+                    formType.value = 'claim';
+                    statusForm.appendChild(formType);
+                } else {
+                    formType.value = 'claim';
+                }
+
+                // Add hidden field for market
+                let marketField = statusForm.querySelector('input[name="market"]');
+                if (!marketField) {
+                    marketField = document.createElement('input');
+                    marketField.type = 'hidden';
+                    marketField.name = 'market';
+                    marketField.value = formattedMarket;
+                    statusForm.appendChild(marketField);
+                } else {
+                    marketField.value = formattedMarket;
+                }
+            }
+
+            resultsSection.classList.add('active');
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>

@@ -58,6 +58,7 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -72,6 +73,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button-nav:hover {
@@ -138,6 +141,8 @@
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             margin-right: 1rem;
+            border: none;
+            cursor: pointer;
         }
 
         .hero-cta:hover {
@@ -156,6 +161,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .hero-secondary:hover {
@@ -463,10 +469,123 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .pricing-cta:hover {
             background-color: #e8b896;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 3rem auto;
+            border-top: 4px solid var(--gold);
+        }
+
+        .form-section h3 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-section p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-submit {
+            width: 100%;
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background-color: #e8b896;
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-legal {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background-color: #d4f8e8;
+            border: 2px solid #27ae60;
+            border-radius: 4px;
+            color: #27ae60;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-error {
+            display: none;
+            padding: 1.5rem;
+            background-color: #fadbd8;
+            border: 2px solid #e74c3c;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
         /* CTA SECTION */
@@ -498,6 +617,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .final-cta-button:hover {
@@ -610,6 +731,10 @@
             .pricing-card .price {
                 font-size: 2rem;
             }
+
+            .form-section {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -624,7 +749,7 @@
         <li><a href="#comparison">vs. Competitors</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact" class="cta-button-nav">Book a Call</a></li>
+        <li><a href="#contact" onclick="scrollToForm(event)" class="cta-button-nav">Book a Call</a></li>
     </ul>
 </nav>
 
@@ -633,8 +758,8 @@
     <div class="hero-content">
         <h1>Marketing Built for <span class="highlight">Growing Dental Groups</span></h1>
         <p>Your 8-location group deserves a marketing partner who understands every market—without the corporate bloat.</p>
-        <a href="#contact" class="hero-cta">Schedule a DSO Strategy Session</a>
-        <a href="#contact" class="hero-secondary">See a Demo</a>
+        <button onclick="scrollToForm(event)" class="hero-cta">Schedule a DSO Strategy Session</button>
+        <button onclick="scrollToForm(event)" class="hero-secondary">See a Demo</button>
     </div>
 </section>
 
@@ -876,7 +1001,7 @@
                 <li>Basic reporting</li>
                 <li>Monthly strategy call</li>
             </ul>
-            <a href="#contact" class="pricing-cta">Get Started</a>
+            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
         </div>
 
         <div class="pricing-card">
@@ -892,7 +1017,7 @@
                 <li>Advanced reporting</li>
                 <li>Bi-weekly strategy calls</li>
             </ul>
-            <a href="#contact" class="pricing-cta">Get Started</a>
+            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
         </div>
 
         <div class="pricing-card">
@@ -908,17 +1033,76 @@
                 <li>Regional campaigns</li>
                 <li>PR/earned media strategy</li>
             </ul>
-            <a href="#contact" class="pricing-cta">Get Started</a>
+            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
         </div>
     </div>
 </section>
 
-<!-- FINAL CTA SECTION -->
-<section class="final-cta" id="contact">
-    <h2>Ready to Simplify Your Marketing?</h2>
-    <p>Let's schedule a free 30-minute DSO Strategy Session. We'll audit your current marketing, identify quick wins, and show you exactly how we'd help your group grow.</p>
-    <a href="mailto:hello@ekwa.com?subject=DSO%20Strategy%20Session" class="final-cta-button">Schedule Your Free Session</a>
-    <p style="margin-top: 2rem; font-size: 0.95rem; color: #b0b0b0;">Or email: hello@ekwa.com | Phone: 1-XXX-EKWA-DSO</p>
+<!-- CONTACT/FORM SECTION -->
+<!-- FORMSPREE SETUP: Replace YOUR_FORM_ID with your form ID from formspree.io/register -->
+<section id="contact" class="alt-bg">
+    <div class="form-section">
+        <h3>Get Your Custom DSO Growth Projection</h3>
+        <p>Schedule a free consultation with our DSO team. We'll audit your current marketing, identify quick wins, and show you exactly how we'd help your group grow.</p>
+
+        <form id="dsoForm" onsubmit="handleDSOFormSubmit(event)">
+            <div class="form-success" id="dsoFormSuccess">✅ Our DSO team will reach out within one business day with a custom growth projection.</div>
+            <div class="form-error" id="dsoFormError"></div>
+
+            <div class="form-group">
+                <label for="group-name">Group Name</label>
+                <input type="text" id="group-name" name="group_name" placeholder="e.g., Smile Dental Group" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="contact_name" placeholder="e.g., Dr. James Smith" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Your Title</label>
+                <input type="text" id="title" name="title" placeholder="e.g., Practice Owner / Executive Director" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dso-email">Email Address</label>
+                <input type="email" id="dso-email" name="email" placeholder="james@smiledentalgroup.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dso-phone">Phone Number</label>
+                <input type="tel" id="dso-phone" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+
+            <div class="form-group">
+                <label for="locations">Number of Locations</label>
+                <select id="locations" name="locations" required>
+                    <option value="">Select number of locations...</option>
+                    <option value="3-5">3-5 Locations</option>
+                    <option value="6-10">6-10 Locations</option>
+                    <option value="11-15">11-15 Locations</option>
+                    <option value="16+">16+ Locations</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Current Monthly Marketing Budget</label>
+                <select id="budget" name="budget" required>
+                    <option value="">Select budget range...</option>
+                    <option value="Under $5K">Under $5K</option>
+                    <option value="$5K-$10K">$5K-$10K</option>
+                    <option value="$10K-$20K">$10K-$20K</option>
+                    <option value="$20K+">$20K+</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="source" value="dso-frontier-landing">
+
+            <button type="submit" class="form-submit">Request Growth Projection</button>
+
+            <div class="form-legal">We'll review your information and reach out within one business day with custom recommendations.</div>
+        </form>
+    </div>
 </section>
 
 <!-- FOOTER -->
@@ -930,6 +1114,68 @@
         <a href="#contact">Contact</a>
     </p>
 </footer>
+
+<script>
+    // FORMSPREE CONFIGURATION
+    const DSO_FORMSPREE_ID = 'YOUR_FORM_ID';
+
+    function scrollToForm(event) {
+        event.preventDefault();
+        const contactSection = document.getElementById('contact');
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function handleDSOFormSubmit(event) {
+        event.preventDefault();
+
+        const form = document.getElementById('dsoForm');
+        const submitBtn = form.querySelector('.form-submit');
+        const successMsg = document.getElementById('dsoFormSuccess');
+        const errorMsg = document.getElementById('dsoFormError');
+
+        // Reset messages
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        // Collect form data
+        const formData = new FormData(form);
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+            // POST to Formspree
+            const response = await fetch(`https://formspree.io/f/${DSO_FORMSPREE_ID}`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success
+                successMsg.style.display = 'block';
+                form.reset();
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // Error from Formspree
+                errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
+                errorMsg.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
+            errorMsg.style.display = 'block';
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -101,6 +101,8 @@
             font-size: 16px;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            border: none;
         }
 
         .hero-cta:hover {
@@ -330,16 +332,19 @@
             font-size: 14px;
         }
 
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
             border-radius: 6px;
             font-size: 14px;
             transition: border-color 0.3s;
+            font-family: inherit;
         }
 
-        .form-group input:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #d4af37;
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
@@ -364,11 +369,161 @@
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
         .form-legal {
             font-size: 12px;
             color: #999;
             margin-top: 1rem;
             text-align: center;
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background-color: #d4f8e8;
+            border: 2px solid #27ae60;
+            border-radius: 6px;
+            color: #27ae60;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-error {
+            display: none;
+            padding: 1.5rem;
+            background-color: #fadbd8;
+            border: 2px solid #e74c3c;
+            border-radius: 6px;
+            color: #e74c3c;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            color: #001a4d;
+            font-size: 24px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #001a4d;
+        }
+
+        /* STICKY BOTTOM BAR */
+        .sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #001a4d 0%, #003d80 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .sticky-bar.show {
+            display: flex;
+        }
+
+        .sticky-bar-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .sticky-bar-button {
+            background-color: #d4af37;
+            color: #001a4d;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .sticky-bar-button:hover {
+            background-color: #ffd700;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
 
         /* CTA SECTION */
@@ -404,6 +559,8 @@
             font-size: 16px;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -485,6 +642,21 @@
                 width: 25%;
                 font-size: 12px;
             }
+
+            .sticky-bar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .sticky-bar-text {
+                font-size: 14px;
+            }
+
+            .sticky-bar-button {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -517,6 +689,10 @@
                 padding: 12px;
                 font-size: 14px;
             }
+
+            .modal-content {
+                width: 95%;
+            }
         }
     </style>
 </head>
@@ -528,17 +704,82 @@
             <nav>
                 <a href="#comparison">Why ekwa</a>
                 <a href="#social-proof">About Us</a>
-                <a href="#form">Get Started</a>
+                <a href="#form" onclick="openModal(event)">Get Started</a>
             </nav>
         </div>
     </header>
+
+    <!-- STICKY BOTTOM BAR -->
+    <div class="sticky-bar" id="stickyBar">
+        <span class="sticky-bar-text">Your market may still be available. Check now →</span>
+        <button class="sticky-bar-button" onclick="openModal(event)">Check Availability</button>
+    </div>
+
+    <!-- LEAD CAPTURE MODAL -->
+    <!-- FORMSPREE SETUP: Replace YOUR_FORM_ID with your form ID from formspree.io/register (free plan: 50 submissions/month) -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Check If Your Market Is Available</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-success" id="formSuccess">✅ We'll check your market and be in touch within 24 hours!</div>
+                <div class="form-error" id="formError"></div>
+
+                <div class="form-group">
+                    <label for="modal-practice-name">Practice Name</label>
+                    <input type="text" id="modal-practice-name" name="practice_name" placeholder="e.g., Smile Dental Studio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-owner-name">Your Name</label>
+                    <input type="text" id="modal-owner-name" name="owner_name" placeholder="e.g., Dr. Sarah Mitchell" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-email">Email Address</label>
+                    <input type="email" id="modal-email" name="email" placeholder="sarah@smiledental.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-phone">Phone Number</label>
+                    <input type="tel" id="modal-phone" name="phone" placeholder="(555) 123-4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-city">City / Market</label>
+                    <input type="text" id="modal-city" name="city" placeholder="e.g., Denver, CO" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-specialty">Specialty</label>
+                    <select id="modal-specialty" name="specialty" required>
+                        <option value="">Select a specialty...</option>
+                        <option value="General Dentistry">General Dentistry</option>
+                        <option value="Orthodontics">Orthodontics</option>
+                        <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                        <option value="Oral Surgery">Oral Surgery</option>
+                        <option value="Periodontics">Periodontics</option>
+                        <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                    </select>
+                </div>
+
+                <input type="hidden" name="source" value="exclusivity-lock-landing">
+
+                <button type="submit" class="form-submit">Check Availability</button>
+
+                <div class="form-legal">We'll follow up within 24 hours. No spam, just relevant information about your market.</div>
+            </form>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h1>Is Your Marketing Agency Also Working for <span>Your Competitors?</span></h1>
             <p>Discover why one-in-a-market exclusivity matters. Your agency shouldn't work for the practice down the street.</p>
-            <a href="#form" class="hero-cta">Check If Your Market Is Available</a>
+            <button onclick="openModal(event)" class="hero-cta">Check If Your Market Is Available</button>
         </div>
     </section>
 
@@ -662,8 +903,8 @@
         </div>
     </section>
 
-    <!-- FORM SECTION -->
-    <section class="container" id="form">
+    <!-- FORM SECTION (Hidden, but available for non-modal users) -->
+    <section class="container" id="form" style="display: none;">
         <div class="form-section">
             <h3>Check If Your Market Is Available</h3>
             <p>See if your practice's market is still open for exclusive representation.</p>
@@ -702,7 +943,7 @@
         <div class="container">
             <h2>Ready to Work with an Agency That Doesn't Work for Your Competitors?</h2>
             <p>Schedule a brief 15-minute call with our team to discuss your market exclusivity and how ekwa can help you grow without agency conflicts.</p>
-            <a href="#form" class="cta-button">Get Started Now</a>
+            <button onclick="openModal(event)" class="cta-button">Get Started Now</button>
         </div>
     </section>
 
@@ -715,37 +956,99 @@
     </footer>
 
     <script>
-        function handleFormSubmit(event) {
+        // FORMSPREE CONFIGURATION
+        const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+        // Modal functions
+        function openModal(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            document.getElementById('leadModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('leadModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+            // Reset form
+            document.getElementById('leadForm').reset();
+            document.getElementById('formSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('leadModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Show sticky bar after scrolling
+        window.addEventListener('scroll', function() {
+            const stickyBar = document.getElementById('stickyBar');
+            if (window.scrollY > 300) {
+                stickyBar.classList.add('show');
+            } else {
+                stickyBar.classList.remove('show');
+            }
+        });
+
+        // Form submission handler
+        async function handleFormSubmit(event) {
             event.preventDefault();
 
-            // Get form data
-            const formData = {
-                practice_name: document.getElementById('practice-name').value,
-                owner_name: document.getElementById('practice-owner').value,
-                city: document.getElementById('practice-city').value,
-                email: document.getElementById('practice-email').value,
-                timestamp: new Date().toISOString()
-            };
-
-            // Log to console (in production, this would POST to a backend)
-            console.log('Form submitted:', formData);
-
-            // Show success message
-            const form = event.target;
+            const form = document.getElementById('leadForm');
             const submitBtn = form.querySelector('.form-submit');
-            const originalText = submitBtn.textContent;
+            const successMsg = document.getElementById('formSuccess');
+            const errorMsg = document.getElementById('formError');
 
-            submitBtn.textContent = '✓ Thank you! We\'ll be in touch.';
-            submitBtn.style.backgroundColor = '#27ae60';
+            // Reset messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Disable submit button
             submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
 
-            // Reset after 3 seconds
-            setTimeout(() => {
-                form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.style.backgroundColor = '#d4af37';
+            try {
+                // POST to Formspree
+                const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success
+                    successMsg.style.display = 'block';
+                    form.reset();
+                    
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
+                } else {
+                    // Error from Formspree
+                    errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
+                    errorMsg.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
+                errorMsg.style.display = 'block';
+            } finally {
+                // Re-enable submit button
                 submitBtn.disabled = false;
-            }, 3000);
+                submitBtn.textContent = originalText;
+            }
         }
     </script>
 </body>
