@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ekwa - The Human Advantage in Dental Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            border-bottom: 2px solid #003d82;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #003d82;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #003d82;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* Main Comparison Section */
+        .comparison-section {
+            margin-bottom: 60px;
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #003d82;
+            margin-bottom: 40px;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .comparison-column {
+            border-radius: 8px;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comparison-column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .column-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            padding: 15px;
+            margin: -30px -30px 20px -30px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .ai-platform .column-header {
+            background: #e74c3c;
+        }
+
+        .ekwa .column-header {
+            background: #003d82;
+        }
+
+        .neutral .column-header {
+            background: #7f8c8d;
+        }
+
+        .comparison-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-label {
+            font-weight: 600;
+            color: #003d82;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .item-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .ai-platform .item-content {
+            color: #d35400;
+        }
+
+        .ekwa .item-content {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .neutral .item-content {
+            color: #7f8c8d;
+        }
+
+        /* Proof Points Section */
+        .proof-points-section {
+            background: white;
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .proof-points-section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #003d82;
+            margin-bottom: 40px;
+        }
+
+        .proof-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .proof-point {
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid #003d82;
+        }
+
+        .proof-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #003d82;
+            margin-bottom: 10px;
+        }
+
+        .proof-metric {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .proof-description {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background: #003d82;
+            color: white;
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-attribution {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-top: 15px;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .why-choose-content h2 {
+            font-size: 28px;
+            color: #003d82;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-list {
+            list-style: none;
+        }
+
+        .why-choose-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .why-choose-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .why-choose-image {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #003d82 0%, #005aad 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            color: white;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #ecf0f1;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .comparison-table {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comparison-table .neutral {
+                grid-column: 1 / -1;
+            }
+
+            .proof-points {
+                grid-template-columns: 1fr;
+            }
+
+            .why-choose-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table .neutral {
+                grid-column: 1;
+            }
+
+            .proof-points {
+                grid-template-columns: 1fr;
+            }
+
+            .why-choose-section {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .stat-highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">ekwa.com</div>
+            <h1>The Human Advantage</h1>
+            <p class="tagline">Why ekwa Outperforms AI-First Platforms in Dental Marketing</p>
+        </header>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <h2>AI Platform vs. Human Expert</h2>
+            <div class="comparison-table">
+                <div class="comparison-column ai-platform">
+                    <div class="column-header">AI-First Platform</div>
+                    <div class="comparison-item">
+                        <div class="item-label">Content Strategy</div>
+                        <div class="item-content">Fast, templated, AI-generated. 30+ posts/quarter.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Expertise Focus</div>
+                        <div class="item-content">Generic across all healthcare practices</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Google Performance</div>
+                        <div class="item-content">Declining (40-60% drops post-2024 updates)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Patient Trust</div>
+                        <div class="item-content">Commodity feel. Could be any dentist.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">ROI Timeline</div>
+                        <div class="item-content">Fast start, then plateau (6-9 months)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Cost</div>
+                        <div class="item-content">$1,500–$2,500/month + rising ad spend</div>
+                    </div>
+                </div>
+
+                <div class="comparison-column ekwa">
+                    <div class="column-header">ekwa Human Expert</div>
+                    <div class="comparison-item">
+                        <div class="item-label">Content Strategy</div>
+                        <div class="item-content">Patient-focused, expert-edited. 5-10/quarter.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Expertise Focus</div>
+                        <div class="item-content">Deep dental specialization. Specific to your practice.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Google Performance</div>
+                        <div class="item-content">Growing (stable or +15-25% annually)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Patient Trust</div>
+                        <div class="item-content">Authentic voice. Clearly your practice.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">ROI Timeline</div>
+                        <div class="item-content">Slow build, then compounding (12+ months)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="item-label">Cost</div>
+                        <div class="item-content">$3,500–$7,000/month (lower CAC long-term)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-highlight">
+                <strong>The Shift:</strong> Practices using human-expert marketing averaged 40% lower cost-per-acquisition within 18 months compared to AI-first platform users, due to compounding organic reach and reduced paid ad dependency.
+            </div>
+        </section>
+
+        <!-- Proof Points -->
+        <section class="proof-points-section">
+            <h2>What the Data Shows</h2>
+            <div class="proof-points">
+                <div class="proof-point">
+                    <div class="proof-number">16</div>
+                    <div class="proof-metric">Years of Dental Expertise</div>
+                    <div class="proof-description">ekwa was founded in 2008, specializing exclusively in dental marketing. Our team understands the unique challenges of dental patient acquisition and practice positioning.</div>
+                </div>
+                <div class="proof-point">
+                    <div class="proof-number">400+</div>
+                    <div class="proof-metric">Dental Practices Served</div>
+                    <div class="proof-description">From single-location general practices to multi-location specialty networks, we've built sustainable growth for practices across North America.</div>
+                </div>
+                <div class="proof-point">
+                    <div class="proof-number">40%</div>
+                    <div class="proof-metric">Average CAC Reduction</div>
+                    <div class="proof-description">Practices working with ekwa see average 40% reduction in cost-per-acquisition within 18 months through compounding organic reach.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="testimonial-section">
+            <h2>What Practices Say</h2>
+            <p class="testimonial-quote">"The difference isn't technology. It's that someone actually understands our practice and our patients. Our content feels authentic because it IS. In 18 months, we went from DoctorLogic to 60% organic new patients. We'll never go back."</p>
+            <p class="testimonial-attribution">Dr. Sarah M., Orthodontics Practice | Austin, TX</p>
+        </section>
+
+        <!-- Why Choose ekwa -->
+        <section class="why-choose-section">
+            <div class="why-choose-content">
+                <h2>Why Choose ekwa?</h2>
+                <ul class="why-choose-list">
+                    <li><strong>One Expert Per Practice:</strong> Not 1 account manager for 200 clients. Your dedicated dental marketing specialist knows your market, patients, and philosophy.</li>
+                    <li><strong>Dental Specialization:</strong> We don't treat dental the same as orthopedics or dermatology. Deep expertise in dental-specific patient journeys and objections.</li>
+                    <li><strong>Sustainable Growth:</strong> Organic reach compounds over time. Year 5 practices have stronger moats than newly launched AI platforms.</li>
+                    <li><strong>Authentic Positioning:</strong> Your content reflects YOUR practice, not a template. Patients feel the difference.</li>
+                    <li><strong>Aligned Incentives:</strong> We succeed when your practice succeeds. Not when you renew a SaaS subscription.</li>
+                    <li><strong>Google-Proof Strategy:</strong> Algorithm updates shift quarterly. Our approach evolves with Google's signals. Commodity content doesn't.</li>
+                </ul>
+            </div>
+            <div class="why-choose-image">
+                [Team Photo / Practice Partnership Image]
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>See What Real Dental Marketing Looks Like</h2>
+            <p>Schedule a free 30-minute strategy call. We'll audit your current content, identify your biggest opportunity in the next 90 days, and show you what patient-focused marketing actually delivers.</p>
+            <button class="cta-button">Schedule Your Free Strategy Call</button>
+            <p class="cta-secondary">No pitch. No obligation. Just clarity.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>ekwa.com | Dental Marketing Specialists | Founded 2008</p>
+        <p>© 2026 ekwa. All rights reserved. | Privacy Policy | Contact Us</p>
+    </footer>
+</body>
+</html>

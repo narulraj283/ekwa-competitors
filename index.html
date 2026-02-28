@@ -74,6 +74,15 @@
   .comp-name { font-weight: 700; color: var(--ekwa); }
   .vuln-text { color: var(--red); font-size: 12px; }
 
+  /* PLAYBOOK FILE CARDS */
+  .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #F8FAFD; border: 1px solid #D6E4F0; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(27,79,114,0.12); }
+  .pf-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+  .pf-info { flex: 1; min-width: 0; }
+  .pf-title { font-size: 13px; font-weight: 700; color: var(--ekwa); margin-bottom: 4px; }
+  .pf-desc { font-size: 11px; color: var(--gray); line-height: 1.4; margin-bottom: 6px; }
+  .pf-tag { font-size: 10px; font-family: monospace; background: #EBF5FB; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+
   /* COMPETITOR CARDS */
   .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 20px; }
   .comp-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
@@ -170,6 +179,7 @@
   <div class="nav-tab" onclick="showPage('profiles')">🏢 Competitor Profiles</div>
   <div class="nav-tab" onclick="showPage('positioning')">🗺️ Positioning Map</div>
   <div class="nav-tab" onclick="showPage('maneuvers')">⚔️ Strategic Maneuvers</div>
+  <div class="nav-tab" onclick="showPage('playbooks')">🚀 Implementation Playbooks</div>
 </div>
 
 <!-- =================== PAGE: OVERVIEW =================== -->
@@ -485,6 +495,251 @@
           <strong>⚠️ Risk:</strong> DSO segment requires multi-location operational complexity.<br>
           <strong>Mitigation:</strong> Start with 3–5 location DSOs; build capability before scaling to 10–20 groups.
         </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- =================== PAGE: IMPLEMENTATION PLAYBOOKS =================== -->
+<div id="page-playbooks" class="page">
+
+  <div class="stats-row">
+    <div class="stat-card green">
+      <div class="num">3</div>
+      <div class="label">Active Operations</div>
+      <div class="sub">Ready to deploy immediately</div>
+    </div>
+    <div class="stat-card red">
+      <div class="num">20</div>
+      <div class="label">Campaign Assets</div>
+      <div class="sub">Across all 3 maneuvers</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--amber)">
+      <div class="num">$4.1M+</div>
+      <div class="label">Combined ARR Target</div>
+      <div class="sub">If all 3 maneuvers execute</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--mid)">
+      <div class="num">90d</div>
+      <div class="label">Time to First Results</div>
+      <div class="sub">Q2 2026 quick wins</div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 1 ---- -->
+  <div class="maneuver-card man-1" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">01</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Exclusivity Lock™</h3>
+        <p>Target Post-Merger Amplify360 Client Displacement · <strong>$1.5M ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">24-Month Window — CRITICAL TIMING</span>
+          <span class="meta-tag">Budget: $63K · CPA Target: &lt;$2,100</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="maneuvers/exclusivity-lock/campaign-brief.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📋</div>
+          <div class="pf-info">
+            <div class="pf-title">Campaign Brief</div>
+            <div class="pf-desc">90-day strategy, budget breakdown, channel mix, KPIs</div>
+            <div class="pf-tag">campaign-brief.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/exclusivity-lock/landing-page.html" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title">Landing Page</div>
+            <div class="pf-desc">"Is Your Agency Also Working for Your Competitors?" — ready to deploy</div>
+            <div class="pf-tag">landing-page.html</div>
+          </div>
+        </a>
+        <a href="maneuvers/exclusivity-lock/email-sequence.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✉️</div>
+          <div class="pf-info">
+            <div class="pf-title">5-Email Cold Sequence</div>
+            <div class="pf-desc">Days 1, 4, 8, 14, 21 — subject lines, bodies, CTAs included</div>
+            <div class="pf-tag">email-sequence.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/exclusivity-lock/battlecard.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">⚔️</div>
+          <div class="pf-info">
+            <div class="pf-title">Sales Battlecard</div>
+            <div class="pf-desc">8-dimension comparison, 5 objection handlers, 13 discovery questions</div>
+            <div class="pf-tag">battlecard.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/exclusivity-lock/linkedin-outreach.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">💼</div>
+          <div class="pf-info">
+            <div class="pf-title">LinkedIn Outreach Scripts</div>
+            <div class="pf-desc">Connection request + 3 follow-ups + response handling guide</div>
+            <div class="pf-tag">linkedin-outreach.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/exclusivity-lock/README.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📖</div>
+          <div class="pf-info">
+            <div class="pf-title">Master README</div>
+            <div class="pf-desc">Deployment guide, quick-start checklist, asset index</div>
+            <div class="pf-tag">README.md</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 2 ---- -->
+  <div class="maneuver-card man-2" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">02</div>
+      <div class="maneuver-title-block">
+        <h3>Operation AI Credibility Shield™</h3>
+        <p>Outflank DoctorLogic &amp; PatientPop/Tebra on the AI Marketing Narrative · <strong>$1.1M ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">12-Month Window — Before AI Matures</span>
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Budget: $25–35K</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="maneuvers/ai-credibility-shield/campaign-brief.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📋</div>
+          <div class="pf-info">
+            <div class="pf-title">Campaign Brief</div>
+            <div class="pf-desc">Market opportunity, 90-day plan, Google HCU strategy</div>
+            <div class="pf-tag">campaign-brief.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/ai-credibility-shield/blog-post.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✍️</div>
+          <div class="pf-info">
+            <div class="pf-title">Flagship Blog Post</div>
+            <div class="pf-desc">"Why Your Practice Can't Afford AI-Generated Marketing in 2026" — 1,500 words</div>
+            <div class="pf-tag">blog-post.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/ai-credibility-shield/email-nurture.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✉️</div>
+          <div class="pf-info">
+            <div class="pf-title">Email Nurture Sequence</div>
+            <div class="pf-desc">3-email nurture + 4-week drip sequence for warm leads</div>
+            <div class="pf-tag">email-nurture.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/ai-credibility-shield/content-calendar.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📅</div>
+          <div class="pf-info">
+            <div class="pf-title">30-Post Content Calendar</div>
+            <div class="pf-desc">20 LinkedIn + 10 Facebook posts, 4 weekly themes, video scripts</div>
+            <div class="pf-tag">content-calendar.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/ai-credibility-shield/positioning-one-pager.html" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title">"The Human Advantage" One-Pager</div>
+            <div class="pf-desc">Ekwa vs. AI platforms comparison page — ready to deploy</div>
+            <div class="pf-tag">positioning-one-pager.html</div>
+          </div>
+        </a>
+        <a href="maneuvers/ai-credibility-shield/README.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📖</div>
+          <div class="pf-info">
+            <div class="pf-title">Master README</div>
+            <div class="pf-desc">Usage guide, quick-start checklist, asset index</div>
+            <div class="pf-tag">README.md</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 3 ---- -->
+  <div class="maneuver-card man-3" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">03</div>
+      <div class="maneuver-title-block">
+        <h3>Operation DSO Frontier™</h3>
+        <p>Capture the Goldilocks DSO Segment (3–15 Locations) · <strong>$1.5M ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">18-Month Window — First-Mover Opportunity</span>
+          <span class="meta-tag">$3,500/location/mo · 35 locations target</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="maneuvers/dso-frontier/campaign-brief.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📋</div>
+          <div class="pf-info">
+            <div class="pf-title">Campaign Brief</div>
+            <div class="pf-desc">DSO market sizing, pricing tiers, 90-day launch plan</div>
+            <div class="pf-tag">campaign-brief.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/landing-page.html" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title">DSO Landing Page</div>
+            <div class="pf-desc">"Marketing Built for Growing Dental Groups" — premium dark-navy design</div>
+            <div class="pf-tag">landing-page.html</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/email-outreach.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✉️</div>
+          <div class="pf-info">
+            <div class="pf-title">Executive Cold Outreach</div>
+            <div class="pf-desc">3-email C-suite sequence for DSO CEOs and COOs</div>
+            <div class="pf-tag">email-outreach.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/proposal-template.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📄</div>
+          <div class="pf-info">
+            <div class="pf-title">DSO Proposal Template</div>
+            <div class="pf-desc">Full 8-section proposal with 3 pricing tiers (Starter/Growth/Enterprise)</div>
+            <div class="pf-tag">proposal-template.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/roi-calculator.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🧮</div>
+          <div class="pf-info">
+            <div class="pf-title">ROI Calculator</div>
+            <div class="pf-desc">Conservative / Moderate / Aggressive scenarios with full math</div>
+            <div class="pf-tag">roi-calculator.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/partnerships-list.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🤝</div>
+          <div class="pf-info">
+            <div class="pf-title">DSO Partnership Network</div>
+            <div class="pf-desc">20+ ecosystem partners across 7 tiers — dental CPAs, consultants, M&amp;A advisors</div>
+            <div class="pf-tag">partnerships-list.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/README.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📖</div>
+          <div class="pf-info">
+            <div class="pf-title">Master README</div>
+            <div class="pf-desc">Comprehensive usage guide and asset index</div>
+            <div class="pf-tag">README.md</div>
+          </div>
+        </a>
+        <a href="maneuvers/dso-frontier/DEPLOYMENT-CHECKLIST.txt" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✅</div>
+          <div class="pf-info">
+            <div class="pf-title">Deployment Checklist</div>
+            <div class="pf-desc">Week-by-week execution roadmap — Week 1 through Week 12</div>
+            <div class="pf-tag">DEPLOYMENT-CHECKLIST.txt</div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
