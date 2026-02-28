@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Ophthalmology Competitive Intelligence Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #f9f9f9; color: #333; }
+        header { background: #1a1a2e; color: #fff; padding: 20px 0; text-align: center; border-bottom: 4px solid #0066cc; }
+        header h1 { font-size: 32px; margin-bottom: 10px; }
+        .stats-bar { background: #fff; border-bottom: 1px solid #ddd; padding: 15px 20px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 24px; font-weight: bold; color: #0066cc; }
+        .stat-label { font-size: 12px; color: #666; text-transform: uppercase; margin-top: 4px; }
+        nav { background: #fff; border-bottom: 1px solid #ddd; padding: 0; display: flex; flex-wrap: wrap; }
+        nav button { flex: 1; min-width: 140px; padding: 15px; border: none; background: #fff; color: #333; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; border-bottom: 3px solid transparent; }
+        nav button:hover { background: #f5f5f5; }
+        nav button.active { background: #0066cc; color: #fff; border-bottom-color: #00a651; }
+        .container { padding: 30px 20px; max-width: 1400px; margin: 0 auto; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .chart-container { position: relative; height: 400px; margin-bottom: 30px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .callout { background: #e8f0fe; border-left: 4px solid #0066cc; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .callout strong { color: #0066cc; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+        .threat-high { background: #ffebee; border-left: 4px solid #cc0000; padding: 8px; border-radius: 4px; margin-bottom: 10px; }
+        .threat-medium { background: #fff3e0; border-left: 4px solid #f5a623; padding: 8px; border-radius: 4px; margin-bottom: 10px; }
+        .threat-low { background: #e8f5e9; border-left: 4px solid #00a651; padding: 8px; border-radius: 4px; margin-bottom: 10px; }
+        .card-label { font-size: 12px; text-transform: uppercase; color: #666; font-weight: 600; margin-top: 12px; }
+        .card-text { font-size: 13px; color: #555; line-height: 1.5; }
+        .competitor-label { display: inline-block; background: #0066cc; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 20px; }
+        th { background: #1a1a2e; color: #fff; padding: 12px; text-align: left; font-size: 13px; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+        tr:hover { background: #f5f5f5; }
+        .link-btn { display: inline-block; background: #0066cc; color: #fff; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; transition: background 0.3s; }
+        .link-btn:hover { background: #00509e; }
+        .back-link { margin-top: 30px; }
+        .back-link a { color: #0066cc; text-decoration: none; font-weight: 600; }
+        .back-link a:hover { text-decoration: underline; }
+        @media (max-width: 768px) { header h1 { font-size: 22px; } nav button { flex: 1 0 50%; } .stats-bar { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ophthalmology Competitive Intelligence Dashboard</h1>
+        <p>Strategic Intelligence for ekwa.com Vertical Expansion</p>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Competitors Analyzed</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">$77.1B</div>
+            <div class="stat-label">Global Market Size</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">6.4%</div>
+            <div class="stat-label">Annual CAGR</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Strategic Maneuvers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">$1.8M</div>
+            <div class="stat-label">ARR Target</div>
+        </div>
+    </div>
+
+    <nav>
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="competitors">Competitors</button>
+        <button class="tab-btn" data-tab="maneuvers">Maneuvers</button>
+        <button class="tab-btn" data-tab="targets">Client Targets</button>
+        <button class="tab-btn" data-tab="tools">Tools & Resources</button>
+    </nav>
+
+    <div class="container">
+        <!-- TAB: Overview -->
+        <div id="overview" class="tab-content active">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Market Overview & Opportunities</h2>
+
+            <div class="chart-container">
+                <canvas id="threatChart"></canvas>
+            </div>
+
+            <div class="callout">
+                <strong>Market Insight:</strong> The ophthalmology digital marketing sector is dominated by 2-3 specialists (EyeCarePro, EyeMDPro) creating a clear positioning gap. The $77.1B global market with 6.4% CAGR, combined with high-value procedures (LASIK $4K–$6K, cataract $3K–$6K per case) and the dry eye epidemic creating recurring $500–$2,000/year revenue per patient, makes this a premium client opportunity for ekwa.
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #1a1a2e;">Top 3 Procedure Opportunities</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">LASIK Resurgence</div>
+                    <p class="card-text"><strong>Trend:</strong> Post-COVID LASIK demand surged 20%+. Freedom-seeking patients + new SMILE technology = new patient acquisition wave.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>LTV:</strong> $4,000–$6,000 per case. Content-driven conversions (candidacy, technology comparison, surgeon selection) are high-ROI.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Dry Eye Epidemic</div>
+                    <p class="card-text"><strong>Trend:</strong> 16M+ diagnosed Americans. Screen time explosion = Lipiflow, IPL, Restasis, Xiidra demand spike.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Recurring Revenue:</strong> $500–$2,000/year per patient. Patients return 4–8 times/year. Best for practice LTV expansion.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Premium IOL Upsell</div>
+                    <p class="card-text"><strong>Trend:</strong> Cataract surgery with toric/multifocal IOLs creates $2,000–$4,000 out-of-pocket upsell per case.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Conversion Driver:</strong> Patient education content on IOL options drives premium upgrade. High-margin, high-conversion opportunity.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #1a1a2e;">Market Segments</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <strong>Refractive Surgery Specialists</strong>
+                    <p class="card-text" style="margin-top: 8px;">LASIK/PRK/SMILE-focused practices. High marketing spend ($6K–$12K/mo), high case value ($4K–$6K). Direct acquisition focus.</p>
+                </div>
+                <div class="card">
+                    <strong>Cataract Surgery Centers</strong>
+                    <p class="card-text" style="margin-top: 8px;">Volume-based + premium IOL upsell. Marketing drives premium IOL education. $3K–$6K per case including surgical center revenue.</p>
+                </div>
+                <div class="card">
+                    <strong>Comprehensive Practices</strong>
+                    <p class="card-text" style="margin-top: 8px;">OD + ophtho combined. Medical ophthalmology (glaucoma, retina co-management) + surgical. Complex multi-service-line marketing.</p>
+                </div>
+                <div class="card">
+                    <strong>Multi-Specialty Eye Centers</strong>
+                    <p class="card-text" style="margin-top: 8px;">Ophthalmology + optometry + optical retail + ASC under one roof. Fastest-growing segment. Requires unified marketing strategy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: Competitors -->
+        <div id="competitors" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">10 Competitors Overview</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="threat-high"><strong>THREAT LEVEL: HIGH</strong></div>
+                    <div class="card-title">EyeCarePro</div>
+                    <div class="competitor-label">100% Eye Care Focus</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$500–$2,500/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">981,000+ appointments claimed/year, industry brand recognition</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Scale vs. personalization — your competitors may share the same agency; 981K appointments are portfolio-wide, not per-practice</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Dedicated marketing director model + customized strategy for YOUR practice, not commodity service</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-high"><strong>THREAT LEVEL: HIGH</strong></div>
+                    <div class="card-title">EyeMDPro</div>
+                    <div class="competitor-label">Ophthalmology Specialist</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$1,500–$4,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Physician-grade content, deep ophthalmology expertise</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">'Physician-grade' is content quality, not performance; limited paid media; slower content velocity; boutique scale</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Physician-reviewed content + performance optimization + paid media + AI-human hybrid = content that ranks AND converts</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">Specialty Vision</div>
+                    <div class="competitor-label">Refractive Surgery Focus</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$1,200–$3,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">No-contract model, refractive surgery specialization</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">No-contract signals low confidence in retention; refractive-only limits addressable market; limited full-service capability</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Full-service (SEO, PPC, content, design, reputation) + multi-procedure expertise (LASIK, cataract, dry eye, glaucoma)</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">Cardinal Digital Marketing</div>
+                    <div class="competitor-label">Performance Marketing</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$3,000–$8,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Performance marketing expertise, healthcare system experience</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Ophthalmology is one of many verticals; generic healthcare strategy, not ophtho-specialized</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">100% ophthalmology focus, procedure-specific content, dry eye/premium IOL expertise, vertical mastery</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-high"><strong>THREAT LEVEL: HIGH</strong></div>
+                    <div class="card-title">iMatrix</div>
+                    <div class="competitor-label">Multi-Specialty Platform</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$99+/month (extreme price compression)</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Affordable website + marketing, 100K+ healthcare clients</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Commodity service, no dedicated strategy, template-based, no account management. First stop for new practices; they upgrade quickly.</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">$1,500–$3,000 premium service with dedicated director, custom strategy, proprietary tech, AI-human hybrid</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">Elevate Healthcare</div>
+                    <div class="competitor-label">Premium Healthcare</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$2,500–$6,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Premium healthcare marketing positioning</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">General healthcare — ophthalmology is one vertical among many; not specialized</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Ophthalmology vertical mastery, LASIK/cataract/dry eye content depth, procedure-specific SEO, premium positioning</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">Fuel Online</div>
+                    <div class="competitor-label">Local SEO Specialist</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$1,000–$3,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">"GEO pioneer" for eye care local SEO</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Local SEO-only, no paid media, limited content depth, no reputation management</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Full-funnel (organic + paid + reputation + content + design) with local SEO as foundation</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-high"><strong>THREAT LEVEL: HIGH</strong></div>
+                    <div class="card-title">Thrive Internet Marketing</div>
+                    <div class="competitor-label">Large Generalist</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$2,000–$7,000/month</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Large agency, 500+ healthcare clients</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Not specialized in ophthalmology; commodity service at scale; healthcare is one division</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Ophthalmology vertical specialization, procedure-specific expertise, proprietary tech, dedicated director model</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">DoctorLogic</div>
+                    <div class="competitor-label">Medical SaaS Platform</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$500–$2,500/month (SaaS model)</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">Website + SEO platform for medical practices</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Template-based, limited customization, no strategy layer, no account management, no paid media</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Custom strategy + human direction + full-service (SEO, PPC, content, reputation, design) + proprietary tech</p>
+                </div>
+
+                <div class="card">
+                    <div class="threat-medium"><strong>THREAT LEVEL: MEDIUM</strong></div>
+                    <div class="card-title">PatientPop/Tebra</div>
+                    <div class="competitor-label">Practice Growth Platform</div>
+                    <div class="card-label">Pricing</div>
+                    <p class="card-text">$1,000–$2,500/month (bundled with EHR)</p>
+                    <div class="card-label">Key Differentiator</div>
+                    <p class="card-text">EHR-bundled practice management + marketing</p>
+                    <div class="card-label">Key Weakness</div>
+                    <p class="card-text">Marketing is afterthought; bundled discount creates false economy; limited marketing specialization; practices outgrow quickly</p>
+                    <div class="card-label">ekwa Advantage</div>
+                    <p class="card-text">Stand-alone marketing company with ophthalmology specialization, dedicated attention, proprietary tech, full-service depth</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 20px; color: #1a1a2e;">Resources</h3>
+            <p style="margin-bottom: 10px;">
+                <a href="tools/battlecard.html" class="link-btn">View Battlecard →</a>
+                <span style="margin-left: 10px;">Detailed 8-dimension comparison + 5 objection handlers</span>
+            </p>
+        </div>
+
+        <!-- TAB: Maneuvers -->
+        <div id="maneuvers" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">3 Strategic Maneuvers — $1.8M ARR Target</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div style="background: #0066cc; color: #fff; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+                        <div style="font-size: 18px; font-weight: 700;">Operation Vision Lock™</div>
+                        <div style="font-size: 14px; margin-top: 4px;">$700K ARR</div>
+                    </div>
+                    <p class="card-text"><strong>Strategy:</strong> Geographic exclusivity in top 35 ophthalmology markets. One ekwa practice partner per metro area.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Counter to:</strong> EyeCarePro's 1,000+ practice portfolio where your competition shares the same agency.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Focus:</strong> LASIK resurgence, dry eye epidemic, practice differentiation through personalized strategy.</p>
+                    <a href="maneuvers/vision-lock/landing-page.html" class="link-btn" style="margin-top: 15px; display: inline-block;">View Landing Page →</a>
+                </div>
+
+                <div class="card">
+                    <div style="background: #00a651; color: #fff; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+                        <div style="font-size: 18px; font-weight: 700;">Operation Eye Authority™</div>
+                        <div style="font-size: 14px; margin-top: 4px;">$500K ARR</div>
+                    </div>
+                    <p class="card-text"><strong>Strategy:</strong> Procedure-specific content dominance. Own LASIK, cataract, dry eye, glaucoma, and premium IOL decision journeys.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Counter to:</strong> Generic content competitors before they saturate procedure-specific SEO.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Focus:</strong> E-E-A-T authority, patient education, premium IOL upsell content.</p>
+                    <a href="maneuvers/eye-authority/landing-page.html" class="link-btn" style="margin-top: 15px; display: inline-block;">View Landing Page →</a>
+                </div>
+
+                <div class="card">
+                    <div style="background: #f5a623; color: #fff; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+                        <div style="font-size: 18px; font-weight: 700;">Operation Vision Group™</div>
+                        <div style="font-size: 14px; margin-top: 4px;">$600K ARR</div>
+                    </div>
+                    <p class="card-text"><strong>Strategy:</strong> Multi-specialty eye center group targeting. Unified marketing for ophthalmology + optometry + optical.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Counter to:</strong> Multi-specialty centers being served by 2–3 separate agencies without unified strategy.</p>
+                    <p class="card-text" style="margin-top: 10px;"><strong>Focus:</strong> Cross-referral patient journeys, group brand cohesion, multi-service-line marketing.</p>
+                    <a href="maneuvers/vision-group/landing-page.html" class="link-btn" style="margin-top: 15px; display: inline-block;">View Landing Page →</a>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px; color: #1a1a2e;">Maneuver Campaign Assets</h3>
+            <p style="margin-bottom: 15px; color: #666; font-size: 13px;">Full campaign briefs, email sequences, and launch timelines available in competitive analysis documents.</p>
+        </div>
+
+        <!-- TAB: Client Targets -->
+        <div id="targets" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Competitor Client Targets & Switch Probability</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Competitor</th>
+                        <th>Known Client Practices</th>
+                        <th>Pricing They Pay</th>
+                        <th>Switch Probability (1-10)</th>
+                        <th>Primary Reason to Switch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>EyeCarePro</strong></td>
+                        <td>1,000+ (portfolio-wide)</td>
+                        <td>$500–$2,500/mo</td>
+                        <td>6/10</td>
+                        <td>Scale → lack of personalization; shared agency with competitors</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EyeMDPro</strong></td>
+                        <td>200–400 (specialty focus)</td>
+                        <td>$1,500–$4,000/mo</td>
+                        <td>7/10</td>
+                        <td>Physician-grade content but slow; need faster, more aggressive paid media</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specialty Vision</strong></td>
+                        <td>100–200 (refractive)</td>
+                        <td>$1,200–$3,000/mo</td>
+                        <td>8/10</td>
+                        <td>Refractive-only → need full ophtho coverage; no-contract signals instability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cardinal Digital</strong></td>
+                        <td>50–100 (ophtho subset)</td>
+                        <td>$3,000–$8,000/mo</td>
+                        <td>5/10</td>
+                        <td>Generic healthcare approach; need ophtho specialization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>iMatrix</strong></td>
+                        <td>1,000+ (healthcare)</td>
+                        <td>$99+/month</td>
+                        <td>9/10</td>
+                        <td>Outgrown commodity service; need strategy, account management, full-service</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elevate Healthcare</strong></td>
+                        <td>200–400 (healthcare mix)</td>
+                        <td>$2,500–$6,000/mo</td>
+                        <td>6/10</td>
+                        <td>Premium positioning but not ophtho-specialized; diluted attention</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fuel Online</strong></td>
+                        <td>100–200 (eye care focus)</td>
+                        <td>$1,000–$3,000/mo</td>
+                        <td>7/10</td>
+                        <td>Local SEO-only; need paid media, reputation, full-funnel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thrive</strong></td>
+                        <td>500+ (healthcare)</td>
+                        <td>$2,000–$7,000/mo</td>
+                        <td>5/10</td>
+                        <td>Large agency = commodity service; need ophtho specialization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DoctorLogic</strong></td>
+                        <td>400–600 (medical practices)</td>
+                        <td>$500–$2,500/mo</td>
+                        <td>8/10</td>
+                        <td>Template-based platform; need strategy, paid media, account management</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tebra/PatientPop</strong></td>
+                        <td>300–500 (practice management)</td>
+                        <td>$1,000–$2,500/mo</td>
+                        <td>7/10</td>
+                        <td>EHR-bundled = marketing afterthought; need dedicated marketing focus</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #1a1a2e;">Download Client Lists</h3>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Detailed known/likely client lists for each competitor (research-based, with switch probability notes and conquest strategy):</p>
+            <div class="grid-2">
+                <div style="padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px;">
+                    <strong>Available Client Lists</strong>
+                    <ul style="margin-top: 10px; font-size: 13px;">
+                        <li><a href="#" style="color: #0066cc;">EyeCarePro Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">EyeMDPro Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Specialty Vision Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Cardinal Digital Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">iMatrix Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Elevate Healthcare Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Fuel Online Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Thrive Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">DoctorLogic Clients</a></li>
+                        <li><a href="#" style="color: #0066cc;">Tebra/PatientPop Clients</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: Tools -->
+        <div id="tools" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Tools & Resources</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">ROI Calculator</div>
+                    <p class="card-text">Calculate ekwa's projected revenue impact for ophthalmology practices. Model different practice types (LASIK-only, cataract, comprehensive, multi-specialty), procedures per month, case values, and current marketing spend.</p>
+                    <p class="card-text" style="margin-top: 10px; font-size: 12px; color: #0066cc;"><strong>3 scenarios:</strong> Conservative (+15%), Moderate (+28%), Aggressive (+45%) patient volume growth with year 1/2/3 projections.</p>
+                    <a href="tools/roi-calculator.html" class="link-btn" style="margin-top: 15px; display: inline-block;">Open Calculator →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Battlecard</div>
+                    <p class="card-text">ekwa vs. EyeCarePro, EyeMDPro, and iMatrix. 8-dimension comparison matrix, 5 objection handlers specific to ophthalmology (981K appointments claim, physician-grade content, $99/month pricing, no-contract model, local SEO pioneer).</p>
+                    <p class="card-text" style="margin-top: 10px; font-size: 12px; color: #0066cc;"><strong>Plus:</strong> 12 discovery questions + print-to-PDF capability.</p>
+                    <a href="tools/battlecard.html" class="link-btn" style="margin-top: 15px; display: inline-block;">View Battlecard →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Conquest Pages</div>
+                    <p class="card-text">Landing pages targeting practices switching FROM EyeCarePro, EyeMDPro, iMatrix, and Tebra. Comparison tables, switch reasons, social proof, lead capture.</p>
+                    <p class="card-text" style="margin-top: 10px; font-size: 12px; color: #0066cc;"><strong>4 pages:</strong> One for each major competitor.</p>
+                    <p style="margin-top: 15px;">
+                        <a href="conquest/switch-from-eyecarepro.html" class="link-btn">EyeCarePro →</a>
+                        <a href="conquest/switch-from-eyemdpro.html" class="link-btn" style="margin-left: 5px;">EyeMDPro →</a>
+                        <a href="conquest/switch-from-imatrix.html" class="link-btn" style="margin-left: 5px;">iMatrix →</a>
+                        <a href="conquest/switch-from-tebra.html" class="link-btn" style="margin-left: 5px;">Tebra →</a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Competitive Intelligence Documents</div>
+                    <p class="card-text">Full reports, playbooks, decks, and strategic briefs (DOCX, PPTX, PDF) available in the competitive analysis system.</p>
+                    <p class="card-text" style="margin-top: 10px; font-size: 12px; color: #666;"><strong>Includes:</strong> Market overview, 10-competitor teardowns, 3 maneuver playbooks with campaign briefs and email sequences.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd;">
+        <p class="back-link"><a href="../../index.html">← Back to Vertical Hub</a></p>
+        <p style="font-size: 12px; color: #999; margin-top: 20px;">Ophthalmology Competitive Intelligence Dashboard | ekwa.com | Confidential</p>
+    </div>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Competitor threat chart
+        const ctx = document.getElementById('threatChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['EyeCarePro', 'EyeMDPro', 'iMatrix', 'Thrive', 'Specialty Vision', 'Fuel Online', 'Elevate', 'Cardinal', 'DoctorLogic', 'Tebra'],
+                    datasets: [{
+                        label: 'Threat Level (1-10)',
+                        data: [9, 8, 8, 7, 5, 5, 5, 5, 5, 5],
+                        backgroundColor: [
+                            '#cc0000', '#cc0000', '#cc0000', '#f5a623',
+                            '#ffb84d', '#ffb84d', '#ffb84d', '#ffb84d', '#ffb84d', '#ffb84d'
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'x',
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Competitive Threat Level Assessment', font: { size: 14 } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 10, ticks: { stepSize: 2 } }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

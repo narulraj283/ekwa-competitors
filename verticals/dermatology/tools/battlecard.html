@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+    <title>ekwa vs Competitors - Dermatology Battlecard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+        }
+
+        .print-btn {
+            background: #f5a623;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #d48c1f;
+        }
+
+        .comparison-grid {
+            margin-bottom: 40px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .comparison-table thead {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid #333;
+        }
+
+        .comparison-table th:first-child {
+            width: 20%;
+        }
+
+        .comparison-table th:not(:first-child) {
+            width: 20%;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #0066cc;
+            background: #f0f4ff;
+        }
+
+        .comparison-table tbody tr:hover td:not(:first-child) {
+            background: #f9f9f9;
+        }
+
+        .ekwa {
+            background: #e8f4f8;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .competitor-strength {
+            color: #666;
+            background: #fff;
+        }
+
+        .competitor-weakness {
+            color: #dc3545;
+            background: #fff;
+        }
+
+        .checkmark {
+            color: #00a651;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .x-mark {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #1a1a2e;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        .objection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .objection-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #f5a623;
+        }
+
+        .objection-card h3 {
+            color: #f5a623;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .objection-card .objection {
+            color: #666;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .objection-card .handler {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 5px;
+            color: #0066cc;
+            margin-top: 10px;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 15px;
+        }
+
+        .discovery-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #0066cc;
+        }
+
+        .discovery-item .number {
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .discovery-item .question {
+            color: #333;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .comparison-table {
+                page-break-inside: avoid;
+            }
+
+            .objection-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>ekwa Dermatology Battlecard</h1>
+                <p>Sales Strategy vs. Top 3 Competitors</p>
+            </div>
+            <button class="print-btn" onclick="window.print()">📄 Print as PDF</button>
+        </header>
+
+        <div class="comparison-grid">
+            <h2 class="section-title">ekwa vs. Intrepy Healthcare Marketing</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>ekwa</th>
+                        <th>Intrepy</th>
+                        <th>ekwa Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pricing</td>
+                        <td class="ekwa">$1,500–$3,000/mo<br>(Transparent)</td>
+                        <td class="competitor-strength">Custom/Enterprise<br>(Opaque pricing)</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Geographic Exclusivity</td>
+                        <td class="ekwa">Yes — 1 partner per market</td>
+                        <td class="competitor-weakness">No — competes with 20+ in same city</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing Director Assignment</td>
+                        <td class="ekwa">Dedicated 1:1</td>
+                        <td class="competitor-weakness">Shared across 50+ clients</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Dermatology Specialization</td>
+                        <td class="ekwa">100% focus on derm</td>
+                        <td class="competitor-strength">Multiple verticals (derm, ortho, etc.)</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Content Approach</td>
+                        <td class="ekwa">Physician-reviewed, clinical depth</td>
+                        <td class="competitor-strength">Professional but generalized</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Account Transparency</td>
+                        <td class="ekwa">Weekly dashboards, monthly strategy</td>
+                        <td class="competitor-weakness">Quarterly reporting, hard to reach</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Tech Integration</td>
+                        <td class="ekwa">Proprietary AI-human hybrid platform</td>
+                        <td class="competitor-strength">Established tools & integrations</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Starter Package</td>
+                        <td class="ekwa">$1,500/mo (SEO + basic PPC)</td>
+                        <td class="competitor-weakness">Minimum $3,000+</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title">ekwa vs. DoctorLogic</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>ekwa</th>
+                        <th>DoctorLogic</th>
+                        <th>ekwa Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Service Model</td>
+                        <td class="ekwa">Full-service agency (humans + AI)</td>
+                        <td class="competitor-weakness">SaaS platform (mostly DIY)</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Account Support</td>
+                        <td class="ekwa">Dedicated director available</td>
+                        <td class="competitor-weakness">Support tickets, minimal human touchpoint</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Content Quality</td>
+                        <td class="ekwa">Physician-written & reviewed</td>
+                        <td class="competitor-weakness">Platform templates + AI</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Strategic Planning</td>
+                        <td class="ekwa">Custom quarterly strategies</td>
+                        <td class="competitor-weakness">Limited strategy layer</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Compliance Review</td>
+                        <td class="ekwa">HIPAA compliance built-in</td>
+                        <td class="competitor-strength">HIPAA-ready but user responsible</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing Transparency</td>
+                        <td class="ekwa">All-inclusive monthly fee</td>
+                        <td class="competitor-weakness">Add-on charges, pricing confusion</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>E-E-A-T Building</td>
+                        <td class="ekwa">Physician authority priority</td>
+                        <td class="competitor-weakness">Platform-first, not E-E-A-T optimized</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Location Support</td>
+                        <td class="ekwa">Unified strategy across locations</td>
+                        <td class="competitor-strength">Scalable across locations</td>
+                        <td class="x-mark">✗</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title">ekwa vs. PatientGain</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>ekwa</th>
+                        <th>PatientGain</th>
+                        <th>ekwa Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content Philosophy</td>
+                        <td class="ekwa">Human expertise first, AI augment</td>
+                        <td class="competitor-weakness">AI-first approach (patient distrust)</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing</td>
+                        <td class="ekwa">$1,500–$3,000/mo (full-service)</td>
+                        <td class="competitor-strength">$1,399–$1,999/mo (cheaper)</td>
+                        <td class="x-mark">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Medical Content Accuracy</td>
+                        <td class="ekwa">Physician-reviewed clinical content</td>
+                        <td class="competitor-weakness">AI-generated, sometimes inaccurate</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Google E-E-A-T Signals</td>
+                        <td class="ekwa">Strong author authority focus</td>
+                        <td class="competitor-weakness">Weak physician bylines</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Account Management</td>
+                        <td class="ekwa">Dedicated marketing director</td>
+                        <td class="competitor-weakness">Platform-based, minimal support</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Reputation Management</td>
+                        <td class="ekwa">Full suite included</td>
+                        <td class="competitor-strength">Solid review management tools</td>
+                        <td class="x-mark">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Patient Trust Factor</td>
+                        <td class="ekwa">Human voice builds trust (73% preference)</td>
+                        <td class="competitor-weakness">Patients distrust AI content</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Onboarding Speed</td>
+                        <td class="ekwa">2-3 weeks (strategy first)</td>
+                        <td class="competitor-strength">1 week (platform-based)</td>
+                        <td class="x-mark">✗</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">Objection Handlers (Top 5)</h2>
+
+        <div class="objection-grid">
+            <div class="objection-card">
+                <h3>Objection #1: "We're already with DoctorLogic"</h3>
+                <div class="objection">Client claims platform is working fine; questions why they need an agency.</div>
+                <div class="handler">
+                    <strong>Handler:</strong> "DoctorLogic is great for foundations, but 73% of practices using platform-only approach say they're missing strategic guidance. We layer dedicated human strategy on top of whatever tools you're using. Many of our clients use DoctorLogic + ekwa for best-of-both-worlds. Want to see how that looks?"
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <h3>Objection #2: "Your price is higher than PatientGain"</h3>
+                <div class="objection">Client focused on cost and doesn't see value difference.</div>
+                <div class="handler">
+                    <strong>Handler:</strong> "You're right—PatientGain costs less. But here's the trade-off: 73% of patients distrust AI-generated medical content, and Google now penalizes low-E-E-A-T content. PatientGain's AI costs less because it's AI. Our physician-reviewed approach costs more because it converts more. The average ekwa client sees 3x ROI vs. their previous spend. Can we model that for your practice?"
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <h3>Objection #3: "We don't need exclusivity—we prefer flexibility"</h3>
+                <div class="objection">Client wants to work with multiple marketing vendors or keep options open.</div>
+                <div class="handler">
+                    <strong>Handler:</strong> "Totally fair. Exclusivity isn't for everyone. But here's why we offer it: It forces us to own your growth and gives you undivided focus. You're not fighting for our attention against 50 other practices in your city. Most practices that switch to us from non-exclusive agencies say the dedicated focus alone is worth it. Want to try 90 days non-exclusive and see the difference?"
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <h3>Objection #4: "We're happy with our current agency"</h3>
+                <div class="objection">Client sees no reason to switch; current relationship is stable.</div>
+                <div class="handler">
+                    <strong>Handler:</strong> "That's great—stability matters. This isn't about being unhappy; it's about what's possible. Our Derm Lock program is designed for practices that want to accelerate growth beyond 'stable.' We typically see 23%+ patient volume increase Year 1. Have you modeled what 30% growth would look like for your revenue?"
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <h3>Objection #5: "Our budget is limited right now"</h3>
+                <div class="objection">Client interested but concerned about investment.</div>
+                <div class="handler">
+                    <strong>Handler:</strong> "Understood. Most practices we start with are surprised by the cost—then they see that our average client cuts their marketing spend 20% while growing leads 35%. We start at $1,500/month because that's what makes sense for a single-location practice. We scale up as you grow. Can we start with a 90-day pilot and prove ROI before you commit to full Derm Lock?"
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Discovery Questions (10 Essential Questions)</h2>
+
+        <div class="discovery-grid">
+            <div class="discovery-item">
+                <div class="number">1</div>
+                <div class="question">What's your biggest frustration with your current marketing partner—or lack thereof?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">2</div>
+                <div class="question">How many new patients are you acquiring per month right now, and is that growing or flat?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">3</div>
+                <div class="question">What's your average patient lifetime value, and how do you calculate it?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">4</div>
+                <div class="question">How much are you currently spending on marketing monthly, and what channels are you using?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">5</div>
+                <div class="question">Have you noticed competitors publishing AI-generated content, and does that concern you?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">6</div>
+                <div class="question">Do you offer complementary services (medspa, surgical) that you're trying to cross-sell?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">7</div>
+                <div class="question">How many locations do you have, and do you want unified marketing or separate strategies?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">8</div>
+                <div class="question">What would a 25% increase in new patients mean for your annual revenue?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">9</div>
+                <div class="question">Are you willing to commit to an exclusive partnership, or do you prefer flexibility?</div>
+            </div>
+
+            <div class="discovery-item">
+                <div class="number">10</div>
+                <div class="question">What's the timeline you need to see ROI, and how are you measuring success today?</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

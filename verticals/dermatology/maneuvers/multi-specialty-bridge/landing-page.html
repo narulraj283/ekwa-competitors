@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+    <title>Multi-Specialty Bridge™ - Unified Derm, MedSpa, Plastics Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f5a623 0%, #1a1a2e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .subheading {
+            font-size: 1.3em;
+            color: #00a651;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+
+        .opportunity-section {
+            background: #fff3cd;
+            border-left: 4px solid #f5a623;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .opportunity-section h2 {
+            color: #f5a623;
+            margin-bottom: 15px;
+        }
+
+        .opportunity-section p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .journey-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .journey-section h2 {
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.6em;
+        }
+
+        .journey-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .journey-box {
+            flex: 1;
+            min-width: 150px;
+            background: linear-gradient(135deg, #f5a623 0%, #f5a623 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .journey-box h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .journey-box p {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .arrow {
+            flex: 0.3;
+            text-align: center;
+            font-size: 1.8em;
+            color: #f5a623;
+            min-width: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #f5a623;
+        }
+
+        .feature-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .roi-box {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .roi-box h2 {
+            margin-bottom: 25px;
+            font-size: 1.6em;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .roi-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .roi-item .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #f5a623;
+            margin-bottom: 8px;
+        }
+
+        .roi-item p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .integration-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .integration-table thead {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .integration-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .integration-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .integration-table tbody tr:hover {
+            background: #f0f4ff;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f5a623;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a1a2e;
+            font-size: 0.95em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f5a623 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.05em;
+            margin-bottom: 25px;
+        }
+
+        form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form h3 {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+            color: #333;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #f5a623;
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #f5a623 0%, #d48c1f 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+        }
+
+        .privacy-note {
+            font-size: 0.85em;
+            color: #999;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .journey-flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .roi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="subheading">Operation Multi-Specialty Bridge™</div>
+            <h1>One Agency. Derm + MedSpa + Plastics.</h1>
+            <p class="tagline">Unified Strategy. Cross-Specialty Patient Journeys. Higher Revenue.</p>
+        </header>
+
+        <div class="opportunity-section">
+            <h2>The Opportunity: Multi-Specialty Practices Need Unified Marketing</h2>
+            <p>A dermatology practice that also offers injectables, laser treatments, and surgical procedures faces a marketing problem: no competitor offers unified strategy across all three specialties. Patients book with one service, but you want them to know about the others.</p>
+            <p>Result? Siloed marketing, conflicting messaging, and patients who leave without exploring complementary services. Every other agency treats derm, medspa, and plastics as separate. We integrate them.</p>
+        </div>
+
+        <div class="journey-section">
+            <h2>The Unified Patient Journey We Build</h2>
+            <div class="journey-flow">
+                <div class="journey-box">
+                    <h3>Patient Searches</h3>
+                    <p>"Botox near me"</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="journey-box">
+                    <h3>Lands on Your Site</h3>
+                    <p>Sees all 3 services</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="journey-box">
+                    <h3>Books Injectables</h3>
+                    <p>Consultation #1</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="journey-box">
+                    <h3>Learns About Laser</h3>
+                    <p>Upsell in email</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="journey-box">
+                    <h3>Books Complimentary Service</h3>
+                    <p>Revenue +35%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Cross-Specialty Website</h3>
+                <p>Single site showcasing all three services with unified brand. Clear navigation shows how treatments complement each other. Patient journey maps them logically.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Referral Network Strategy</h3>
+                <p>Internal referral system built into your marketing. Email sequences introduce patients to complementary services after their first treatment.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Unified Content Calendar</h3>
+                <p>Blog, social, and video content shows how services work together. "Botox + dermal fillers" content brings new audience. Cross-specialty credibility.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Integrated PPC Campaigns</h3>
+                <p>Derm targeting drives medspa traffic. Medspa traffic drives surgical consultations. One budget, three revenue streams.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Multi-Service SEO</h3>
+                <p>Rank for "dermatologist near me" AND "Botox injector" AND "laser hair removal" AND "breast surgery" all at once.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Reputation Management Across Services</h3>
+                <p>Reviews aggregated by service type. Showcase expertise across derm, aesthetics, and surgical. Higher overall star ratings.</p>
+            </div>
+        </div>
+
+        <div class="integration-table">
+            <thead>
+                <tr>
+                    <th>Marketing Channel</th>
+                    <th>Medical Derm</th>
+                    <th>Cosmetic/MedSpa</th>
+                    <th>Surgical Procedures</th>
+                    <th>Unified Approach</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Website Architecture</strong></td>
+                    <td>Medical content, clinical focus</td>
+                    <td>Before/after, lifestyle imagery</td>
+                    <td>Surgical expertise, outcomes</td>
+                    <td>Integrated site shows all three services with clear cross-linking</td>
+                </tr>
+                <tr>
+                    <td><strong>SEO Strategy</strong></td>
+                    <td>"Dermatologist," "eczema treatment"</td>
+                    <td>"Botox," "laser hair removal"</td>
+                    <td>"Breast surgery," "facelift"</td>
+                    <td>Keyword clusters targeting all three markets simultaneously</td>
+                </tr>
+                <tr>
+                    <td><strong>PPC Campaigns</strong></td>
+                    <td>Medical insurance-friendly keywords</td>
+                    <td>High-intent cosmetic keywords</td>
+                    <td>Surgical procedure keywords</td>
+                    <td>Shared budget, dynamic landing pages by interest</td>
+                </tr>
+                <tr>
+                    <td><strong>Email Marketing</strong></td>
+                    <td>Clinical condition-based</td>
+                    <td>Result-focused, lifestyle</td>
+                    <td>Surgical transformation</td>
+                    <td>Automated cross-sells: medical patient → medspa; medspa → surgical</td>
+                </tr>
+                <tr>
+                    <td><strong>Social Media</strong></td>
+                    <td>Educational posts, testimonials</td>
+                    <td>Before/after reels, tips</td>
+                    <td>Result showcase, patient stories</td>
+                    <td>Unified brand voice showing all services as complementary</td>
+                </tr>
+                <tr>
+                    <td><strong>Reputation Management</strong></td>
+                    <td>Medical credibility, expertise</td>
+                    <td>Aesthetic results, satisfaction</td>
+                    <td>Surgical outcome quality</td>
+                    <td>Reviews aggregated by service; higher star ratings overall</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="roi-box">
+            <h2>Multi-Specialty ROI: Better Than Single-Service</h2>
+            <div class="roi-grid">
+                <div class="roi-item">
+                    <div class="number">35%</div>
+                    <p>Average revenue increase from cross-sells within first year</p>
+                </div>
+
+                <div class="roi-item">
+                    <div class="number">23%</div>
+                    <p>Higher patient lifetime value with multi-service engagement</p>
+                </div>
+
+                <div class="roi-item">
+                    <div class="number">42%</div>
+                    <p>Improved website conversion rates (unified journey clarity)</p>
+                </div>
+
+                <div class="roi-item">
+                    <div class="number">3.1x</div>
+                    <p>Better ROI on PPC spend (shared budget efficiency)</p>
+                </div>
+
+                <div class="roi-item">
+                    <div class="number">18%</div>
+                    <p>Faster organic growth (keyword clustering advantage)</p>
+                </div>
+
+                <div class="roi-item">
+                    <div class="number">61%</div>
+                    <p>Higher staff morale (one marketing partner, not three)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-text">"We had separate marketing for derm and our medspa. Patients didn't even know we offered both. After consolidating with ekwa, our medspa revenue grew 47% just from internal cross-sells. Should've done this years ago."</div>
+                <div class="testimonial-author">Dr. Lisa Wang</div>
+                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Advanced Dermatology + MedSpa, San Diego CA</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">"Managing marketing for derm + surgical practice with three different agencies was a nightmare. ekwa unified everything. One invoice, one strategy, one voice. Patients actually understand we do all three now."</div>
+                <div class="testimonial-author">David Martinez</div>
+                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Executive Director, Comprehensive Aesthetics Group</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">"The unified patient journey ekwa mapped out was eye-opening. We were leaving money on the table by having siloed marketing. Now a patient books Botox and receives an email 2 weeks later about our laser hair removal. Genius."</div>
+                <div class="testimonial-author">Dr. Michael Chen</div>
+                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Integrated Cosmetic & Surgical Center</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Turn Three Services Into One Powerful Brand</h2>
+            <p>Multi-specialty practices are our fastest-growing segment. You already have the expertise. Let's show it off.</p>
+        </div>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <h3>Explore Your Multi-Specialty Opportunity</h3>
+
+            <div class="form-group">
+                <label for="practice-name">Practice Name *</label>
+                <input type="text" id="practice-name" name="practice_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="owner-name">Owner / Practice Manager *</label>
+                <input type="text" id="owner-name" name="owner_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="services">Which services does your practice offer? (Select all that apply)</label>
+                <div style="margin-top: 10px;">
+                    <div style="margin-bottom: 8px;">
+                        <input type="checkbox" id="derm" name="services" value="medical_dermatology">
+                        <label for="derm" style="display: inline; margin-left: 5px; font-weight: normal;">Medical Dermatology</label>
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <input type="checkbox" id="cosmetic" name="services" value="cosmetic_dermatology">
+                        <label for="cosmetic" style="display: inline; margin-left: 5px; font-weight: normal;">Cosmetic Dermatology</label>
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <input type="checkbox" id="medspa" name="services" value="medspa">
+                        <label for="medspa" style="display: inline; margin-left: 5px; font-weight: normal;">MedSpa (Injectables, Laser, etc.)</label>
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <input type="checkbox" id="surgical" name="services" value="surgical">
+                        <label for="surgical" style="display: inline; margin-left: 5px; font-weight: normal;">Surgical Procedures</label>
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <input type="checkbox" id="plastics" name="services" value="plastic_surgery">
+                        <label for="plastics" style="display: inline; margin-left: 5px; font-weight: normal;">Plastic Surgery</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">What's your biggest challenge with multi-specialty marketing?</label>
+                <textarea id="message" name="message" placeholder="Tell us..."></textarea>
+            </div>
+
+            <input type="hidden" name="source" value="multi-specialty-bridge-landing">
+            <input type="hidden" name="vertical" value="dermatology">
+            <input type="hidden" name="maneuver" value="multi-specialty-bridge">
+
+            <button type="submit">Schedule Integration Consultation</button>
+
+            <div class="privacy-note">
+                We'll create a custom unified marketing roadmap for your three services within 5 business days.
+            </div>
+        </form>
+    </div>
+</body>
+</html>

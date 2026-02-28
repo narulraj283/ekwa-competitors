@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>ekwa vs. Competitors - Plastic Surgery Battlecard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #00a651;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        section { margin: 40px 0; }
+        h2 { color: #0066cc; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }
+        h3 { color: #1a1a2e; font-size: 16px; margin-top: 20px; margin-bottom: 12px; }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .comparison-table thead { background: #1a1a2e; color: white; }
+        .comparison-table th { padding: 15px 12px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 15px 12px; border-bottom: 1px solid #e0e0e0; }
+        .comparison-table tr:hover { background: #f9f9f9; }
+
+        .ekwa-advantage { background: #e8f5e9; font-weight: 600; color: #2e7d32; }
+        .competitor-advantage { background: #ffe8e8; }
+
+        .objection-section {
+            background: white;
+            border-left: 4px solid #ff9800;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .objection-title { font-weight: 700; color: #ff6600; margin-bottom: 10px; }
+        .objection-response { margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; }
+        .objection-response strong { color: #0066cc; }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .discovery-card {
+            background: white;
+            border: 2px solid #0066cc;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .discovery-card h4 { color: #0066cc; margin-bottom: 10px; }
+        .discovery-card p { font-size: 13px; color: #666; }
+
+        .print-button {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .print-button:hover { background: #1a1a2e; }
+
+        @media print {
+            .print-button, .no-print { display: none !important; }
+            body { background: white; }
+            section { page-break-inside: avoid; }
+            .comparison-table, .objection-section { page-break-inside: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 20px; }
+            .comparison-table { font-size: 12px; }
+            .comparison-table th, .comparison-table td { padding: 10px 8px; }
+            .discovery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ekwa Battlecard: Plastic Surgery</h1>
+        <p>Sales enablement tool for competitive positioning</p>
+    </div>
+
+    <div class="container">
+        <button class="print-button" onclick="window.print()">Print to PDF</button>
+
+        <section>
+            <h2>8-Dimension Competitive Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">Dimension</th>
+                        <th style="width: 20%;">ekwa</th>
+                        <th style="width: 20%;">Position Results</th>
+                        <th style="width: 20%;">Plastic Surgery Studios</th>
+                        <th style="width: 22%;">Nuvolum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pricing Model</strong></td>
+                        <td class="ekwa-advantage">$1,500–$5,000/mo | Transparent per-service</td>
+                        <td>$3,000–$8,000/mo | Package bundled</td>
+                        <td>$4,000–$10,000/mo | Year-long contracts</td>
+                        <td>$5,000–$15,000/mo | Premium positioning</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specialization Focus</strong></td>
+                        <td class="ekwa-advantage">Plastic surgery + 15 other verticals | Deep PS expertise</td>
+                        <td>Plastic surgery only</td>
+                        <td>Plastic surgery only (legacy)</td>
+                        <td>High-end surgeons + reputation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SEO Depth</strong></td>
+                        <td class="ekwa-advantage">Procedure-specific + local + technical | AI-augmented</td>
+                        <td>Aggressive claims | Often over-promised</td>
+                        <td>Solid fundamentals | Slow iteration</td>
+                        <td>Secondary to PR | Not primary focus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Before/After Strategy</strong></td>
+                        <td class="ekwa-advantage">Gallery optimization, consent workflows, schema markup</td>
+                        <td>Basic gallery hosting | Limited optimization</td>
+                        <td>Portfolio-focused | Manual management</td>
+                        <td>High-touch curation | PR-driven placement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reputation Management</strong></td>
+                        <td class="ekwa-advantage">Review collection, response, monitoring | Integrated</td>
+                        <td>Review management only | Not integrated with SEO</td>
+                        <td>Limited | Mostly manual</td>
+                        <td>Part of PR strategy | Not strategic for digital</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PR Services</strong></td>
+                        <td class="ekwa-advantage">Not included | Focus on patient acquisition</td>
+                        <td>Not offered</td>
+                        <td>Not offered</td>
+                        <td class="competitor-advantage">Integrated PR + media relationships</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contract Terms</strong></td>
+                        <td class="ekwa-advantage">Month-to-month flexibility | No lock-in</td>
+                        <td>12-month minimums | High switching cost</td>
+                        <td>12+ month contracts | Conservative</td>
+                        <td>12–24 month | Premium lock-in</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Management</strong></td>
+                        <td class="ekwa-advantage">Dedicated director | Direct access | AI-human hybrid</td>
+                        <td>Account managers | Limited tech access</td>
+                        <td>Relationship-driven | Legacy processes</td>
+                        <td>Premium service | High-touch</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Objection Handlers</h2>
+            <p style="margin-bottom: 20px;">Five most common objections and ekwa responses:</p>
+
+            <div class="objection-section">
+                <div class="objection-title">Objection 1: "Position Results says they're the #1 voted plastic surgery marketing agency."</div>
+                <div class="objection-response">
+                    <p><strong>Response:</strong> "Interesting — who voted them #1 and where can you verify that? We don't claim to be #1. Our clients' rankings and revenue growth do the talking. Ask us for three verified case studies with before/after rankings and case volume increases. We're happy to show you proof instead of claims."</p>
+                    <p style="margin-top: 10px;"><strong>Follow-up:</strong> "Also, #1 claim or not, what matters is whether they deliver for YOUR market. Have they ranked surgeons in YOUR city for the procedures YOU do? Ask to see their local market case studies."</p>
+                </div>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">Objection 2: "Plastic Surgery Studios has 20+ years of plastic surgery expertise."</div>
+                <div class="objection-response">
+                    <p><strong>Response:</strong> "20 years of experience is incredibly valuable. And we respect that deeply. But the question isn't: do they know plastic surgery? The question is: do they have 2026 strategy or 2010 strategy? Ask them three questions:"</p>
+                    <p style="margin-top: 10px;">1. Show me your GLP-1 body contouring content playbook. (Ozempic/Wegovy is the biggest trend right now.)<br>
+                    2. What's your TikTok/Reels strategy for surgeons under age 45?<br>
+                    3. Show me your AI-augmented content workflow.<br><br>
+                    <strong>If they can't clearly answer those, they're running 2010 strategy with 2026 prices.</strong>"</p>
+                </div>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">Objection 3: "Nuvolum offers integrated PR and has worked with major cosmetic surgeons."</div>
+                <div class="objection-response">
+                    <p><strong>Response:</strong> "Nuvolum is excellent for surgeons who want to be on TV and in magazines. That's valuable for some practices. But here's the honest question: Is PR your priority right now, or is patient acquisition?</p>
+                    <p style="margin-top: 10px;">With Nuvolum, you're paying premium prices ($5K–$15K/month) with most of that budget going to media relationships and PR. Digital patient acquisition is secondary. If your goal is: 'I want more consultations booked this quarter,' Nuvolum isn't the right fit. If your goal is: 'I want feature stories in Vogue,' they're perfect.</p>
+                    <p style="margin-top: 10px;"><strong>We're for the first goal. Patient acquisition. Consultation volume. Revenue growth.</strong>"</p>
+                </div>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">Objection 4: "We're already happy with our current agency / we're in contract."</div>
+                <div class="objection-response">
+                    <p><strong>Response:</strong> "That's great that you have an agency. Quick question: Over the past 6 months, how many new surgical cases came directly from their marketing efforts? (Get the number.) And how much did you invest with them during those 6 months? (Get the investment.)</p>
+                    <p style="margin-top: 10px;">Now, if we could show you a case study from a similar surgeon in a similar market getting [1.5x that case volume] for [same investment], would you be interested in exploring an alternative when your contract allows?"</p>
+                    <p style="margin-top: 10px;"><strong>This isn't about switching today. It's about knowing what's possible.</strong>"</p>
+                </div>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">Objection 5: "Your pricing is higher than DoctorLogic / PilotPractice / other platforms."</div>
+                <div class="objection-response">
+                    <p><strong>Response:</strong> "Yes, we're more expensive than SaaS platforms. Here's why: DoctorLogic is a template website tool. PilotPractice is a CRM with automation. We're a full-service marketing team with human strategy, customization, and direct results accountability.</p>
+                    <p style="margin-top: 10px;">Think about it this way: One additional surgical case per month at $10K case fee = $120K annual revenue. Our investment is typically $30K–$40K. That's 3–4x return in Year 1. You can't get that ROI from a template website.</p>
+                    <p style="margin-top: 10px;"><strong>Cheap tools are cheap. Strategic partners are investments.</strong>"</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>12 Discovery Questions</h2>
+            <p style="margin-bottom: 20px;">Use these to qualify prospects and uncover pain points:</p>
+
+            <div class="discovery-grid">
+                <div class="discovery-card">
+                    <h4>1. Current Marketing Performance</h4>
+                    <p>"Over the past 6 months, how many new surgical cases came from digital marketing (website, SEO, PPC)?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>2. Google Visibility</h4>
+                    <p>"When someone searches 'rhinoplasty [your city]' or '[your procedure] near me,' where do you rank in Google? (Page 1, page 2, not sure?)"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>3. Current Agency Relationship</h4>
+                    <p>"Do you currently work with a marketing agency? If yes, what services are they providing and are you satisfied with the results?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>4. Marketing Budget</h4>
+                    <p>"How much are you currently investing per month in marketing? What's your expected ROI threshold?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>5. Procedure Focus</h4>
+                    <p>"Which 2–3 procedures should we prioritize in your marketing? Which are highest revenue or highest demand?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>6. Patient Source Clarity</h4>
+                    <p>"Of your consultation bookings this month, what percentage came from: Google search, ads, social media, referrals, other?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>7. Content Gaps</h4>
+                    <p>"Do you have comprehensive before/after galleries, patient testimonials, and procedure education content on your website?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>8. Social Media Presence</h4>
+                    <p>"Are you currently active on Instagram, TikTok, or other social platforms? Who manages that (in-house or agency)?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>9. Reputation Management</h4>
+                    <p>"How do you collect reviews? Are you actively monitoring and responding to reviews on Google, Realself, other platforms?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>10. GLP-1 Awareness</h4>
+                    <p>"Are you seeing increased inquiries about body contouring post-weight-loss? Do you have dedicated content for 'plastic surgery after Ozempic'?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>11. Practice Growth Plan</h4>
+                    <p>"What's your revenue growth goal for the next 12 months? How many additional surgical cases would you need to hit that goal?"</p>
+                </div>
+
+                <div class="discovery-card">
+                    <h4>12. Decision Timeline</h4>
+                    <p>"If you found the right marketing partner, what's your timeline for making a decision? (This month, Q1, by mid-year?)"</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Quick Reference: ekwa Value Drivers</h2>
+            <p style="margin-bottom: 15px;">What makes ekwa different in plastic surgery:</p>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li><strong>Procedure-Specific Authority:</strong> We own "rhinoplasty [city]" before competitors do</li>
+                <li><strong>GLP-1 First-Mover Advantage:</strong> We built the content playbook for post-Ozempic body contouring</li>
+                <li><strong>Geographic Exclusivity:</strong> Our Surgeon Lock program guarantees one partner per market</li>
+                <li><strong>Verified Results:</strong> We show actual case studies, not claims</li>
+                <li><strong>AI-Human Hybrid:</strong> AI for content efficiency, humans for strategy and relationships</li>
+                <li><strong>Full-Funnel Execution:</strong> SEO + PPC + Content + Reputation + Social — not just one channel</li>
+                <li><strong>Flexibility:</strong> Month-to-month contracts, no lock-in, transparent pricing</li>
+                <li><strong>Dedicated Director:</strong> One person owns your success, not a rotating team</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

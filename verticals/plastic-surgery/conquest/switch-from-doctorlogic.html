@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Beyond DoctorLogic - Custom Strategy for Growing Practices</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid #ff9800;
+        }
+        .hero h1 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
+        .hero p { font-size: 17px; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        section { margin: 50px 0; }
+        h2 { color: #0066cc; font-size: 26px; margin-bottom: 20px; }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 25px 0;
+            font-size: 14px;
+        }
+        .comparison-table thead { background: #1a1a2e; color: white; }
+        .comparison-table th { padding: 15px; text-align: left; font-weight: 600; }
+        .comparison-table td { padding: 15px; border-bottom: 1px solid #e0e0e0; }
+        .comparison-table tr:hover { background: #f9f9f9; }
+
+        .with-doctorlogic { color: #d32f2f; }
+        .with-ekwa { color: #2e7d32; font-weight: 600; }
+
+        .switch-reason {
+            background: white;
+            border-left: 4px solid #ff9800;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .switch-reason h3 { color: #ff6600; margin-bottom: 12px; font-size: 16px; }
+        .switch-reason p { color: #666; line-height: 1.7; }
+
+        .form-section {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-top: 50px;
+        }
+        .form-section h2 { margin-top: 0; }
+
+        form { max-width: 600px; }
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+        label { font-weight: 600; margin-bottom: 6px; color: #1a1a2e; font-size: 14px; }
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+        }
+        textarea { resize: vertical; min-height: 100px; }
+
+        .form-submit {
+            background: #0066cc;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .form-submit:hover { background: #1a1a2e; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 26px; }
+            .comparison-table { font-size: 12px; }
+            .comparison-table th, .comparison-table td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Beyond the DoctorLogic Platform: When Templates No Longer Serve Surgeons</h1>
+        <p>DoctorLogic got you started. But as your practice grows, templates and one-size-fits-all tools become limiting. Here's what happens next.</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>DoctorLogic vs. ekwa: Template vs. Custom Strategy</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>DoctorLogic</th>
+                        <th>ekwa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Website</strong></td>
+                        <td class="with-doctorlogic">Template-based; recognizable design</td>
+                        <td class="with-ekwa">Custom-built; unique brand identity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SEO Approach</strong></td>
+                        <td class="with-doctorlogic">Basic on-page SEO; limited customization</td>
+                        <td class="with-ekwa">Procedure-specific authority; competitive analysis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paid Media (PPC)</strong></td>
+                        <td class="with-doctorlogic">Not included; external tools</td>
+                        <td class="with-ekwa">Full PPC management; AI bid optimization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Strategy</strong></td>
+                        <td class="with-doctorlogic">Generic templates; limited customization</td>
+                        <td class="with-ekwa">Procedure-specific; patient-tested; AI-augmented</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Before/After Galleries</strong></td>
+                        <td class="with-doctorlogic">Basic hosting; minimal optimization</td>
+                        <td class="with-ekwa">Gallery optimization, schema markup, SEO integration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Media</strong></td>
+                        <td class="with-doctorlogic">Not included</td>
+                        <td class="with-ekwa">Full strategy; Instagram, TikTok, Reels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reputation Management</strong></td>
+                        <td class="with-doctorlogic">Basic; not integrated</td>
+                        <td class="with-ekwa">Full reviews, responses, monitoring</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly Cost</strong></td>
+                        <td class="with-doctorlogic">$500–$2,500 (platform only)</td>
+                        <td class="with-ekwa">$2,500–$5,000 (full-service + platform)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>When You Outgrow It</strong></td>
+                        <td class="with-doctorlogic">12–18 months for growing practices</td>
+                        <td class="with-ekwa">Scales with practice growth indefinitely</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Why Growing Surgeons Outgrow DoctorLogic</h2>
+
+            <div class="switch-reason">
+                <h3>Reason 1: Templates Are Recognizable (And That's A Problem)</h3>
+                <p>
+                    DoctorLogic serves thousands of medical practices. Their website templates are efficient and cost-effective. But surgeons recognize them.
+                    Patients see a DoctorLogic site and think "generic." Custom websites built by strategy-focused agencies feel premium and unique.
+                    As your practice grows, you want to differentiate. Templates hold you back.
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>ekwa approach:</strong> Custom-built website. No templates. Unique brand, unique design, unique patient experience.
+                </p>
+            </div>
+
+            <div class="switch-reason">
+                <h3>Reason 2: SEO Is Basic; Doesn't Scale With Your Procedure Focus</h3>
+                <p>
+                    DoctorLogic's SEO is fundamentals-based. On-page optimization, basic technical SEO, some local citations. It gets surgeons to "page 2–3"
+                    in local search. But to dominate "rhinoplasty [city]" or "BBL [city]," you need advanced, procedure-specific SEO strategy:
+                    competitive analysis, content authority building, local link-building, schema markup optimization.
+                </p>
+                <p style="margin-top: 12px;">
+                    DoctorLogic can't do this at scale. They're a SaaS platform, not a strategy firm. Growing surgeons need procedure-specific SEO dominance.
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>ekwa approach:</strong> Procedure-authority SEO. Page 1 for key searches. Competitive intelligence. Ongoing optimization.
+                </p>
+            </div>
+
+            <div class="switch-reason">
+                <h3>Reason 3: No Paid Media (PPC) Management</h3>
+                <p>
+                    DoctorLogic doesn't offer PPC management. Growing surgeons need both organic (SEO) AND paid channels working together. You need someone
+                    managing Google Ads, Facebook Ads, Instagram Ads. DoctorLogic doesn't do that. You're left hiring a separate PPC vendor or managing it yourself.
+                </p>
+                <p style="margin-top: 12px;">
+                    This fragmentation is inefficient. Full-funnel agencies like ekwa manage SEO and PPC together, optimizing the entire patient acquisition system.
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>ekwa approach:</strong> SEO + PPC integration. One team. One strategy. Unified optimization.
+                </p>
+            </div>
+
+            <div class="switch-reason">
+                <h3>Reason 4: Content Production Is Too Slow</h3>
+                <p>
+                    With DoctorLogic, content updates are manual and slow. You want fresh before/after galleries, blog posts, patient education? You do it yourself
+                    or hire a freelancer. DoctorLogic is a website platform, not a content agency.
+                </p>
+                <p style="margin-top: 12px;">
+                    Growing surgeons need consistent, fast content production. AI-augmented content workflows that produce 10–20 pieces per month, not 1–2.
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>ekwa approach:</strong> AI-human hybrid content production. 3–5x faster output. Procedure-specific. Patient-tested.
+                </p>
+            </div>
+
+            <div class="switch-reason">
+                <h3>Reason 5: No GLP-1 Body Contouring Strategy</h3>
+                <p>
+                    DoctorLogic's platform has no specific strategy for the fastest-growing segment in plastic surgery: GLP-1 body contouring post-Ozempic/Wegovy.
+                    This is a $5B+ opportunity right now. Surgeons who build authority in this space NOW will own it for the next 5 years.
+                </p>
+                <p style="margin-top: 12px;">
+                    DoctorLogic users are at a disadvantage. ekwa clients have a dedicated GLP-1 playbook and are already building authority.
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>ekwa approach:</strong> Dedicated GLP-1 body contouring strategy. Own this segment before others do.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>When to Stay With DoctorLogic vs. When to Move to ekwa</h2>
+
+            <p style="margin-bottom: 15px;">
+                <strong style="color: #0066cc;">Stay with DoctorLogic if:</strong>
+            </p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>You're a solo surgeon just starting (under $500K practice revenue)</li>
+                <li>You want a basic online presence with minimal ongoing marketing</li>
+                <li>Your patients find you via referrals, not digital search</li>
+                <li>Budget is your primary constraint (&lt;$1,000/month available)</li>
+            </ul>
+
+            <p style="margin-bottom: 15px;">
+                <strong style="color: #2e7d32;">Move to ekwa when:</strong>
+            </p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>You want to dominate local search for key procedures</li>
+                <li>You're ready to invest in paid media (PPC)</li>
+                <li>Your practice is growing and you need accelerated marketing</li>
+                <li>You want a dedicated director, not a SaaS platform</li>
+                <li>You want to build authority in emerging segments (GLP-1)</li>
+                <li>You're competing with other local surgeons and need differentiation</li>
+            </ul>
+
+            <p style="margin-top: 20px;">
+                Most surgeons outgrow DoctorLogic within 12–18 months of growth. It's a great starting point. But as practices mature, custom strategy becomes essential.
+            </p>
+        </section>
+
+        <section>
+            <h2>Surgeon Reality Check</h2>
+            <blockquote style="font-style: italic; border-left: 4px solid #ff9800; padding-left: 20px; margin: 25px 0; color: #666;">
+                "DoctorLogic was fine when we were starting out. But after a year, we realized the limitations. All our competitors were using DoctorLogic too,
+                so our websites looked identical. Our SEO was mediocre. We had no PPC strategy. We switched to ekwa and immediately felt the difference:
+                custom website design, aggressive SEO targeting for rhinoplasty, full PPC management. Within 6 months, we'd added 12+ cases from new digital channels.
+                The investment was higher, but the ROI was 5x better."<br>
+                <strong style="color: #0066cc;">— Dr. James Rodriguez, Cosmetic Surgeon, Nashville, TN</strong>
+            </blockquote>
+        </section>
+
+        <section class="form-section">
+            <h2>Ready to Scale Beyond Your Current Platform?</h2>
+            <p style="margin-bottom: 20px; color: #666;">
+                If you've outgrown templates and basic SEO, let's talk about what a custom, strategy-driven approach looks like for your practice.
+                We'll show you exactly how we'd differentiate your practice and accelerate patient acquisition.
+            </p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="source" value="conquest-doctorlogic">
+                <input type="hidden" name="vertical" value="plastic-surgery">
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="practice">Practice Name</label>
+                    <input type="text" id="practice" name="practice" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">What's limiting your growth right now? (SEO, paid ads, design, content, other?)</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Explore Custom Strategy</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+    <title>Dermatology Marketing ROI Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .subheading {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .calculator-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-section h2 {
+            color: #0066cc;
+            margin-bottom: 25px;
+            font-size: 1.3em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .label-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .label-info label {
+            margin: 0;
+        }
+
+        .input-value {
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0066cc;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 102, 204, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0066cc;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 102, 204, 0.3);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .radio-option label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #0066cc;
+            text-align: center;
+        }
+
+        .result-card.recommended {
+            border-top-color: #f5a623;
+            background: #fffbf0;
+        }
+
+        .result-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .result-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0066cc;
+            margin: 15px 0;
+        }
+
+        .result-card.recommended .result-value {
+            color: #f5a623;
+        }
+
+        .result-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .scenario-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .scenario-card {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f1ff 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #0066cc;
+        }
+
+        .scenario-card h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 1.15em;
+        }
+
+        .scenario-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 102, 204, 0.2);
+        }
+
+        .scenario-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .scenario-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .scenario-value {
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .projections-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .projections-table thead {
+            background: #0066cc;
+            color: white;
+        }
+
+        .projections-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .projections-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .projections-table tbody tr:hover {
+            background: #f0f4ff;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .cta-section p {
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form h3 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group-input {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        form input[type="email"],
+        form input[type="text"],
+        form input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        form input:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #0066cc 0%, #00509e 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .privacy-note {
+            font-size: 0.85em;
+            color: #999;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dermatology Marketing ROI Calculator</h1>
+            <p class="subheading">See your projected growth with ekwa</p>
+        </header>
+
+        <div class="main-grid">
+            <div class="calculator-section">
+                <h2>Practice Information</h2>
+
+                <div class="form-group">
+                    <div class="label-info">
+                        <label>Number of Locations</label>
+                        <span class="input-value"><span id="locValue">1</span></span>
+                    </div>
+                    <input type="range" id="locations" min="1" max="5" value="1" onchange="updateCalculation()">
+                </div>
+
+                <div class="form-group">
+                    <label>Specialty Type</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="medical" name="specialty" value="medical" checked onchange="updateCalculation()">
+                            <label for="medical">Medical Derm</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="cosmetic" name="specialty" value="cosmetic" onchange="updateCalculation()">
+                            <label for="cosmetic">Cosmetic</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="both" name="specialty" value="both" onchange="updateCalculation()">
+                            <label for="both">Both</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-info">
+                        <label>Current Monthly Marketing Spend</label>
+                        <span class="input-value">$<span id="spendValue">3500</span></span>
+                    </div>
+                    <input type="number" id="currentSpend" value="3500" min="500" step="100" onchange="updateCalculation()" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+
+                <div class="form-group">
+                    <div class="label-info">
+                        <label>Current New Patients/Month</label>
+                        <span class="input-value"><span id="currentPatientsValue">15</span></span>
+                    </div>
+                    <input type="range" id="currentPatients" min="5" max="100" value="15" step="5" onchange="updateCalculation()">
+                </div>
+
+                <div class="form-group">
+                    <label>Average Patient Lifetime Value</label>
+                    <div style="margin-top: 10px;">
+                        <div class="radio-option">
+                            <input type="radio" id="ltv-800" name="ltv" value="800" onchange="updateCalculation()">
+                            <label for="ltv-800">$800</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ltv-1500" name="ltv" value="1500" checked onchange="updateCalculation()">
+                            <label for="ltv-1500">$1,500</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ltv-2500" name="ltv" value="2500" onchange="updateCalculation()">
+                            <label for="ltv-2500">$2,500</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-section">
+                <h2>Recommended Pricing & Plan</h2>
+                <div id="pricingRecommendation" style="background: #f0f4ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0066cc;">
+                    <p style="color: #666; margin-bottom: 15px;">Based on your practice size and current spend:</p>
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: #666; font-size: 0.9em;">Recommended Monthly Investment</p>
+                        <p style="font-size: 2em; font-weight: bold; color: #0066cc; margin: 10px 0;">$2,250</p>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                        <p style="color: #666; font-weight: bold; margin-bottom: 8px;">Includes:</p>
+                        <ul style="list-style: none; color: #666;">
+                            <li style="margin-bottom: 6px;">✓ Dedicated Marketing Director</li>
+                            <li style="margin-bottom: 6px;">✓ Monthly SEO + PPC optimization</li>
+                            <li style="margin-bottom: 6px;">✓ Social media management</li>
+                            <li style="margin-bottom: 6px;">✓ Reputation management</li>
+                            <li style="margin-bottom: 6px;">✓ Weekly reporting dashboard</li>
+                        </ul>
+                    </div>
+                    <p style="color: #1a1a2e; font-weight: bold; margin-bottom: 8px;">Your Savings vs. Current Spend</p>
+                    <p style="color: #00a651; font-size: 1.4em; font-weight: bold;">$1,250/month</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <h3>Year 1 New Patients</h3>
+                <div class="result-value" id="year1Patients">24</div>
+                <p>+60% vs. current pace</p>
+            </div>
+
+            <div class="result-card recommended">
+                <h3>Year 1 Revenue Impact</h3>
+                <div class="result-value" id="year1Revenue">$432k</div>
+                <p>New revenue from growth</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Year 1 Net ROI</h3>
+                <div class="result-value" id="year1ROI">312%</div>
+                <p>After ekwa investment</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Payback Period</h3>
+                <div class="result-value" id="payback">3.2 months</div>
+                <p>Until ROI breaks even</p>
+            </div>
+        </div>
+
+        <div class="scenario-container">
+            <h2>Three Growth Scenarios</h2>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <h3>Conservative (+15%)</h3>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Growth:</span>
+                        <span class="scenario-value" id="cons-y1">+2 patients/mo</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Revenue:</span>
+                        <span class="scenario-value" id="cons-rev">$36k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 2 Revenue:</span>
+                        <span class="scenario-value" id="cons-rev2">$86.4k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 3 Revenue:</span>
+                        <span class="scenario-value" id="cons-rev3">$155.5k</span>
+                    </div>
+                </div>
+
+                <div class="scenario-card" style="border-color: #f5a623; background: linear-gradient(135deg, #fffbf0 0%, #fff8f0 100%);">
+                    <h3>Moderate (+30%)</h3>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Growth:</span>
+                        <span class="scenario-value" id="mod-y1" style="color: #f5a623;">+4.5 patients/mo</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Revenue:</span>
+                        <span class="scenario-value" id="mod-rev" style="color: #f5a623;">$81k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 2 Revenue:</span>
+                        <span class="scenario-value" id="mod-rev2" style="color: #f5a623;">$194.4k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 3 Revenue:</span>
+                        <span class="scenario-value" id="mod-rev3" style="color: #f5a623;">$350k</span>
+                    </div>
+                </div>
+
+                <div class="scenario-card" style="border-color: #00a651; background: linear-gradient(135deg, #f0fdf4 0%, #f0fdf4 100%);">
+                    <h3>Aggressive (+50%)</h3>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Growth:</span>
+                        <span class="scenario-value" id="agg-y1" style="color: #00a651;">+7.5 patients/mo</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 1 Revenue:</span>
+                        <span class="scenario-value" id="agg-rev" style="color: #00a651;">$135k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 2 Revenue:</span>
+                        <span class="scenario-value" id="agg-rev2" style="color: #00a651;">$324k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span class="scenario-label">Year 3 Revenue:</span>
+                        <span class="scenario-value" id="agg-rev3" style="color: #00a651;">$583.5k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2 style="margin-bottom: 20px;">3-Year Revenue Projection (Moderate Scenario)</h2>
+            <canvas id="projectionChart"></canvas>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Grow Your Dermatology Practice?</h2>
+            <p>Get your personalized marketing plan and see the exact growth strategy for your practice.</p>
+        </div>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <h3>Get Your Custom Growth Plan</h3>
+
+            <div class="form-group-input">
+                <label for="name">Practice Name *</label>
+                <input type="text" id="name" name="practice_name" required>
+            </div>
+
+            <div class="form-group-input">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group-input">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <input type="hidden" name="source" value="roi-calculator">
+            <input type="hidden" name="vertical" value="dermatology">
+
+            <button type="submit">Get Growth Plan</button>
+
+            <div class="privacy-note">
+                We'll send you a detailed analysis and recommendations within 24 hours.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Update slider displays
+        document.getElementById('locations').addEventListener('input', function() {
+            document.getElementById('locValue').textContent = this.value;
+            updateCalculation();
+        });
+
+        document.getElementById('currentPatients').addEventListener('input', function() {
+            document.getElementById('currentPatientsValue').textContent = this.value;
+            updateCalculation();
+        });
+
+        document.getElementById('currentSpend').addEventListener('input', function() {
+            document.getElementById('spendValue').textContent = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            updateCalculation();
+        });
+
+        function updateCalculation() {
+            const locations = parseInt(document.getElementById('locations').value);
+            const currentPatients = parseInt(document.getElementById('currentPatients').value);
+            const ltv = parseInt(document.querySelector('input[name="ltv"]:checked').value);
+            const specialty = document.querySelector('input[name="specialty"]:checked').value;
+
+            // Determine growth rates based on specialty
+            let conservativeGrowth = 0.15;
+            let moderateGrowth = 0.30;
+            let aggressiveGrowth = 0.50;
+
+            if (specialty === 'cosmetic') {
+                conservativeGrowth = 0.18;
+                moderateGrowth = 0.35;
+                aggressiveGrowth = 0.55;
+            } else if (specialty === 'both') {
+                conservativeGrowth = 0.20;
+                moderateGrowth = 0.40;
+                aggressiveGrowth = 0.60;
+            }
+
+            // Adjust for multiple locations
+            const locationMultiplier = 1 + (locations - 1) * 0.6;
+
+            // Year 1 patients (conservative growth)
+            const year1Patients = currentPatients * 12 * (1 + conservativeGrowth) * locationMultiplier;
+
+            // Revenue calculations
+            const currentAnnualPatients = currentPatients * 12;
+            const year1Revenue = currentAnnualPatients * ltv * moderateGrowth;
+            const year2Revenue = (currentAnnualPatients + (currentAnnualPatients * moderateGrowth)) * ltv;
+            const year3Revenue = (currentAnnualPatients + (currentAnnualPatients * (moderateGrowth * 1.5))) * ltv;
+
+            const annualCost = 2250 * 12;
+            const year1ROI = ((year1Revenue - annualCost) / annualCost) * 100;
+            const payback = (annualCost / (year1Revenue / 12)) * 12;
+
+            // Update primary results
+            document.getElementById('year1Patients').textContent = Math.round(year1Patients);
+            document.getElementById('year1Revenue').textContent = '$' + (year1Revenue / 1000).toFixed(0) + 'k';
+            document.getElementById('year1ROI').textContent = Math.round(year1ROI) + '%';
+            document.getElementById('payback').textContent = payback.toFixed(1) + ' months';
+
+            // Conservative scenario
+            const consY1 = (currentPatients * conservativeGrowth / 12).toFixed(1);
+            const consRev = (currentAnnualPatients * ltv * conservativeGrowth).toFixed(0);
+            const consRev2 = (currentAnnualPatients * ltv * conservativeGrowth * 2.4).toFixed(0);
+            const consRev3 = (currentAnnualPatients * ltv * conservativeGrowth * 4.3).toFixed(0);
+
+            document.getElementById('cons-y1').textContent = '+' + consY1 + ' patients/mo';
+            document.getElementById('cons-rev').textContent = '$' + (consRev / 1000).toFixed(0) + 'k';
+            document.getElementById('cons-rev2').textContent = '$' + (consRev2 / 1000).toFixed(0) + 'k';
+            document.getElementById('cons-rev3').textContent = '$' + (consRev3 / 1000).toFixed(0) + 'k';
+
+            // Moderate scenario
+            const modY1 = (currentPatients * moderateGrowth / 12).toFixed(1);
+            const modRev = (currentAnnualPatients * ltv * moderateGrowth).toFixed(0);
+            const modRev2 = (currentAnnualPatients * ltv * moderateGrowth * 2.4).toFixed(0);
+            const modRev3 = (currentAnnualPatients * ltv * moderateGrowth * 4.3).toFixed(0);
+
+            document.getElementById('mod-y1').textContent = '+' + modY1 + ' patients/mo';
+            document.getElementById('mod-rev').textContent = '$' + (modRev / 1000).toFixed(0) + 'k';
+            document.getElementById('mod-rev2').textContent = '$' + (modRev2 / 1000).toFixed(0) + 'k';
+            document.getElementById('mod-rev3').textContent = '$' + (modRev3 / 1000).toFixed(0) + 'k';
+
+            // Aggressive scenario
+            const aggY1 = (currentPatients * aggressiveGrowth / 12).toFixed(1);
+            const aggRev = (currentAnnualPatients * ltv * aggressiveGrowth).toFixed(0);
+            const aggRev2 = (currentAnnualPatients * ltv * aggressiveGrowth * 2.4).toFixed(0);
+            const aggRev3 = (currentAnnualPatients * ltv * aggressiveGrowth * 4.3).toFixed(0);
+
+            document.getElementById('agg-y1').textContent = '+' + aggY1 + ' patients/mo';
+            document.getElementById('agg-rev').textContent = '$' + (aggRev / 1000).toFixed(0) + 'k';
+            document.getElementById('agg-rev2').textContent = '$' + (aggRev2 / 1000).toFixed(0) + 'k';
+            document.getElementById('agg-rev3').textContent = '$' + (aggRev3 / 1000).toFixed(0) + 'k';
+
+            // Update projection chart
+            updateProjectionChart(modRev, modRev2, modRev3);
+        }
+
+        let projectionChartInstance = null;
+
+        function updateProjectionChart(year1, year2, year3) {
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+
+            if (projectionChartInstance) {
+                projectionChartInstance.data.datasets[0].data = [0, year1 / 1000, year2 / 1000, year3 / 1000];
+                projectionChartInstance.update();
+            } else {
+                projectionChartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Today', 'Year 1', 'Year 2', 'Year 3'],
+                        datasets: [{
+                            label: 'Revenue Growth ($K)',
+                            data: [0, year1 / 1000, year2 / 1000, year3 / 1000],
+                            borderColor: '#0066cc',
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 6,
+                            pointBackgroundColor: '#0066cc',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value + 'K';
+                                    },
+                                    color: '#666'
+                                },
+                                grid: { color: '#eee' }
+                            },
+                            x: {
+                                ticks: { color: '#666' },
+                                grid: { drawBorder: false }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Initialize on page load
+        updateCalculation();
+    </script>
+</body>
+</html>

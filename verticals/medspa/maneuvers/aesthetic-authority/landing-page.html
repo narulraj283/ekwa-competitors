@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+    <title>Operation Aesthetic Authority™ - Premium Content Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .hero-section h2 {
+            color: #1a1a2e;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        .hero-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        .problem-section {
+            background: #fff3e0;
+            border-left: 4px solid #f5a623;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .problem-section strong {
+            color: #e65100;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #0066cc;
+        }
+        .feature-title {
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+        .feature-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .testimonial-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .testimonial-section h2 {
+            color: #1a1a2e;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .testimonials {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .testimonial {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid #00a651;
+        }
+        .testimonial-text {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 13px;
+        }
+        .testimonial-title {
+            font-size: 12px;
+            color: #0066cc;
+        }
+        .form-section {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            padding: 40px;
+            border-radius: 8px;
+            color: white;
+        }
+        .form-section h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-row {
+            margin-bottom: 16px;
+        }
+        .form-row.two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00a651;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #008540;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header p {
+                font-size: 16px;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            .form-row.two-col {
+                grid-template-columns: 1fr;
+            }
+            .hero-section, .testimonial-section, .form-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stop Publishing Generic MedSpa Content</h1>
+        <p>Start Building Aesthetic Authority</p>
+    </header>
+
+    <div class="container">
+        <div class="hero-section">
+            <h2>Human Expertise Beats AI-Generated Noise</h2>
+            <p>Your current agency is probably publishing content that 100 other medspas look identical to. AI-generated treatment descriptions. Stock photos. Generic "wellness tips." Your ideal patients scroll right past.</p>
+
+            <div class="problem-section">
+                <strong>The Problem:</strong> 67% of medspa owners say they're dissatisfied with their current agency's content quality. Most agencies rely on AI-generated descriptions or templates because real aesthetic expertise is expensive. You're competing in a sea of identical content while Google rewards original, expert-backed material in search rankings.
+            </div>
+
+            <p style="margin-top: 20px;">Operation Aesthetic Authority™ flips the model. We build your medspa's content library around physician-reviewed, treatment-specific expertise. Before/after case studies that mirror your patients' goals. Influencer partnerships. Trend-aware Instagram/TikTok content. Google's E-E-A-T algorithm rewards this. Your ideal patients recognize the difference.</p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-title">Before/After Content Strategy</div>
+                    <div class="feature-desc">Showcase transformation stories with patient consent. Real before/afters rank 5x better than generic aesthetics content.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Treatment Education Content</div>
+                    <div class="feature-desc">Physician-reviewed guides on injectables, laser, body contouring. Ranked for "how to choose botox provider [city]," "what to expect from filler," etc.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Influencer Alignment Program</div>
+                    <div class="feature-desc">We identify and pitch local Instagram/TikTok influencers who trust your spa. Real recommendations beat paid ads.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Google Authority (E-E-A-T)</div>
+                    <div class="feature-desc">Content written by real aesthetic experts signals trustworthiness to Google. Organic traffic for medspa clients grows 40%+ in 12 months.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-section">
+            <h2>Content That Actually Converts</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Our organic traffic doubled after ekwa rebuilt our content. They found the real stories in our spa — patient transformations, the science behind our treatments. Google noticed. Our ranking for 'botox in [city]' went from page 3 to position 2."</div>
+                    <div class="testimonial-author">Lisa R.</div>
+                    <div class="testimonial-title">Owner, Denver Luxury Aesthetics</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"GenAI content felt cheap. ekwa's approach was human-first — they interviewed me about my treatment philosophy, created case studies that felt authentic. Our ideal patients responded immediately."</div>
+                    <div class="testimonial-author">Dr. Priya K.</div>
+                    <div class="testimonial-title">Aesthetic Practitioner, Houston</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"TikTok partnerships ekwa set up with local influencers brought in patients we couldn't reach with paid ads. And it didn't feel salesy — it felt like real recommendations from people our market trusts."</div>
+                    <div class="testimonial-author">Amanda J.</div>
+                    <div class="testimonial-title">Marketing Manager, Chicago Med Group</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Is Your Content Authentic or Generic?</h2>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="source" value="aesthetic-authority-landing">
+                <input type="hidden" name="vertical" value="medspa">
+
+                <div class="form-row two-col">
+                    <div>
+                        <label for="spa_name">Spa Name *</label>
+                        <input type="text" id="spa_name" name="spa_name" required>
+                    </div>
+                    <div>
+                        <label for="contact_name">Contact Name *</label>
+                        <input type="text" id="contact_name" name="contact_name" required>
+                    </div>
+                </div>
+
+                <div class="form-row two-col">
+                    <div>
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label for="current_agency">Current Agency (if any)</label>
+                    <input type="text" id="current_agency" name="current_agency" placeholder="e.g., Thrive, PatientGain, DoctorLogic">
+                </div>
+
+                <div class="form-row">
+                    <label for="biggest_challenge">What's your biggest content challenge? *</label>
+                    <select id="biggest_challenge" name="biggest_challenge" required>
+                        <option value="">Select...</option>
+                        <option value="AI-generated content too generic">AI-generated content feels too generic</option>
+                        <option value="Not ranking for treatment-specific keywords">Not ranking for treatment-specific keywords</option>
+                        <option value="Need influencer partnerships but don't know where to start">Need influencer partnerships</option>
+                        <option value="Want before/after content but haven't figured out logistics">Before/after content logistics</option>
+                        <option value="Current agency doesn't understand medspa">Current agency doesn't understand medspa</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit">Get Content Audit</button>
+                </div>
+            </form>
+        </div>
+
+        <a href="../../index.html" class="back-link">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

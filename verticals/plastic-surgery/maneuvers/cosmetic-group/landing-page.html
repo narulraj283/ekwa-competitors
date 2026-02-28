@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Cosmetic Group - Multi-Surgeon Practice Marketing Platform</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+        .hero p { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto 30px; }
+        .cta-button {
+            display: inline-block;
+            background: #00a651;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        .cta-button:hover { background: #008a41; transform: translateY(-2px); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        section { margin: 60px 0; }
+        h2 { color: #0066cc; font-size: 28px; margin-bottom: 20px; }
+        h3 { color: #1a1a2e; font-size: 18px; margin-top: 25px; margin-bottom: 12px; }
+
+        .challenge-box {
+            background: #ffe8e8;
+            border-left: 4px solid #d32f2f;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 25px 0;
+        }
+        .challenge-box h3 { margin-top: 0; color: #d32f2f; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #00a651;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .feature-card h3 { margin-top: 0; color: #0066cc; }
+        .feature-card p { color: #666; line-height: 1.7; }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .benefit-card {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid #0066cc;
+        }
+        .benefit-card h4 { color: #0066cc; margin-bottom: 8px; }
+        .benefit-card p { font-size: 13px; color: #666; }
+
+        .testimonial {
+            background: #f0f4f8;
+            padding: 25px;
+            border-left: 4px solid #f5a623;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .testimonial-quote { font-style: italic; color: #444; margin-bottom: 10px; font-size: 15px; }
+        .testimonial-attr { font-weight: 600; color: #0066cc; font-size: 13px; }
+
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+        .form-section h2 { margin-top: 0; }
+
+        form { max-width: 600px; }
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+        label { font-weight: 600; margin-bottom: 6px; color: #1a1a2e; font-size: 14px; }
+        input, textarea, select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+        }
+        textarea { resize: vertical; min-height: 100px; }
+
+        .form-submit {
+            background: #0066cc;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .form-submit:hover { background: #1a1a2e; }
+
+        footer { text-align: center; padding: 20px; color: #999; font-size: 12px; margin-top: 40px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 16px; }
+            .form-section { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Growing Your Multi-Surgeon Practice? Here's the Marketing OS.</h1>
+        <p>Unified brand, differentiated surgeon identities, maximum market coverage. One ekwa team managing all surgeons, all locations.</p>
+        <a href="#inquiry" class="cta-button">Explore Cosmetic Group →</a>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>The Multi-Surgeon Challenge</h2>
+            <div class="challenge-box">
+                <h3>You're growing. But your marketing is fragmented.</h3>
+                <p>
+                    Each surgeon has their own reputation, style, and patient base. Marketing them feels impossible. How do you promote
+                    Dr. Smith's expertise in rhinoplasty while showcasing Dr. Johnson's BBL work? How do you manage multiple Google Business profiles?
+                    Multiple social media accounts? Multiple content strategies?
+                </p>
+                <p style="margin-top: 12px;">
+                    Most multi-surgeon practices default to a generic "group website" that doesn't showcase individual surgeon skill and specialty.
+                    Result: Lost revenue because patients can't find the right surgeon for their procedure.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Cosmetic Group Is The Answer</h2>
+            <p>
+                Cosmetic Group is ekwa's specialized program for multi-surgeon practices. We manage all surgeons, all locations, and all procedures
+                under one unified marketing strategy — while maintaining each surgeon's unique brand identity.
+            </p>
+            <p style="margin-top: 15px;">
+                Think of it as "Surgeon-Specific Marketing at Scale." One director. One strategy. Maximum coverage. Differentiated positioning for each surgeon.
+            </p>
+        </section>
+
+        <section>
+            <h2>What We Handle</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Unified Brand Management</h3>
+                    <p>One consistent brand identity across all surgeons and locations. Consistent colors, fonts, tone — everything unified.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Surgeon-Specific Landing Pages</h3>
+                    <p>Each surgeon gets their own landing page, bio, before/after gallery, specialty positioning. Patients can find their perfect surgeon.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-Location SEO Stack</h3>
+                    <p>Service area pages for each location. Local citations. Google Business profiles for each office. Patients in each market find your nearest surgeon.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Procedure-Focused Content</h3>
+                    <p>One comprehensive content library for all procedures. Which surgeon specializes in rhinoplasty? Which does BBL? Content directs patients accordingly.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reputation Management Across Surgeons</h3>
+                    <p>Review collection, response management, reputation monitoring for each surgeon and each location. One unified dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Paid Media Efficiency</h3>
+                    <p>One PPC budget strategically allocated across surgeons and procedures. Maximum ROI by avoiding internal competition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Benefits for Group Practices</h2>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h4>No Internal Competition</h4>
+                    <p>Each surgeon gets their own market positioning and lead routing. No competing for the same PPC budget or local rankings.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Surgeon Autonomy</h4>
+                    <p>Each surgeon maintains their own reputation, patient base, and specialty focus. Brand is unified; identities are differentiated.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Scalability</h4>
+                    <p>Adding a new surgeon or location? ekwa's framework scales. New landing page, new procedure focus, new market penetration.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Administrative Simplicity</h4>
+                    <p>One marketing contract. One point of contact. One reporting dashboard. Simplified for practice leadership.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Patient Flow Optimization</h4>
+                    <p>Smart lead routing. Patients searching for rhinoplasty go to Dr. Smith. BBL searches go to Dr. Johnson. Maximum conversion.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Competitive Advantage</h4>
+                    <p>Most group practices have fragmented marketing. You'll have coordinated, strategic marketing. That's a massive competitive edge.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Real Results From Multi-Surgeon Groups</h2>
+
+            <div class="testimonial">
+                <div class="testimonial-quote">
+                    "We're a 4-surgeon practice across 2 locations. Before ekwa, our website was a mess — no clear surgeon differentiation, confused patients,
+                    each surgeon felt deprioritized. ekwa created surgeon-specific landing pages with their before/after galleries, specialties, and patient testimonials.
+                    Now patients can find exactly who they need. Practice revenue is up 28% year-over-year."
+                </div>
+                <div class="testimonial-attr">— Dr. Patricia Goldman, Managing Partner, Cosmetic Surgery Group, Phoenix, AZ</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-quote">
+                    "We acquired another practice and merged their 2 surgeons with our 3. Marketing integration was going to be a nightmare. ekwa built
+                    a unified brand with surgeon-specific identity pages in 60 days. One marketing director managing all 5 surgeons, 3 locations, zero conflict.
+                    It actually simplified our operations."
+                </div>
+                <div class="testimonial-attr">— Dr. Michael Torres, CEO, Advanced Cosmetic Surgery Network, Austin, TX</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-quote">
+                    "The lead routing alone was worth it. Patients searching 'rhinoplasty expert' get Dr. Chen's page. 'BBL surgeon' goes to Dr. Martinez.
+                    'Breast augmentation' hits Dr. Williams. Smart routing means higher conversion, less patient confusion, and better satisfaction."
+                </div>
+                <div class="testimonial-attr">— Dr. Lisa Chen, Surgical Director, Cosmetic Surgical Associates, Los Angeles, CA</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pricing For Multi-Surgeon Practices</h2>
+            <p style="margin-bottom: 15px;">
+                Cosmetic Group pricing scales based on the number of surgeons and locations you manage:
+            </p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>2–3 surgeons:</strong> $3,500–$4,500/month</li>
+                <li><strong>4–6 surgeons:</strong> $5,500–$7,500/month</li>
+                <li><strong>7+ surgeons:</strong> Custom enterprise pricing</li>
+            </ul>
+            <p>
+                Average group contract: $60K–$90K annually. With 2–4 additional surgical cases per month per surgeon, ROI is typically 4–8x.
+            </p>
+        </section>
+
+        <section class="form-section" id="inquiry">
+            <h2>Ready to Unify Your Group's Marketing?</h2>
+            <p>Let's discuss how Cosmetic Group can simplify your operations and accelerate practice growth.</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="source" value="cosmetic-group-landing">
+                <input type="hidden" name="vertical" value="plastic-surgery">
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="practice">Practice Name</label>
+                    <input type="text" id="practice" name="practice" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="surgeons">How many surgeons do you manage?</label>
+                    <select id="surgeons" name="surgeons" required>
+                        <option value="">Select...</option>
+                        <option value="2-3">2–3</option>
+                        <option value="4-6">4–6</option>
+                        <option value="7-10">7–10</option>
+                        <option value="10+">10+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="locations">Number of locations</label>
+                    <select id="locations" name="locations" required>
+                        <option value="">Select...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your group and marketing challenges</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Schedule Group Strategy Call</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        ekwa.com | Cosmetic Group™ is a proprietary ekwa program | Confidential
+    </footer>
+</body>
+</html>

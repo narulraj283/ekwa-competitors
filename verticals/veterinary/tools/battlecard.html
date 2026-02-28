@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ekwa vs Competitors Battlecard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8f9fa; color: #333; }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        .section { margin: 30px 0; }
+        .section h2 { font-size: 24px; color: #1a1a2e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #0066cc; }
+
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+
+        .comparison-table th {
+            background: #1a1a2e;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            border: none;
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:last-child td { border-bottom: none; }
+
+        .comp-name { font-weight: 600; color: #0066cc; min-width: 120px; }
+        .comp-score { font-weight: 600; color: #00a651; }
+        .comp-score.disadvantage { color: #e65100; }
+
+        .objection-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .objection-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #f5a623;
+        }
+
+        .objection-title {
+            font-weight: 600;
+            color: #f57f17;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .objection-response {
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .question-card {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #0066cc;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .question-detail {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .print-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .print-btn:hover { background: #0052a3; }
+
+        @media print {
+            .header, .print-btn, .no-print { display: none; }
+            body { background: white; }
+            .comparison-table { box-shadow: none; border: 1px solid #ccc; }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table { font-size: 12px; }
+            .comparison-table td, .comparison-table th { padding: 12px 8px; }
+            .question-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ekwa Veterinary Battlecard</h1>
+        <p>Competitive comparison + objection handlers + discovery questions</p>
+    </div>
+
+    <div class="container">
+        <div class="no-print">
+            <button class="print-btn" onclick="window.print()">Print to PDF</button>
+        </div>
+
+        <div class="section">
+            <h2>8-Dimension Competitive Comparison</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>ekwa</th>
+                        <th>Cardinal Digital</th>
+                        <th>GeniusVets</th>
+                        <th>PetDesk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Veterinary Focus</strong></td>
+                        <td class="comp-score">Dedicated vertical</td>
+                        <td class="comp-score disadvantage">One of many</td>
+                        <td class="comp-score">Dedicated</td>
+                        <td class="comp-score disadvantage">Platform-first</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Leadership</strong></td>
+                        <td class="comp-score">Dedicated Director</td>
+                        <td class="comp-score disadvantage">Senior Strategist (shared)</td>
+                        <td class="comp-score disadvantage">Coordinator (shared)</td>
+                        <td class="comp-score disadvantage">Account Manager (technical)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pricing Transparency</strong></td>
+                        <td class="comp-score">$1,500–$3,000/mo clear</td>
+                        <td class="comp-score disadvantage">$3,000–$8,000 variable</td>
+                        <td class="comp-score">$500–$2,500/mo</td>
+                        <td class="comp-score disadvantage">$199/mo + mystery add-ons</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Full-Funnel Capability</strong></td>
+                        <td class="comp-score">SEO+PPC+Content+Reputation</td>
+                        <td class="comp-score">SEO+PPC+Content+Reputation</td>
+                        <td class="comp-score disadvantage">Primarily Local SEO</td>
+                        <td class="comp-score disadvantage">Software + basic marketing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DVM Credibility Strategy</strong></td>
+                        <td class="comp-score">Expert bios + content + positioning</td>
+                        <td class="comp-score disadvantage">Generic healthcare approach</td>
+                        <td class="comp-score disadvantage">Founder story, not execution</td>
+                        <td class="comp-score disadvantage">Not applicable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Geo-Exclusivity Model</strong></td>
+                        <td class="comp-score">Market lock available</td>
+                        <td class="comp-score disadvantage">Multiple clients per market</td>
+                        <td class="comp-score disadvantage">Spread nationally</td>
+                        <td class="comp-score disadvantage">No exclusivity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Case Studies & Proof</strong></td>
+                        <td class="comp-score">Vet-specific with metrics</td>
+                        <td class="comp-score">Limited (1-2 vet examples)</td>
+                        <td class="comp-score disadvantage">"229% calls" unverified</td>
+                        <td class="comp-score disadvantage">Large volume, low detail</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reporting & Transparency</strong></td>
+                        <td class="comp-score">Monthly + quarterly strategy</td>
+                        <td class="comp-score disadvantage">Quarterly + custom</td>
+                        <td class="comp-score disadvantage">Monthly (generic)</td>
+                        <td class="comp-score disadvantage">Dashboard only</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>5 Objection Handlers</h2>
+
+            <div class="objection-grid">
+                <div class="objection-card">
+                    <div class="objection-title">Objection: "GeniusVets is DVM-founded"</div>
+                    <div class="objection-response">
+                        <strong>Response:</strong> "True — their founder is a DVM. But who's managing your account daily? At ekwa, we build YOUR doctors into recognized local experts. That's worth more than a founder story. We have verified case studies of veterinarians increasing specialty case inquiries 40-50% by positioning their individual credentials properly. GeniusVets' claim of '229% more calls' has no context. Our results are documented."
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-title">Objection: "Cardinal has 400+ animal hospital clients"</div>
+                    <div class="objection-response">
+                        <strong>Response:</strong> "Cardinal is great at scale, but veterinary is one of many healthcare verticals for them. Your account manager is likely handling dental practices, dermatology, and veterinary simultaneously. At ekwa, your director eats and sleeps veterinary. We specialize, and that specialization means faster decisions, more relevant strategy, and a team that knows the unique challenges of practice owners. Scale doesn't always mean better service — it often means slower response."
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-title">Objection: "PetDesk gives us software + marketing for $199/month"</div>
+                    <div class="objection-response">
+                        <strong>Response:</strong> "Your CRM handles appointments. We handle patient acquisition and retention strategy. They're not the same thing. $199 buys platform software, not marketing strategy. When you're ready to actually grow your practice, not just communicate with existing clients, we're the partner. Our clients who graduate from PetDesk tell us the same thing: 'The software was fine, but we needed actual marketing to acquire new clients.'"
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-title">Objection: "We're already working with InTouch Vet and they know our practice"</div>
+                    <div class="objection-response">
+                        <strong>Response:</strong> "That relationship is valuable, but are they delivering results? InTouch built their brand 25 years ago with a different digital landscape. Fear Free, local authority positioning, multi-location strategy, TikTok for pet owners — these weren't part of their original playbook. We're not competing on legacy relationships. We're competing on modern results. Let's do a 90-day test on your local SEO or content strategy and measure the difference."
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-title">Objection: "Your pricing is too high"</div>
+                    <div class="objection-response">
+                        <strong>Response:</strong> "Let's talk ROI, not just cost. At $2,000/month, you're investing $24K/year. If we bring in 8-12 new clients annually that spend $1,500/year with you, that's $12K–$18K in new revenue per year for 5+ years (average pet owner loyalty). Your payback is under 18 months, and the lifetime value is $60K–$90K per practice. We charge premium prices because we deliver premium results. Want to see the math on your specific practice?"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>12 Discovery Questions</h2>
+
+            <div class="question-grid">
+                <div class="question-card">
+                    <div class="question-text">1. How many new clients does your practice acquire per month?</div>
+                    <div class="question-detail">Establishes baseline for ROI calculation and growth opportunity</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">2. What's your primary source of new clients today?</div>
+                    <div class="question-detail">Identifies opportunities to diversify or strengthen referral channels</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">3. How visible are your DVMs online compared to competitors?</div>
+                    <div class="question-detail">Opens DVM Credibility as a strategic differentiator</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">4. Do your veterinarians have Fear Free, AAHA, or specialty certifications?</div>
+                    <div class="question-detail">Identifies certification-based marketing opportunity</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">5. Are any corporate chains (VCA, Banfield, BluePearl) competing in your market?</div>
+                    <div class="question-detail">Uncovers urgency and Vet Lock positioning relevance</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">6. Is your practice growing organically, through acquisition, or both?</div>
+                    <div class="question-detail">Determines if Pet Group operation is relevant</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">7. How much are you currently spending on marketing monthly?</div>
+                    <div class="question-detail">Establishes budget baseline and pricing tier</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">8. What's your biggest frustration with your current marketing?</div>
+                    <div class="question-detail">Uncovers pain points and switching triggers</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">9. How long do your clients typically stay with you?</div>
+                    <div class="question-detail">Validates long-term LTV and retention opportunity</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">10. If you could own your local market completely, what would that mean for your practice?</div>
+                    <div class="question-detail">Tests appetite for Vet Lock exclusive positioning</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">11. Are you concerned about losing clients to corporate chains?</div>
+                    <div class="question-detail">Validates corporate defense positioning and competitive urgency</div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-text">12. What would success look like for you in the next 12 months?</div>
+                    <div class="question-detail">Aligns ekwa strategy with practice goals and long-term vision</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: #f0f4ff; padding: 24px; border-radius: 8px; border-left: 4px solid #0066cc;">
+            <h3 style="color: #0066cc; margin-bottom: 12px;">Using This Battlecard</h3>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 12px;">Print this page to PDF for in-call reference. Use the comparison table to quickly position ekwa against top competitors. Reference objection handlers when resistance arises. Use discovery questions to uncover pain points and identify which maneuver (Vet Lock, DVM Credibility, or Pet Group) is most relevant.</p>
+            <p style="color: #555; line-height: 1.6;"><strong>Key tactic:</strong> Always lead with discovery questions before pitching solutions. Practices that identify their own pain points close faster than those pitched solutions unprompted.</p>
+        </div>
+    </div>
+</body>
+</html>

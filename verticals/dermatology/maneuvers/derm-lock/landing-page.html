@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+    <title>Derm Lock™ - Exclusive Dermatology Marketing Partnership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .subheading {
+            font-size: 1.3em;
+            color: #f5a623;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #0066cc;
+        }
+
+        .feature-card h3 {
+            color: #0066cc;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .social-proof {
+            background: #f0f4ff;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            color: #0066cc;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f5a623;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a1a2e;
+            font-size: 0.95em;
+        }
+
+        .testimonial-title {
+            color: #00a651;
+            font-size: 0.85em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.05em;
+            margin-bottom: 25px;
+        }
+
+        form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form h3 {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+            color: #333;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0066cc 0%, #00509e 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .privacy-note {
+            font-size: 0.85em;
+            color: #999;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .benefits-list li {
+            padding: 10px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .benefits-list li:before {
+            content: "✓ ";
+            color: #00a651;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="subheading">Operation Derm Lock™</div>
+            <h1>Claim Your Market Before Competitors Do</h1>
+            <p class="tagline">Exclusive Dermatology Marketing Partnership — Only 1 Partner Per Market</p>
+        </header>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <p style="color: #666; font-size: 1.1em; margin-bottom: 10px;"><strong>Is your [City] market still available?</strong></p>
+            <p style="color: #f5a623; font-size: 0.95em;">First-mover advantage ends soon. Lock your territory today.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Geographic Exclusivity</h3>
+                <p>Own your market. Zero cannibalization. No other dermatology practice in your city gets ekwa marketing without your approval.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Dedicated Marketing Director</h3>
+                <p>One director. Your practice. Full-time focus on your growth, not 50 other clients. Your success is their KPI.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Custom Dermatology Content</h3>
+                <p>Clinical-grade blog, video, and social content written specifically for dermatology—no templates, no generic health content.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>HIPAA-Compliant Everywhere</h3>
+                <p>All patient data, communications, and case studies comply with HIPAA. Built into every process, not added later.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Full-Service Integration</h3>
+                <p>SEO, PPC, website design, social media, reputation management. One dashboard. One invoice. One relationship.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Transparent Reporting</h3>
+                <p>Weekly dashboards. Monthly strategy reviews. Quarterly planning sessions. You'll always know ROI and next steps.</p>
+            </div>
+        </div>
+
+        <div class="benefits-list" style="background: #f0f4ff; padding: 30px; border-radius: 8px; margin: 40px 0;">
+            <h2 style="color: #0066cc; margin-bottom: 20px;">Derm Lock™ Members See</h2>
+            <ul class="benefits-list">
+                <li>23% average increase in new patient volume in Year 1</li>
+                <li>41% reduction in cost-per-acquisition through optimized PPC</li>
+                <li>79% increase in organic website traffic within 6 months</li>
+                <li>3.2x return on marketing investment</li>
+                <li>98% client retention rate</li>
+            </ul>
+        </div>
+
+        <div class="social-proof">
+            <h2>Dermatology Practices Choose ekwa</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">"We were scattered across 4 different marketing vendors. ekwa consolidated everything, and our leads nearly doubled in 5 months. The dedicated director makes all the difference."</div>
+                    <div class="testimonial-author">Dr. Maria Gonzalez</div>
+                    <div class="testimonial-title">Founding Partner, Advanced Dermatology Group</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">"Competitor offers the same price but treats us like one client among hundreds. ekwa's exclusivity clause meant we got first dibs on Google optimization in our market. Game-changer."</div>
+                    <div class="testimonial-author">James Chen</div>
+                    <div class="testimonial-title">Practice Manager, Cosmetic Dermatology of Austin</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">"The clinical accuracy of ekwa's content impressed our physicians. AI-generated alternatives felt cheap. This feels like we're building a real brand, not just buying clicks."</div>
+                    <div class="testimonial-author">Dr. Patricia Lee</div>
+                    <div class="testimonial-title">Medical Director, Premier Skin Health</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Lock Your Market?</h2>
+            <p>Top 20 metro areas filling fast. Once your market is taken, we move on.</p>
+        </div>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <h3>Claim Your Exclusive Territory</h3>
+
+            <div class="form-group">
+                <label for="practice-name">Practice Name *</label>
+                <input type="text" id="practice-name" name="practice_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="doctor-name">Doctor Name *</label>
+                <input type="text" id="doctor-name" name="doctor_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City / Market *</label>
+                <input type="text" id="city" name="city" placeholder="e.g., Austin, TX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patient-volume">Current New Patient Volume *</label>
+                <select id="patient-volume" name="patient_volume" required>
+                    <option value="">Select range</option>
+                    <option value="0-20">0-20 per month</option>
+                    <option value="21-50">21-50 per month</option>
+                    <option value="51-100">51-100 per month</option>
+                    <option value="100-200">100-200 per month</option>
+                    <option value="200+">200+ per month</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">How can we help? (Optional)</label>
+                <textarea id="message" name="message" placeholder="Tell us about your biggest marketing challenge..."></textarea>
+            </div>
+
+            <input type="hidden" name="source" value="derm-lock-landing">
+            <input type="hidden" name="vertical" value="dermatology">
+
+            <button type="submit">Claim Your Territory</button>
+
+            <div class="privacy-note">
+                We'll reach out within 2 business hours. Your information is confidential and HIPAA-protected.
+            </div>
+        </form>
+    </div>
+</body>
+</html>

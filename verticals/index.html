@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <title>ekwa Competitive Intelligence — All Verticals</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+
+    /* Header */
+    .header { background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%); color: white; padding: 24px 40px; }
+    .header-inner { max-width: 1400px; margin: 0 auto; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .logo { font-size: 22px; font-weight: 800; color: #00a651; letter-spacing: -0.5px; }
+    .back-link { color: #aaa; text-decoration: none; font-size: 13px; }
+    .back-link:hover { color: white; }
+    .header h1 { font-size: 28px; font-weight: 700; }
+    .header p { color: #8892b0; margin-top: 6px; font-size: 14px; }
+
+    /* Confidential Banner */
+    .conf-banner { background: #fff3cd; border-left: 4px solid #f5a623; padding: 10px 40px; font-size: 13px; color: #7d5700; }
+    .conf-banner strong { color: #5a3e00; }
+
+    /* Stats Bar */
+    .stats-bar { background: white; border-bottom: 1px solid #e0e0e0; padding: 16px 40px; }
+    .stats-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 40px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-value { font-size: 22px; font-weight: 800; color: #0066cc; }
+    .stat-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+    /* Main Content */
+    .main { max-width: 1400px; margin: 0 auto; padding: 32px 40px; }
+
+    /* Summary Chart Section */
+    .summary-section { background: white; border-radius: 12px; padding: 28px; margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .summary-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: #1a1a2e; }
+    .chart-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .chart-container { position: relative; height: 260px; }
+
+    /* ARR Target Table */
+    .arr-summary { }
+    .arr-summary h3 { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 12px; }
+    .arr-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+    .arr-row:last-child { border-bottom: none; font-weight: 700; border-top: 2px solid #0066cc; padding-top: 12px; }
+    .arr-vertical { font-size: 13px; color: #333; }
+    .arr-value { font-size: 14px; font-weight: 700; color: #0066cc; }
+    .arr-row.total .arr-value { font-size: 18px; color: #00a651; }
+
+    /* Vertical Cards Grid */
+    .verticals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; margin-bottom: 32px; }
+
+    .vertical-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; display: block; }
+    .vertical-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
+    .card-header { padding: 20px 24px; color: white; position: relative; overflow: hidden; }
+    .card-header::after { content: ''; position: absolute; right: -20px; top: -20px; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+    .card-header.derm { background: linear-gradient(135deg, #1565c0, #0066cc); }
+    .card-header.medspa { background: linear-gradient(135deg, #6a1b9a, #9c27b0); }
+    .card-header.plastics { background: linear-gradient(135deg, #b71c1c, #e53935); }
+    .card-header.vet { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+    .card-header.ophtho { background: linear-gradient(135deg, #e65100, #f57c00); }
+
+    .card-emoji { font-size: 28px; margin-bottom: 8px; }
+    .card-title { font-size: 20px; font-weight: 800; }
+    .card-subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+
+    .card-stats { display: grid; grid-template-columns: repeat(3, 1fr); padding: 16px 24px; border-bottom: 1px solid #f0f0f0; gap: 8px; }
+    .card-stat { text-align: center; }
+    .card-stat-val { font-size: 15px; font-weight: 800; color: #0066cc; }
+    .card-stat-lbl { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.3px; margin-top: 2px; }
+
+    .card-body { padding: 16px 24px; }
+    .card-body h4 { font-size: 12px; text-transform: uppercase; color: #888; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .maneuver-list { list-style: none; }
+    .maneuver-list li { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #f8f8f8; font-size: 13px; }
+    .maneuver-list li:last-child { border-bottom: none; }
+    .maneuver-name { color: #333; font-weight: 500; }
+    .maneuver-arr { color: #00a651; font-weight: 700; font-size: 12px; }
+
+    .card-footer { padding: 14px 24px; background: #f8f9fa; display: flex; align-items: center; justify-content: space-between; }
+    .view-btn { background: #0066cc; color: white; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .view-btn:hover { background: #0052a3; }
+    .competitor-count { font-size: 12px; color: #888; }
+
+    /* Quick Access Section */
+    .quick-access { background: white; border-radius: 12px; padding: 28px; margin-bottom: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .quick-access h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .quick-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .quick-link { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #f8f9fa; border-radius: 8px; text-decoration: none; color: #333; font-size: 13px; font-weight: 500; transition: background 0.2s; }
+    .quick-link:hover { background: #e8f0fe; color: #0066cc; }
+    .quick-link .icon { font-size: 18px; }
+
+    /* Total ARR Banner */
+    .arr-banner { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 12px; padding: 28px 40px; text-align: center; margin-bottom: 32px; }
+    .arr-banner h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: #8892b0; margin-bottom: 8px; }
+    .arr-total { font-size: 56px; font-weight: 900; color: #00a651; line-height: 1; }
+    .arr-banner p { color: #8892b0; margin-top: 8px; font-size: 14px; }
+    .arr-breakdown { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; }
+    .arr-item { text-align: center; }
+    .arr-item-val { font-size: 22px; font-weight: 700; color: white; }
+    .arr-item-lbl { font-size: 12px; color: #8892b0; margin-top: 4px; }
+
+    /* Back to dentistry link */
+    .dentistry-link { background: white; border-radius: 12px; padding: 20px 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: inherit; margin-bottom: 24px; transition: box-shadow 0.2s; }
+    .dentistry-link:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .dentistry-left { display: flex; align-items: center; gap: 14px; }
+    .dentistry-icon { font-size: 32px; }
+    .dentistry-text h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+    .dentistry-text p { font-size: 13px; color: #666; margin-top: 2px; }
+    .dentistry-arrow { font-size: 20px; color: #0066cc; }
+
+    @media (max-width: 768px) {
+      .header { padding: 16px 20px; }
+      .main { padding: 20px; }
+      .stats-inner { gap: 20px; }
+      .chart-grid { grid-template-columns: 1fr; }
+      .verticals-grid { grid-template-columns: 1fr; }
+      .arr-breakdown { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo">ekwa.com</div>
+      <a href="../index.html" class="back-link">← Back to Dentistry Dashboard</a>
+    </div>
+    <h1>Healthcare Verticals — Competitive Intelligence Hub</h1>
+    <p>All 5 expansion verticals: Dermatology, MedSpa, Plastic Surgery, Veterinary, Ophthalmology</p>
+  </div>
+</div>
+
+<div class="conf-banner">
+  <strong>⚠️ CONFIDENTIAL:</strong> Internal ekwa.com use only. Not for distribution. Contains proprietary competitive intelligence.
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-value">6</div><div class="stat-label">Active Verticals</div></div>
+    <div class="stat"><div class="stat-value">5</div><div class="stat-label">New Verticals</div></div>
+    <div class="stat"><div class="stat-value">45</div><div class="stat-label">Competitors Analyzed</div></div>
+    <div class="stat"><div class="stat-value">15</div><div class="stat-label">Strategic Maneuvers</div></div>
+    <div class="stat"><div class="stat-value">$11.5M</div><div class="stat-label">Combined ARR Target</div></div>
+    <div class="stat"><div class="stat-value">50</div><div class="stat-label">HTML Assets</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Total ARR Banner -->
+  <div class="arr-banner">
+    <h2>Combined ARR Target — All Verticals</h2>
+    <div class="arr-total">$11.5M</div>
+    <p>Across 6 healthcare specialties in 18–24 months</p>
+    <div class="arr-breakdown">
+      <div class="arr-item"><div class="arr-item-val">$1.8M</div><div class="arr-item-lbl">Dermatology</div></div>
+      <div class="arr-item"><div class="arr-item-val">$2.0M</div><div class="arr-item-lbl">MedSpa</div></div>
+      <div class="arr-item"><div class="arr-item-val">$2.7M</div><div class="arr-item-lbl">Plastic Surgery</div></div>
+      <div class="arr-item"><div class="arr-item-val">$1.5M</div><div class="arr-item-lbl">Veterinary</div></div>
+      <div class="arr-item"><div class="arr-item-val">$1.8M</div><div class="arr-item-lbl">Ophthalmology</div></div>
+      <div class="arr-item"><div class="arr-item-val">$1.7M</div><div class="arr-item-lbl">Dentistry</div></div>
+    </div>
+  </div>
+
+  <!-- Summary Charts -->
+  <div class="summary-section">
+    <h2>Market Overview — All Verticals</h2>
+    <div class="chart-grid">
+      <div class="chart-container">
+        <canvas id="marketChart"></canvas>
+      </div>
+      <div class="arr-summary">
+        <h3>ARR Targets by Vertical</h3>
+        <div class="arr-row"><span class="arr-vertical">🔬 Dermatology</span><span class="arr-value">$1.8M</span></div>
+        <div class="arr-row"><span class="arr-vertical">💅 MedSpa</span><span class="arr-value">$2.0M</span></div>
+        <div class="arr-row"><span class="arr-vertical">✂️ Plastic Surgery</span><span class="arr-value">$2.7M</span></div>
+        <div class="arr-row"><span class="arr-vertical">🐾 Veterinary</span><span class="arr-value">$1.5M</span></div>
+        <div class="arr-row"><span class="arr-vertical">👁️ Ophthalmology</span><span class="arr-value">$1.8M</span></div>
+        <div class="arr-row"><span class="arr-vertical">🦷 Dentistry</span><span class="arr-value">$1.7M</span></div>
+        <div class="arr-row total"><span class="arr-vertical">TOTAL TARGET</span><span class="arr-value">$11.5M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dentistry Link -->
+  <a href="../index.html" class="dentistry-link">
+    <div class="dentistry-left">
+      <div class="dentistry-icon">🦷</div>
+      <div class="dentistry-text">
+        <h3>Dentistry Dashboard</h3>
+        <p>Original vertical — competitor teardowns, maneuvers, live tools, and implementation playbooks</p>
+      </div>
+    </div>
+    <div class="dentistry-arrow">→</div>
+  </a>
+
+  <!-- Vertical Cards -->
+  <div class="verticals-grid">
+
+    <!-- Dermatology -->
+    <a href="dermatology/index.html" class="vertical-card">
+      <div class="card-header derm">
+        <div class="card-emoji">🔬</div>
+        <div class="card-title">Dermatology</div>
+        <div class="card-subtitle">$1.85B market · 6.94% CAGR · $10K max spend/mo</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-val">9</div><div class="card-stat-lbl">Competitors</div></div>
+        <div class="card-stat"><div class="card-stat-val">$1.8M</div><div class="card-stat-lbl">ARR Target</div></div>
+        <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-lbl">Maneuvers</div></div>
+      </div>
+      <div class="card-body">
+        <h4>Strategic Maneuvers</h4>
+        <ul class="maneuver-list">
+          <li><span class="maneuver-name">Operation Derm Lock™</span><span class="maneuver-arr">$800K ARR</span></li>
+          <li><span class="maneuver-name">Operation AI Derm Shield™</span><span class="maneuver-arr">$600K ARR</span></li>
+          <li><span class="maneuver-name">Operation Multi-Specialty Bridge™</span><span class="maneuver-arr">$400K ARR</span></li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <span class="competitor-count">Intrepy · DoctorLogic · PatientGain · Tebra + 5 more</span>
+        <span class="view-btn">View Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- MedSpa -->
+    <a href="medspa/index.html" class="vertical-card">
+      <div class="card-header medspa">
+        <div class="card-emoji">💅</div>
+        <div class="card-title">MedSpa</div>
+        <div class="card-subtitle">$21.4B market · 15.13% CAGR · Highest growth vertical</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-val">8</div><div class="card-stat-lbl">Competitors</div></div>
+        <div class="card-stat"><div class="card-stat-val">$2.0M</div><div class="card-stat-lbl">ARR Target</div></div>
+        <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-lbl">Maneuvers</div></div>
+      </div>
+      <div class="card-body">
+        <h4>Strategic Maneuvers</h4>
+        <ul class="maneuver-list">
+          <li><span class="maneuver-name">Operation Spa Lock™</span><span class="maneuver-arr">$900K ARR</span></li>
+          <li><span class="maneuver-name">Operation Aesthetic Authority™</span><span class="maneuver-arr">$500K ARR</span></li>
+          <li><span class="maneuver-name">Operation Med-Derm Bridge™</span><span class="maneuver-arr">$600K ARR</span></li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <span class="competitor-count">Diamond Accelerator · Influx · Growth99 + 5 more</span>
+        <span class="view-btn">View Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- Plastic Surgery -->
+    <a href="plastic-surgery/index.html" class="vertical-card">
+      <div class="card-header plastics">
+        <div class="card-emoji">✂️</div>
+        <div class="card-title">Plastic Surgery</div>
+        <div class="card-subtitle">$159B market · 10.8% CAGR · $20K+ patient LTV</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-val">8</div><div class="card-stat-lbl">Competitors</div></div>
+        <div class="card-stat"><div class="card-stat-val">$2.7M</div><div class="card-stat-lbl">ARR Target</div></div>
+        <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-lbl">Maneuvers</div></div>
+      </div>
+      <div class="card-body">
+        <h4>Strategic Maneuvers</h4>
+        <ul class="maneuver-list">
+          <li><span class="maneuver-name">Operation Surgeon Lock™</span><span class="maneuver-arr">$1.2M ARR</span></li>
+          <li><span class="maneuver-name">Operation Procedure Authority™</span><span class="maneuver-arr">$700K ARR</span></li>
+          <li><span class="maneuver-name">Operation Cosmetic Group™</span><span class="maneuver-arr">$800K ARR</span></li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <span class="competitor-count">Position Results · Nuvolum · PS Studios + 5 more</span>
+        <span class="view-btn">View Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- Veterinary -->
+    <a href="veterinary/index.html" class="vertical-card">
+      <div class="card-header vet">
+        <div class="card-emoji">🐾</div>
+        <div class="card-title">Veterinary</div>
+        <div class="card-subtitle">$65.9B market · 6.7% CAGR · Corporate vs. independent battle</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-val">8</div><div class="card-stat-lbl">Competitors</div></div>
+        <div class="card-stat"><div class="card-stat-val">$1.5M</div><div class="card-stat-lbl">ARR Target</div></div>
+        <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-lbl">Maneuvers</div></div>
+      </div>
+      <div class="card-body">
+        <h4>Strategic Maneuvers</h4>
+        <ul class="maneuver-list">
+          <li><span class="maneuver-name">Operation Vet Lock™</span><span class="maneuver-arr">$600K ARR</span></li>
+          <li><span class="maneuver-name">Operation DVM Credibility™</span><span class="maneuver-arr">$400K ARR</span></li>
+          <li><span class="maneuver-name">Operation Pet Group™</span><span class="maneuver-arr">$500K ARR</span></li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <span class="competitor-count">Cardinal · GeniusVets · PetDesk + 5 more</span>
+        <span class="view-btn">View Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- Ophthalmology -->
+    <a href="ophthalmology/index.html" class="vertical-card">
+      <div class="card-header ophtho">
+        <div class="card-emoji">👁️</div>
+        <div class="card-title">Ophthalmology</div>
+        <div class="card-subtitle">$77.1B market · 6.4% CAGR · LASIK + dry eye boom</div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-val">10</div><div class="card-stat-lbl">Competitors</div></div>
+        <div class="card-stat"><div class="card-stat-val">$1.8M</div><div class="card-stat-lbl">ARR Target</div></div>
+        <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-lbl">Maneuvers</div></div>
+      </div>
+      <div class="card-body">
+        <h4>Strategic Maneuvers</h4>
+        <ul class="maneuver-list">
+          <li><span class="maneuver-name">Operation Vision Lock™</span><span class="maneuver-arr">$700K ARR</span></li>
+          <li><span class="maneuver-name">Operation Eye Authority™</span><span class="maneuver-arr">$500K ARR</span></li>
+          <li><span class="maneuver-name">Operation Vision Group™</span><span class="maneuver-arr">$600K ARR</span></li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <span class="competitor-count">EyeCarePro · EyeMDPro · iMatrix + 7 more</span>
+        <span class="view-btn">View Dashboard →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Quick Access Links -->
+  <div class="quick-access">
+    <h2>Quick Access — All Tools & Resources</h2>
+    <div class="quick-grid">
+      <a href="dermatology/tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>Derm ROI Calculator</a>
+      <a href="medspa/tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>MedSpa ROI Calculator</a>
+      <a href="plastic-surgery/tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>Plastics ROI Calculator</a>
+      <a href="veterinary/tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>Vet ROI Calculator</a>
+      <a href="ophthalmology/tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>Ophtho ROI Calculator</a>
+      <a href="../tools/roi-calculator.html" class="quick-link"><span class="icon">🧮</span>Dental ROI Calculator</a>
+      <a href="dermatology/tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>Derm Battlecard</a>
+      <a href="medspa/tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>MedSpa Battlecard</a>
+      <a href="plastic-surgery/tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>Plastics Battlecard</a>
+      <a href="veterinary/tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>Vet Battlecard</a>
+      <a href="ophthalmology/tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>Ophtho Battlecard</a>
+      <a href="../tools/battlecard.html" class="quick-link"><span class="icon">⚔️</span>Dental Battlecard</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Market Size Chart
+  const ctx = document.getElementById('marketChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Plastic Surgery', 'Ophthalmology', 'Veterinary', 'MedSpa', 'Dermatology'],
+      datasets: [{
+        label: 'Market Size ($B)',
+        data: [159, 77.1, 65.9, 21.4, 1.85],
+        backgroundColor: ['#e53935', '#f57c00', '#2e7d32', '#9c27b0', '#0066cc'],
+        borderRadius: 6,
+      }, {
+        label: 'CAGR (%)',
+        data: [10.8, 6.4, 6.7, 15.13, 6.94],
+        backgroundColor: ['rgba(229,57,53,0.3)', 'rgba(245,124,0,0.3)', 'rgba(46,125,50,0.3)', 'rgba(156,39,176,0.3)', 'rgba(0,102,204,0.3)'],
+        borderRadius: 6,
+        yAxisID: 'y2',
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 } } },
+        title: { display: true, text: 'Market Size ($B) vs CAGR by Vertical', font: { size: 13, weight: '600' } }
+      },
+      scales: {
+        y: { beginAtZero: true, title: { display: true, text: 'Market Size ($B)', font: { size: 11 } } },
+        y2: { position: 'right', beginAtZero: true, title: { display: true, text: 'CAGR (%)', font: { size: 11 } }, grid: { drawOnChartArea: false } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

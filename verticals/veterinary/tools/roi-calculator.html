@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Veterinary Practice ROI Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8f9fa; color: #333; }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { opacity: 0.95; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .calculator-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .calculator-section h2 { font-size: 20px; color: #0066cc; margin-bottom: 20px; }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .result-item {
+            padding: 16px;
+            background: #f5f7fa;
+            border-radius: 4px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .result-label { font-size: 12px; color: #666; text-transform: uppercase; margin-bottom: 4px; }
+        .result-value { font-size: 22px; font-weight: bold; color: #0066cc; }
+        .result-subtext { font-size: 12px; color: #999; margin-top: 4px; }
+
+        .scenarios-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .scenario-card {
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .scenario-card:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+        }
+
+        .scenario-card.active {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-color: #00a651;
+        }
+
+        .scenario-name { font-weight: 600; color: #1a1a2e; margin-bottom: 8px; }
+        .scenario-growth { font-size: 20px; font-weight: bold; color: #0066cc; margin-bottom: 8px; }
+        .scenario-desc { font-size: 12px; color: #666; }
+
+        .projection-chart {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 30px 0;
+            position: relative;
+            height: 300px;
+        }
+
+        .lead-form-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #00a651;
+        }
+
+        .lead-form-section h3 { color: #1b5e20; margin-bottom: 16px; }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-submit:hover { background: #0052a3; }
+
+        @media (max-width: 768px) {
+            .calculator-grid { grid-template-columns: 1fr; }
+            .scenario-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Veterinary Practice ROI Calculator</h1>
+        <p>See how ekwa's marketing strategy impacts your practice revenue</p>
+    </div>
+
+    <div class="container">
+        <div class="calculator-grid">
+            <div class="calculator-section">
+                <h2>Practice Profile</h2>
+
+                <div class="form-group">
+                    <label for="practice-type">Practice Type *</label>
+                    <select id="practice-type" onchange="calculateROI()">
+                        <option value="">Select...</option>
+                        <option value="general">General Practice</option>
+                        <option value="emergency">Emergency/Specialty</option>
+                        <option value="mixed">Mixed (General + Specialty)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="locations">Number of Locations *</label>
+                    <select id="locations" onchange="calculateROI()">
+                        <option value="">Select...</option>
+                        <option value="1">1 Location</option>
+                        <option value="2">2 Locations</option>
+                        <option value="3">3 Locations</option>
+                        <option value="4">4 Locations</option>
+                        <option value="5">5+ Locations</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="current-clients">New Clients Per Month (Current) *</label>
+                    <input type="number" id="current-clients" value="15" min="5" max="200" onchange="calculateROI()" placeholder="e.g., 15">
+                </div>
+
+                <div class="form-group">
+                    <label for="current-spend">Current Monthly Marketing Spend *</label>
+                    <input type="number" id="current-spend" value="1500" min="0" max="10000" onchange="calculateROI()" placeholder="e.g., 1500">
+                </div>
+            </div>
+
+            <div class="calculator-section">
+                <h2>Revenue Assumptions</h2>
+
+                <div class="form-group">
+                    <label for="household-spend">Average Annual Spend Per Household *</label>
+                    <input type="range" id="household-spend" min="800" max="2500" value="1500" onchange="updateSliderDisplay(this); calculateROI()" style="width: 100%;">
+                    <div style="text-align: center; margin-top: 8px; color: #0066cc; font-weight: 600;">$<span id="household-display">1500</span>/year</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">Veterinary industry avg: $800–$2,500</div>
+                </div>
+
+                <div class="form-group" style="margin-top: 24px;">
+                    <label for="ekwa-pricing">ekwa Pricing Tier</label>
+                    <select id="ekwa-pricing" onchange="calculateROI()">
+                        <option value="">Select based on profile</option>
+                        <option value="1500">Starter: $1,500/month</option>
+                        <option value="2000">Growth: $2,000/month</option>
+                        <option value="2500">Premium: $2,500/month</option>
+                        <option value="3000">Enterprise: $3,000/month</option>
+                    </select>
+                </div>
+
+                <div style="background: #f0f4ff; padding: 16px; border-radius: 4px; margin-top: 20px; font-size: 13px; color: #444; line-height: 1.6;">
+                    <strong>Pricing Note:</strong> ekwa pricing depends on practice complexity, current location count, and marketing intensity. Premium pricing reflects dedicated director + full-funnel strategy (SEO, PPC, content, reputation).
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-section">
+            <h2 style="margin-bottom: 24px;">ROI Summary</h2>
+
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-label">Projected New Clients/Month</div>
+                    <div class="result-value" id="result-new-clients">0</div>
+                    <div class="result-subtext">Current: <span id="result-current-clients">15</span></div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Monthly Client Increase</div>
+                    <div class="result-value" id="result-client-growth">0%</div>
+                    <div class="result-subtext">Additional households</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Annual Revenue Impact</div>
+                    <div class="result-value" id="result-annual-impact">$0</div>
+                    <div class="result-subtext">New client lifetime value</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Year 1 Net Gain</div>
+                    <div class="result-value" id="result-net-gain">$0</div>
+                    <div class="result-subtext">After ekwa investment</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">Payback Period</div>
+                    <div class="result-value" id="result-payback">0</div>
+                    <div class="result-subtext">months to break even</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-label">3-Year Revenue Impact</div>
+                    <div class="result-value" id="result-3year">$0</div>
+                    <div class="result-subtext">Cumulative new revenue</div>
+                </div>
+            </div>
+
+            <div class="scenarios-section">
+                <h3 style="margin-bottom: 16px; color: #1a1a2e;">Growth Scenarios</h3>
+                <p style="margin-bottom: 16px; font-size: 14px; color: #666;">Select a scenario to see different growth projections:</p>
+
+                <div class="scenario-grid">
+                    <div class="scenario-card active" onclick="selectScenario('conservative')">
+                        <div class="scenario-name">Conservative</div>
+                        <div class="scenario-growth">+18%</div>
+                        <div class="scenario-desc">Modest increase in client acquisition</div>
+                    </div>
+
+                    <div class="scenario-card" onclick="selectScenario('moderate')">
+                        <div class="scenario-name">Moderate</div>
+                        <div class="scenario-growth">+35%</div>
+                        <div class="scenario-desc">Strong improvement in visibility</div>
+                    </div>
+
+                    <div class="scenario-card" onclick="selectScenario('aggressive')">
+                        <div class="scenario-name">Aggressive</div>
+                        <div class="scenario-growth">+55%</div>
+                        <div class="scenario-desc">Market dominance position</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projection-chart">
+                <canvas id="projectionChart"></canvas>
+            </div>
+        </div>
+
+        <div class="lead-form-section">
+            <h3>Get Your Personalized ROI Report</h3>
+            <p style="margin-bottom: 20px; color: #555;">Receive a detailed analysis of your practice's growth potential with ekwa, including 90-day milestones and year-one projections.</p>
+
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="source" value="roi-calculator">
+                <input type="hidden" name="vertical" value="veterinary">
+                <input type="hidden" id="form-scenario" name="scenario" value="">
+                <input type="hidden" id="form-results" name="results" value="">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div class="form-group">
+                        <label for="form-name">Your Name *</label>
+                        <input type="text" id="form-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email *</label>
+                        <input type="email" id="form-email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-phone">Phone *</label>
+                    <input type="tel" id="form-phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-practice">Practice Name *</label>
+                    <input type="text" id="form-practice" name="practice" required>
+                </div>
+
+                <button type="submit" class="form-submit">Send My ROI Report</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentScenario = 'conservative';
+
+        function updateSliderDisplay(slider) {
+            document.getElementById('household-display').textContent = slider.value;
+        }
+
+        function selectScenario(scenario) {
+            currentScenario = scenario;
+            document.querySelectorAll('.scenario-card').forEach(card => card.classList.remove('active'));
+            event.target.closest('.scenario-card').classList.add('active');
+            calculateROI();
+            document.getElementById('form-scenario').value = scenario;
+        }
+
+        function calculateROI() {
+            const practiceType = document.getElementById('practice-type').value;
+            const locations = parseInt(document.getElementById('locations').value) || 1;
+            const currentClients = parseInt(document.getElementById('current-clients').value) || 15;
+            const householdSpend = parseInt(document.getElementById('household-spend').value) || 1500;
+            const currentSpend = parseInt(document.getElementById('current-spend').value) || 1500;
+            const ekwaPricing = parseInt(document.getElementById('ekwa-pricing').value) || 0;
+
+            if (!practiceType || !locations) return;
+
+            // Scenario growth rates
+            const scenarioGrowth = {
+                conservative: 0.18,
+                moderate: 0.35,
+                aggressive: 0.55
+            };
+
+            const growthRate = scenarioGrowth[currentScenario];
+            const newClients = Math.round(currentClients * growthRate);
+            const totalClients = currentClients + newClients;
+
+            // Financial calculations
+            const monthlyRevenue = newClients * householdSpend;
+            const annualRevenue = monthlyRevenue * 12;
+            const monthlyEkwaCost = ekwaPricing || 2000;
+            const annualEkwaCost = monthlyEkwaCost * 12;
+            const monthlyNetGain = monthlyRevenue - monthlyEkwaCost;
+            const annualNetGain = annualRevenue - annualEkwaCost;
+            const paybackMonths = monthlyNetGain > 0 ? Math.ceil(monthlyEkwaCost / monthlyNetGain) : 0;
+            const threeYearRevenue = (annualRevenue * 3) - (annualEkwaCost * 3);
+
+            // Update display
+            document.getElementById('result-new-clients').textContent = totalClients;
+            document.getElementById('result-current-clients').textContent = currentClients;
+            document.getElementById('result-client-growth').textContent = Math.round(growthRate * 100) + '%';
+            document.getElementById('result-annual-impact').textContent = '$' + annualRevenue.toLocaleString();
+            document.getElementById('result-net-gain').textContent = '$' + annualNetGain.toLocaleString();
+            document.getElementById('result-payback').textContent = paybackMonths + ' mo';
+            document.getElementById('result-3year').textContent = '$' + threeYearRevenue.toLocaleString();
+
+            // Update form hidden fields
+            document.getElementById('form-results').value = `Growth: ${growthRate * 100}% | New Clients: ${newClients}/month | Annual Impact: $${annualRevenue} | 3-Year: $${threeYearRevenue}`;
+
+            // Update chart
+            updateChart(currentClients, totalClients, householdSpend, monthlyEkwaCost);
+        }
+
+        function updateChart(currentClients, projectedClients, householdSpend, monthlyEkwaCost) {
+            const ctx = document.getElementById('projectionChart');
+            if (!ctx || !ctx.getContext) return;
+
+            const months = [];
+            const revenueData = [];
+            const costData = [];
+
+            for (let month = 0; month <= 36; month++) {
+                months.push('Month ' + month);
+                const clientsAtMonth = currentClients + Math.round((projectedClients - currentClients) * (month / 12));
+                const monthlyRev = clientsAtMonth * householdSpend;
+                const monthlyCost = monthlyEkwaCost * month;
+                revenueData.push(monthlyRev);
+                costData.push(monthlyCost);
+            }
+
+            if (window.projectionChartInstance) {
+                window.projectionChartInstance.destroy();
+            }
+
+            window.projectionChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months.filter((_, i) => i % 3 === 0), // Show every 3rd month
+                    datasets: [
+                        {
+                            label: 'Monthly Client Revenue',
+                            data: revenueData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#00a651',
+                            backgroundColor: 'rgba(0, 166, 81, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'ekwa Monthly Cost',
+                            data: costData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#0066cc',
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: (value) => '$' + (value / 1000).toFixed(0) + 'k' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize
+        calculateROI();
+    </script>
+</body>
+</html>
