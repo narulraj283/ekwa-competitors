@@ -1,632 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Plastic Surgery Competitive Intelligence Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="bingbot" content="noindex, nofollow">
+<meta name="slurp" content="noindex, nofollow">
+<meta name="GPTBot" content="noindex, nofollow">
+<meta name="CCBot" content="noindex, nofollow">
+<meta name="anthropic-ai" content="noindex, nofollow">
+<meta name="PerplexityBot" content="noindex, nofollow">
+<title>Ekwa — Plastic Surgery Competitor Intelligence Dashboard 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ekwa: #922B21; --mid: #C0392B; --light: #FDEDEC;
+    --red: #922B21; --amber: #F39C12; --green: #1E8449;
+    --dark: #2C3E50; --gray: #7F8C8D; --lightgray: #F8F9FA;
+    --white: #FFFFFF; --border: #BDC3C7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #F0F4F8; color: var(--dark); }
 
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid #00a651;
-        }
-        .header h1 { font-size: 32px; margin-bottom: 10px; }
-        .header p { font-size: 16px; opacity: 0.95; }
+  /* HEADER */
+  .header { background: var(--ekwa); color: white; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+  .header .badge { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 6px 14px; font-size: 12px; }
 
-        .back-link { display: inline-block; margin: 20px 40px; color: #0066cc; text-decoration: none; font-weight: 600; }
-        .back-link:hover { text-decoration: underline; }
+  /* NAV TABS */
+  .nav-tabs { background: var(--dark); display: flex; gap: 2px; padding: 0 24px; overflow-x: auto; }
+  .nav-tab { padding: 12px 20px; cursor: pointer; font-size: 13px; color: rgba(255,255,255,0.65); border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
+  .nav-tab:hover { color: white; background: rgba(255,255,255,0.05); }
+  .nav-tab.active { color: white; border-bottom-color: #F1948A; background: rgba(255,255,255,0.08); }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 30px 40px;
-            background: white;
-            margin: 0 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-        }
-        .stat-card .value { font-size: 28px; font-weight: 700; margin-bottom: 5px; }
-        .stat-card .label { font-size: 13px; opacity: 0.9; }
+  /* MAIN CONTENT */
+  .content { max-width: 1400px; margin: 0 auto; padding: 24px; }
+  .page { display: none; }
+  .page.active { display: block; }
 
-        .tabs {
-            display: flex;
-            background: white;
-            border-bottom: 2px solid #e0e0e0;
-            margin: 0 40px;
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-        }
-        .tab-btn {
-            flex: 1;
-            padding: 15px 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #666;
-            transition: all 0.3s;
-        }
-        .tab-btn:hover { background: #f5f5f5; }
-        .tab-btn.active { color: #0066cc; border-bottom: 3px solid #0066cc; }
+  /* CARDS */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border-top: 4px solid var(--ekwa); }
+  .stat-card.red { border-top-color: var(--red); }
+  .stat-card.amber { border-top-color: var(--amber); }
+  .stat-card.green { border-top-color: var(--green); }
+  .stat-card .num { font-size: 36px; font-weight: 800; color: var(--ekwa); line-height: 1; }
+  .stat-card.red .num { color: var(--red); }
+  .stat-card.amber .num { color: var(--amber); }
+  .stat-card.green .num { color: var(--green); }
+  .stat-card .label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 6px; font-weight: 600; }
+  .stat-card .sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
 
-        .tab-content {
-            display: none;
-            padding: 30px 40px;
-            background: white;
-            margin: 0 40px 40px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .tab-content.active { display: block; }
+  /* GRID LAYOUTS */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .chart-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+  .chart-card h3 { font-size: 14px; color: var(--dark); margin-bottom: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--light); padding-bottom: 8px; }
 
-        .chart-container { position: relative; height: 400px; margin-bottom: 30px; }
+  /* TABLE */
+  .table-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; overflow-x: auto; }
+  .table-card h3 { font-size: 14px; color: var(--dark); margin-bottom: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: var(--ekwa); color: white; padding: 10px 12px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: var(--lightgray); }
+  tbody tr:hover { background: var(--light); }
+  tbody td { padding: 9px 12px; border-bottom: 1px solid #EEE; vertical-align: top; line-height: 1.4; }
+  .threat-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .threat-HIGH { background: #FADBD8; color: var(--red); }
+  .threat-MEDIUM { background: #FEF9E7; color: #D68910; }
+  .threat-LOW { background: #EAFAF1; color: var(--green); }
+  .comp-name { font-weight: 700; color: var(--ekwa); }
+  .vuln-text { color: var(--red); font-size: 12px; }
 
-        .market-callout {
-            background: linear-gradient(135deg, #f5a623 0%, #ff8c42 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 6px;
-            margin: 20px 0;
-            font-weight: 600;
-        }
+  /* PLAYBOOK FILE CARDS */
+  .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #FEF5F4; border: 1px solid #F1948A; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(146,43,33,0.12); }
+  .playbook-file-card.live { background: #F0FFF4; border-color: #A9DFBF; }
+  .playbook-file-card.live:hover { background: #EAFAF1; border-color: var(--green); box-shadow: 0 3px 10px rgba(30,132,73,0.15); }
+  .pf-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+  .pf-info { flex: 1; min-width: 0; }
+  .pf-title { font-size: 13px; font-weight: 700; color: var(--ekwa); margin-bottom: 4px; }
+  .pf-title-live { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
+  .live-badge { font-size: 9px; font-weight: 800; background: var(--green); color: white; padding: 2px 5px; border-radius: 3px; letter-spacing: 0.5px; }
+  .pf-desc { font-size: 11px; color: var(--gray); line-height: 1.4; margin-bottom: 6px; }
+  .pf-tag { font-size: 10px; font-family: monospace; background: #FDEDEC; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+  .pf-tag-live { font-size: 10px; font-family: monospace; background: #EAFAF1; color: var(--green); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+  /* PARTIAL / CANNOT IMPLEMENT SECTIONS */
+  .impl-section { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
+  .impl-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
+  .impl-section .sub-note { font-size: 12px; color: var(--gray); margin-bottom: 18px; }
+  .impl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; }
+  .impl-card { border-radius: 8px; padding: 14px; }
+  .impl-card.partial { background: #FEF9E7; border: 1px solid #F9E79F; }
+  .impl-card.cannot { background: #FDEDEC; border: 1px solid #F1948A; }
+  .impl-card .ic-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .impl-card.partial .ic-title { color: #B7770D; }
+  .impl-card.cannot .ic-title { color: var(--red); }
+  .impl-card .ic-what { font-size: 11px; color: var(--gray); margin-bottom: 6px; line-height: 1.4; }
+  .impl-card .ic-needs { font-size: 11px; font-weight: 600; }
+  .impl-card.partial .ic-needs { color: #D68910; }
+  .impl-card.cannot .ic-needs { color: var(--red); }
 
-        .procedures {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .proc-card {
-            background: #f9f9f9;
-            border-left: 4px solid #00a651;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        .proc-card h4 { color: #0066cc; margin-bottom: 5px; }
-        .proc-card p { font-size: 13px; color: #666; }
+  /* COMPETITOR CARDS */
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .comp-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .comp-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .comp-card-header { padding: 14px 16px; color: white; position: relative; }
+  .comp-card-header.high { background: var(--red); }
+  .comp-card-header.medium { background: #D68910; }
+  .comp-card-header.low { background: var(--green); }
+  .comp-card-header h4 { font-size: 16px; font-weight: 700; }
+  .comp-card-header .threat-label { font-size: 10px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; }
+  .comp-card-header .client-count { position: absolute; right: 14px; top: 14px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 3px 8px; font-size: 11px; }
+  .comp-card-body { padding: 14px 16px; }
+  .comp-card-row { margin-bottom: 8px; }
+  .comp-card-row .ck { font-size: 10px; text-transform: uppercase; color: var(--gray); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .comp-card-row .cv { font-size: 12px; color: var(--dark); line-height: 1.4; }
+  .comp-card-row .cv.vuln { color: var(--red); }
+  .comp-card-row .cv.moat { color: var(--mid); }
+  .comp-card-footer { background: var(--lightgray); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gray); }
 
-        .competitor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .comp-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-        .comp-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); transform: translateY(-2px); }
+  /* FILTER BAR */
+  .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+  .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid var(--border); background: white; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--mid); color: var(--mid); }
+  .filter-btn.active { background: var(--ekwa); color: white; border-color: var(--ekwa); }
+  .filter-btn.all.active { background: var(--ekwa); }
+  .filter-btn.high.active { background: var(--red); border-color: var(--red); }
+  .filter-btn.medium.active { background: #D68910; border-color: #D68910; }
+  .filter-btn.low.active { background: var(--green); border-color: var(--green); }
 
-        .comp-header {
-            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
-            color: white;
-            padding: 15px;
-        }
-        .comp-name { font-weight: 700; font-size: 16px; margin-bottom: 5px; }
-        .threat-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .threat-high { background: rgba(255,87,51,0.3) !important; color: #ff5733; }
-        .threat-medium { background: rgba(255,166,0,0.3) !important; color: #ffa600; }
-        .threat-low { background: rgba(76,175,80,0.3) !important; color: #4caf50; }
+  /* MANEUVERS */
+  .maneuver-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
+  .maneuver-header { display: flex; align-items: stretch; }
+  .maneuver-num { width: 80px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: white; flex-shrink: 0; }
+  .man-1 .maneuver-num { background: var(--red); }
+  .man-2 .maneuver-num { background: var(--mid); }
+  .man-3 .maneuver-num { background: var(--green); }
+  .maneuver-title-block { padding: 16px 20px; flex: 1; }
+  .maneuver-title-block h3 { font-size: 18px; font-weight: 700; color: var(--dark); }
+  .maneuver-title-block p { font-size: 13px; color: var(--gray); margin-top: 4px; }
+  .maneuver-meta { display: flex; gap: 12px; margin-top: 8px; }
+  .meta-tag { background: var(--light); border-radius: 4px; padding: 3px 10px; font-size: 11px; color: var(--mid); font-weight: 600; }
+  .man-1 .meta-tag { background: #FADBD8; color: var(--red); }
+  .man-3 .meta-tag { background: #EAFAF1; color: var(--green); }
+  .maneuver-body { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .maneuver-actions { list-style: none; }
+  .maneuver-actions li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .action-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; flex-shrink: 0; }
+  .man-1 .action-num { background: var(--red); }
+  .man-2 .action-num { background: var(--mid); }
+  .man-3 .action-num { background: var(--green); }
+  .action-text { font-size: 13px; line-height: 1.5; color: var(--dark); }
+  .metric-box { background: #EAFAF1; border: 2px solid var(--green); border-radius: 8px; padding: 14px; }
+  .metric-box .mlabel { font-size: 11px; text-transform: uppercase; color: var(--green); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .metric-box .mval { font-size: 14px; color: var(--dark); font-weight: 600; line-height: 1.5; }
+  .kpi-list { margin-top: 14px; }
+  .kpi-list .kpi-item { display: flex; gap: 8px; margin-bottom: 7px; font-size: 12px; color: var(--dark); }
+  .kpi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mid); margin-top: 5px; flex-shrink: 0; }
 
-        .comp-body { padding: 15px; }
-        .comp-body p { font-size: 13px; margin-bottom: 8px; }
-        .comp-body strong { color: #1a1a2e; }
-        .comp-label { color: #0066cc; font-weight: 600; font-size: 12px; margin-top: 10px; display: block; }
+  /* POSITIONING MAP */
+  .pos-map-container { position: relative; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
+  .pos-map-container h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; color: var(--dark); border-bottom: 2px solid var(--light); padding-bottom: 8px; }
+  #posMap { width: 100%; max-height: 450px; }
 
-        .maneuver-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .maneuver-card {
-            background: linear-gradient(135deg, #f5a623 0%, #ff8c42 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .maneuver-card h3 { font-size: 18px; margin-bottom: 10px; }
-        .maneuver-arr { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
-        .maneuver-card p { font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
-        .maneuver-link { color: white; text-decoration: none; font-weight: 600; border-bottom: 2px solid white; }
-        .maneuver-link:hover { opacity: 0.9; }
+  /* SEARCH + SUMMARY */
+  .search-bar { padding: 9px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 14px; width: 280px; transition: border 0.2s; }
+  .search-bar:focus { outline: none; border-color: var(--mid); }
 
-        .client-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-        .client-table thead { background: #f0f0f0; }
-        .client-table th { padding: 12px; text-align: left; font-weight: 600; color: #1a1a2e; border-bottom: 2px solid #0066cc; }
-        .client-table td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
-        .client-table tr:hover { background: #f9f9f9; }
-        .switch-prob { font-weight: 600; }
-        .switch-high { color: #4caf50; }
-        .switch-medium { color: #ffa600; }
-        .switch-low { color: #ff5733; }
+  /* TOOLTIP */
+  .tooltip { position: fixed; background: var(--dark); color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; pointer-events: none; z-index: 9999; display: none; max-width: 240px; line-height: 1.5; }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .tool-card {
-            background: white;
-            border: 2px solid #0066cc;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .tool-card h4 { color: #0066cc; margin-bottom: 10px; font-size: 16px; }
-        .tool-card p { font-size: 13px; color: #666; margin-bottom: 15px; }
-        .tool-link {
-            display: inline-block;
-            background: #0066cc;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .tool-link:hover { background: #1a1a2e; }
+  /* RESPONSIVE */
+  @media(max-width: 900px) { .stats-row { grid-template-columns: 1fr 1fr; } .two-col { grid-template-columns: 1fr; } .maneuver-body { grid-template-columns: 1fr; } }
+  @media(max-width: 600px) { .stats-row { grid-template-columns: 1fr; } .three-col { grid-template-columns: 1fr; } }
 
-        @media (max-width: 768px) {
-            .header { padding: 30px 15px; }
-            .header h1 { font-size: 24px; }
-            .tabs, .tab-content, .stats-grid { margin: 0 15px; }
-            .competitor-grid, .maneuver-grid, .tools-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  /* SCROLL */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f0f0f0; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
 </head>
 <body>
-    <a href="../../index.html" class="back-link">← Back to verticals</a>
 
-    <div class="header">
-        <h1>Plastic Surgery Competitive Intelligence Dashboard</h1>
-        <p>ekwa.com Strategic Analysis & Market Opportunity Assessment</p>
+<div class="header">
+  <div>
+    <h1>✂️ Plastic Surgery — Competitor Intelligence Dashboard</h1>
+    <div class="subtitle">MECE Teardown · 8 Competitors · 5 Strategic Dimensions · February 2026</div>
+  </div>
+  <div class="badge">🔒 Confidential & Proprietary</div>
+</div>
+
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showPage('overview')">📊 Overview</div>
+  <div class="nav-tab" onclick="showPage('matrix')">📋 MECE Matrix</div>
+  <div class="nav-tab" onclick="showPage('profiles')">🏢 Competitor Profiles</div>
+  <div class="nav-tab" onclick="showPage('positioning')">🗺️ Positioning Map</div>
+  <div class="nav-tab" onclick="showPage('maneuvers')">⚔️ Strategic Maneuvers</div>
+  <div class="nav-tab" onclick="showPage('playbooks')">🚀 Implementation Playbooks</div>
+  <a href="../../index.html" class="nav-tab" style="text-decoration:none; background: rgba(0,166,81,0.15); border-bottom-color: #00a651; color: #00a651;">🏥 All Verticals →</a>
+</div>
+
+<!-- =================== PAGE: OVERVIEW =================== -->
+<div class="content">
+<div id="page-overview" class="page active">
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">8</div>
+      <div class="label">Competitors Analyzed</div>
+      <div class="sub">Plastic Surgery Digital Marketing</div>
     </div>
-
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="value">8</div>
-            <div class="label">Competitors Analyzed</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">$159B</div>
-            <div class="label">Global Market Size</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">10.8%</div>
-            <div class="label">CAGR</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">3</div>
-            <div class="label">Strategic Maneuvers</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">$2.7M</div>
-            <div class="label">ARR Target</div>
-        </div>
+    <div class="stat-card red">
+      <div class="num">3</div>
+      <div class="label">HIGH Threat</div>
+      <div class="sub">Position Results · PS Studios · Nuvolum</div>
     </div>
-
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'overview')">Overview</button>
-        <button class="tab-btn" onclick="switchTab(event, 'competitors')">Competitors</button>
-        <button class="tab-btn" onclick="switchTab(event, 'maneuvers')">Maneuvers</button>
-        <button class="tab-btn" onclick="switchTab(event, 'clients')">Client Targets</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tools')">Tools</button>
+    <div class="stat-card amber">
+      <div class="num">3</div>
+      <div class="label">MEDIUM Threat</div>
+      <div class="sub">Firm Media · Studio 3 · DoctorLogic</div>
     </div>
+    <div class="stat-card green">
+      <div class="num">2</div>
+      <div class="label">LOW Threat</div>
+      <div class="sub">PilotPractice · Influx Marketing</div>
+    </div>
+  </div>
 
-    <!-- OVERVIEW TAB -->
-    <div id="overview" class="tab-content active">
-        <h2>Market Opportunity & Threat Landscape</h2>
+  <div class="two-col">
+    <div class="chart-card">
+      <h3>Competitor Threat Distribution</h3>
+      <canvas id="threatChart" height="200"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>Estimated Monthly Pricing Range</h3>
+      <canvas id="priceChart" height="200"></canvas>
+    </div>
+  </div>
 
-        <div class="market-callout">
-            $159B global aesthetics & plastic surgery market | 10.8% CAGR | Highest patient LTV vertical ($5K–$20K+)
+  <div class="two-col">
+    <div class="chart-card">
+      <h3>Vulnerability Severity by Competitor</h3>
+      <canvas id="vulnChart" height="220"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>Estimated Client Base Size</h3>
+      <canvas id="clientChart" height="220"></canvas>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <h3>🎯 Ekwa's Unmatchable Competitive Moats</h3>
+    <table>
+      <thead>
+        <tr><th>Moat</th><th>Description</th><th>Competitors That Lack It</th><th>Ekwa Advantage</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Market Exclusivity</strong></td>
+          <td>One client per specialty per geographic area</td>
+          <td>Position Results, Firm Media, DoctorLogic (ALL competitors)</td>
+          <td class="threat-badge threat-HIGH">CRITICAL MOAT</td>
+        </tr>
+        <tr>
+          <td><strong>16+ Year Surgical Track Record</strong></td>
+          <td>Documented outcomes across 300+ plastic surgery practices since 2008</td>
+          <td>Nuvolum, Influx, PilotPractice (newer or non-specialized)</td>
+          <td class="threat-badge threat-LOW">STRONG MOAT</td>
+        </tr>
+        <tr>
+          <td><strong>Human Expert Team</strong></td>
+          <td>Dedicated plastic surgery marketing experts per client (not AI-generated content)</td>
+          <td>DoctorLogic (AI-first), Firm Media (generalist approach)</td>
+          <td class="threat-badge threat-LOW">STRONG MOAT</td>
+        </tr>
+        <tr>
+          <td><strong>Surgical Specialty Expertise</strong></td>
+          <td>100% focus on surgical practices — plastic surgery, cosmetic procedures, aesthetic specialization</td>
+          <td>Influx (medSpa-first), Firm Media (healthcare generalist)</td>
+          <td class="threat-badge threat-LOW">STRONG MOAT</td>
+        </tr>
+        <tr>
+          <td><strong>Before/After Content Authority</strong></td>
+          <td>16 years of surgical case study library + procedure-level SEO that compounds over time</td>
+          <td>All competitors with shorter tenure or no surgical content focus</td>
+          <td class="threat-badge threat-LOW">STRONG MOAT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- =================== PAGE: MECE MATRIX =================== -->
+<div id="page-matrix" class="page">
+  <div class="table-card">
+    <h3>MECE Competitor Comparison Matrix — 5 Strategic Dimensions</h3>
+    <table id="meceTable">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Core Value Proposition</th>
+          <th>Est. Cost / Margins</th>
+          <th>Go-to-Market Strategy</th>
+          <th>Tech / Operational Moats</th>
+          <th>Key Vulnerabilities</th>
+          <th>Threat</th>
+        </tr>
+      </thead>
+      <tbody id="meceTableBody">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- =================== PAGE: COMPETITOR PROFILES =================== -->
+<div id="page-profiles" class="page">
+  <div class="filter-bar">
+    <span style="font-size:13px;font-weight:600;color:var(--gray)">Filter by threat:</span>
+    <button class="filter-btn all active" onclick="filterComps('all', this)">All (8)</button>
+    <button class="filter-btn high" onclick="filterComps('HIGH', this)">🔴 HIGH (3)</button>
+    <button class="filter-btn medium" onclick="filterComps('MEDIUM', this)">🟡 MEDIUM (3)</button>
+    <button class="filter-btn low" onclick="filterComps('LOW', this)">🟢 LOW (2)</button>
+    <input type="text" class="search-bar" placeholder="Search competitors..." oninput="searchComps(this.value)">
+  </div>
+  <div class="comp-grid" id="compGrid"></div>
+</div>
+
+<!-- =================== PAGE: POSITIONING MAP =================== -->
+<div id="page-positioning" class="page">
+  <div class="pos-map-container">
+    <h3>🗺️ Competitive Positioning Map — Plastic Surgery Specialization vs. Technology Platform</h3>
+    <canvas id="posMap"></canvas>
+    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--gray)">
+      X-axis: Plastic Surgery Specialization Score →; Y-axis: Technology Platform Level →; Size: Relative Client Base
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="chart-card">
+      <h3>Quadrant Analysis</h3>
+      <div style="font-size:13px;line-height:1.8">
+        <div style="margin-bottom:12px"><span style="background:#FADBD8;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--red)">TOP-LEFT: Generic + High Tech</span><br><span style="color:var(--gray)">DoctorLogic — AI platform but not surgical-specialized</span></div>
+        <div style="margin-bottom:12px"><span style="background:#FDEDEC;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--mid)">TOP-RIGHT: Surgical + High Tech ← EKWA TARGET ZONE</span><br><span style="color:var(--gray)">Nuvolum approaches this but lacks digital depth. Ekwa should own this quadrant.</span></div>
+        <div style="margin-bottom:12px"><span style="background:#FEF9E7;padding:3px 8px;border-radius:4px;font-weight:700;color:#D68910">BOTTOM-LEFT: Generic + Low Tech</span><br><span style="color:var(--gray)">PilotPractice, Influx — easiest to displace, least defensible</span></div>
+        <div><span style="background:#EAFAF1;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--green)">BOTTOM-RIGHT: Surgical + Low Tech</span><br><span style="color:var(--gray)">PS Studios — good surgical focus but limited tech platform</span></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h3>Ekwa's Strategic Direction</h3>
+      <div style="font-size:13px;line-height:1.8;color:var(--dark)">
+        <p style="margin-bottom:10px">Ekwa should position in the <strong>Surgical-Only + High Tech</strong> zone. The strategic opportunity is to:</p>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move RIGHT</strong> on surgical specialization: deepen cosmetic procedure expertise and surgeon-specific capabilities</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move UP</strong> on tech platform: invest in case management, before/after gallery tech, and procedure-level ROI analytics</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Maintain exclusivity moat</strong>: no competitor offers per-market surgical exclusivity WITH high-tech platform — that unique combination is Ekwa's sustainable advantage</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PAGE: STRATEGIC MANEUVERS =================== -->
+<div id="page-maneuvers" class="page">
+
+  <div class="stats-row">
+    <div class="stat-card red">
+      <div class="num">$1.2M</div>
+      <div class="label">Maneuver 1 Target ARR</div>
+      <div class="sub">30 practices @ avg $3,333/mo</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--mid)">
+      <div class="num" style="color:var(--mid)">$950K</div>
+      <div class="label">Maneuver 2 Target ARR</div>
+      <div class="sub">24 procedures × $3,200/mo</div>
+    </div>
+    <div class="stat-card green">
+      <div class="num">$550K</div>
+      <div class="label">Maneuver 3 Target ARR</div>
+      <div class="sub">14 groups × $3,300/mo</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--ekwa)">
+      <div class="num">$2.7M+</div>
+      <div class="label">Combined ARR Target</div>
+      <div class="sub">If all 3 maneuvers execute successfully</div>
+    </div>
+  </div>
+
+  <!-- Maneuver 1 -->
+  <div class="maneuver-card man-1">
+    <div class="maneuver-header">
+      <div class="maneuver-num">01</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Surgeon Lock™</h3>
+        <p>Secure exclusivity contracts with top 30 plastic surgeons per market</p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">18-Month Window — CRITICAL TIMING</span>
+          <span class="meta-tag">Targets: Position Results · Nuvolum · PS Studios</span>
         </div>
-
-        <h3>Competitive Threat Levels</h3>
-        <div class="chart-container">
-            <canvas id="threatChart"></canvas>
-        </div>
-
-        <h3>Top 3 Surgical Procedure Opportunities (2026)</h3>
-        <div class="procedures">
-            <div class="proc-card">
-                <h4>Rhinoplasty</h4>
-                <p><strong>$7K–$15K per case</strong><br>
-                "Rhinoplasty [City]" — lowest competition in mid-tier markets. High intent, high value.</p>
-            </div>
-            <div class="proc-card">
-                <h4>GLP-1 Body Contouring</h4>
-                <p><strong>$8K–$20K per case</strong><br>
-                Fastest growing segment. Ozempic/Wegovy creating unprecedented demand for panniculectomy, skin removal, body lifts.</p>
-            </div>
-            <div class="proc-card">
-                <h4>BBL & Liposuction</h4>
-                <p><strong>$6K–$15K per case</strong><br>
-                Social media driven. TikTok/Instagram demand sustaining. Highly competitive but high volume.</p>
-            </div>
-        </div>
-
-        <h3>Key Market Insights</h3>
-        <ul style="margin-left: 20px; line-height: 1.8;">
-            <li><strong>GLP-1 Wave:</strong> Ozempic/Wegovy exploding creates 2026–2030 mega-trend for body contouring. First-mover content advantage critical.</li>
-            <li><strong>Instagram/TikTok Dominance:</strong> Before/after galleries and surgeon celebrities driving patient acquisition for surgeons &lt;45 years old.</li>
-            <li><strong>Medical Tourism Pressure:</strong> International competition forcing domestic surgeons to compete on trust, credentials, and digital narrative.</li>
-            <li><strong>Group Practice Consolidation:</strong> Private equity and PE-backed groups consolidating cosmetic surgery — larger, more sophisticated marketing budgets.</li>
-            <li><strong>Highest Spend Vertical:</strong> Plastic surgery practices invest $5,000–$20,000/month on marketing. 3-5x higher spend than most medical specialties.</li>
+      </div>
+    </div>
+    <div class="maneuver-body">
+      <div>
+        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
+        <ul class="maneuver-actions">
+          <li><span class="action-num">1</span><span class="action-text"><strong>Identify Highest-Revenue Plastic Surgery Practices</strong> — target revenue >$2M/yr in top 20 US markets</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Create "Surgeon Exclusivity" Guarantee</strong> — one PS practice per market, no competing surgeons</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>Build "Case Study ROI" Vault</strong> — before/after content + new patient data specific to their procedures</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>Deploy Conquest Pages</strong> — targeting Position Results and Nuvolum clients in key markets</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>Plastic Surgery Association Outreach</strong> — ASPS, specialty surgeon groups + medical conference presence</span></li>
         </ul>
-    </div>
-
-    <!-- COMPETITORS TAB -->
-    <div id="competitors" class="tab-content">
-        <h2>8-Competitor Analysis</h2>
-
-        <div class="competitor-grid">
-            <!-- Position Results -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Position Results</div>
-                    <div class="threat-badge threat-high">HIGH THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $3,000–$8,000/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>"Voted #1 plastic surgery marketing" — strong PS community brand, aggressive SEO claims</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Unverified #1 claim, over-promised SEO timelines, high-pressure sales tactics, post-sale dissatisfaction</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Verified case studies, no hype — ask about actual Google ranking wins, not claims</p>
-                </div>
-            </div>
-
-            <!-- Plastic Surgery Studios -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Plastic Surgery Studios</div>
-                    <div class="threat-badge threat-high">HIGH THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $4,000–$10,000/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>20+ years PS specialization, deep portfolio, relationship-driven</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Legacy tech, no AI workflows, slow content production, no GLP-1 strategy</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Modern AI-hybrid approach, GLP-1 content playbook, faster execution, proven 2026 methods</p>
-                </div>
-            </div>
-
-            <!-- Nuvolum -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Nuvolum</div>
-                    <div class="threat-badge threat-high">HIGH THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $5,000–$15,000/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>Integrated PR + digital, premium clients (77 Plastic Surgery), thought leadership</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>PR-first focus, high cost/slow ROI, digital is secondary, most surgeons don't need PR</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>"Nuvolum for media coverage. ekwa for patient bookings." Patient acquisition ROI clarity.</p>
-                </div>
-            </div>
-
-            <!-- Firm Media -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Firm Media</div>
-                    <div class="threat-badge threat-medium">MEDIUM THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $3,000–$6,000/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>Design-forward aesthetic practice marketing</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Design focus but weak performance marketing (PPC/SEO), no ongoing strategy</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Beautiful websites + aggressive patient acquisition, not just design</p>
-                </div>
-            </div>
-
-            <!-- Studio 3 Marketing -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Studio 3 Marketing</div>
-                    <div class="threat-badge threat-medium">MEDIUM THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $2,500–$5,000/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>SEO-first PS agency with ranking claims</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Narrow SEO focus, no paid media, no full-funnel capabilities</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Full-stack: SEO + PPC + Content + Reputation + Social</p>
-                </div>
-            </div>
-
-            <!-- Influx Marketing -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">Influx Marketing</div>
-                    <div class="threat-badge threat-medium">MEDIUM THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $4,000/month minimum</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>Aesthetics/medspa specialists crossing into PS</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Medspa-first credibility gap with high-end surgeons</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Surgeon-focused positioning, not medspa heritage</p>
-                </div>
-            </div>
-
-            <!-- PilotPractice -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">PilotPractice</div>
-                    <div class="threat-badge threat-low">LOW THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $500–$2,500/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>Practice growth platform, automation-focused</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Tech without strategy, automation without human direction</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>AI-human hybrid: technology + strategic direction</p>
-                </div>
-            </div>
-
-            <!-- DoctorLogic -->
-            <div class="comp-card">
-                <div class="comp-header">
-                    <div class="comp-name">DoctorLogic</div>
-                    <div class="threat-badge threat-medium">MEDIUM THREAT</div>
-                </div>
-                <div class="comp-body">
-                    <p><strong>Pricing:</strong> $500–$2,500/month</p>
-                    <span class="comp-label">Positioning</span>
-                    <p>SaaS website + SEO platform for medical</p>
-                    <span class="comp-label">Key Weakness</span>
-                    <p>Template websites (recognizable/generic), no paid media, limited strategy</p>
-                    <span class="comp-label">ekwa Advantage</span>
-                    <p>Custom, high-intent strategy + custom design + full-funnel execution</p>
-                </div>
-            </div>
+      </div>
+      <div>
+        <div class="metric-box">
+          <div class="mlabel">🎯 Success Metric</div>
+          <div class="mval">30 net new high-revenue plastic surgery practices within 18 months at avg $3,333/mo = <strong>$1.2M ARR addition</strong></div>
         </div>
-    </div>
-
-    <!-- MANEUVERS TAB -->
-    <div id="maneuvers" class="tab-content">
-        <h2>Strategic Maneuvers: $2.7M Combined ARR Target</h2>
-
-        <div class="maneuver-grid">
-            <div class="maneuver-card">
-                <h3>Operation Surgeon Lock™</h3>
-                <div class="maneuver-arr">$1.2M ARR</div>
-                <p>Geographic exclusivity in 40 top plastic surgery markets. One ekwa partner per metro. Lock the surgeons before competitors do.</p>
-                <a href="/verticals/plastic-surgery/maneuvers/surgeon-lock/landing-page.html" class="maneuver-link">View Landing Page →</a>
-            </div>
-
-            <div class="maneuver-card">
-                <h3>Operation Procedure Authority™</h3>
-                <div class="maneuver-arr">$700K ARR</div>
-                <p>Own procedure-specific SEO: rhinoplasty, BBL, breast aug, mommy makeover, GLP-1 body contouring. Be the first result.</p>
-                <a href="/verticals/plastic-surgery/maneuvers/procedure-authority/landing-page.html" class="maneuver-link">View Landing Page →</a>
-            </div>
-
-            <div class="maneuver-card">
-                <h3>Operation Cosmetic Group™</h3>
-                <div class="maneuver-arr">$800K ARR</div>
-                <p>Multi-surgeon practice scaling. Unified brand across surgeons, differentiated identities, maximum market coverage.</p>
-                <a href="/verticals/plastic-surgery/maneuvers/cosmetic-group/landing-page.html" class="maneuver-link">View Landing Page →</a>
-            </div>
+        <div class="kpi-list">
+          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Exclusivity contracts signed (target: 30 in 18 months)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Average surgeon practice revenue (target: $2M+ annual)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>New patient acquisition rate from exclusivity clients (target: >25% YoY)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Surgeon association partnership strength (target: 3+ formal partnerships)</div>
         </div>
-    </div>
-
-    <!-- CLIENT TARGETS TAB -->
-    <div id="clients" class="tab-content">
-        <h2>Competitor Clients & Switch Probability</h2>
-        <p style="margin-bottom: 20px; color: #666;">High-value surgical practices in Position Results, Plastic Surgery Studios, and Nuvolum portfolios are prime acquisition targets.</p>
-
-        <table class="client-table">
-            <thead>
-                <tr>
-                    <th>Competitor</th>
-                    <th>Estimated # Clients</th>
-                    <th>Avg Client LTV</th>
-                    <th>Switch Probability</th>
-                    <th>Primary Reason for Switch</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Position Results</strong></td>
-                    <td>40–60</td>
-                    <td>$30K–$50K/year</td>
-                    <td><span class="switch-prob switch-high">7/10</span></td>
-                    <td>Hype vs. verified results; high-pressure sales fatigue</td>
-                </tr>
-                <tr>
-                    <td><strong>Plastic Surgery Studios</strong></td>
-                    <td>30–45</td>
-                    <td>$40K–$60K/year</td>
-                    <td><span class="switch-prob switch-medium">6/10</span></td>
-                    <td>Legacy tech; slow iteration; missing GLP-1/modern trends</td>
-                </tr>
-                <tr>
-                    <td><strong>Nuvolum</strong></td>
-                    <td>15–25</td>
-                    <td>$60K–$100K/year</td>
-                    <td><span class="switch-prob switch-low">4/10</span></td>
-                    <td>PR ROI unclear; high costs; want direct patient acquisition</td>
-                </tr>
-                <tr>
-                    <td><strong>Firm Media</strong></td>
-                    <td>20–35</td>
-                    <td>$25K–$35K/year</td>
-                    <td><span class="switch-prob switch-high">8/10</span></td>
-                    <td>Beautiful websites but no patient growth; need performance marketing</td>
-                </tr>
-                <tr>
-                    <td><strong>Studio 3 Marketing</strong></td>
-                    <td>25–40</td>
-                    <td>$20K–$30K/year</td>
-                    <td><span class="switch-prob switch-high">7/10</span></td>
-                    <td>SEO-only approach insufficient; need paid media + full funnel</td>
-                </tr>
-                <tr>
-                    <td><strong>Influx Marketing</strong></td>
-                    <td>10–20</td>
-                    <td>$35K–$50K/year</td>
-                    <td><span class="switch-prob switch-medium">6/10</span></td>
-                    <td>Medspa brand doesn't match high-end surgeon positioning</td>
-                </tr>
-                <tr>
-                    <td><strong>PilotPractice</strong></td>
-                    <td>50–100</td>
-                    <td>$10K–$15K/year</td>
-                    <td><span class="switch-prob switch-high">7/10</span></td>
-                    <td>Tech without strategy; need human-led campaigns</td>
-                </tr>
-                <tr>
-                    <td><strong>DoctorLogic</strong></td>
-                    <td>60–100</td>
-                    <td>$15K–$25K/year</td>
-                    <td><span class="switch-prob switch-high">8/10</span></td>
-                    <td>Templates feel generic; surgeons outgrow platform quickly</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- TOOLS TAB -->
-    <div id="tools" class="tab-content">
-        <h2>Strategic Assets & Tools</h2>
-        <p style="margin-bottom: 20px; color: #666;">Specialized materials for competitive positioning and discovery conversations.</p>
-
-        <div class="tools-grid">
-            <div class="tool-card">
-                <h4>ROI Calculator</h4>
-                <p>Interactive tool showing revenue impact, case volume increase, and 3-year projections for plastic surgery practices.</p>
-                <a href="/verticals/plastic-surgery/tools/roi-calculator.html" class="tool-link">Open Calculator</a>
-            </div>
-
-            <div class="tool-card">
-                <h4>Battlecard</h4>
-                <p>ekwa vs. Position Results, Plastic Surgery Studios, Nuvolum — 8 dimensions, 5 objection handlers, discovery questions.</p>
-                <a href="/verticals/plastic-surgery/tools/battlecard.html" class="tool-link">View Battlecard</a>
-            </div>
-
-            <div class="tool-card">
-                <h4>Conquest: Position Results</h4>
-                <p>Why surgeons switched from Position Results and what they found with a modern agency.</p>
-                <a href="/verticals/plastic-surgery/conquest/switch-from-position-results.html" class="tool-link">Read Case</a>
-            </div>
-
-            <div class="tool-card">
-                <h4>Conquest: Plastic Surgery Studios</h4>
-                <p>Moving beyond legacy agencies — surgeons discuss modernization and growth acceleration.</p>
-                <a href="/verticals/plastic-surgery/conquest/switch-from-plastic-surgery-studios.html" class="tool-link">Read Case</a>
-            </div>
-
-            <div class="tool-card">
-                <h4>Conquest: Nuvolum</h4>
-                <p>PR-first isn't always the right digital strategy — when to prioritize patient acquisition over media coverage.</p>
-                <a href="/verticals/plastic-surgery/conquest/switch-from-nuvolum.html" class="tool-link">Read Case</a>
-            </div>
-
-            <div class="tool-card">
-                <h4>Conquest: DoctorLogic</h4>
-                <p>Beyond template websites — custom strategy for surgical practices that have outgrown SaaS platforms.</p>
-                <a href="/verticals/plastic-surgery/conquest/switch-from-doctorlogic.html" class="tool-link">Read Case</a>
-            </div>
+        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
+          <strong>⚠️ Risk:</strong> Position Results may offer aggressive retention deals.<br>
+          <strong>Mitigation:</strong> Exclusivity promise differentiates — no competitor offers it.
         </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function switchTab(evt, tabName) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(c => c.classList.remove('active'));
+  <!-- Maneuver 2 -->
+  <div class="maneuver-card man-2">
+    <div class="maneuver-header">
+      <div class="maneuver-num">02</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Procedure Authority™</h3>
+        <p>Dominate SEO for top 20 cosmetic procedures nationally</p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">12-Month Window — High-Intent Patient Capture</span>
+          <span class="meta-tag">Targets: Firm Media · DoctorLogic</span>
+        </div>
+      </div>
+    </div>
+    <div class="maneuver-body">
+      <div>
+        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
+        <ul class="maneuver-actions">
+          <li><span class="action-num">1</span><span class="action-text"><strong>Build 20 Procedure-Specific Content Hubs</strong> — rhinoplasty, tummy tuck, BBL, breast augmentation, liposuction, etc.</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Create Procedure-Level ROI Calculators</strong> — interactive tools surgeons can embed on their sites</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>Partner with Surgical Supply Vendors</strong> — co-marketing on implant brands, tech companies</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>Target Firm Media and DoctorLogic Clients</strong> — conquest content for procedures they lack depth in</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>Establish Procedure Authority Positioning</strong> — 'The #1 SEO for [Procedure Name]' per market</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="metric-box">
+          <div class="mlabel">🎯 Success Metric</div>
+          <div class="mval">24 procedure-authority clients × $3,200/mo avg = <strong>$921K ARR addition</strong></div>
+        </div>
+        <div class="kpi-list">
+          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Procedure hub ranking positions (target: top 3 for each procedure)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Clients using procedure ROI calculator (target: 50+ implementations)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Qualified lead volume from procedure pages (target: 100+ per month)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Vendor partnership agreements (target: 5+ surgical suppliers)</div>
+        </div>
+        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
+          <strong>⚠️ Risk:</strong> DoctorLogic has broad procedure library already.<br>
+          <strong>Mitigation:</strong> Ekwa's surgical specialty depth + surgeon positioning differentiates the ROI story.
+        </div>
+      </div>
+    </div>
+  </div>
 
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(b => b.classList.remove('active'));
+  <!-- Maneuver 3 -->
+  <div class="maneuver-card man-3">
+    <div class="maneuver-header">
+      <div class="maneuver-num">03</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Cosmetic Group™</h3>
+        <p>Capture multi-surgeon groups and cosmetic surgery centers</p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">18-Month Window — Group Growth Opportunity</span>
+          <span class="meta-tag">Targets: 2–8 surgeon groups in top markets</span>
+        </div>
+      </div>
+    </div>
+    <div class="maneuver-body">
+      <div>
+        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
+        <ul class="maneuver-actions">
+          <li><span class="action-num">1</span><span class="action-text"><strong>Identify Multi-Surgeon Cosmetic Groups</strong> — 2–8 surgeon groups in top markets from industry databases</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Build "Cosmetic Group Growth System"</strong> — per-surgeon metrics, group pricing tier ($2,500–$5,000/location)</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>Create Group-Specific Case Studies</strong> — ROI models showing multi-location growth trajectories</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>Deploy Group Pricing Program</strong> — tiered per-location pricing with group discount incentives</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>Group Surgery Center Partnership Outreach</strong> — target groups expanding or consolidating operations</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="metric-box">
+          <div class="mlabel">🎯 Success Metric</div>
+          <div class="mval">14 group practices × $3,300/mo avg = <strong>$554K ARR addition</strong></div>
+        </div>
+        <div class="kpi-list">
+          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Number of cosmetic groups signed (target: 14 in 18 months)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Average locations per group (target: 3–6)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Group expansion rate (target: 3+ new locations per group/year)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Group NPS and retention (target: >70 NPS, <5% churn)</div>
+        </div>
+        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
+          <strong>⚠️ Risk:</strong> Multi-location groups require operational complexity.<br>
+          <strong>Mitigation:</strong> Start with 3–5 surgeon groups; build playbook before scaling to 10+ groups.
+        </div>
+      </div>
+    </div>
+  </div>
 
-            document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
+</div>
 
-        // Threat Level Chart
-        const ctx = document.getElementById('threatChart');
-        if (ctx) {
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Position Results', 'Plastic Surgery Studios', 'Nuvolum', 'Studio 3 Marketing', 'Firm Media', 'Influx Marketing', 'DoctorLogic', 'PilotPractice'],
-                    datasets: [{
-                        label: 'Competitive Threat Level (1–10)',
-                        data: [9, 9, 8, 6, 5, 6, 5, 3],
-                        backgroundColor: [
-                            '#d32f2f', '#d32f2f', '#d32f2f',
-                            '#ffa600', '#ffa600', '#ffa600', '#ffa600',
-                            '#4caf50'
-                        ],
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 10,
-                            ticks: { stepSize: 2 }
-                        }
-                    }
-                }
-            });
-        }
-    </script>
+<!-- =================== PAGE: IMPLEMENTATION PLAYBOOKS =================== -->
+<div id="page-playbooks" class="page">
+
+  <div class="stats-row">
+    <div class="stat-card green">
+      <div class="num">3</div>
+      <div class="label">Active Operations</div>
+      <div class="sub">Ready to deploy immediately</div>
+    </div>
+    <div class="stat-card red">
+      <div class="num">18</div>
+      <div class="label">Campaign Assets</div>
+      <div class="sub">Across all 3 maneuvers</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--amber)">
+      <div class="num">$2.7M+</div>
+      <div class="label">Combined ARR Target</div>
+      <div class="sub">If all 3 maneuvers execute</div>
+    </div>
+    <div class="stat-card" style="border-top-color:var(--mid)">
+      <div class="num">90d</div>
+      <div class="label">Time to First Results</div>
+      <div class="sub">Q2 2026 quick wins</div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 1 ---- -->
+  <div class="maneuver-card man-1" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">01</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Surgeon Lock™</h3>
+        <p>Secure top 30 plastic surgeons per market · <strong>$1.2M ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">18-Month Window — CRITICAL TIMING</span>
+          <span class="meta-tag">Budget: $54K · CPA Target: &lt;$3,600</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="../../maneuvers/surgeon-lock/landing-page.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Landing Page</div>
+            <div class="pf-desc">"Your Practice. Exclusive. Unstoppable." — surgeon-focused conversion</div>
+            <div class="pf-tag-live">landing-page.html</div>
+          </div>
+        </a>
+        <a href="../../tools/battlecard.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive Battlecard</div>
+            <div class="pf-desc">Clickable web tool with objection handlers, print-to-PDF</div>
+            <div class="pf-tag-live">tools/battlecard.html</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/surgeon-lock/landing-page.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">⚔️</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Sales Battlecard</div>
+            <div class="pf-desc">Position Results vs. Ekwa, Nuvolum comparison, discovery questions</div>
+            <div class="pf-tag-live">landing-page.html</div>
+          </div>
+        </a>
+        <a href="../../conquest/switch-from-position-results.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Conquest: Position Results</div>
+            <div class="pf-desc">Landing page targeting Position Results clients with exclusivity pitch</div>
+            <div class="pf-tag-live">conquest/switch-from-position-results.html</div>
+          </div>
+        </a>
+        <a href="../../conquest/switch-from-plastic-surgery-studios.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Conquest: PS Studios</div>
+            <div class="pf-desc">Landing page targeting Plastic Surgery Studios clients with ROI focus</div>
+            <div class="pf-tag-live">conquest/switch-from-plastic-surgery-studios.html</div>
+          </div>
+        </a>
+        <a href="../../conquest/switch-from-nuvolum.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Conquest: Nuvolum</div>
+            <div class="pf-desc">Landing page targeting Nuvolum clients with data-driven alternative</div>
+            <div class="pf-tag-live">conquest/switch-from-nuvolum.html</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 2 ---- -->
+  <div class="maneuver-card man-2" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">02</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Procedure Authority™</h3>
+        <p>Dominate SEO for top 20 cosmetic procedures · <strong>$950K ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">12-Month Window — High-Intent Capture</span>
+          <span class="meta-tag">Budget: $32K · Investment focus: SEO + Content</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="../../maneuvers/procedure-authority/landing-page.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Procedure Authority Hub</div>
+            <div class="pf-desc">Homepage linking to 20+ procedure guides with SEO optimization</div>
+            <div class="pf-tag-live">landing-page.html</div>
+          </div>
+        </a>
+        <a href="../../tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🧮</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Procedure ROI Calculator</div>
+            <div class="pf-desc">Interactive: enter procedure + spend → see Year 1 ROI impact with patient volumes</div>
+            <div class="pf-tag-live">tools/roi-calculator.html</div>
+          </div>
+        </a>
+        <a href="../../conquest/switch-from-doctorlogic.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Conquest: DoctorLogic</div>
+            <div class="pf-desc">Landing page targeting DoctorLogic clients with specialized procedure depth</div>
+            <div class="pf-tag-live">conquest/switch-from-doctorlogic.html</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- OPERATION 3 ---- -->
+  <div class="maneuver-card man-3" style="margin-bottom:24px">
+    <div class="maneuver-header">
+      <div class="maneuver-num">03</div>
+      <div class="maneuver-title-block">
+        <h3>Operation Cosmetic Group™</h3>
+        <p>Capture multi-surgeon cosmetic groups (2–8 locations) · <strong>$550K ARR Target</strong></p>
+        <div class="maneuver-meta">
+          <span class="meta-tag">18-Month Window — Group Expansion Focus</span>
+          <span class="meta-tag">$2,500–$5,000/location/mo pricing</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <a href="../../maneuvers/cosmetic-group/landing-page.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🌐</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Group Landing Page</div>
+            <div class="pf-desc">"Unified Growth for Multi-Surgeon Groups" — premium group-focused design</div>
+            <div class="pf-tag-live">landing-page.html</div>
+          </div>
+        </a>
+        <a href="../../tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🧮</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive ROI Calculator</div>
+            <div class="pf-desc">Enter # locations, spend, targets → see Year 1 ROI across 3 scenarios (Conservative/Moderate/Aggressive)</div>
+            <div class="pf-tag-live">tools/roi-calculator.html</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= DIVIDER ======= -->
+  <div style="border-top: 3px solid var(--border); margin: 32px 0 24px; position:relative;">
+    <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#F0F4F8; padding:0 16px; font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Implementation Status</span>
+  </div>
+
+  <!-- ======= PARTIALLY IMPLEMENTABLE ======= -->
+  <div class="impl-section">
+    <h3 style="color:#B7770D">⚠️ Partially Implementable via GitHub</h3>
+    <p class="sub-note">Front-end built and live. These need one free third-party service to go fully operational — typically a 5-minute setup.</p>
+    <div class="impl-grid">
+      <div class="impl-card partial">
+        <div class="ic-title">📬 Lead Capture Forms (All 3 Landing Pages)</div>
+        <div class="ic-what">Form UI is live on all landing pages. Needs a Formspree endpoint to actually receive submissions. Free plan: 50 leads/month, $8/mo for unlimited.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://formspree.io/register" target="_blank" style="color:#B7770D">formspree.io</a> — create a free account, replace YOUR_FORM_ID in each HTML file, redeploy.</div>
+      </div>
+      <div class="impl-card partial">
+        <div class="ic-title">📧 Email Signup on Landing Pages</div>
+        <div class="ic-what">Landing pages have lead forms. Needs Mailchimp/ConvertKit embed to add subscribers to email list automatically.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://mailchimp.com" target="_blank" style="color:#B7770D">Mailchimp</a> (free up to 500 contacts) or <a href="https://convertkit.com" target="_blank" style="color:#B7770D">ConvertKit</a> — swap in their embed code.</div>
+      </div>
+      <div class="impl-card partial">
+        <div class="ic-title">📊 Analytics on Live Pages</div>
+        <div class="ic-what">No tracking on any live pages currently. Need to add GA4 or Plausible snippet to understand which pages and CTAs are converting.</div>
+        <div class="ic-needs">🔧 Needs: <a href="https://analytics.google.com" target="_blank" style="color:#B7770D">Google Analytics 4</a> (free) — add one script tag to each HTML file header.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= CANNOT IMPLEMENT ======= -->
+  <div class="impl-section">
+    <h3 style="color:#C0392B">❌ Cannot Implement via GitHub Alone</h3>
+    <p class="sub-note">These require external platforms by nature. GitHub Pages is a static host — no email sending, no CRM, no ad management.</p>
+    <div class="impl-grid">
+      <div class="impl-card cannot">
+        <div class="ic-title">✉️ Email Automation (Sending Sequences)</div>
+        <div class="ic-what">Surgeon outreach and nurture sequences are scripted and ready. But sending requires a mail platform.</div>
+        <div class="ic-needs">❌ Needs: HubSpot (CRM + sequences), Mailchimp, ActiveCampaign, or Instantly.ai for cold outreach at scale.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">💼 LinkedIn Outreach Automation</div>
+        <div class="ic-what">Surgeon targeting scripts are written. Actual outreach requires LinkedIn Sales Navigator or automation tools.</div>
+        <div class="ic-needs">❌ Needs: LinkedIn Sales Navigator ($80/mo) + Expandi or Dripify ($40/mo) for automated connection sequences.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">📣 Paid Ad Campaigns</div>
+        <div class="ic-what">Campaign briefs specify Google Ads, LinkedIn Ads targeting. Execution requires ad platform accounts.</div>
+        <div class="ic-needs">❌ Needs: Google Ads + LinkedIn Campaign Manager + Facebook Ads Manager. Budget: ~$54K (Op 1), $32K (Op 2), per campaign brief.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">🏥 CRM + Pipeline Management</div>
+        <div class="ic-what">Tracking surgeon prospects, exclusivity contracts, and group expansion pipeline requires a CRM with deal stages.</div>
+        <div class="ic-needs">❌ Needs: HubSpot CRM (free tier available) or Salesforce. Setup takes ~1 day with the prospect data from these playbooks.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">📈 Procedure Authority Rankings Dashboard</div>
+        <div class="ic-what">Tracking procedure keyword rankings, organic traffic, and lead volume requires SEO tracking software.</div>
+        <div class="ic-needs">❌ Needs: SEMrush, Ahrefs, or Moz Premium ($99–$199/mo) to monitor 20+ procedure keyword rankings.</div>
+      </div>
+      <div class="impl-card cannot">
+        <div class="ic-title">🤝 Surgeon Network Building</div>
+        <div class="ic-what">The 20+ surgeon networks and associations list is identified. But outreach and relationship-building requires human interaction.</div>
+        <div class="ic-needs">❌ Needs: Direct outreach from Naren or business development team. ASPS conferences, surgeon association partnerships (in-person networking).</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- /content -->
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ===== DATA =====
+const competitors = [
+  { name: "Position Results", threat: "HIGH", vpShort: "Plastic surgery-only digital marketing with guaranteed new patient volume. SEO + paid + content + reputation.", pricing: "$2,000–$6,000/mo", clients: 400, gtm: "ASPS conference presence + plastic surgeon referral network + case study marketing", moat: "Plastic-surgery-only focus + 20yr track record + ASPS relationships + before/after content library", vuln: "No exclusivity; premium pricing limits solo surgeons; SEO dependent; aging technology", clientStr: "300-500", priceMin: 2000, priceMax: 6000 },
+  { name: "Plastic Surgery Studios", threat: "HIGH", vpShort: "Boutique agency exclusively for plastic surgeons. Brand identity + high-end video + social proof.", pricing: "$1,500–$5,000/mo", clients: 200, gtm: "Referral + plastic surgeon associations + video/Instagram content + word of mouth", moat: "Luxury brand positioning + video content expertise + surgeon reputation management", vuln: "Boutique scale limits growth; no paid media depth; no analytics/ROI transparency", clientStr: "150-250", priceMin: 1500, priceMax: 5000 },
+  { name: "Nuvolum", threat: "HIGH", vpShort: "Premium brand strategy + PR + digital for plastic surgeons. Physician thought leadership positioning.", pricing: "$3,000–$8,000/mo", clients: 150, gtm: "PR + media placement + surgeon thought leadership + referral from luxury networks", moat: "PR/media placement moat + luxury brand reputation + surgeon authority positioning", vuln: "Very high pricing limits addressable market; PR-heavy not results-driven; limited digital depth", clientStr: "100-200", priceMin: 3000, priceMax: 8000 },
+  { name: "Firm Media", threat: "MEDIUM", vpShort: "Healthcare digital marketing with plastic surgery focus. SEO + PPC + social media management.", pricing: "$1,500–$4,000/mo", clients: 250, gtm: "Content + digital ads + physician association partnerships + SEO thought leadership", moat: "Healthcare specialization + SEO depth + data-driven approach", vuln: "Not exclusively plastic surgery; no PR/brand depth; pricing pressure from below", clientStr: "200-300", priceMin: 1500, priceMax: 4000 },
+  { name: "Studio 3 Marketing", threat: "MEDIUM", vpShort: "Creative-led marketing for cosmetic practices. Brand + photography + web + digital advertising.", pricing: "$2,000–$5,000/mo", clients: 150, gtm: "Referral + cosmetic practice associations + creative portfolio + Instagram presence", moat: "Creative differentiation + photography/video production + cosmetic niche", vuln: "Small scale; creative-first not ROI-first; no exclusivity; weak analytics", clientStr: "100-200", priceMin: 2000, priceMax: 5000 },
+  { name: "DoctorLogic", threat: "MEDIUM", vpShort: "AI-powered patient acquisition platform adapted for plastic surgery and cosmetic practices.", pricing: "$1,500–$5,000/mo", clients: 1000, gtm: "Enterprise sales + medical conferences + procedure content library + DSO outreach", moat: "AI platform + 15yr data + enterprise contracts + cosmetic procedure content", vuln: "Not plastic-surgery-specialized; limited before/after content depth; AI ROI perception gap", clientStr: "1,000+", priceMin: 1500, priceMax: 5000 },
+  { name: "PilotPractice", threat: "LOW", vpShort: "Healthcare practice growth platform. Website + basic SEO + patient scheduling optimization.", pricing: "$800–$2,500/mo", clients: 200, gtm: "Online demos + healthcare associations + outbound to growing practices", moat: "Low price point + scheduling integration + entry-level digital tools", vuln: "Weak marketing depth; no paid media expertise; no content strategy; not surgery-specialized", clientStr: "150-250", priceMin: 800, priceMax: 2500 },
+  { name: "Influx Marketing", threat: "LOW", vpShort: "Medical aesthetics agency (primarily medspa). Limited plastic surgery capability.", pricing: "$2,000–$6,000/mo", clients: 400, gtm: "Aesthetic conferences + Instagram + paid social + referral", moat: "Aesthetic conversion content + social proof + landing page conversion", vuln: "MedSpa-first, not plastic surgery specialist; limited surgical content expertise", clientStr: "300-500", priceMin: 2000, priceMax: 6000 },
+];
+
+// ===== NAVIGATION =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    if (t.textContent.toLowerCase().includes(id.toLowerCase()) || t.getAttribute('onclick')?.includes(id)) t.classList.add('active');
+  });
+}
+
+// ===== CHARTS =====
+function initCharts() {
+  // Threat donut
+  new Chart(document.getElementById('threatChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['HIGH Threat (3)', 'MEDIUM Threat (3)', 'LOW Threat (2)'],
+      datasets: [{ data: [3, 3, 2], backgroundColor: ['#922B21', '#F39C12', '#1E8449'], borderWidth: 3, borderColor: '#fff' }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } } }, cutout: '65%' }
+  });
+
+  // Price range bar
+  new Chart(document.getElementById('priceChart'), {
+    type: 'bar',
+    data: {
+      labels: competitors.map(c => c.name.length > 14 ? c.name.substring(0,14)+'…' : c.name),
+      datasets: [
+        { label: 'Min $/mo', data: competitors.map(c => c.priceMin), backgroundColor: '#F1948A', borderRadius: 4 },
+        { label: 'Max $/mo', data: competitors.map(c => c.priceMax), backgroundColor: '#922B21', borderRadius: 4 },
+      ]
+    },
+    options: { responsive: true, indexAxis: 'y', plugins: { legend: { position: 'bottom' } },
+      scales: { x: { stacked: false, grid: { color: '#F0F0F0' }, ticks: { callback: v => '$'+v.toLocaleString() } }, y: { ticks: { font: { size: 10 } } } }
+    }
+  });
+
+  // Vulnerability severity
+  const vulnScores = [2, 2, 2, 2, 2, 2, 2, 2];
+  new Chart(document.getElementById('vulnChart'), {
+    type: 'bar',
+    data: {
+      labels: competitors.map(c => c.name.length > 12 ? c.name.substring(0,12)+'…' : c.name),
+      datasets: [{ label: 'Vulnerability Score', data: vulnScores,
+        backgroundColor: vulnScores.map(v => v === 3 ? '#FADBD8' : '#FEF9E7'),
+        borderColor: vulnScores.map(v => v === 3 ? '#922B21' : '#F39C12'),
+        borderWidth: 2, borderRadius: 4 }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ['', 'LOW', 'MEDIUM', 'HIGH'][ctx.raw] + ' Vulnerability' } } },
+      scales: { y: { min: 0, max: 3.5, ticks: { callback: v => ['', 'LOW', 'MED', 'HIGH'][v] || '' }, grid: { color: '#F0F0F0' } }, x: { ticks: { font: { size: 10 } } } }
+    }
+  });
+
+  // Client base
+  new Chart(document.getElementById('clientChart'), {
+    type: 'bar',
+    data: {
+      labels: competitors.map(c => c.name.length > 12 ? c.name.substring(0,12)+'…' : c.name),
+      datasets: [{ label: 'Est. Clients', data: competitors.map(c => c.clients),
+        backgroundColor: competitors.map(c => c.threat === 'HIGH' ? '#FADBD8' : c.threat === 'MEDIUM' ? '#FEF9E7' : '#EAFAF1'),
+        borderColor: competitors.map(c => c.threat === 'HIGH' ? '#922B21' : c.threat === 'MEDIUM' ? '#F39C12' : '#1E8449'),
+        borderWidth: 2, borderRadius: 4 }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } },
+      scales: { y: { grid: { color: '#F0F0F0' }, ticks: { callback: v => v >= 1000 ? (v/1000)+'k' : v } }, x: { ticks: { font: { size: 10 } } } }
+    }
+  });
+
+  // Positioning scatter
+  const posData = [
+    { name: "Position Results", x: 88, y: 62, r: 13, threat: 'HIGH' },
+    { name: "PS Studios", x: 82, y: 38, r: 7, threat: 'HIGH' },
+    { name: "Nuvolum", x: 78, y: 45, r: 6, threat: 'HIGH' },
+    { name: "Firm Media", x: 55, y: 65, r: 9, threat: 'MEDIUM' },
+    { name: "Studio 3", x: 68, y: 32, r: 6, threat: 'MEDIUM' },
+    { name: "DoctorLogic", x: 40, y: 88, r: 15, threat: 'MEDIUM' },
+    { name: "PilotPractice", x: 42, y: 45, r: 7, threat: 'LOW' },
+    { name: "Influx Mktg", x: 62, y: 52, r: 12, threat: 'LOW' },
+    { name: "EKWA (Target)", x: 92, y: 75, r: 16, threat: 'EKWA' },
+  ];
+
+  const colorMap = { HIGH: '#922B21', MEDIUM: '#F39C12', LOW: '#1E8449', EKWA: '#922B21' };
+  const datasets = ['HIGH', 'MEDIUM', 'LOW', 'EKWA'].map(threat => ({
+    label: threat === 'EKWA' ? 'Ekwa Target Zone' : threat + ' Threat',
+    data: posData.filter(d => d.threat === threat).map(d => ({ x: d.x, y: d.y, r: d.r / 3, name: d.name })),
+    backgroundColor: colorMap[threat] + '88',
+    borderColor: colorMap[threat],
+    borderWidth: 2,
+  }));
+
+  new Chart(document.getElementById('posMap'), {
+    type: 'bubble',
+    data: { datasets },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } },
+        tooltip: { callbacks: { label: ctx => ctx.raw.name + ` (Plastic Surgery Spec: ${ctx.raw.x}%, Tech: ${ctx.raw.y}%)` } }
+      },
+      scales: {
+        x: { min: 0, max: 100, title: { display: true, text: 'Plastic Surgery Specialization Score →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } },
+        y: { min: 0, max: 100, title: { display: true, text: 'Technology Platform Level →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } }
+      }
+    }
+  });
+}
+
+// ===== MECE TABLE =====
+function buildMECETable() {
+  const tbody = document.getElementById('meceTableBody');
+  competitors.forEach(c => {
+    const row = `<tr>
+      <td><span class="comp-name">${c.name}</span></td>
+      <td>${c.vpShort}</td>
+      <td><strong>${c.pricing}</strong></td>
+      <td>${c.gtm}</td>
+      <td class="vuln-text" style="color:var(--mid)">${c.moat}</td>
+      <td class="vuln-text">${c.vuln}</td>
+      <td><span class="threat-badge threat-${c.threat}">${c.threat}</span></td>
+    </tr>`;
+    tbody.innerHTML += row;
+  });
+}
+
+// ===== COMPETITOR PROFILES =====
+let currentFilter = 'all';
+let currentSearch = '';
+
+function renderCompCards() {
+  const grid = document.getElementById('compGrid');
+  grid.innerHTML = '';
+  competitors.filter(c => {
+    const matchFilter = currentFilter === 'all' || c.threat === currentFilter;
+    const matchSearch = !currentSearch || c.name.toLowerCase().includes(currentSearch.toLowerCase()) || c.vpShort.toLowerCase().includes(currentSearch.toLowerCase());
+    return matchFilter && matchSearch;
+  }).forEach(c => {
+    const card = `
+    <div class="comp-card" onclick="openCompModal('${c.name}')">
+      <div class="comp-card-header ${c.threat.toLowerCase()}">
+        <div class="threat-label">⚡ ${c.threat} THREAT</div>
+        <h4>${c.name}</h4>
+        <div class="client-count">${c.clientStr} clients</div>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-card-row"><div class="ck">Value Proposition</div><div class="cv">${c.vpShort}</div></div>
+        <div class="comp-card-row"><div class="ck">Key Moat</div><div class="cv moat">${c.moat.substring(0,90)}${c.moat.length > 90 ? '…' : ''}</div></div>
+        <div class="comp-card-row"><div class="ck">Top Vulnerability</div><div class="cv vuln">${c.vuln.substring(0,90)}${c.vuln.length > 90 ? '…' : ''}</div></div>
+      </div>
+      <div class="comp-card-footer">
+        <span>💰 ${c.pricing}</span>
+        <span style="color:var(--mid);font-weight:600">${c.gtm.split('+')[0].trim()}</span>
+      </div>
+    </div>`;
+    grid.innerHTML += card;
+  });
+}
+
+function filterComps(level, btn) {
+  currentFilter = level;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCompCards();
+}
+
+function searchComps(val) {
+  currentSearch = val;
+  renderCompCards();
+}
+
+function openCompModal(name) {
+  const c = competitors.find(x => x.name === name);
+  if (!c) return;
+  alert(`${c.name}\n\nThreat: ${c.threat}\nClients: ${c.clientStr}\nPricing: ${c.pricing}\n\nValue Proposition:\n${c.vpShort}\n\nKey Moats:\n${c.moat}\n\nVulnerabilities:\n${c.vuln}`);
+}
+
+// ===== INIT =====
+window.addEventListener('DOMContentLoaded', () => {
+  initCharts();
+  buildMECETable();
+  renderCompCards();
+});
+</script>
 </body>
 </html>

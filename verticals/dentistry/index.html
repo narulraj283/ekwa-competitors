@@ -11,11 +11,11 @@
 <meta name="CCBot" content="noindex, nofollow">
 <meta name="anthropic-ai" content="noindex, nofollow">
 <meta name="PerplexityBot" content="noindex, nofollow">
-<title>Ekwa — MedSpa Competitor Intelligence Dashboard 2026</title>
+<title>Ekwa — Dentistry Competitor Intelligence Dashboard 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --ekwa: #6C3483; --mid: #9B59B6; --light: #F5EEF8;
+    --ekwa: #1B4F72; --mid: #2E6DA4; --light: #EBF5FB;
     --red: #C0392B; --amber: #F39C12; --green: #1E8449;
     --dark: #2C3E50; --gray: #7F8C8D; --lightgray: #F8F9FA;
     --white: #FFFFFF; --border: #BDC3C7;
@@ -33,7 +33,7 @@
   .nav-tabs { background: var(--dark); display: flex; gap: 2px; padding: 0 24px; overflow-x: auto; }
   .nav-tab { padding: 12px 20px; cursor: pointer; font-size: 13px; color: rgba(255,255,255,0.65); border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
   .nav-tab:hover { color: white; background: rgba(255,255,255,0.05); }
-  .nav-tab.active { color: white; border-bottom-color: #C39BD3; background: rgba(255,255,255,0.08); }
+  .nav-tab.active { color: white; border-bottom-color: #5DADE2; background: rgba(255,255,255,0.08); }
 
   /* MAIN CONTENT */
   .content { max-width: 1400px; margin: 0 auto; padding: 24px; }
@@ -75,8 +75,8 @@
   .vuln-text { color: var(--red); font-size: 12px; }
 
   /* PLAYBOOK FILE CARDS */
-  .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #FAFBFE; border: 1px solid #E6DFF5; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
-  .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(108,52,131,0.12); }
+  .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #F8FAFD; border: 1px solid #D6E4F0; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(27,79,114,0.12); }
   .playbook-file-card.live { background: #F0FFF4; border-color: #A9DFBF; }
   .playbook-file-card.live:hover { background: #EAFAF1; border-color: var(--green); box-shadow: 0 3px 10px rgba(30,132,73,0.15); }
   .pf-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
@@ -85,9 +85,8 @@
   .pf-title-live { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
   .live-badge { font-size: 9px; font-weight: 800; background: var(--green); color: white; padding: 2px 5px; border-radius: 3px; letter-spacing: 0.5px; }
   .pf-desc { font-size: 11px; color: var(--gray); line-height: 1.4; margin-bottom: 6px; }
-  .pf-tag { font-size: 10px; font-family: monospace; background: #F5EEF8; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
+  .pf-tag { font-size: 10px; font-family: monospace; background: #EBF5FB; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
   .pf-tag-live { font-size: 10px; font-family: monospace; background: #EAFAF1; color: var(--green); padding: 2px 6px; border-radius: 3px; display: inline-block; }
-
   /* PARTIAL / CANNOT IMPLEMENT SECTIONS */
   .impl-section { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
   .impl-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
@@ -188,8 +187,8 @@
 
 <div class="header">
   <div>
-    <h1>💆 MedSpa — Competitor Intelligence Dashboard</h1>
-    <div class="subtitle">MECE Teardown · 8 Competitors · 5 Strategic Dimensions · February 2026</div>
+    <h1>🦷 Dentistry — Competitor Intelligence Dashboard</h1>
+    <div class="subtitle">MECE Teardown · Top 10 Competitors · 5 Strategic Dimensions · February 2026</div>
   </div>
   <div class="badge">🔒 Confidential & Proprietary</div>
 </div>
@@ -201,7 +200,7 @@
   <div class="nav-tab" onclick="showPage('positioning')">🗺️ Positioning Map</div>
   <div class="nav-tab" onclick="showPage('maneuvers')">⚔️ Strategic Maneuvers</div>
   <div class="nav-tab" onclick="showPage('playbooks')">🚀 Implementation Playbooks</div>
-  <a href="../../index.html" class="nav-tab" style="text-decoration:none; background: rgba(0,166,81,0.15); border-bottom-color: #00a651; color: #00a651;">🏥 All Verticals →</a>
+  <a href="../index.html" class="nav-tab" style="text-decoration:none; background: rgba(0,166,81,0.15); border-bottom-color: #00a651; color: #00a651;">🏥 All Verticals →</a>
 </div>
 
 <!-- =================== PAGE: OVERVIEW =================== -->
@@ -210,24 +209,24 @@
 
   <div class="stats-row">
     <div class="stat-card">
-      <div class="num">8</div>
+      <div class="num">10</div>
       <div class="label">Competitors Analyzed</div>
-      <div class="sub">Medical Aesthetics Digital Marketing</div>
+      <div class="sub">Dental & Healthcare Digital Marketing</div>
     </div>
     <div class="stat-card red">
-      <div class="num">4</div>
+      <div class="num">3</div>
       <div class="label">HIGH Threat</div>
-      <div class="sub">Diamond Accelerator · Thrive · Influx · Growth99</div>
+      <div class="sub">DoctorLogic · Amplify360 · Tebra</div>
     </div>
     <div class="stat-card amber">
-      <div class="num">3</div>
+      <div class="num">4</div>
       <div class="label">MEDIUM Threat</div>
-      <div class="sub">PatientGain · Plastix · DoctorLogic</div>
+      <div class="sub">Wonderist · Golden Prop. · WM4D · LassoMD</div>
     </div>
     <div class="stat-card green">
-      <div class="num">1</div>
+      <div class="num">3</div>
       <div class="label">LOW Threat</div>
-      <div class="sub">MedStar Media</div>
+      <div class="sub">KickStart · Pro Impressions · Practice Cafe</div>
     </div>
   </div>
 
@@ -262,32 +261,32 @@
       <tbody>
         <tr>
           <td><strong>Market Exclusivity</strong></td>
-          <td>One client per aesthetic vertical per geographic area</td>
-          <td>Diamond Accelerator, Growth99, Influx (ALL competitors)</td>
+          <td>One client per category per geographic area</td>
+          <td>Amplify360, WM4D, Practice Cafe, Tebra (ALL competitors)</td>
           <td class="threat-badge threat-HIGH">CRITICAL MOAT</td>
         </tr>
         <tr>
-          <td><strong>16+ Year Healthcare Track Record</strong></td>
-          <td>Documented outcomes across 400+ medical aesthetic practices since 2008</td>
-          <td>Growth99, Thrive, Influx (newer or generalist)</td>
+          <td><strong>16+ Year Dental Track Record</strong></td>
+          <td>Documented outcomes across 400+ dental practices since 2008</td>
+          <td>LassoMD, DoctorLogic, Tebra (newer or generalist)</td>
           <td class="threat-badge threat-LOW">STRONG MOAT</td>
         </tr>
         <tr>
           <td><strong>Human Expert Team</strong></td>
-          <td>Dedicated aesthetic marketing experts per client (not AI-only, not platform-dependent)</td>
-          <td>Growth99 (platform-first), DoctorLogic (AI-first)</td>
+          <td>Dedicated dental marketing experts per client (not AI-generated content)</td>
+          <td>DoctorLogic (AI-first), Tebra (platform-first)</td>
           <td class="threat-badge threat-LOW">STRONG MOAT</td>
         </tr>
         <tr>
-          <td><strong>Healthcare Specialization</strong></td>
-          <td>100% focus on medical aesthetic practices — not general e-commerce, not consumer wellness</td>
-          <td>Thrive, PatientGain, DoctorLogic (diluted focus)</td>
+          <td><strong>Dental-Only Specialization</strong></td>
+          <td>100% focus on dental/healthcare practices — not urgent care, not dermatology</td>
+          <td>PatientPop/Tebra, KickStart, Practice Cafe</td>
           <td class="threat-badge threat-LOW">STRONG MOAT</td>
         </tr>
         <tr>
           <td><strong>Content Authority System</strong></td>
-          <td>16 years of aesthetic procedure content library + SEO that compounds over time</td>
-          <td>All competitors with shorter tenure or ads-only focus</td>
+          <td>16 years of dental content library + SEO that compounds over time</td>
+          <td>All competitors with shorter tenure or PPC-only focus</td>
           <td class="threat-badge threat-LOW">STRONG MOAT</td>
         </tr>
       </tbody>
@@ -322,10 +321,10 @@
 <div id="page-profiles" class="page">
   <div class="filter-bar">
     <span style="font-size:13px;font-weight:600;color:var(--gray)">Filter by threat:</span>
-    <button class="filter-btn all active" onclick="filterComps('all', this)">All (8)</button>
-    <button class="filter-btn high" onclick="filterComps('HIGH', this)">🔴 HIGH (4)</button>
-    <button class="filter-btn medium" onclick="filterComps('MEDIUM', this)">🟡 MEDIUM (3)</button>
-    <button class="filter-btn low" onclick="filterComps('LOW', this)">🟢 LOW (1)</button>
+    <button class="filter-btn all active" onclick="filterComps('all', this)">All (10)</button>
+    <button class="filter-btn high" onclick="filterComps('HIGH', this)">🔴 HIGH (3)</button>
+    <button class="filter-btn medium" onclick="filterComps('MEDIUM', this)">🟡 MEDIUM (4)</button>
+    <button class="filter-btn low" onclick="filterComps('LOW', this)">🟢 LOW (3)</button>
     <input type="text" class="search-bar" placeholder="Search competitors..." oninput="searchComps(this.value)">
   </div>
   <div class="comp-grid" id="compGrid"></div>
@@ -334,10 +333,10 @@
 <!-- =================== PAGE: POSITIONING MAP =================== -->
 <div id="page-positioning" class="page">
   <div class="pos-map-container">
-    <h3>🗺️ Competitive Positioning Map — MedSpa Specialization vs. Technology Platform</h3>
+    <h3>🗺️ Competitive Positioning Map — Dental Specialization vs. Technology Platform</h3>
     <canvas id="posMap"></canvas>
     <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--gray)">
-      X-axis: MedSpa Specialization (Generic → MedSpa-Only) &nbsp;|&nbsp; Y-axis: Technology Platform Level (Low → High)
+      X-axis: Dental Specialization (Generic → Dental-Only) &nbsp;|&nbsp; Y-axis: Technology Platform Level (Low → High)
       &nbsp;|&nbsp; Size: Relative Client Base
     </div>
   </div>
@@ -345,19 +344,19 @@
     <div class="chart-card">
       <h3>Quadrant Analysis</h3>
       <div style="font-size:13px;line-height:1.8">
-        <div style="margin-bottom:12px"><span style="background:#FADBD8;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--red)">TOP-LEFT: Generic + High Tech</span><br><span style="color:var(--gray)">DoctorLogic, Thrive — powerful at scale but diluted aesthetic focus</span></div>
-        <div style="margin-bottom:12px"><span style="background:#F5EEF8;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--mid)">TOP-RIGHT: MedSpa-Only + High Tech ← EKWA TARGET ZONE</span><br><span style="color:var(--gray)">Diamond Accelerator and Influx approach this but lack exclusivity. Ekwa should own this quadrant.</span></div>
-        <div style="margin-bottom:12px"><span style="background:#FEF9E7;padding:3px 8px;border-radius:4px;font-weight:700;color:#D68910">BOTTOM-LEFT: Generic + Low Tech</span><br><span style="color:var(--gray)">PatientGain, MedStar Media — easiest to displace, least defensible</span></div>
-        <div><span style="background:#EAFAF1;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--green)">BOTTOM-RIGHT: MedSpa-Only + Low Tech</span><br><span style="color:var(--gray)">Plastix — boutique aesthetic focus but tech gap growing</span></div>
+        <div style="margin-bottom:12px"><span style="background:#FADBD8;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--red)">TOP-LEFT: Generic + High Tech</span><br><span style="color:var(--gray)">PatientPop/Tebra — dangerous at enterprise scale but diluted dental focus</span></div>
+        <div style="margin-bottom:12px"><span style="background:#EBF5FB;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--mid)">TOP-RIGHT: Dental-Only + High Tech ← EKWA TARGET ZONE</span><br><span style="color:var(--gray)">DoctorLogic approaches this but lacks exclusivity. Ekwa should own this quadrant.</span></div>
+        <div style="margin-bottom:12px"><span style="background:#FEF9E7;padding:3px 8px;border-radius:4px;font-weight:700;color:#D68910">BOTTOM-LEFT: Generic + Low Tech</span><br><span style="color:var(--gray)">KickStart, Practice Cafe — easiest to displace, least defensible</span></div>
+        <div><span style="background:#EAFAF1;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--green)">BOTTOM-RIGHT: Dental-Only + Low Tech</span><br><span style="color:var(--gray)">Wonderist, Golden Proportions, Pro Impressions — good dental focus but tech gap growing</span></div>
       </div>
     </div>
     <div class="chart-card">
       <h3>Ekwa's Strategic Direction</h3>
       <div style="font-size:13px;line-height:1.8;color:var(--dark)">
-        <p style="margin-bottom:10px">Ekwa currently sits in the <strong>MedSpa-Only + Medium-High Tech</strong> zone. The strategic opportunity is to:</p>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move RIGHT</strong> on aesthetic specialization: deepen expertise in laser, injectables, body contouring, and other procedures</span></div>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move UP</strong> on tech platform: invest in before/after content automation, AI-assisted copy, and multi-location reporting for medspa chains</span></div>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Maintain exclusivity moat</strong> in medspa: no competitor combines aesthetic specialization WITH per-market exclusivity — that unique combination is Ekwa's sustainable competitive advantage</span></div>
+        <p style="margin-bottom:10px">Ekwa currently sits in the <strong>Dental-Only + Medium-High Tech</strong> zone. The strategic opportunity is to:</p>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move RIGHT</strong> on dental specialization: deepen DSO-specific capabilities and specialty dental (orthodontics, implants, pediatric)</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move UP</strong> on tech platform: invest in analytics dashboard, AI-assisted content, and multi-location reporting</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Maintain exclusivity moat</strong>: no competitor is in the top-right quadrant WITH per-market exclusivity — that unique combination is Ekwa's sustainable competitive advantage</span></div>
       </div>
     </div>
   </div>
@@ -368,22 +367,22 @@
 
   <div class="stats-row">
     <div class="stat-card red">
-      <div class="num">$800K</div>
+      <div class="num">$1.5M</div>
       <div class="label">Maneuver 1 Target ARR</div>
-      <div class="sub">20 clients @ avg $3,333/mo</div>
+      <div class="sub">50 clients @ avg $2,500/mo</div>
     </div>
     <div class="stat-card" style="border-top-color:var(--mid)">
-      <div class="num" style="color:var(--mid)">$750K</div>
+      <div class="num" style="color:var(--mid)">$1.1M</div>
       <div class="label">Maneuver 2 Target ARR</div>
-      <div class="sub">18 clients @ avg $3,500/mo</div>
+      <div class="sub">30 clients @ avg $3,000/mo</div>
     </div>
     <div class="stat-card green">
-      <div class="num">$450K</div>
+      <div class="num">$1.5M</div>
       <div class="label">Maneuver 3 Target ARR</div>
-      <div class="sub">12 cross-sell clients @ $3,125/mo</div>
+      <div class="sub">35 DSO locations @ $3,500/mo</div>
     </div>
     <div class="stat-card" style="border-top-color:var(--ekwa)">
-      <div class="num">$2.0M+</div>
+      <div class="num">$4.1M+</div>
       <div class="label">Combined ARR Target</div>
       <div class="sub">If all 3 maneuvers execute successfully</div>
     </div>
@@ -394,11 +393,11 @@
     <div class="maneuver-header">
       <div class="maneuver-num">01</div>
       <div class="maneuver-title-block">
-        <h3>Operation Aesthetic Authority™</h3>
-        <p>Establish ekwa as the definitive authority for high-performing medspa practices</p>
+        <h3>Operation Exclusivity Lock™</h3>
+        <p>Target Post-Merger Amplify360 Client Displacement</p>
         <div class="maneuver-meta">
-          <span class="meta-tag">12-Month Window — Content + Certification</span>
-          <span class="meta-tag">Targets: Diamond Accelerator · Influx · Growth99</span>
+          <span class="meta-tag">24-Month Window — CRITICAL TIMING</span>
+          <span class="meta-tag">Targets: Amplify360 · KickStart · Practice Cafe</span>
         </div>
       </div>
     </div>
@@ -406,28 +405,28 @@
       <div>
         <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
         <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Launch 'Aesthetic Practice Growth' Content Series</strong> — 20+ blog posts, case studies, and guides targeting medspa owners spending $3K+/mo on ads with zero SEO strategy</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Create Aesthetic Authority Certification Program</strong> — 'Certified Aesthetic Practice' credential with measurable outcomes framework</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>Deploy 'MedSpa Marketing Audit' Lead Tool</strong> — free audit scoring medspa marketing across 8 dimensions + ROI calculator</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Target Competitor Renewal Windows</strong> — identify Diamond Accelerator and Influx clients at 6-month contract renewal with conquest messaging</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Build Before/After Content Library</strong> — capture and systematize best-performing aesthetic before/after photo marketing templates</span></li>
+          <li><span class="action-num">1</span><span class="action-text"><strong>Launch 'Tired of Being One of 5,000?' Campaign</strong> — targeted LinkedIn Ads, podcast sponsorships, and Google Display toward Amplify360 client segments</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Build the 'Switch Kit'</strong> — 90-day free onboarding + competitive analysis of their current results vs. Ekwa benchmarks + signed exclusivity agreement</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>Create Exclusivity Landing Page</strong> — 'One Practice. One Agency. One Market.' + 'Check Your Market Availability' tool</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>LinkedIn Outreach Campaign</strong> — target dentists who tagged Amplify360/SmartBox in posts or reviews in the last 24 months</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>Dental Consultant Partnership Program</strong> — formal referral program with consultants noticing Amplify360 post-merger dissatisfaction</span></li>
         </ul>
       </div>
       <div>
         <div class="metric-box">
           <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">20 new medspa clients × $3,333/mo avg = <strong>$800K ARR addition</strong> from practices with $800K–$3M annual revenue</div>
+          <div class="mval">50 net new clients from Amplify360 displacement within 12 months at avg $2,500/mo = <strong>$1.5M ARR addition</strong></div>
         </div>
         <div class="kpi-list">
           <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Content series downloads (target: 500+ in first 6 months)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Marketing audit leads (target: 30/month by month 3)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Win rate from audit leads (target: >25%)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>NPS from new medspa clients (target: >65)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Win rate from Amplify360-origin prospects (target: >40%)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Time-to-sign from first contact (target: <30 days)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>NPS from switch clients at months 3 and 6 (target: >60)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Dental consultant referral partners (target: 15+ by month 6)</div>
         </div>
         <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> Medspa market more fragmented than dental.<br>
-          <strong>Mitigation:</strong> Exclusivity promise + before/after content expertise = differentiation no ads-only competitor can match.
+          <strong>⚠️ Risk:</strong> Amplify360 may respond with aggressive retention offers.<br>
+          <strong>Mitigation:</strong> Exclusivity promise — no retention offer creates per-market exclusive rights.
         </div>
       </div>
     </div>
@@ -438,11 +437,11 @@
     <div class="maneuver-header">
       <div class="maneuver-num">02</div>
       <div class="maneuver-title-block">
-        <h3>Operation Spa Lock™</h3>
-        <p>Lock in highest-value medspa practices via exclusivity before Growth99 platform spreads</p>
+        <h3>Operation AI Credibility Shield™</h3>
+        <p>Outflank DoctorLogic & PatientPop/Tebra on the AI Marketing Narrative</p>
         <div class="maneuver-meta">
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">12-Month Window — Exclusivity Guarantee</span>
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Targets: High-revenue independent medspas</span>
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">12-Month Window — Before AI Matures</span>
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Targets: DoctorLogic · PatientPop/Tebra</span>
         </div>
       </div>
     </div>
@@ -450,28 +449,28 @@
       <div>
         <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
         <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Identify Top 100 Independent Medspas</strong> — by revenue in target markets via SPA Week, Medspa Nation databases, and LinkedIn</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Create 'Spa Exclusivity Guarantee' Contract</strong> — one medspa per market, signed exclusivity lock-in, 24-month term</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>Deploy Conquest Pages</strong> — 'Switch from Growth99', 'Switch from Diamond Accelerator', 'Your Competitor Can't Have Ekwa'</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Launch LinkedIn + Instagram Campaign</strong> — target medspa owners and aestheticians who follow competitor pages</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Aesthetician Partner Program</strong> — commission-based referral program with medspa managers and area aestheticians</span></li>
+          <li><span class="action-num">1</span><span class="action-text"><strong>Publish Definitive Whitepaper</strong> — 'AI in Dental Marketing: What Actually Works (And What Doesn't)' — 16 years of evidence vs. AI hype</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Launch 'Verified Results Dashboard'</strong> — public-facing anonymized Ekwa client outcomes: traffic, calls, new patient bookings. Real data no AI platform can replicate.</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>'Human-Expert-Led Marketing' Campaign</strong> — 'Real Experts. Real Dental Patients. Real Results.' Feature Ekwa specialists by name against competitors' algorithmic approach</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>Build AI vs. Ekwa Comparison Tool</strong> — interactive guide on ekwa.com highlighting unproven AI ROI vs. Ekwa's documented patient acquisition outcomes</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>Recruit AI Platform Refugees</strong> — identify 5–10 DoctorLogic/Tebra clients frustrated with AI features; develop anonymized case studies as proof points</span></li>
         </ul>
       </div>
       <div>
         <div class="metric-box">
           <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">18 medspa exclusivity contracts × $3,500/mo = <strong>$756K ARR addition</strong></div>
+          <div class="mval">30 net new clients from DoctorLogic/Tebra displacement within 12 months. <strong>40% increase</strong> in competitor comparison organic traffic.</div>
         </div>
         <div class="kpi-list">
           <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Top 100 medspa outreach completion (target: 100% in month 1)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Exclusivity contract close rate (target: >15%)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Average deal size (target: $3,500+/mo)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Aesthetician referral partner network (target: 25+ by month 6)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Whitepaper downloads (target: 500+ in first 90 days)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Demo requests from comparison tool (target: 20/month by month 3)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>Dental publication media mentions (target: 5+ in year 1)</div>
+          <div class="kpi-item"><span class="kpi-dot"></span>'DoctorLogic alternative' organic ranking (target: top 5)</div>
         </div>
         <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> High-revenue medspas may have existing contracts.<br>
-          <strong>Mitigation:</strong> Offer contract buyout + 30-day performance guarantee at no risk.
+          <strong>⚠️ Risk:</strong> DoctorLogic may publish counter-research.<br>
+          <strong>Mitigation:</strong> 16-year data is an asymmetric advantage — no newer platform can replicate it.
         </div>
       </div>
     </div>
@@ -482,11 +481,11 @@
     <div class="maneuver-header">
       <div class="maneuver-num">03</div>
       <div class="maneuver-title-block">
-        <h3>Operation Med-Derm Bridge™</h3>
-        <p>Cross-sell existing ekwa dermatology clients into medspa services and vice versa</p>
+        <h3>Operation DSO Frontier™</h3>
+        <p>Capture the Goldilocks DSO Segment Before Enterprise Platforms Lock It Down</p>
         <div class="maneuver-meta">
-          <span class="meta-tag">9-Month Window — Low-Risk Expansion</span>
-          <span class="meta-tag">Targets: Existing ekwa derm + medspa clients</span>
+          <span class="meta-tag">18-Month Window — First-Mover Opportunity</span>
+          <span class="meta-tag">Targets: DSOs with 3–20 Locations</span>
         </div>
       </div>
     </div>
@@ -494,28 +493,28 @@
       <div>
         <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
         <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Identify Dual-Vertical Opportunity List</strong> — ekwa derm clients who also operate medspa services; medspa clients who offer medical-grade procedures</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Build 'Unified Medical Aesthetic Practice' Bundled Offer</strong> — 15% discount for managing both verticals under one ekwa account</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>Create Cross-Selling Playbook for Account Managers</strong> — identification criteria, pitch scripts, contract templates</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Develop Joint Case Studies</strong> — dermatology + medspa practices documenting unified brand results</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Launch 'Aesthetic Synergy' Email Campaign</strong> — 4-week educational sequence on dual-vertical marketing strategy</span></li>
+          <li><span class="action-num">1</span><span class="action-text"><strong>Create 'Ekwa DSO Program'</strong> — per-location exclusivity + unified brand management + centralized reporting + single point-of-contact team</span></li>
+          <li><span class="action-num">2</span><span class="action-text"><strong>Build Goldilocks DSO Prospect List</strong> — independent DSOs with 3–20 locations from Group Dentistry Now, DSO Leaders, dental M&A databases, LinkedIn</span></li>
+          <li><span class="action-num">3</span><span class="action-text"><strong>Develop DSO Case Study</strong> — partner with current/new DSO client to document exclusivity-per-location value: 'How [DSO] Grew from X to Y Locations with Ekwa's Exclusivity Model'</span></li>
+          <li><span class="action-num">4</span><span class="action-text"><strong>Conference Authority Building</strong> — speaking slots at DSO Summit, DSO Evolution, Group Dentistry Now. Topic: 'The Exclusivity Advantage: Why DSOs Are Abandoning One-Size-Fits-All Marketing'</span></li>
+          <li><span class="action-num">5</span><span class="action-text"><strong>DSO Referral Network</strong> — partner with dental CPAs, transition planners, DSO consultants as preferred marketing vendor for newly acquired practices</span></li>
         </ul>
       </div>
       <div>
         <div class="metric-box">
           <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">12 existing clients expand into dual-vertical = <strong>$450K additional ARR</strong> ($3,125/mo avg increase per account)</div>
+          <div class="mval">5 DSO clients × avg 7 locations = <strong>35 locations within 18 months</strong> at $3,500/location/mo = <strong>$1.47M ARR addition</strong></div>
         </div>
         <div class="kpi-list">
           <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Dual-vertical opportunity list completion (target: 100 by week 2)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Cross-sell conversion rate (target: >10%)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Account expansion ARPU lift (target: $3,125/mo average)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Joint case study development (target: 3+ by month 6)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Number of DSO clients signed (target: 5 in 18 months)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Average locations per DSO client (target: 5–10)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>DSO conference speaking slots (target: 2 in year 1)</div>
+          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>DSO referral partner network (target: 20+ by month 12)</div>
         </div>
         <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> Existing customers may prefer single-vertical focus.<br>
-          <strong>Mitigation:</strong> Bundled discount + no lock-in = low friction upsell path.
+          <strong>⚠️ Risk:</strong> DSO segment requires multi-location operational complexity.<br>
+          <strong>Mitigation:</strong> Start with 3–5 location DSOs; build capability before scaling to 10–20 groups.
         </div>
       </div>
     </div>
@@ -533,12 +532,12 @@
       <div class="sub">Ready to deploy immediately</div>
     </div>
     <div class="stat-card red">
-      <div class="num">18</div>
+      <div class="num">20</div>
       <div class="label">Campaign Assets</div>
       <div class="sub">Across all 3 maneuvers</div>
     </div>
     <div class="stat-card" style="border-top-color:var(--amber)">
-      <div class="num">$2.0M+</div>
+      <div class="num">$4.1M+</div>
       <div class="label">Combined ARR Target</div>
       <div class="sub">If all 3 maneuvers execute</div>
     </div>
@@ -554,17 +553,17 @@
     <div class="maneuver-header">
       <div class="maneuver-num">01</div>
       <div class="maneuver-title-block">
-        <h3>Operation Aesthetic Authority™</h3>
-        <p>Establish ekwa as medspa authority · <strong>$800K ARR Target</strong></p>
+        <h3>Operation Exclusivity Lock™</h3>
+        <p>Target Post-Merger Amplify360 Client Displacement · <strong>$1.5M ARR Target</strong></p>
         <div class="maneuver-meta">
-          <span class="meta-tag">12-Month Window</span>
-          <span class="meta-tag">Budget: $40K · CPA Target: &lt;$2,000</span>
+          <span class="meta-tag">24-Month Window — CRITICAL TIMING</span>
+          <span class="meta-tag">Budget: $63K · CPA Target: &lt;$2,100</span>
         </div>
       </div>
     </div>
     <div style="padding:20px">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="../../maneuvers/aesthetic-authority/campaign-brief.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/exclusivity-lock/campaign-brief.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📋</div>
           <div class="pf-info">
             <div class="pf-title">Campaign Brief</div>
@@ -572,39 +571,55 @@
             <div class="pf-tag">campaign-brief.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/aesthetic-authority/landing-page.html" class="playbook-file-card live" target="_blank">
+        <a href="../../maneuvers/exclusivity-lock/landing-page.html" class="playbook-file-card" target="_blank">
           <div class="pf-icon">🌐</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Authority Landing Page</div>
-            <div class="pf-desc">"The Aesthetic Practice Benchmark Report" — ready to deploy</div>
-            <div class="pf-tag-live">landing-page.html</div>
+            <div class="pf-title">Landing Page</div>
+            <div class="pf-desc">"Is Your Agency Also Working for Your Competitors?" — ready to deploy</div>
+            <div class="pf-tag">landing-page.html</div>
           </div>
         </a>
-        <a href="../../maneuvers/aesthetic-authority/email-sequence.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/exclusivity-lock/email-sequence.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">✉️</div>
           <div class="pf-info">
-            <div class="pf-title">4-Email Nurture Sequence</div>
-            <div class="pf-desc">Days 2, 5, 10, 21 — subject lines, bodies, lead magnet CTAs</div>
+            <div class="pf-title">5-Email Cold Sequence</div>
+            <div class="pf-desc">Days 1, 4, 8, 14, 21 — subject lines, bodies, CTAs included</div>
             <div class="pf-tag">email-sequence.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/aesthetic-authority/content-calendar.md" class="playbook-file-card" target="_blank">
-          <div class="pf-icon">📅</div>
+        <a href="../../maneuvers/exclusivity-lock/battlecard.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">⚔️</div>
           <div class="pf-info">
-            <div class="pf-title">Content Calendar & Topics</div>
-            <div class="pf-desc">20 blog posts, before/after guides, procedure deep-dives</div>
-            <div class="pf-tag">content-calendar.md</div>
+            <div class="pf-title">Sales Battlecard (Source)</div>
+            <div class="pf-desc">8-dimension comparison, 5 objection handlers, 13 discovery questions</div>
+            <div class="pf-tag">battlecard.md</div>
           </div>
         </a>
-        <a href="../../tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">📊</div>
+        <a href="../../tools/battlecard.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🎯</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive ROI Calculator</div>
-            <div class="pf-desc">Medspa revenue calculator: enter annual revenue → see ROI across 3 scenarios</div>
-            <div class="pf-tag-live">tools/roi-calculator.html</div>
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive Battlecard</div>
+            <div class="pf-desc">Clickable web battlecard with objection scripts, print-to-PDF, discovery questions</div>
+            <div class="pf-tag-live">tools/battlecard.html</div>
           </div>
         </a>
-        <a href="../../maneuvers/aesthetic-authority/README.md" class="playbook-file-card" target="_blank">
+        <a href="../../tools/market-checker.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">🗺️</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Market Availability Checker</div>
+            <div class="pf-desc">Interactive tool: "Check if your market is available" — with lead capture form</div>
+            <div class="pf-tag-live">tools/market-checker.html</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/exclusivity-lock/linkedin-outreach.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">💼</div>
+          <div class="pf-info">
+            <div class="pf-title">LinkedIn Outreach Scripts</div>
+            <div class="pf-desc">Connection request + 3 follow-ups + response handling guide</div>
+            <div class="pf-tag">linkedin-outreach.md</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/exclusivity-lock/README.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📖</div>
           <div class="pf-info">
             <div class="pf-title">Master README</div>
@@ -621,61 +636,69 @@
     <div class="maneuver-header">
       <div class="maneuver-num">02</div>
       <div class="maneuver-title-block">
-        <h3>Operation Spa Lock™</h3>
-        <p>Target high-value medspa practices with exclusivity · <strong>$750K ARR Target</strong></p>
+        <h3>Operation AI Credibility Shield™</h3>
+        <p>Outflank DoctorLogic &amp; PatientPop/Tebra on the AI Marketing Narrative · <strong>$1.1M ARR Target</strong></p>
         <div class="maneuver-meta">
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">12-Month Window</span>
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Budget: $35K</span>
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">12-Month Window — Before AI Matures</span>
+          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Budget: $25–35K</span>
         </div>
       </div>
     </div>
     <div style="padding:20px">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="../../maneuvers/spa-lock/campaign-brief.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/ai-credibility-shield/campaign-brief.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📋</div>
           <div class="pf-info">
             <div class="pf-title">Campaign Brief</div>
-            <div class="pf-desc">Medspa market sizing, exclusivity positioning, sales strategy</div>
+            <div class="pf-desc">Market opportunity, 90-day plan, Google HCU strategy</div>
             <div class="pf-tag">campaign-brief.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/spa-lock/landing-page.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🌐</div>
+        <a href="../../maneuvers/ai-credibility-shield/blog-post.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✍️</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Exclusivity Landing Page</div>
-            <div class="pf-desc">"Your Market is Yours Alone" — with market availability checker</div>
-            <div class="pf-tag-live">landing-page.html</div>
+            <div class="pf-title">Flagship Blog Post (Source)</div>
+            <div class="pf-desc">"Why Your Practice Can't Afford AI-Generated Marketing in 2026" — 1,500 words</div>
+            <div class="pf-tag">blog-post.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/spa-lock/email-outreach.md" class="playbook-file-card" target="_blank">
+        <a href="../../content/ai-credibility-blog.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">📰</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Published Blog Article</div>
+            <div class="pf-desc">Fully styled, publishable article with TOC, callout boxes, and lead capture — copy to ekwa.com</div>
+            <div class="pf-tag-live">content/ai-credibility-blog.html</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/ai-credibility-shield/email-nurture.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">✉️</div>
           <div class="pf-info">
-            <div class="pf-title">Executive Cold Outreach</div>
-            <div class="pf-desc">3-email sequence for spa owners and managers</div>
-            <div class="pf-tag">email-outreach.md</div>
+            <div class="pf-title">Email Nurture Sequence</div>
+            <div class="pf-desc">3-email nurture + 4-week drip sequence for warm leads</div>
+            <div class="pf-tag">email-nurture.md</div>
           </div>
         </a>
-        <a href="../../conquest/switch-from-diamond-accelerator.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
+        <a href="../../maneuvers/ai-credibility-shield/content-calendar.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">📅</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Diamond Accelerator Conquest Page</div>
-            <div class="pf-desc">Targeted landing page for switch-out campaign</div>
-            <div class="pf-tag-live">conquest/switch-from-diamond-accelerator.html</div>
+            <div class="pf-title">30-Post Content Calendar</div>
+            <div class="pf-desc">20 LinkedIn + 10 Facebook posts, 4 weekly themes, video scripts</div>
+            <div class="pf-tag">content-calendar.md</div>
           </div>
         </a>
-        <a href="../../conquest/switch-from-growth99.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
+        <a href="../../maneuvers/ai-credibility-shield/positioning-one-pager.html" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🌐</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Growth99 Conquest Page</div>
-            <div class="pf-desc">Direct competitive messaging for platform-fatigued customers</div>
-            <div class="pf-tag-live">conquest/switch-from-growth99.html</div>
+            <div class="pf-title">"The Human Advantage" One-Pager</div>
+            <div class="pf-desc">Ekwa vs. AI platforms comparison page — ready to deploy</div>
+            <div class="pf-tag">positioning-one-pager.html</div>
           </div>
         </a>
-        <a href="../../maneuvers/spa-lock/README.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/ai-credibility-shield/README.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📖</div>
           <div class="pf-info">
             <div class="pf-title">Master README</div>
-            <div class="pf-desc">Deployment guide and asset index</div>
+            <div class="pf-desc">Usage guide, quick-start checklist, asset index</div>
             <div class="pf-tag">README.md</div>
           </div>
         </a>
@@ -688,62 +711,86 @@
     <div class="maneuver-header">
       <div class="maneuver-num">03</div>
       <div class="maneuver-title-block">
-        <h3>Operation Med-Derm Bridge™</h3>
-        <p>Cross-sell derm clients into medspa and vice versa · <strong>$450K ARR Target</strong></p>
+        <h3>Operation DSO Frontier™</h3>
+        <p>Capture the Goldilocks DSO Segment (3–15 Locations) · <strong>$1.5M ARR Target</strong></p>
         <div class="maneuver-meta">
-          <span class="meta-tag">9-Month Window</span>
-          <span class="meta-tag">Budget: $15K</span>
+          <span class="meta-tag">18-Month Window — First-Mover Opportunity</span>
+          <span class="meta-tag">$3,500/location/mo · 35 locations target</span>
         </div>
       </div>
     </div>
     <div style="padding:20px">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="../../maneuvers/med-derm-bridge/campaign-brief.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/dso-frontier/campaign-brief.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📋</div>
           <div class="pf-info">
             <div class="pf-title">Campaign Brief</div>
-            <div class="pf-desc">Opportunity identification, account expansion strategy, pricing model</div>
+            <div class="pf-desc">DSO market sizing, pricing tiers, 90-day launch plan</div>
             <div class="pf-tag">campaign-brief.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/med-derm-bridge/landing-page.html" class="playbook-file-card live" target="_blank">
+        <a href="../../maneuvers/dso-frontier/landing-page.html" class="playbook-file-card" target="_blank">
           <div class="pf-icon">🌐</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Unified Aesthetic Landing Page</div>
-            <div class="pf-desc">"One Agency for All Your Aesthetic Services" — bundle messaging</div>
-            <div class="pf-tag-live">landing-page.html</div>
+            <div class="pf-title">DSO Landing Page</div>
+            <div class="pf-desc">"Marketing Built for Growing Dental Groups" — premium dark-navy design</div>
+            <div class="pf-tag">landing-page.html</div>
           </div>
         </a>
-        <a href="../../maneuvers/med-derm-bridge/email-nurture.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/dso-frontier/email-outreach.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">✉️</div>
           <div class="pf-info">
-            <div class="pf-title">4-Week Email Nurture Series</div>
-            <div class="pf-desc">Educational sequence on dual-vertical synergies</div>
-            <div class="pf-tag">email-nurture.md</div>
+            <div class="pf-title">Executive Cold Outreach</div>
+            <div class="pf-desc">3-email C-suite sequence for DSO CEOs and COOs</div>
+            <div class="pf-tag">email-outreach.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/med-derm-bridge/case-studies.md" class="playbook-file-card" target="_blank">
+        <a href="../../maneuvers/dso-frontier/proposal-template.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📄</div>
           <div class="pf-info">
-            <div class="pf-title">Joint Case Study Templates</div>
-            <div class="pf-desc">Template for dermatology + medspa unified success stories</div>
-            <div class="pf-tag">case-studies.md</div>
+            <div class="pf-title">DSO Proposal Template</div>
+            <div class="pf-desc">Full 8-section proposal with 3 pricing tiers (Starter/Growth/Enterprise)</div>
+            <div class="pf-tag">proposal-template.md</div>
           </div>
         </a>
-        <a href="../../tools/battlecard.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🎯</div>
+        <a href="../../maneuvers/dso-frontier/roi-calculator.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🧮</div>
           <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Account Manager Battlecard</div>
-            <div class="pf-desc">Sales scripts, objection handlers, discovery questions for cross-sell</div>
-            <div class="pf-tag-live">tools/battlecard.html</div>
+            <div class="pf-title">ROI Calculator (Framework)</div>
+            <div class="pf-desc">Conservative / Moderate / Aggressive scenarios with full math</div>
+            <div class="pf-tag">roi-calculator.md</div>
           </div>
         </a>
-        <a href="../../maneuvers/med-derm-bridge/README.md" class="playbook-file-card" target="_blank">
+        <a href="../../tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
+          <div class="pf-icon">📊</div>
+          <div class="pf-info">
+            <div class="pf-title-live"><span class="live-badge">LIVE</span> Interactive ROI Calculator</div>
+            <div class="pf-desc">Real-time calculator: enter locations, spend & patients → see Year 1 ROI across 3 scenarios</div>
+            <div class="pf-tag-live">tools/roi-calculator.html</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/dso-frontier/partnerships-list.md" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">🤝</div>
+          <div class="pf-info">
+            <div class="pf-title">DSO Partnership Network</div>
+            <div class="pf-desc">20+ ecosystem partners across 7 tiers — dental CPAs, consultants, M&amp;A advisors</div>
+            <div class="pf-tag">partnerships-list.md</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/dso-frontier/README.md" class="playbook-file-card" target="_blank">
           <div class="pf-icon">📖</div>
           <div class="pf-info">
             <div class="pf-title">Master README</div>
-            <div class="pf-desc">Deployment guide and asset index</div>
+            <div class="pf-desc">Comprehensive usage guide and asset index</div>
             <div class="pf-tag">README.md</div>
+          </div>
+        </a>
+        <a href="../../maneuvers/dso-frontier/DEPLOYMENT-CHECKLIST.txt" class="playbook-file-card" target="_blank">
+          <div class="pf-icon">✅</div>
+          <div class="pf-info">
+            <div class="pf-title">Deployment Checklist</div>
+            <div class="pf-desc">Week-by-week execution roadmap — Week 1 through Week 12</div>
+            <div class="pf-tag">DEPLOYMENT-CHECKLIST.txt</div>
           </div>
         </a>
       </div>
@@ -766,13 +813,13 @@
         <div class="ic-needs">🔧 Needs: <a href="https://formspree.io/register" target="_blank" style="color:#B7770D">formspree.io</a> — create a free account, replace YOUR_FORM_ID in each HTML file, redeploy.</div>
       </div>
       <div class="impl-card partial">
-        <div class="ic-title">🗺️ Market Availability Checker</div>
-        <div class="ic-what">Static version is live with hardcoded taken markets. Shows "Available" or "Taken" based on city search. For real-time data needs a database.</div>
+        <div class="ic-title">🗺️ "Check Market Availability" Tool</div>
+        <div class="ic-what">Static version is live with 20 hardcoded taken markets. Shows "Available" or "Taken" based on city search. For real-time data (actual ekwa client list) needs a database.</div>
         <div class="ic-needs">🔧 Current state: Fully usable as-is for demos. Real-time version: <a href="https://airtable.com" target="_blank" style="color:#B7770D">Airtable</a> + simple API call ($20/mo).</div>
       </div>
       <div class="impl-card partial">
-        <div class="ic-title">📧 Email Signup on Authority Pages</div>
-        <div class="ic-what">Landing pages have lead forms. Needs Mailchimp/ConvertKit embed to add subscribers to a list automatically.</div>
+        <div class="ic-title">📧 Email Signup on Blog Post</div>
+        <div class="ic-what">Blog post page is published with a lead form. Needs Mailchimp/ConvertKit embed to add subscribers to a list automatically.</div>
         <div class="ic-needs">🔧 Needs: <a href="https://mailchimp.com" target="_blank" style="color:#B7770D">Mailchimp</a> (free up to 500 contacts) or <a href="https://convertkit.com" target="_blank" style="color:#B7770D">ConvertKit</a> — swap in their embed code.</div>
       </div>
       <div class="impl-card partial">
@@ -790,33 +837,33 @@
     <div class="impl-grid">
       <div class="impl-card cannot">
         <div class="ic-title">✉️ Email Automation (Sending Sequences)</div>
-        <div class="ic-what">The 4-email nurture sequences and cold outreach flows are written and ready. But sending requires a mail platform.</div>
+        <div class="ic-what">The 5-email cold sequence, DSO outreach, and nurture flows are written and ready. But sending requires a mail platform.</div>
         <div class="ic-needs">❌ Needs: HubSpot (CRM + sequences), Mailchimp, ActiveCampaign, or Instantly.ai for cold outreach at scale.</div>
       </div>
       <div class="impl-card cannot">
         <div class="ic-title">💼 LinkedIn Outreach Automation</div>
-        <div class="ic-what">Scripts are written. Actual outreach to medspa owners requires LinkedIn Sales Navigator or automation tools.</div>
+        <div class="ic-what">Scripts are written. Actual outreach to Amplify360 dentists requires LinkedIn Sales Navigator or automation tools.</div>
         <div class="ic-needs">❌ Needs: LinkedIn Sales Navigator ($80/mo) + Expandi or Dripify ($40/mo) for automated connection sequences.</div>
       </div>
       <div class="impl-card cannot">
         <div class="ic-title">📣 Paid Ad Campaigns</div>
-        <div class="ic-what">Campaign briefs specify Google Ads, LinkedIn Ads, and Instagram Ads budgets and targeting. Execution requires ad platform accounts.</div>
-        <div class="ic-needs">❌ Needs: Google Ads + LinkedIn Campaign Manager + Instagram Ads Manager. Budget: ~$40K (Op 1), $35K (Op 2), $15K (Op 3).</div>
+        <div class="ic-what">Campaign briefs specify Google Ads, LinkedIn Ads, and Facebook Ads budgets and targeting. Execution requires ad platform accounts.</div>
+        <div class="ic-needs">❌ Needs: Google Ads + LinkedIn Campaign Manager + Facebook Ads Manager. Budget: ~$63K (Op 1), $25–35K (Op 2), per campaign brief.</div>
       </div>
       <div class="impl-card cannot">
         <div class="ic-title">🏥 CRM + Pipeline Management</div>
-        <div class="ic-what">Tracking medspa prospects, competitor displacement pipeline, and cross-sell opportunities requires a CRM with deal stages.</div>
+        <div class="ic-what">Tracking DSO prospects, Amplify360 displacement pipeline, and AI Shield leads requires a CRM with deal stages.</div>
         <div class="ic-needs">❌ Needs: HubSpot CRM (free tier available) or Salesforce. Setup takes ~1 day with the prospect data from these playbooks.</div>
       </div>
       <div class="impl-card cannot">
-        <div class="ic-title">📈 Performance Dashboard</div>
-        <div class="ic-what">Tracking campaign ROI, client acquisition, and conversion rates requires live data from your campaigns and client accounts.</div>
-        <div class="ic-needs">❌ Needs: Google Analytics 4 + Search Console + Looker Studio connected to ekwa medspa client accounts.</div>
+        <div class="ic-title">📈 Looker Studio Performance Dashboard</div>
+        <div class="ic-what">Tracking campaign ROI, new patient growth, and conversion rates requires live data from your clients' websites and the campaigns above.</div>
+        <div class="ic-needs">❌ Needs: Google Analytics 4 + Search Console + Looker Studio connected to ekwa client accounts (you already have access to this).</div>
       </div>
       <div class="impl-card cannot">
-        <div class="ic-title">🤝 Direct Sales Outreach</div>
-        <div class="ic-what">The top 100 medspa list and cold outreach campaigns are mapped out. But actual relationship-building requires human sales effort.</div>
-        <div class="ic-needs">❌ Needs: Direct outreach from Naren or business development team. LinkedIn research, email sequencing, phone calls.</div>
+        <div class="ic-title">🤝 DSO Partnership Outreach</div>
+        <div class="ic-what">The 20+ DSO ecosystem partners list is ready. But outreach to dental CPAs, M&amp;A advisors, and DSO consultants needs human relationship-building.</div>
+        <div class="ic-needs">❌ Needs: Direct outreach from Naren or business development team. Conference appearances at DSO Summit, DSO Evolution (in-person).</div>
       </div>
     </div>
   </div>
@@ -829,14 +876,16 @@
 <script>
 // ===== DATA =====
 const competitors = [
-  { name: "Diamond Accelerator", threat: "HIGH", vpShort: "MedSpa-only growth agency with ROI guarantees. Claims $250K new revenue in 6 months. Ads-first approach.", pricing: "$2,500–$5,000/mo", clients: 300, gtm: "ROI guarantees + testimonials + Facebook/Instagram ads + conferences", moat: "MedSpa exclusive focus + ROI guarantee trust + before/after content library", vuln: "Overpromises ROI, high churn, ads-only (no SEO depth), unsustainable guarantee backstop", clientStr: "200-400", priceMin: 2500, priceMax: 5000 },
-  { name: "Thrive Internet Mktg", threat: "HIGH", vpShort: "Full-service digital agency with medical aesthetics vertical. Scale + team + broad service menu.", pricing: "$2,000–$7,000/mo", clients: 500, gtm: "Awards + case studies + content + outbound sales team", moat: "Brand recognition + scale + multi-service depth", vuln: "Not medspa-specialized; slow execution; generalist account managers juggle too many clients", clientStr: "400-600", priceMin: 2000, priceMax: 7000 },
-  { name: "Influx Marketing", threat: "HIGH", vpShort: "Medical aesthetics digital marketing specialist. SEO + paid social + landing page conversion focus.", pricing: "$2,000–$6,000/mo", clients: 400, gtm: "Medical aesthetics content + Instagram presence + referral + direct outreach", moat: "Aesthetic industry focus + conversion landing page expertise + social proof content", vuln: "No exclusivity; limited geographic scale; over-indexed on Instagram/paid social only", clientStr: "300-500", priceMin: 2000, priceMax: 6000 },
-  { name: "Growth99", threat: "HIGH", vpShort: "Technology platform + marketing services for aesthetic practices. CRM + automation + digital ads.", pricing: "$1,500–$5,000/mo", clients: 600, gtm: "Platform demo + aesthetic conferences + online reviews + influencer partnerships", moat: "CRM platform lock-in + automation tools + aesthetic conference presence", vuln: "Platform-technology focus limits strategic depth; high dependency on ads; churn from overpromising", clientStr: "500-700", priceMin: 1500, priceMax: 5000 },
-  { name: "PatientGain", threat: "MEDIUM", vpShort: "Reputation + SEO platform for medspa and dermatology. Automated marketing for mid-size practices.", pricing: "$800–$2,500/mo", clients: 800, gtm: "Trade shows + online demos + PPC + SEO content", moat: "Platform stickiness + automated reputation tools + competitive pricing", vuln: "Template-heavy; no strategic exclusivity; weak content depth; limited medspa specialization", clientStr: "600-1,000", priceMin: 800, priceMax: 2500 },
-  { name: "Plastix Marketing", threat: "MEDIUM", vpShort: "Boutique agency for cosmetic surgery and medspa. Brand storytelling + high-end photography + web.", pricing: "$1,500–$4,000/mo", clients: 200, gtm: "Referral + cosmetic surgeon associations + before/after content marketing", moat: "High-end aesthetic brand positioning + photography expertise + luxury market niche", vuln: "Small scale; no data/analytics depth; boutique = capacity limited; no tech innovation", clientStr: "150-250", priceMin: 1500, priceMax: 4000 },
-  { name: "DoctorLogic", threat: "MEDIUM", vpShort: "AI-powered patient acquisition platform adapted for medspa and cosmetic practices.", pricing: "$1,500–$5,000/mo", clients: 1000, gtm: "Enterprise sales + medical conferences + DSO/group practice outreach", moat: "AI platform + 15yr data + enterprise contracts + procedure content library", vuln: "Not medspa-specialized; platform-dependency; limited aesthetic social media expertise", clientStr: "1,000+", priceMin: 1500, priceMax: 5000 },
-  { name: "MedStar Media", threat: "LOW", vpShort: "Medical spa marketing boutique. Social media management + basic SEO + email campaigns.", pricing: "$1,000–$3,000/mo", clients: 150, gtm: "Referral-led + social media presence + word-of-mouth from satisfied clients", moat: "Affordable entry point + medspa niche + client relationship focus", vuln: "Small operation; no paid media expertise; limited analytics; not scalable; tech-light", clientStr: "100-200", priceMin: 1000, priceMax: 3000 },
+  { name: "DoctorLogic", threat: "HIGH", vpShort: "AI-powered patient acquisition platform, HIPAA-compliant, scales to 500+ location DSOs", pricing: "$1,500–$5,000/mo", clients: 1000, gtm: "Enterprise sales + DSO focus + conferences", moat: "AI platform + 15yr data + enterprise contracts", vuln: "Premium pricing alienates independents; AI ROI unproven", clientStr: "1,000+", priceMin: 1500, priceMax: 5000 },
+  { name: "Amplify360", threat: "HIGH", vpShort: "Practice Growth System™ + team training + consulting. 5,000+ clients, post-merger.", pricing: "$800–$3,500/mo", clients: 5000, gtm: "Educational content + direct outbound + 5k client base", moat: "Scale + training lock-in + PE backing", vuln: "Post-merger chaos; brand confusion; commoditized at scale", clientStr: "5,000+", priceMin: 800, priceMax: 3500 },
+  { name: "Wonderist Agency", threat: "MEDIUM", vpShort: "Boutique brand storytelling + community engagement. Dental-only, high-touch.", pricing: "$1,200–$3,500/mo", clients: 300, gtm: "Referral-driven boutique + word-of-mouth", moat: "Creative reputation + brand loyalty + relationship depth", vuln: "No data/ROI proof; not scalable; high founder dependency", clientStr: "200-400", priceMin: 1200, priceMax: 3500 },
+  { name: "Golden Proportions", threat: "MEDIUM", vpShort: "DNA Dental Marketing™ proprietary framework. 20+ years dental-only. Transparent pricing.", pricing: "$1,000–$2,500/mo", clients: 650, gtm: "Assoc. partnerships + webinars + dental publications", moat: "20-year brand equity + transparent pricing + assoc. ties", vuln: "Aging methodology; no tech innovation; dated positioning", clientStr: "500-800", priceMin: 1000, priceMax: 2500 },
+  { name: "Web Mktg for Dentists", threat: "MEDIUM", vpShort: "$60M managed ad spend + 155k tested ads. Implant marketing specialists.", pricing: "$1,000–$4,000/mo", clients: 2000, gtm: "Content + implant conference + ad performance data", moat: "155k tested ad data + implant niche + volume efficiencies", vuln: "No exclusivity; limited branding; PPC-heavy model volatile", clientStr: "2,000+", priceMin: 1000, priceMax: 4000 },
+  { name: "KickStart Dental", threat: "LOW", vpShort: "Predictable new patient leads via targeted SEO and digital advertising.", pricing: "$800–$2,500/mo", clients: 450, gtm: "Content + direct outreach to growing practices", moat: "Niche dental focus + established regional base", vuln: "No proprietary tech; easily replicated; limited brand recognition", clientStr: "300-600", priceMin: 800, priceMax: 2500 },
+  { name: "LassoMD", threat: "MEDIUM", vpShort: "3X ROI guarantee + PatientLoop platform + authentic patient video testimonials.", pricing: "$1,500–$4,000/mo", clients: 350, gtm: "ROI guarantee as conversion tool + social/LinkedIn outreach", moat: "ROI guarantee trust signal + platform dependency + video library", vuln: "Guarantee expensive to backstop; newer company; labor-intensive", clientStr: "200-500", priceMin: 1500, priceMax: 4000 },
+  { name: "Pro Impressions", threat: "LOW", vpShort: "Patient trust + practice authority through integrated digital marketing + proactive partnership.", pricing: "$1,000–$3,000/mo", clients: 450, gtm: "Referral + relationship-led + proactive communication", moat: "Relationship depth + proactive culture + client retention", vuln: "No tech differentiation; small scale; results not reproducible", clientStr: "300-600", priceMin: 1000, priceMax: 3000 },
+  { name: "Practice Cafe", threat: "LOW", vpShort: "Affordable dental marketing 'made fresh when ordered.' Transparent pricing + 0% financing.", pricing: "$795–$2,000/mo", clients: 750, gtm: "Price transparency + vendor referrals + direct search", moat: "Transparent pricing + long tenure + price trust", vuln: "Race to bottom; no exclusivity; commoditization trap; low margins", clientStr: "500-1,000", priceMin: 795, priceMax: 2000 },
+  { name: "PatientPop/Tebra", threat: "HIGH", vpShort: "Full-stack EHR + billing + marketing platform. AI-powered. 10,000+ practices. Henry Schein partner.", pricing: "$700–$2,000/mo", clients: 10000, gtm: "PLG + Henry Schein distribution + enterprise sales", moat: "EHR lock-in + 10k clients + VC capital + Henry Schein reach", vuln: "Generalist (not dental-only); post-merger complexity; billing frustrations", clientStr: "10,000+", priceMin: 700, priceMax: 2000 },
 ];
 
 // ===== NAVIGATION =====
@@ -855,8 +904,8 @@ function initCharts() {
   new Chart(document.getElementById('threatChart'), {
     type: 'doughnut',
     data: {
-      labels: ['HIGH Threat (4)', 'MEDIUM Threat (3)', 'LOW Threat (1)'],
-      datasets: [{ data: [4, 3, 1], backgroundColor: ['#C0392B', '#F39C12', '#1E8449'], borderWidth: 3, borderColor: '#fff' }]
+      labels: ['HIGH Threat (3)', 'MEDIUM Threat (4)', 'LOW Threat (3)'],
+      datasets: [{ data: [3, 4, 3], backgroundColor: ['#C0392B', '#F39C12', '#1E8449'], borderWidth: 3, borderColor: '#fff' }]
     },
     options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } } }, cutout: '65%' }
   });
@@ -867,8 +916,8 @@ function initCharts() {
     data: {
       labels: competitors.map(c => c.name.length > 14 ? c.name.substring(0,14)+'…' : c.name),
       datasets: [
-        { label: 'Min $/mo', data: competitors.map(c => c.priceMin), backgroundColor: '#D7BDE2', borderRadius: 4 },
-        { label: 'Max $/mo', data: competitors.map(c => c.priceMax), backgroundColor: '#6C3483', borderRadius: 4 },
+        { label: 'Min $/mo', data: competitors.map(c => c.priceMin), backgroundColor: '#AED6F1', borderRadius: 4 },
+        { label: 'Max $/mo', data: competitors.map(c => c.priceMax), backgroundColor: '#1B4F72', borderRadius: 4 },
       ]
     },
     options: { responsive: true, indexAxis: 'y', plugins: { legend: { position: 'bottom' } },
@@ -877,14 +926,14 @@ function initCharts() {
   });
 
   // Vulnerability severity
-  const vulnScores = [3, 3, 3, 3, 2, 2, 2, 1]; // Medspa-specific vulnerability ratings
+  const vulnScores = [2, 3, 3, 3, 2, 3, 2, 3, 3, 2]; // 3=HIGH, 2=MEDIUM (all are MEDIUM or HIGH)
   new Chart(document.getElementById('vulnChart'), {
     type: 'bar',
     data: {
       labels: competitors.map(c => c.name.length > 12 ? c.name.substring(0,12)+'…' : c.name),
       datasets: [{ label: 'Vulnerability Score', data: vulnScores,
-        backgroundColor: vulnScores.map(v => v === 3 ? '#FADBD8' : v === 2 ? '#FEF9E7' : '#EAFAF1'),
-        borderColor: vulnScores.map(v => v === 3 ? '#C0392B' : v === 2 ? '#F39C12' : '#1E8449'),
+        backgroundColor: vulnScores.map(v => v === 3 ? '#FADBD8' : '#FEF9E7'),
+        borderColor: vulnScores.map(v => v === 3 ? '#C0392B' : '#F39C12'),
         borderWidth: 2, borderRadius: 4 }]
     },
     options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ['', 'LOW', 'MEDIUM', 'HIGH'][ctx.raw] + ' Vulnerability' } } },
@@ -909,18 +958,20 @@ function initCharts() {
 
   // Positioning scatter
   const posData = [
-    { name: "Diamond Accelerator", x: 82, y: 48, r: 10, threat: 'HIGH' },
-    { name: "Thrive", x: 30, y: 65, r: 18, threat: 'HIGH' },
-    { name: "Influx", x: 75, y: 55, r: 14, threat: 'HIGH' },
-    { name: "Growth99", x: 65, y: 72, r: 16, threat: 'HIGH' },
-    { name: "PatientGain", x: 55, y: 68, r: 22, threat: 'MEDIUM' },
-    { name: "Plastix", x: 70, y: 30, r: 7, threat: 'MEDIUM' },
-    { name: "DoctorLogic", x: 45, y: 88, r: 15, threat: 'MEDIUM' },
-    { name: "MedStar Media", x: 60, y: 22, r: 5, threat: 'LOW' },
-    { name: "EKWA (Target)", x: 92, y: 75, r: 16, threat: 'EKWA' },
+    { name: "DoctorLogic", x: 65, y: 88, r: 15, threat: 'HIGH' },
+    { name: "Amplify360", x: 72, y: 55, r: 28, threat: 'HIGH' },
+    { name: "PatientPop/Tebra", x: 30, y: 92, r: 38, threat: 'HIGH' },
+    { name: "Wonderist", x: 80, y: 25, r: 10, threat: 'MEDIUM' },
+    { name: "Golden Prop.", x: 80, y: 28, r: 13, threat: 'MEDIUM' },
+    { name: "WM4Dentists", x: 70, y: 48, r: 20, threat: 'MEDIUM' },
+    { name: "LassoMD", x: 60, y: 58, r: 10, threat: 'MEDIUM' },
+    { name: "KickStart", x: 65, y: 22, r: 9, threat: 'LOW' },
+    { name: "Pro Impress.", x: 62, y: 26, r: 9, threat: 'LOW' },
+    { name: "Practice Cafe", x: 68, y: 20, r: 12, threat: 'LOW' },
+    { name: "EKWA (Target)", x: 92, y: 72, r: 16, threat: 'EKWA' },
   ];
 
-  const colorMap = { HIGH: '#C0392B', MEDIUM: '#F39C12', LOW: '#1E8449', EKWA: '#6C3483' };
+  const colorMap = { HIGH: '#C0392B', MEDIUM: '#F39C12', LOW: '#1E8449', EKWA: '#1B4F72' };
   const datasets = ['HIGH', 'MEDIUM', 'LOW', 'EKWA'].map(threat => ({
     label: threat === 'EKWA' ? 'Ekwa Target Zone' : threat + ' Threat',
     data: posData.filter(d => d.threat === threat).map(d => ({ x: d.x, y: d.y, r: d.r / 3, name: d.name })),
@@ -936,10 +987,10 @@ function initCharts() {
       responsive: true, maintainAspectRatio: true,
       plugins: {
         legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } },
-        tooltip: { callbacks: { label: ctx => ctx.raw.name + ` (Aesthetic Spec: ${ctx.raw.x}%, Tech: ${ctx.raw.y}%)` } }
+        tooltip: { callbacks: { label: ctx => ctx.raw.name + ` (Dental Spec: ${ctx.raw.x}%, Tech: ${ctx.raw.y}%)` } }
       },
       scales: {
-        x: { min: 0, max: 100, title: { display: true, text: 'MedSpa Specialization Score →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } },
+        x: { min: 0, max: 100, title: { display: true, text: 'Dental Specialization Score →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } },
         y: { min: 0, max: 100, title: { display: true, text: 'Technology Platform Level →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } }
       }
     }
