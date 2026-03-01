@@ -19,9 +19,8 @@
     }
 
     .ekwa-page-header {
-      background: white;
+      background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
       padding: 48px 32px;
-      border-bottom: 1px solid #e0e0e0;
     }
 
     .ekwa-page-header-inner {
@@ -30,40 +29,38 @@
     }
 
     .ekwa-page-accent-bar {
-      background: #7B68EE;
-      height: 4px;
-      width: 60px;
-      border-radius: 4px;
-      margin-bottom: 16px;
+      display: none;
     }
 
     .ekwa-badge-vertical {
       display: inline-block;
       padding: 8px 16px;
-      background: rgba(123, 104, 238, 0.1);
-      color: #7B68EE;
-      border-radius: 6px;
-      font-size: 12px;
+      background: rgba(73, 205, 228, 0.2);
+      border-left: 4px solid #49CDE4;
+      color: white;
+      border-radius: 4px;
+      font-size: 13px;
       font-weight: 600;
       margin-bottom: 16px;
       letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .ekwa-page-header h1 {
-      font-size: 48px;
-      font-weight: 800;
-      color: #1C305D;
+      font-size: 42px;
+      font-weight: 700;
+      color: white;
       line-height: 1.2;
-      margin: 0;
+      margin: 0 0 12px 0;
     }
 
     .ekwa-page-header h1 span {
-      color: #7B68EE;
+      color: #49CDE4;
     }
 
     .ekwa-breadcrumb {
       font-size: 13px;
-      color: #7F8C8D;
+      color: rgba(255,255,255,0.75);
       margin-top: 16px;
       letter-spacing: 0.3px;
     }
@@ -136,32 +133,36 @@
     }
 
     .ekwa-tabs {
+      background: #1C305D;
       display: flex;
       gap: 0;
-      border-bottom: 2px solid #e0e0e0;
-      margin-bottom: 32px;
+      padding: 0 24px;
       overflow-x: auto;
+      border-bottom: 3px solid #3B74BB;
+      margin-bottom: 32px;
     }
 
     .ekwa-tab {
-      padding: 16px 20px;
-      font-size: 14px;
+      padding: 14px 18px;
+      font-size: 13px;
       font-weight: 600;
-      color: #7F8C8D;
+      color: rgba(255,255,255,0.6);
       cursor: pointer;
+      border: none;
       border-bottom: 3px solid transparent;
       white-space: nowrap;
       transition: all 0.2s;
-      background: white;
+      background: transparent;
+      margin-bottom: -3px;
     }
 
     .ekwa-tab:hover {
-      color: #1C305D;
+      color: rgba(255,255,255,0.9);
     }
 
     .ekwa-tab.active {
-      color: #7B68EE;
-      border-bottom-color: #7B68EE;
+      color: #49CDE4;
+      border-bottom-color: #49CDE4;
     }
 
     .ekwa-tab-panel {
@@ -527,12 +528,12 @@
 
   <div class="ekwa-content-section">
     <div class="ekwa-tabs">
-      <button class="ekwa-tab active" data-tab="dashboard-panel">Dashboard</button>
-      <button class="ekwa-tab" data-tab="analysis-panel">Analysis</button>
-      <button class="ekwa-tab" data-tab="positioning-panel">Positioning</button>
-      <button class="ekwa-tab" data-tab="maneuvers-panel">Strategic Maneuvers</button>
-      <button class="ekwa-tab" data-tab="battlecard-panel">Battlecard</button>
-      <button class="ekwa-tab" data-tab="roi-panel">ROI Calc</button>
+      <button class="ekwa-tab active" data-tab="dashboard-panel">📊 Overview</button>
+      <button class="ekwa-tab" data-tab="analysis-panel">📋 MECE Matrix</button>
+      <button class="ekwa-tab" data-tab="positioning-panel">🗺️ Positioning Map</button>
+      <button class="ekwa-tab" data-tab="maneuvers-panel">⚔️ Strategic Maneuvers</button>
+      <button class="ekwa-tab" data-tab="battlecard-panel">🏢 Competitor Profiles</button>
+      <button class="ekwa-tab" data-tab="roi-panel">🚀 Implementation Playbooks</button>
     </div>
 
     <!-- DASHBOARD TAB -->
