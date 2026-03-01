@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Real pricing comparison: Ekwa vs DoctorLogic, Tebra, PatientGain, PatientPop, Wonderist and more. No hidden fees. No surprises.">
+  <link rel="stylesheet" href="../../assets/css/ekwa-brand.css">
+  <title>Healthcare Marketing Pricing Comparison — Ekwa vs Competitors</title>
+  <style>
+    :root {
+      --navy: #1C305D;
+      --blue: #3B74BB;
+      --gold: #C9A84C;
+      --green: #22c55e;
+      --red: #ef4444;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--gray-50); color: #374151; margin: 0; }
+
+    .back-nav { background: white; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+    .back-nav a { color: var(--blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1C305D 0%, #2a4f96 60%, #3B74BB 100%);
+      color: white;
+      padding: 70px 24px 50px;
+      text-align: center;
+    }
+    .hero__badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(26px, 5vw, 48px); font-weight: 900; margin: 0 0 14px; }
+    .hero p { font-size: 17px; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+
+    /* HIDDEN COSTS CALCULATOR */
+    .calculator-section {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 60px 24px;
+    }
+    .calc-inner { max-width: 860px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .section-title { font-size: clamp(20px, 2.5vw, 32px); font-weight: 800; color: var(--navy); margin: 0 0 8px; }
+    .section-sub { color: #6b7280; font-size: 15px; margin: 0 0 36px; }
+
+    .cost-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .cost-row label {
+      flex: 1;
+      min-width: 200px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+    }
+    .cost-row label span {
+      display: block;
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+    .cost-row input[type="number"] {
+      width: 120px;
+      padding: 10px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: right;
+    }
+    .cost-row input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,116,187,0.1); }
+
+    .divider { border: none; border-top: 1px dashed #e5e7eb; margin: 20px 0; }
+
+    .total-row {
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    .total-label { font-size: 16px; font-weight: 700; color: #92400e; }
+    .total-value { font-size: 32px; font-weight: 900; color: #92400e; }
+
+    .vs-strip {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .vs-box {
+      background: var(--gray-50);
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .vs-box.ekwa { background: var(--navy); border-color: var(--navy); }
+    .vs-box-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .vs-box.ekwa .vs-box-label { color: rgba(255,255,255,0.6); }
+    .vs-box.ekwa .vs-box-value { color: white; }
+    .vs-box-label.current { color: #dc2626; }
+    .vs-box-value { font-size: 28px; font-weight: 900; color: var(--navy); }
+    .vs-box-sub { font-size: 12px; color: #6b7280; margin-top: 4px; }
+    .vs-box.ekwa .vs-box-sub { color: rgba(255,255,255,0.6); }
+    .vs-divider { font-size: 28px; font-weight: 700; color: #9ca3af; text-align: center; }
+    .savings-badge {
+      margin-top: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .savings-badge span { font-size: 32px; font-weight: 900; display: block; }
+
+    /* COMPETITOR CARDS */
+    .competitors-section {
+      padding: 60px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
+    .comp-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .comp-card-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .comp-name { font-size: 17px; font-weight: 800; color: var(--navy); }
+    .comp-category { font-size: 11px; color: #9ca3af; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+    .transparency-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .tb-hidden { background: #fef2f2; color: #dc2626; }
+    .tb-partial { background: #fffbeb; color: #92400e; }
+    .tb-transparent { background: #f0fdf4; color: #16a34a; }
+
+    .comp-card-body { padding: 20px 24px; }
+    .comp-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f9fafb;
+      font-size: 13px;
+    }
+    .comp-price-row:last-child { border-bottom: none; }
+    .comp-price-label { color: #6b7280; }
+    .comp-price-value { font-weight: 700; color: var(--navy); }
+    .comp-price-value.hidden { color: #dc2626; font-style: italic; font-weight: 400; }
+    .comp-price-value.high { color: #dc2626; }
+    .comp-price-value.low { color: #16a34a; }
+    .comp-price-value.mid { color: #f59e0b; }
+
+    .comp-flags {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .flag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .flag-red { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .flag-yellow { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+    .flag-green { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+    /* EKWA SPOTLIGHT */
+    .ekwa-spotlight {
+      background: var(--navy);
+      color: white;
+      padding: 60px 24px;
+    }
+    .ekwa-spotlight-inner { max-width: 900px; margin: 0 auto; }
+    .ekwa-spotlight h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 800; margin: 0 0 12px; text-align: center; }
+    .ekwa-spotlight p { font-size: 16px; opacity: 0.85; text-align: center; margin: 0 0 40px; }
+    .ekwa-what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .ekwa-what-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .ewi-icon { font-size: 24px; margin-bottom: 8px; }
+    .ewi-label { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.95); }
+    .ewi-note { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+
+    .ekwa-price-callout {
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .ekwa-price-callout .price { font-size: 52px; font-weight: 900; line-height: 1; }
+    .ekwa-price-callout .period { font-size: 18px; font-weight: 600; opacity: 0.7; }
+    .ekwa-price-callout .desc { font-size: 14px; margin-top: 10px; opacity: 0.8; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--gray-100);
+      padding: 60px 24px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    .cta-section h2 { color: var(--navy); font-size: clamp(20px, 2.5vw, 30px); font-weight: 800; margin: 0 0 12px; }
+    .cta-section p { color: #6b7280; font-size: 16px; margin: 0 0 28px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      margin: 6px;
+    }
+    .cta-btn.gold { background: var(--gold); color: var(--navy); }
+  </style>
+</head>
+<body>
+
+<div class="back-nav">
+  <a href="../../">← Ekwa Intelligence Hub</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero__badge">Pricing Transparency</div>
+  <h1>The Real Cost of Healthcare Marketing</h1>
+  <p>Most vendors hide their pricing. We put everyone's numbers — including our own — on the table so you can make an informed decision.</p>
+</div>
+
+<!-- HIDDEN COSTS CALCULATOR -->
+<div class="calculator-section">
+  <div class="calc-inner">
+    <div class="section-label">Hidden Cost Calculator</div>
+    <div class="section-title">What Are You Actually Paying Right Now?</div>
+    <div class="section-sub">Enter your current monthly spend across all marketing vendors to see the real total.</div>
+
+    <div class="cost-row">
+      <label>Primary Marketing Agency / SEO Vendor<span>Monthly retainer or package fee</span></label>
+      <input type="number" id="c1" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>Website Hosting / Maintenance<span>Monthly hosting, updates, security</span></label>
+      <input type="number" id="c2" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>Reputation Management Tool<span>Birdeye, Podium, Weave, etc.</span></label>
+      <input type="number" id="c3" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>Social Media Management<span>Scheduled posts, content creation</span></label>
+      <input type="number" id="c4" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>PPC / Google Ads Management<span>Management fee only, not ad spend</span></label>
+      <input type="number" id="c5" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>Content Writing / Blog Posts<span>Per article or monthly content retainer</span></label>
+      <input type="number" id="c6" placeholder="0" min="0" oninput="recalc()">
+    </div>
+    <div class="cost-row">
+      <label>Other Marketing Tools / Subscriptions<span>Any additional software, tools, or services</span></label>
+      <input type="number" id="c7" placeholder="0" min="0" oninput="recalc()">
+    </div>
+
+    <hr class="divider">
+
+    <div class="total-row">
+      <div class="total-label">Your Total Monthly Marketing Stack</div>
+      <div class="total-value" id="totalDisplay">$0/mo</div>
+    </div>
+
+    <div class="vs-strip">
+      <div class="vs-box">
+        <div class="vs-box-label current">Your Current Stack</div>
+        <div class="vs-box-value" id="currentVal">$0</div>
+        <div class="vs-box-sub">per month</div>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="vs-box ekwa">
+        <div class="vs-box-label">Ekwa (All-Inclusive)</div>
+        <div class="vs-box-value" id="ekwaVal">$1,250</div>
+        <div class="vs-box-sub">per month, everything included</div>
+      </div>
+    </div>
+
+    <div class="savings-badge" id="savingsBadge" style="display:none">
+      You're overpaying by <span id="savingsAmt">$0</span>/month — that's <span id="savingsYear">$0</span>/year
+    </div>
+  </div>
+</div>
+
+<!-- COMPETITOR CARDS -->
+<div class="competitors-section">
+  <div class="section-label">Competitor Pricing</div>
+  <div class="section-title">What Each Competitor Charges</div>
+  <div class="section-sub" style="margin-bottom:36px">Based on publicly available information, sales call reports, and industry research. Updated March 2026.</div>
+
+  <div class="comp-grid">
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">DoctorLogic</div>
+          <div class="comp-category">Healthcare SEO + Website</div>
+        </div>
+        <span class="transparency-badge tb-hidden">Pricing Hidden</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Base Package</span><span class="comp-price-value mid">$1,200–$2,500/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Setup / Onboarding Fee</span><span class="comp-price-value high">$1,000–$3,000</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Website Included?</span><span class="comp-price-value high">Leased — not owned</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Contract Length</span><span class="comp-price-value high">12–24 months</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">PPC Management</span><span class="comp-price-value high">Add-on cost</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Reputation Management</span><span class="comp-price-value high">Add-on cost</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">True Monthly All-In Est.</span><span class="comp-price-value high">$2,500–$5,000+</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-red">Website leased (not owned)</span>
+          <span class="flag flag-red">Long contract</span>
+          <span class="flag flag-red">Setup fee</span>
+          <span class="flag flag-yellow">Dentistry focused</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">Tebra (PatientPop)</div>
+          <div class="comp-category">Practice Growth Platform</div>
+        </div>
+        <span class="transparency-badge tb-hidden">Pricing Hidden</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Core Platform</span><span class="comp-price-value mid">$600–$1,400/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Add-Ons (Avg Practice)</span><span class="comp-price-value high">$400–$800/mo extra</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Website Quality</span><span class="comp-price-value high">Template-based</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Contract</span><span class="comp-price-value high">Annual commitment</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Custom SEO Content</span><span class="comp-price-value high">Not included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">True Monthly All-In Est.</span><span class="comp-price-value high">$1,500–$3,500+</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-red">Template websites</span>
+          <span class="flag flag-red">Platform lock-in</span>
+          <span class="flag flag-yellow">EHR integration upsell</span>
+          <span class="flag flag-yellow">Mixed specialty focus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">PatientGain</div>
+          <div class="comp-category">Digital Marketing + CRM</div>
+        </div>
+        <span class="transparency-badge tb-partial">Partial Pricing</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Starter Package</span><span class="comp-price-value mid">~$999/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Professional</span><span class="comp-price-value mid">~$1,499–$2,000/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Setup Fee</span><span class="comp-price-value high">$750–$1,500</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Content Writing</span><span class="comp-price-value high">Not included in base</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">True Monthly All-In Est.</span><span class="comp-price-value high">$1,800–$3,500+</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-red">Setup fees</span>
+          <span class="flag flag-yellow">Content not included</span>
+          <span class="flag flag-yellow">AI-heavy, less custom</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">Wonderist Agency</div>
+          <div class="comp-category">Full-Service Dental Marketing</div>
+        </div>
+        <span class="transparency-badge tb-hidden">Pricing Hidden</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Known Starting Range</span><span class="comp-price-value mid">$2,000–$4,000/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Website</span><span class="comp-price-value high">Separate project cost</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Contract</span><span class="comp-price-value high">Typically 12+ months</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">PPC</span><span class="comp-price-value high">Separate management fee</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Specialty Focus</span><span class="comp-price-value mid">Dental only</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-red">Higher price point</span>
+          <span class="flag flag-red">Website billed separately</span>
+          <span class="flag flag-yellow">Dental-only niche</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">Intrepy Healthcare Marketing</div>
+          <div class="comp-category">Orthopedic / Specialty Focus</div>
+        </div>
+        <span class="transparency-badge tb-hidden">Pricing Hidden</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Estimated Monthly Range</span><span class="comp-price-value high">$3,000–$6,000/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Website</span><span class="comp-price-value high">Additional project fee</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Reputation Mgmt</span><span class="comp-price-value high">Add-on</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Content Marketing</span><span class="comp-price-value high">Custom quote</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Specialty Focus</span><span class="comp-price-value mid">Ortho / Surgery</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-red">Premium price tier</span>
+          <span class="flag flag-yellow">Narrow specialty</span>
+          <span class="flag flag-green">Specialty expertise</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-header">
+        <div>
+          <div class="comp-name">Ekwa Marketing</div>
+          <div class="comp-category">Healthcare-Only, All-Inclusive</div>
+        </div>
+        <span class="transparency-badge tb-transparent">Fully Transparent</span>
+      </div>
+      <div class="comp-card-body">
+        <div class="comp-price-row"><span class="comp-price-label">Flat Monthly Fee</span><span class="comp-price-value low">$1,250–$1,400/mo</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Setup Fee</span><span class="comp-price-value low">$0</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Custom Website (200 hrs)</span><span class="comp-price-value low">Included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">SEO + Content</span><span class="comp-price-value low">Included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Reputation Management</span><span class="comp-price-value low">Included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Social Media</span><span class="comp-price-value low">Included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">PPC Management</span><span class="comp-price-value low">Included</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">Contract Lock-In</span><span class="comp-price-value low">None</span></div>
+        <div class="comp-price-row"><span class="comp-price-label">True Monthly All-In</span><span class="comp-price-value low">$1,250–$1,400</span></div>
+        <div class="comp-flags">
+          <span class="flag flag-green">No setup fee</span>
+          <span class="flag flag-green">$0 custom website</span>
+          <span class="flag flag-green">All services included</span>
+          <span class="flag flag-green">No long-term contract</span>
+          <span class="flag flag-green">19 years · 90% retention</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EKWA WHAT'S INCLUDED -->
+<div class="ekwa-spotlight">
+  <div class="ekwa-spotlight-inner">
+    <h2>What $1,250/Month Actually Gets You at Ekwa</h2>
+    <p>Every single service below is included in the flat monthly fee. No add-ons. No surprises.</p>
+    <div class="ekwa-what-grid">
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">🌐</div>
+        <div class="ewi-label">Custom Website</div>
+        <div class="ewi-note">200+ hours design &amp; build</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">📈</div>
+        <div class="ewi-label">SEO — 100+ Keywords</div>
+        <div class="ewi-note">Google Page 1 guaranteed</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">✍️</div>
+        <div class="ewi-label">Content Marketing</div>
+        <div class="ewi-note">Blogs, pages, local content</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">⭐</div>
+        <div class="ewi-label">Reputation Management</div>
+        <div class="ewi-note">Reviews, Google Business Profile</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">📱</div>
+        <div class="ewi-label">Social Media</div>
+        <div class="ewi-note">Regular posting &amp; management</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">📊</div>
+        <div class="ewi-label">PPC / Google Ads</div>
+        <div class="ewi-note">Campaign management included</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">📞</div>
+        <div class="ewi-label">Call Tracking</div>
+        <div class="ewi-note">20+ calls/month guaranteed</div>
+      </div>
+      <div class="ekwa-what-item">
+        <div class="ewi-icon">👤</div>
+        <div class="ewi-label">CEO Direct Access</div>
+        <div class="ewi-note">Tim Kelley's personal cell</div>
+      </div>
+    </div>
+    <div class="ekwa-price-callout">
+      <div class="price">$1,250<span class="period">/mo</span></div>
+      <div class="desc">All 8 services · No setup fee · No contract · No add-ons<br>Dentistry / Ophthalmology / Veterinary</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>See How Ekwa Performs in Your Vertical</h2>
+  <p>Choose your specialty to explore ROI projections, competitive battlecards, and real client data.</p>
+  <a href="/" class="cta-btn">Explore All Verticals</a>
+  <a href="/guarantee/" class="cta-btn gold">View All 6 Guarantees →</a>
+</div>
+
+<script>
+  function recalc() {
+    const ids = ['c1','c2','c3','c4','c5','c6','c7'];
+    const total = ids.reduce((sum, id) => {
+      const val = parseFloat(document.getElementById(id).value) || 0;
+      return sum + val;
+    }, 0);
+    document.getElementById('totalDisplay').textContent = '$' + total.toLocaleString() + '/mo';
+    document.getElementById('currentVal').textContent = '$' + total.toLocaleString();
+
+    const ekwa = 1250;
+    const savings = total - ekwa;
+    if (total > 0) {
+      document.getElementById('savingsBadge').style.display = 'block';
+      if (savings > 0) {
+        document.getElementById('savingsAmt').textContent = '$' + savings.toLocaleString();
+        document.getElementById('savingsYear').textContent = '$' + (savings * 12).toLocaleString();
+        document.getElementById('savingsBadge').style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';
+        document.getElementById('savingsBadge').innerHTML = 'You\'re overpaying by <span style="font-size:28px;font-weight:900;display:block">$' + savings.toLocaleString() + '/month</span>That\'s $' + (savings*12).toLocaleString() + '/year you could redirect to growth';
+      } else {
+        document.getElementById('savingsBadge').style.background = 'linear-gradient(135deg, #2563eb, #3b82f6)';
+        document.getElementById('savingsBadge').innerHTML = 'Ekwa would cost <span style="font-size:28px;font-weight:900;display:block">$' + Math.abs(savings).toLocaleString() + '/month more</span>but includes a custom website ($8K–$25K value), 100+ keyword guarantee, and CEO direct access';
+      }
+    } else {
+      document.getElementById('savingsBadge').style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Orthodontics Marketing ROI Calculator — Ekwa</title>
+    <meta name="description" content="Ekwa Competitors | Tools & Resources">
+    <meta name="canonical" content="https://ekwacompetitors.narenlife.com/">
+    
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--ekwa-gray-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .subheading {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .calculator-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-section h2 {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .input-value {
+            float: right;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        input[type="range"],
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        input[type="range"] {
+            padding: 5px;
+        }
+
+        input[type="number"]:focus,
+        input[type="range"]:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        input[type="radio"] {
+            margin: 0;
+            width: auto;
+        }
+
+        .results-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-section h2 {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95em;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row .label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .result-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #0066cc;
+        }
+
+        .pricing-box {
+            background: #f0f4ff;
+            border: 2px solid #0066cc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pricing-box .price {
+            font-size: 2em;
+            font-weight: 800;
+            color: #0066cc;
+            margin: 10px 0;
+        }
+
+        .pricing-box .description {
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .scenarios {
+            margin-top: 30px;
+        }
+
+        .scenario {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .scenario.conservative {
+            border-left-color: #f5a623;
+        }
+
+        .scenario.moderate {
+            border-left-color: #f5a623;
+        }
+
+        .scenario.aggressive {
+            border-left-color: #00a651;
+        }
+
+        .scenario-title {
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .scenario-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 0.9em;
+        }
+
+        .scenario-value {
+            font-weight: 600;
+            color: #0066cc;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin-top: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">E</div>
+      <div>
+        <div class="ekwa-nav__title">ekwa</div>
+        <div class="ekwa-nav__subtitle">Competitors</div>
+      </div>
+    </a>
+    <div class="ekwa-nav__links">
+      <a href="../../../../index.html">All Verticals</a>
+      <a href="../index.html">Orthodontics</a>
+    </div>
+    <button class="ekwa-nav__hamburger" onclick="toggleMobileMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="ekwa-nav__mobile">
+    <a href="../../../../index.html">All Verticals</a>
+    <a href="../index.html">Orthodontics</a>
+  </div>
+</nav>
+
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../../index.html">ekwa</a> → <a href="../index.html">Orthodontics</a> → <span>ROI Calculator</span>
+    </div>
+    <h1>Orthodontics Marketing ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="container">
+    <header>
+        <h1>Orthodontics Marketing ROI Calculator</h1>
+        <p class="subheading">Model the revenue impact of Ekwa marketing on your practice</p>
+    </header>
+
+    <div class="main-grid">
+        <div class="calculator-section">
+            <h2>Your Practice Metrics</h2>
+
+            <div class="input-group">
+                <label>Current Cases/Month
+                    <span class="input-value"><span id="casesValue">20</span></span>
+                </label>
+                <input type="range" id="cases" min="5" max="100" value="20" step="5" onchange="updateCalculation()">
+            </div>
+
+            <div class="input-group">
+                <label>Average Case Value
+                    <span class="input-value">$<span id="caseValueAmount">6500</span></span>
+                </label>
+                <input type="number" id="caseValue" value="6500" min="2000" step="500" onchange="updateCalculation()">
+            </div>
+
+            <div class="input-group">
+                <label>Current Monthly Marketing Spend
+                    <span class="input-value">$<span id="spendValue">2500</span></span>
+                </label>
+                <input type="number" id="currentSpend" value="2500" min="500" step="100" onchange="updateCalculation()">
+            </div>
+
+            <div class="input-group">
+                <label>Case Acceptance Rate (%)</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="accept-60" name="acceptance" value="60" onchange="updateCalculation()">
+                        60%
+                    </label>
+                    <label>
+                        <input type="radio" id="accept-70" name="acceptance" value="70" checked onchange="updateCalculation()">
+                        70%
+                    </label>
+                    <label>
+                        <input type="radio" id="accept-80" name="acceptance" value="80" onchange="updateCalculation()">
+                        80%
+                    </label>
+                </div>
+            </div>
+
+            <div class="pricing-box">
+                <div style="font-weight: 700; color: #1a1a2e;">Ekwa Pricing</div>
+                <div class="price">$1,250</div>
+                <div class="description">Flat monthly fee | All-inclusive marketing</div>
+                <input type="hidden" id="ekwaPrice" value="1250">
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2>Year 1 Projections</h2>
+
+            <div class="result-row">
+                <span class="label">Monthly Case Increase</span>
+                <span class="result-value" id="year1Cases">+4 cases/mo</span>
+            </div>
+
+            <div class="result-row">
+                <span class="label">New Case Revenue (Year 1)</span>
+                <span class="result-value" id="year1Revenue">$312k</span>
+            </div>
+
+            <div class="result-row">
+                <span class="label">Marketing Cost (Year 1)</span>
+                <span class="result-value" id="year1Cost">$15k</span>
+            </div>
+
+            <div class="result-row">
+                <span class="label">Savings vs. Current Spend</span>
+                <span class="result-value" id="year1Savings">$15k</span>
+            </div>
+
+            <div class="result-row" style="background: #f0f4ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 2px solid #0066cc;">
+                <span class="label" style="font-weight: 800; font-size: 1.05em;">Year 1 ROI</span>
+                <span class="result-value" style="font-size: 1.5em;">208%</span>
+            </div>
+
+            <div class="result-row">
+                <span class="label">Payback Period</span>
+                <span class="result-value" id="payback">1.8 months</span>
+            </div>
+
+            <div class="scenarios">
+                <div class="scenario conservative">
+                    <div class="scenario-title">Conservative: +3 cases/month</div>
+                    <div class="scenario-row">
+                        <span>Year 1 Revenue Impact:</span>
+                        <span class="scenario-value" id="cons-rev">$234k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Marketing Cost:</span>
+                        <span class="scenario-value">$15k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Net Gain:</span>
+                        <span class="scenario-value" id="cons-net">$219k</span>
+                    </div>
+                </div>
+
+                <div class="scenario moderate">
+                    <div class="scenario-title">Moderate: +5 cases/month (Typical Ekwa client)</div>
+                    <div class="scenario-row">
+                        <span>Year 1 Revenue Impact:</span>
+                        <span class="scenario-value" id="mod-rev">$390k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Marketing Cost:</span>
+                        <span class="scenario-value">$15k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Net Gain:</span>
+                        <span class="scenario-value" id="mod-net">$375k</span>
+                    </div>
+                </div>
+
+                <div class="scenario aggressive">
+                    <div class="scenario-title">Aggressive: +8 cases/month</div>
+                    <div class="scenario-row">
+                        <span>Year 1 Revenue Impact:</span>
+                        <span class="scenario-value" id="agg-rev">$624k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Marketing Cost:</span>
+                        <span class="scenario-value">$15k</span>
+                    </div>
+                    <div class="scenario-row">
+                        <span>Net Gain:</span>
+                        <span class="scenario-value" id="agg-net">$609k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="projectionChart"></canvas>
+    </div>
+
+    <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); margin-top: 40px; margin-bottom: 40px;">
+        <h2 style="color: #1a1a2e; margin-bottom: 20px; font-size: 1.3em;">How Ekwa Generates Additional Cases</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">1. Ortho-Specific SEO</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">We create content around "braces cost," "invisalign vs braces," "how long do braces take," "adult orthodontics," and 50+ other high-intent keywords. Benchmark: 328 P1 keywords for orthodontics practices.</p>
+            </div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">2. Cost Transparency Pages</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">Patients search "orthodontics cost" and "braces price." Our custom cost pages rank and convert. These reduce consultation friction and increase case acceptance.</p>
+            </div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">3. Local Search Domination</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">We own your local pack rankings and Google Maps visibility. Most new patients start with "orthodontist near me." We make sure you're at the top.</p>
+            </div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">4. Call Optimization</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">Guaranteed 20+ qualified patient calls per month. That's not impressions or clicks—actual calls ready to convert to consultations.</p>
+            </div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">5. Custom Website</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">200 hours of custom build included. Patient journey flows, before-and-afters gallery, treatment timelines, financing explainers—all designed for ortho conversions.</p>
+            </div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px; font-weight: 700;">6. Dedicated Account Management</h3>
+                <p style="color: #555; font-size: 0.9em; line-height: 1.5;">Your own marketing director owns your strategy. Monthly reviews, strategy adjustments, and partnership mindset. Not a platform. A partner.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%); color: white; padding: 40px 30px; border-radius: 8px; margin-bottom: 40px; text-align: center;">
+        <h2 style="font-size: 1.8em; margin-bottom: 15px; font-weight: 800;">Ready to Talk?</h2>
+        <p style="font-size: 1.05em; margin-bottom: 20px;">This calculator is directionally accurate for most orthodontics practices. But your practice is unique. Let's talk through your specific situation, current metrics, and what an Ekwa partnership could mean for your revenue.</p>
+        <div style="margin-top: 20px;">
+            <p style="font-size: 0.95em; opacity: 0.9;">Contact Ekwa to schedule a discovery call with our Orthodontics specialist.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer class="ekwa-footer">
+  <div class="ekwa-footer__inner">
+    <div>&copy; 2026 Ekwa | Internal Tools</div>
+    <a href="../index.html">Back to Orthodontics</a>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu(btn) {
+  btn.classList.toggle('open');
+  const menu = btn.nextElementSibling;
+  if (menu) menu.classList.toggle('open');
+}
+
+let chart;
+
+function updateCalculation() {
+    const cases = parseInt(document.getElementById('cases').value);
+    const caseValue = parseInt(document.getElementById('caseValue').value);
+    const currentSpend = parseInt(document.getElementById('currentSpend').value);
+    const acceptance = parseInt(document.querySelector('input[name="acceptance"]:checked').value);
+    const ekwaPrice = 1250;
+
+    document.getElementById('casesValue').textContent = cases;
+    document.getElementById('caseValueAmount').textContent = caseValue.toLocaleString();
+    document.getElementById('spendValue').textContent = currentSpend.toLocaleString();
+
+    // Calculate current annual revenue
+    const currentAnnualRevenue = cases * caseValue * 12;
+
+    // Typical Ekwa case increase: 3-8 cases/month
+    const moderateIncrease = Math.ceil(cases * 0.25);
+    const year1Cases = moderateIncrease;
+    const year1Revenue = (moderateIncrease * caseValue * 12 * (acceptance / 100));
+    const year1Cost = ekwaPrice * 12;
+    const year1Savings = (currentSpend - ekwaPrice) * 12;
+    const netGain = year1Revenue - year1Cost;
+    const roi = Math.round((netGain / year1Cost) * 100);
+    const paybackMonths = (year1Cost / (year1Revenue / 12)).toFixed(1);
+
+    document.getElementById('year1Cases').textContent = `+${year1Cases} cases/mo`;
+    document.getElementById('year1Revenue').textContent = `$${(year1Revenue / 1000).toFixed(0)}k`;
+    document.getElementById('year1Cost').textContent = `$${(year1Cost / 1000).toFixed(0)}k`;
+    document.getElementById('year1Savings').textContent = year1Savings > 0 ? `$${(year1Savings / 1000).toFixed(0)}k` : `$0`;
+    document.getElementById('payback').textContent = `${paybackMonths} months`;
+
+    // Update scenarios
+    const conservative = 3 * caseValue * 12 * (acceptance / 100);
+    const moderate = 5 * caseValue * 12 * (acceptance / 100);
+    const aggressive = 8 * caseValue * 12 * (acceptance / 100);
+
+    document.getElementById('cons-rev').textContent = `$${(conservative / 1000).toFixed(0)}k`;
+    document.getElementById('cons-net').textContent = `$${((conservative - year1Cost) / 1000).toFixed(0)}k`;
+    document.getElementById('mod-rev').textContent = `$${(moderate / 1000).toFixed(0)}k`;
+    document.getElementById('mod-net').textContent = `$${((moderate - year1Cost) / 1000).toFixed(0)}k`;
+    document.getElementById('agg-rev').textContent = `$${(aggressive / 1000).toFixed(0)}k`;
+    document.getElementById('agg-net').textContent = `$${((aggressive - year1Cost) / 1000).toFixed(0)}k`;
+
+    // Update chart
+    updateChart(cases, caseValue, ekwaPrice, acceptance);
+}
+
+function updateChart(cases, caseValue, ekwaPrice, acceptance) {
+    const months = ['Month 1', 'Month 3', 'Month 6', 'Month 9', 'Month 12'];
+    const currentPathData = [];
+    const ekwaPathData = [];
+
+    for (let i = 0; i < months.length; i++) {
+        const monthNum = [1, 3, 6, 9, 12][i];
+        currentPathData.push((cases * caseValue * monthNum * (acceptance / 100)) / 1000);
+        const increasePerMonth = Math.ceil(cases * 0.25);
+        ekwaPathData.push(((cases + increasePerMonth) * caseValue * monthNum * (acceptance / 100)) / 1000);
+    }
+
+    const ctx = document.getElementById('projectionChart').getContext('2d');
+    if (chart) {
+        chart.destroy();
+    }
+    chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [
+                {
+                    label: 'Your Current Path',
+                    data: currentPathData,
+                    borderColor: '#999',
+                    backgroundColor: 'rgba(153, 153, 153, 0.1)',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    pointBackgroundColor: '#999'
+                },
+                {
+                    label: 'With Ekwa Marketing',
+                    data: ekwaPathData,
+                    borderColor: '#0066cc',
+                    backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    pointBackgroundColor: '#0066cc'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'k';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Initialize on page load
+window.addEventListener('load', () => {
+    updateCalculation();
+});
+</script>
+
+</body>
+</html>

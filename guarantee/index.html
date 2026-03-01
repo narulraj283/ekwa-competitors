@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Ekwa's 6 ironclad performance guarantees — the only healthcare marketing company that puts commitments in writing.">
+  <link rel="stylesheet" href="../assets/css/ekwa-brand.css">
+  <title>Ekwa Performance Guarantees — The Only Promises That Matter</title>
+  <style>
+    :root {
+      --navy: #1C305D;
+      --blue: #3B74BB;
+      --gold: #C9A84C;
+      --green: #22c55e;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-700: #374151;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--gray-50); color: var(--gray-700); margin: 0; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1C305D 0%, #2a4f96 60%, #3B74BB 100%);
+      color: white;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero__badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 900; margin: 0 0 16px; line-height: 1.15; }
+    .hero p { font-size: 18px; opacity: 0.85; max-width: 640px; margin: 0 auto 32px; }
+    .hero__context {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 20px 32px;
+      display: inline-block;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* NAV */
+    .back-nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 24px;
+    }
+    .back-nav a {
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .back-nav a:hover { text-decoration: underline; }
+
+    /* GUARANTEE GRID */
+    .guarantee-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #6b7280;
+      font-size: 16px;
+      margin: 0 0 48px;
+    }
+
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .guarantee-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .guarantee-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(28,48,93,0.12);
+    }
+    .guarantee-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+    .guarantee-card.gold::before {
+      background: linear-gradient(90deg, var(--gold), #e8c875);
+    }
+    .guarantee-card.green::before {
+      background: linear-gradient(90deg, #16a34a, var(--green));
+    }
+
+    .guarantee-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+    .guarantee-headline {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    .guarantee-headline .highlight {
+      color: var(--blue);
+    }
+    .guarantee-tagline {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 0 0 20px;
+    }
+    .guarantee-detail {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #4b5563;
+      margin: 0 0 20px;
+    }
+    .guarantee-proof {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #374151;
+      border-left: 3px solid var(--blue);
+    }
+    .guarantee-proof.gold-border { border-left-color: var(--gold); }
+    .guarantee-proof.green-border { border-left-color: var(--green); }
+
+    .guarantee-vs {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .guarantee-vs-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ef4444;
+      margin-bottom: 6px;
+    }
+    .guarantee-vs-text {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* WHAT-IF SECTION */
+    .whatif-section {
+      background: var(--navy);
+      color: white;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .whatif-section h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 800;
+      margin: 0 0 16px;
+    }
+    .whatif-section p {
+      font-size: 17px;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+    .whatif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+    .whatif-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: left;
+    }
+    .whatif-scenario { font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 6px; }
+    .whatif-response { font-size: 14px; opacity: 0.85; line-height: 1.6; }
+
+    /* COMPARISON STRIP */
+    .comparison-section {
+      background: white;
+      padding: 60px 24px;
+    }
+    .comparison-table {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .comparison-table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .comparison-table th:first-child { background: var(--gray-100); color: var(--gray-700); }
+    .comparison-table th.ekwa-col { background: var(--navy); color: white; text-align: center; }
+    .comparison-table th.comp-col { background: #fef2f2; color: #991b1b; text-align: center; }
+    .comparison-table td {
+      padding: 14px 20px;
+      border-top: 1px solid #f3f4f6;
+      vertical-align: middle;
+    }
+    .comparison-table td:nth-child(2) { text-align: center; }
+    .comparison-table td:nth-child(3) { text-align: center; }
+    .comparison-table tr:hover td { background: var(--gray-50); }
+    .check { color: #16a34a; font-size: 18px; font-weight: 700; }
+    .cross { color: #dc2626; font-size: 18px; font-weight: 700; }
+    .maybe { color: #f59e0b; font-size: 14px; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--gold) 0%, #e8c875 100%);
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .cta-section h2 { color: var(--navy); font-size: clamp(22px, 3vw, 34px); font-weight: 800; margin: 0 0 12px; }
+    .cta-section p { color: #374151; font-size: 17px; margin: 0 0 32px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 8px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #152348; }
+    .cta-btn.secondary {
+      background: white;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+    .cta-btn.secondary:hover { background: var(--gray-100); }
+  </style>
+</head>
+<body>
+
+<!-- BACK NAV -->
+<div class="back-nav">
+  <a href="../">← Ekwa Intelligence Hub</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero__badge">Performance Guarantees</div>
+  <h1>6 Promises.<br>In Writing. Period.</h1>
+  <p>Every competitor will tell you they're the best. Only Ekwa puts 6 specific, measurable guarantees on the table — and backs them with 19 years of proof.</p>
+  <div class="hero__context">
+    19 years in business · 500+ healthcare practices · 90% client retention · 0 vague promises
+  </div>
+</div>
+
+<!-- GUARANTEES -->
+<div class="guarantee-section">
+  <div class="section-label">What We Guarantee</div>
+  <div class="section-title">The 6 Ekwa Performance Guarantees</div>
+  <div class="section-sub">Not goals. Not targets. Guarantees.</div>
+
+  <div class="guarantee-grid">
+
+    <!-- GUARANTEE 1 -->
+    <div class="guarantee-card">
+      <div class="guarantee-number">Guarantee #1</div>
+      <div class="guarantee-headline"><span class="highlight">100+</span> Keywords on Google Page 1</div>
+      <div class="guarantee-tagline">Organic search dominance — not just rankings, but volume</div>
+      <div class="guarantee-detail">
+        Ekwa guarantees your practice will appear on Google's Page 1 for 100 or more relevant search terms. Not 10 keywords. Not 50. One hundred — the kind of coverage that makes your competitors invisible.
+      </div>
+      <div class="guarantee-proof">
+        <strong>Real result:</strong> Kings Dental (kingsdentaltx.com) — 328–345 keywords on Page 1 within 6 months. 104,000+ Google impressions in that same period.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">DoctorLogic, Tebra, and PatientGain don't guarantee keyword volume — they report "improved rankings" with no specific commitment.</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE 2 -->
+    <div class="guarantee-card green">
+      <div class="guarantee-number">Guarantee #2</div>
+      <div class="guarantee-headline"><span class="highlight">20+</span> New Patient Calls Per Month</div>
+      <div class="guarantee-tagline">Lead generation, not just website traffic</div>
+      <div class="guarantee-detail">
+        Traffic without calls is just vanity. Ekwa guarantees a minimum of 20 new patient phone calls per month — tracked, recorded, and reported. If you don't get calls, the guarantee kicks in.
+      </div>
+      <div class="guarantee-proof green-border">
+        <strong>Real result:</strong> 473 call button clicks in 6 months from organic traffic alone (Kings Dental), plus 556 direction lookups — patients actively trying to reach the practice.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">Most vendors track "sessions" and "impressions" — not calls. Almost none guarantee a minimum call volume.</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE 3 -->
+    <div class="guarantee-card gold">
+      <div class="guarantee-number">Guarantee #3</div>
+      <div class="guarantee-headline"><span class="highlight">$0</span> Custom Website</div>
+      <div class="guarantee-tagline">200 hours of custom design. Zero upfront cost.</div>
+      <div class="guarantee-detail">
+        Ekwa builds a fully custom, HIPAA-conscious, performance-optimized practice website — 200+ hours of professional work — at no additional charge. It's included in your monthly investment.
+      </div>
+      <div class="guarantee-proof gold-border">
+        <strong>Market comparison:</strong> A comparable custom healthcare website costs $8,000–$25,000 upfront with competitors. Ekwa absorbs this entirely into the flat monthly fee.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">DoctorLogic charges setup fees. PatientPop/Tebra uses templated sites. Wonderist Agency bills website work separately as a project cost.</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE 4 -->
+    <div class="guarantee-card">
+      <div class="guarantee-number">Guarantee #4</div>
+      <div class="guarantee-headline"><span class="highlight">90%</span> Client Retention Rate</div>
+      <div class="guarantee-tagline">The only marketing company that proves clients stay</div>
+      <div class="guarantee-detail">
+        Most agencies hide their churn rate. Ekwa publishes theirs: 90% of clients renew year after year — across 19 years and 500+ practices. That's not a marketing claim; it's a business track record.
+      </div>
+      <div class="guarantee-proof">
+        <strong>What this means for you:</strong> 9 out of 10 Ekwa clients actively choose to stay — not because they're locked in by contract, but because results keep coming.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">Industry average agency retention is 40–60%. Competitors use long-term contracts (12–24 months) to create artificial retention, not earned loyalty.</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE 5 -->
+    <div class="guarantee-card green">
+      <div class="guarantee-number">Guarantee #5</div>
+      <div class="guarantee-headline"><span class="highlight">1.5%</span> of Revenue — Marketing Cost</div>
+      <div class="guarantee-tagline">A $1M practice spends only $15K/year on world-class marketing</div>
+      <div class="guarantee-detail">
+        At $1,250–$1,400/month (flat, all-inclusive), a practice generating $1 million annually spends just 1.5% of revenue on comprehensive marketing — SEO, website, content, reputation, and more.
+      </div>
+      <div class="guarantee-proof green-border">
+        <strong>Industry benchmark:</strong> Healthcare practices typically spend 3–8% of revenue on marketing. Ekwa delivers elite results at less than half the typical cost.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">Add up DoctorLogic + website hosting + PPC management + reputation tools = often $3,000–$5,000+/month before ad spend. Ekwa is all-in at $1,250–$1,400.</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE 6 -->
+    <div class="guarantee-card gold">
+      <div class="guarantee-number">Guarantee #6</div>
+      <div class="guarantee-headline">CEO's Personal Cell Number</div>
+      <div class="guarantee-tagline">Not a ticket system. Not an account manager. The CEO.</div>
+      <div class="guarantee-detail">
+        Every Ekwa client gets Tim Kelley's (Ekwa CEO) personal cell phone number on day one. When something matters, you call Tim directly — not a support queue, not a junior rep, not a chatbot.
+      </div>
+      <div class="guarantee-proof gold-border">
+        <strong>What this signals:</strong> A CEO who gives out their cell number is a CEO who is confident in the results — and personally accountable when something needs attention.
+      </div>
+      <div class="guarantee-vs">
+        <div class="guarantee-vs-label">What competitors offer</div>
+        <div class="guarantee-vs-text">DoctorLogic: account managers. Tebra: support tickets. PatientGain: email support. None offer direct CEO access as a standard commitment.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT IF SECTION -->
+<div class="whatif-section">
+  <h2>What Happens If Ekwa Doesn't Deliver?</h2>
+  <p>These aren't marketing promises. Here's what accountability looks like when guarantees aren't met.</p>
+  <div class="whatif-grid">
+    <div class="whatif-card">
+      <div class="whatif-scenario">If you don't hit 100+ keywords...</div>
+      <div class="whatif-response">Ekwa's team escalates internally — additional content, technical SEO, and strategy adjustments are made at no extra cost until the guarantee is met.</div>
+    </div>
+    <div class="whatif-card">
+      <div class="whatif-scenario">If new patient calls drop below 20...</div>
+      <div class="whatif-response">Your account is flagged for immediate review. Tim Kelley is personally notified. A call with your account team is scheduled within 48 hours.</div>
+    </div>
+    <div class="whatif-card">
+      <div class="whatif-scenario">If you're unhappy with the website...</div>
+      <div class="whatif-response">Design revisions continue until you approve. Ekwa has invested 200+ hours upfront — they're not walking away from that investment.</div>
+    </div>
+    <div class="whatif-card">
+      <div class="whatif-scenario">Any concern, anytime...</div>
+      <div class="whatif-response">Call Tim directly. Not someday. Not after a ticket clears. Same day. That's what the CEO's cell number guarantee means in practice.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="comparison-section">
+  <div class="section-label" style="text-align:center">Guarantee Comparison</div>
+  <div class="section-title" style="text-align:center; font-size:clamp(20px,2.5vw,30px); font-weight:800; color:var(--navy); margin:0 0 8px;">Ekwa vs. The Field</div>
+  <div class="section-sub" style="text-align:center; color:#6b7280; margin:0 0 32px;">Who actually puts it in writing?</div>
+  <div class="comparison-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Commitment</th>
+          <th class="ekwa-col">Ekwa</th>
+          <th class="comp-col">Industry Average</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>100+ Page 1 Keywords Guaranteed</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>Minimum 20 New Patient Calls/Month</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>$0 Custom Website (200+ hrs work)</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>Published 90% Retention Rate</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>No Long-Term Lock-In Contract</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="maybe">Sometimes</span></td>
+        </tr>
+        <tr>
+          <td><strong>CEO Direct Cell Number</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>Flat All-Inclusive Pricing (No Add-ons)</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td><strong>Transparent Cost Breakdown Published</strong></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to Hold Your Marketing Partner Accountable?</h2>
+  <p>See how these guarantees apply to your specific vertical and practice size.</p>
+  <a href="/" class="cta-btn">Explore All Verticals</a>
+  <a href="/compare/pricing/" class="cta-btn secondary">Compare Pricing →</a>
+</div>
+
+</body>
+</html>
