@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Meeting Email Sequence — Dermatology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        nav {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #C9A227;
+        }
+        
+        .nav-separator {
+            color: #3B74BB;
+            margin: 0 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .page-header {
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            color: #1C305D;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .sequence-info {
+            background-color: #f0f5ff;
+            border-left: 4px solid #3B74BB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .sequence-info h3 {
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sequence-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .emails-container {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .email-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #7B68EE;
+        }
+        
+        .email-timing {
+            display: inline-block;
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .email-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-subject {
+            color: #1C305D;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-preview {
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .email-body {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        button {
+            background-color: #3B74BB;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        button:hover {
+            background-color: #2d5a8f;
+        }
+        
+        .copy-feedback {
+            display: none;
+            color: #27ae60;
+            font-size: 0.85rem;
+            padding-left: 0.5rem;
+        }
+        
+        footer {
+            background-color: #f0f1f3;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-link {
+            color: #3B74BB;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Email Sequences</a>
+        <span class="nav-separator">•</span>
+        <a href="../index.html">Head of Sales</a>
+        <span class="nav-separator">•</span>
+        <a href="../../../index.html">Dermatology</a>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Post-Meeting Sequence</h1>
+            <p>4-email sequence following an initial strategy meeting with a dermatology prospect</p>
+        </div>
+        
+        <div class="sequence-info">
+            <h3>Sequence Overview</h3>
+            <p><strong>Goal:</strong> Reinforce value prop, address objections, provide social proof, and advance the deal toward a proposal and next commitment.</p>
+            <p><strong>Timeline:</strong> Day 1, Day 3, Day 7, Day 14</p>
+            <p><strong>Best for:</strong> Prospects who've had an initial discovery or strategy call and are in active consideration.</p>
+        </div>
+        
+        <div class="emails-container">
+            <!-- Email 1 -->
+            <div class="email-card">
+                <span class="email-timing">Day 1</span>
+                <div class="email-header">
+                    <div class="email-subject">Thank you, {{contact.firstname}} — and one thing that came up</div>
+                    <div class="email-preview">Preview: "Something we should tackle first"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>Thanks again for taking the time to chat this morning. I really appreciated learning more about {{contact.company}} and where you're focused with cosmetic vs. medical dermatology patient acquisition.</p>
+                    <p>One thing that stuck with me: you mentioned that your current marketing partner hasn't really nailed positioning for both segments. That's a gap we see a lot, and it's exactly what dermatology-specialized strategy is built to solve.</p>
+                    <p>I'm going to send over a brief case study of another derm practice in your region — similar size, similar service mix. You'll see the results we drove in the first 90 days.</p>
+                    <p>Happy to hop on a call this week if you want to walk through specifics for {{contact.company}}.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email1')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email1"></span>
+                </div>
+            </div>
+            
+            <!-- Email 2 -->
+            <div class="email-card">
+                <span class="email-timing">Day 3</span>
+                <div class="email-header">
+                    <div class="email-subject">Here's what we found in your competitive analysis</div>
+                    <div class="email-preview">Preview: "Three opportunities to capitalize on"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I wanted to follow up with some preliminary insights from the competitive analysis we started during our call.</p>
+                    <p>Three quick wins we're seeing for dermatology practices in your area:</p>
+                    <p>1. <strong>Patient Mix Clarity:</strong> Most derm practices aren't clearly segmenting their messaging for cosmetic vs. medical patients — which waters down both messages. We'd separate these into distinct campaigns with tailored positioning.</p>
+                    <p>2. <strong>Procedure-Specific Content:</strong> Your current provider likely uses generic cosmetic messaging. We'd build credential and confidence around your specific procedures and physician expertise — which is huge for high-ticket cases.</p>
+                    <p>3. <strong>Local Authority:</strong> You're not positioned as the go-to dermatology practice in your area. We'd fix that through targeted digital strategy and reputation positioning.</p>
+                    <p>All of this feeds into patient acquisition and practice growth. I'd love to walk you through the full analysis — and what a 90-day roadmap looks like for {{contact.company}}.</p>
+                    <p>Are you available for a deeper dive call this week?</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email2')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email2"></span>
+                </div>
+            </div>
+            
+            <!-- Email 3 -->
+            <div class="email-card">
+                <span class="email-timing">Day 7</span>
+                <div class="email-header">
+                    <div class="email-subject">{{contact.firstname}} — quick question on timeline</div>
+                    <div class="email-preview">Preview: "When would be ideal to launch?"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I don't want to assume — but based on our conversation, it sounded like you're evaluating options for the next 30-45 days before making a decision.</p>
+                    <p>That's perfect timing for us. Here's what I'm thinking: if {{contact.company}} is interested in moving forward, we could have a preliminary strategy and 90-day roadmap ready by end of this week. That gives you everything you need to evaluate against your current provider and make a confident decision.</p>
+                    <p>The added benefit: we move fast. Most dermatology practices we work with see measurable patient acquisition improvements in 60-90 days, not six months.</p>
+                    <p>What does your decision timeline actually look like? Let's sync on next steps.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email3')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email3"></span>
+                </div>
+            </div>
+            
+            <!-- Email 4 -->
+            <div class="email-card">
+                <span class="email-timing">Day 14</span>
+                <div class="email-header">
+                    <div class="email-subject">Ready to move forward with {{contact.company}}?</div>
+                    <div class="email-preview">Preview: "Let's get you a proposal"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I realize I haven't heard back, so I wanted to check in directly. No agenda — just want to make sure you have everything you need to move forward with a decision.</p>
+                    <p>A few options:</p>
+                    <p><strong>Option 1:</strong> You're interested, and I should send over a formal proposal and investment breakdown for {{contact.company}}.</p>
+                    <p><strong>Option 2:</strong> You've got concerns or questions, and we should hop on a call to talk through them.</p>
+                    <p><strong>Option 3:</strong> It's not a fit right now, and I should stay in touch for future opportunity.</p>
+                    <p>Just let me know which one applies. I want to keep momentum going — the sooner we can get {{contact.company}} in front of the right patients, the better.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email4')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <p>Dermatology-focused marketing strategies for sustainable practice growth.</p>
+    </footer>
+    
+    <script>
+        function copyToClipboard(button, emailId) {
+            let textToCopy = '';
+            
+            if (emailId === 'email1') {
+                textToCopy = `Subject: Thank you, {{contact.firstname}} — and one thing that came up
+Preview: "Something we should tackle first"
+
+Hi {{contact.firstname}},
+
+Thanks again for taking the time to chat this morning. I really appreciated learning more about {{contact.company}} and where you're focused with cosmetic vs. medical dermatology patient acquisition.
+
+One thing that stuck with me: you mentioned that your current marketing partner hasn't really nailed positioning for both segments. That's a gap we see a lot, and it's exactly what dermatology-specialized strategy is built to solve.
+
+I'm going to send over a brief case study of another derm practice in your region — similar size, similar service mix. You'll see the results we drove in the first 90 days.
+
+Happy to hop on a call this week if you want to walk through specifics for {{contact.company}}.
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email2') {
+                textToCopy = `Subject: Here's what we found in your competitive analysis
+Preview: "Three opportunities to capitalize on"
+
+Hi {{contact.firstname}},
+
+I wanted to follow up with some preliminary insights from the competitive analysis we started during our call.
+
+Three quick wins we're seeing for dermatology practices in your area:
+
+1. Patient Mix Clarity: Most derm practices aren't clearly segmenting their messaging for cosmetic vs. medical patients — which waters down both messages. We'd separate these into distinct campaigns with tailored positioning.
+
+2. Procedure-Specific Content: Your current provider likely uses generic cosmetic messaging. We'd build credential and confidence around your specific procedures and physician expertise — which is huge for high-ticket cases.
+
+3. Local Authority: You're not positioned as the go-to dermatology practice in your area. We'd fix that through targeted digital strategy and reputation positioning.
+
+All of this feeds into patient acquisition and practice growth. I'd love to walk you through the full analysis — and what a 90-day roadmap looks like for {{contact.company}}.
+
+Are you available for a deeper dive call this week?
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email3') {
+                textToCopy = `Subject: {{contact.firstname}} — quick question on timeline
+Preview: "When would be ideal to launch?"
+
+Hi {{contact.firstname}},
+
+I don't want to assume — but based on our conversation, it sounded like you're evaluating options for the next 30-45 days before making a decision.
+
+That's perfect timing for us. Here's what I'm thinking: if {{contact.company}} is interested in moving forward, we could have a preliminary strategy and 90-day roadmap ready by end of this week. That gives you everything you need to evaluate against your current provider and make a confident decision.
+
+The added benefit: we move fast. Most dermatology practices we work with see measurable patient acquisition improvements in 60-90 days, not six months.
+
+What does your decision timeline actually look like? Let's sync on next steps.
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email4') {
+                textToCopy = `Subject: Ready to move forward with {{contact.company}}?
+Preview: "Let's get you a proposal"
+
+Hi {{contact.firstname}},
+
+I realize I haven't heard back, so I wanted to check in directly. No agenda — just want to make sure you have everything you need to move forward with a decision.
+
+A few options:
+
+Option 1: You're interested, and I should send over a formal proposal and investment breakdown for {{contact.company}}.
+
+Option 2: You've got concerns or questions, and we should hop on a call to talk through them.
+
+Option 3: It's not a fit right now, and I should stay in touch for future opportunity.
+
+Just let me know which one applies. I want to keep momentum going — the sooner we can get {{contact.company}} in front of the right patients, the better.
+
+— {{owner.firstname}}`;
+            }
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const feedback = document.getElementById(`feedback-${emailId}`);
+                feedback.textContent = '✓ Copied!';
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

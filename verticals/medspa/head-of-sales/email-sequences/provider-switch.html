@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Switch Sequence - Med Spa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+        .page-header p {
+            margin: 0;
+            opacity: 0.95;
+        }
+        .email-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #9B5DE5;
+        }
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+        .email-header h2 {
+            color: #1C305D;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .email-day {
+            background-color: #9B5DE5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .email-body {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            border: 1px solid #e0e0e0;
+        }
+        .email-body strong {
+            color: #1C305D;
+        }
+        .copy-btn {
+            display: inline-block;
+            background-color: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #1C305D;
+        }
+        .copy-confirmation {
+            display: none;
+            color: #C9A227;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            color: #3B74BB;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Ekwa</h1>
+        <a href="index.html">← Back to All Sequences</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to All Sequences</a>
+        
+        <div class="page-header">
+            <h1>Provider Switch Sequence</h1>
+            <p>3 emails over 10 days • Target med spas outgrowing generic agencies</p>
+        </div>
+
+        <!-- Email 1 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 1: Pain Point Identification</h2>
+                <span class="email-day">Day 1</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Your med spa is probably outgrowing your current agency
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I'm reaching out because I see a lot of med spas with the same problem: they've outgrown their current marketing provider.
+
+Here's the pattern I notice: You started with a generic social media agency or digital marketing firm. They were fine at first — posting content, running ads, managing your Instagram. But as {{contact.company}} has grown, the gaps have become obvious:
+
+- They don't understand medical marketing (regulatory, positioning, patient psychology)
+- They focus on vanity metrics instead of actual conversions
+- You get pretty Instagram posts but new patient inquiries stay flat
+- They don't track the full patient journey or lifetime value
+- They treat you like a spa, not a medical practice
+
+Sound familiar?
+
+The reason I'm reaching out is that we're different. Ekwa specializes exclusively in medical practices. We do SEO right. We build websites that convert. We track patient journeys. We understand how to position medical expertise without sounding stuffy.
+
+For med spas, this difference tends to show up as 2-3x better results than generic agencies in the first 6 months.
+
+Would you be open to a short call to see if a switch makes sense?
+
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email1-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email1-body" style="display: none;">Hi {{contact.firstname}},
+
+I'm reaching out because I see a lot of med spas with the same problem: they've outgrown their current marketing provider.
+
+Here's the pattern I notice: You started with a generic social media agency or digital marketing firm. They were fine at first — posting content, running ads, managing your Instagram. But as {{contact.company}} has grown, the gaps have become obvious:
+
+- They don't understand medical marketing (regulatory, positioning, patient psychology)
+- They focus on vanity metrics instead of actual conversions
+- You get pretty Instagram posts but new patient inquiries stay flat
+- They don't track the full patient journey or lifetime value
+- They treat you like a spa, not a medical practice
+
+Sound familiar?
+
+The reason I'm reaching out is that we're different. Ekwa specializes exclusively in medical practices. We do SEO right. We build websites that convert. We track patient journeys. We understand how to position medical expertise without sounding stuffy.
+
+For med spas, this difference tends to show up as 2-3x better results than generic agencies in the first 6 months.
+
+Would you be open to a short call to see if a switch makes sense?
+
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 2: Differentiation & Specifics</h2>
+                <span class="email-day">Day 5</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Here's why Ekwa is different from your current agency
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I wanted to follow up and be specific about what makes Ekwa different from your current marketing partner.
+
+Most agencies — even those calling themselves "medical marketing specialists" — don't actually specialize. They manage medical clients like they manage everyone else.
+
+Here's what Ekwa does differently for med spas:
+
+<strong>SEO:</strong> We build medical-grade SEO. This means optimizing for patient intent (people searching for treatments, results, credentials). Your current agency probably focuses on volume. We focus on quality.
+
+<strong>Website Design:</strong> We build conversion-focused sites that educate patients and build trust. Not just pretty brochures. Patients should feel like they understand the medical foundation of what you do.
+
+<strong>Patient Journey Tracking:</strong> Most agencies don't track patients from first click to booking. We do. This lets us see exactly what's working and what's not, and optimize constantly.
+
+<strong>Medical Positioning:</strong> We position your practice as medical-first, luxury-second. This attracts better patients and justifies higher prices.
+
+<strong>Retention Strategy:</strong> We build systems to keep patients coming back and spending more. Not just acquisition focus.
+
+This is why switching from a generic agency to Ekwa typically results in 2-3x better outcomes for med spas.
+
+Ready to talk about what we'd do for {{contact.company}}?
+
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email2-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email2-body" style="display: none;">Hi {{contact.firstname}},
+
+I wanted to follow up and be specific about what makes Ekwa different from your current marketing partner.
+
+Most agencies — even those calling themselves "medical marketing specialists" — don't actually specialize. They manage medical clients like they manage everyone else.
+
+Here's what Ekwa does differently for med spas:
+
+SEO: We build medical-grade SEO. This means optimizing for patient intent (people searching for treatments, results, credentials). Your current agency probably focuses on volume. We focus on quality.
+
+Website Design: We build conversion-focused sites that educate patients and build trust. Not just pretty brochures. Patients should feel like they understand the medical foundation of what you do.
+
+Patient Journey Tracking: Most agencies don't track patients from first click to booking. We do. This lets us see exactly what's working and what's not, and optimize constantly.
+
+Medical Positioning: We position your practice as medical-first, luxury-second. This attracts better patients and justifies higher prices.
+
+Retention Strategy: We build systems to keep patients coming back and spending more. Not just acquisition focus.
+
+This is why switching from a generic agency to Ekwa typically results in 2-3x better outcomes for med spas.
+
+Ready to talk about what we'd do for {{contact.company}}?
+
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 3 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 3: Transition Assistance & Close</h2>
+                <span class="email-day">Day 10</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Switching is easier than you think
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+One thing I hear from med spas considering switching agencies: "Isn't the transition complicated?"
+
+Not really. Here's how it typically works:
+
+<strong>Week 1-2:</strong> We do a full audit of your current marketing setup (website, SEO, analytics, etc.). We identify gaps and quick wins.
+
+<strong>Week 3-4:</strong> We present a 90-day plan showing exactly what we'd change, why, and what results we expect.
+
+<strong>Months 2-3:</strong> We implement. We handle all the technical stuff. Your current agency gradually hands off.
+
+Most practices are shocked at how smooth the transition is. And even more shocked at the results we deliver in months 3-6.
+
+The best time to make a switch is when you're intentional about it. Not when you're frustrated, but because you have a clear vision of where you want to go.
+
+I think {{contact.company}} is ready for that next level. Are you interested in exploring it?
+
+Let me know and we can get started.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Schedule a Call] [Unsubscribe Link]
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email3-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email3-body" style="display: none;">Hi {{contact.firstname}},
+
+One thing I hear from med spas considering switching agencies: "Isn't the transition complicated?"
+
+Not really. Here's how it typically works:
+
+Week 1-2: We do a full audit of your current marketing setup (website, SEO, analytics, etc.). We identify gaps and quick wins.
+
+Week 3-4: We present a 90-day plan showing exactly what we'd change, why, and what results we expect.
+
+Months 2-3: We implement. We handle all the technical stuff. Your current agency gradually hands off.
+
+Most practices are shocked at how smooth the transition is. And even more shocked at the results we deliver in months 3-6.
+
+The best time to make a switch is when you're intentional about it. Not when you're frustrated, but because you have a clear vision of where you want to go.
+
+I think {{contact.company}} is ready for that next level. Are you interested in exploring it?
+
+Let me know and we can get started.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Schedule a Call] [Unsubscribe Link]</div>
+        </div>
+    </div>
+
+    <script>
+        function copySectionToClipboard(button, sectionId) {
+            const element = document.getElementById(sectionId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const confirmation = button.nextElementSibling;
+                confirmation.style.display = 'inline-block';
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

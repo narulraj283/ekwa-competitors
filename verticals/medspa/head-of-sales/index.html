@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>MedSpa Head of Sales — HubSpot Setup & Pipeline — Ekwa</title>
+    <meta name="description" content="MedSpa vertical HubSpot pipeline setup, lead management, and email sequences. Internal use only.">
+    <link rel="canonical" href="https://ekwacompetitors.narenlife.com/verticals/medspa/head-of-sales/">
+    <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">EC</div>
+      <div><div class="ekwa-nav__title">Ekwa Intelligence</div><div class="ekwa-nav__subtitle">MedSpa · HoS</div></div>
+    </a>
+    <button class="ekwa-nav__hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="ekwa-nav__links">
+      <li><a href="../../../index.html">All Verticals</a></li>
+      <li><a href="../index.html">MedSpa</a></li>
+      <li><a href="../../../head-of-sales/index.html">HoS Hub</a></li>
+      <li><a href="email-sequences/index.html" class="nav-cta">Email Sequences</a></li>
+    </ul>
+  </div>
+  <div class="ekwa-nav__mobile" id="mobile-menu">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">MedSpa Dashboard</a>
+    <a href="../../../head-of-sales/index.html">HoS Hub</a>
+    <a href="email-sequences/index.html">Email Sequences</a>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="ekwa-page-header" style="border-left: 6px solid #9B5DE5;">
+  <div class="ekwa-container">
+    <span class="ekwa-badge">💆 MedSpa · Head of Sales</span>
+    <h1>MedSpa <span>Head of Sales</span></h1>
+    <p class="ekwa-lead">HubSpot CRM setup, pipeline management, lead automation, and email sequences for the MedSpa vertical.</p>
+    
+    <!-- Breadcrumb -->
+    <nav class="ekwa-breadcrumb">
+      <a href="../../../index.html">Home</a>
+      <span>/</span>
+      <a href="../index.html">MedSpa</a>
+      <span>/</span>
+      <span>Head of Sales</span>
+    </nav>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="ekwa-container">
+
+  <!-- Funnel Snapshot -->
+  <section class="ekwa-section">
+    <h2>Pipeline Snapshot</h2>
+    <div class="ekwa-stats ekwa-grid-4">
+      <div class="ekwa-stat-card">
+        <div class="ekwa-stat-value">1,659</div>
+        <div class="ekwa-stat-label">Total Aesthetics/MedSpa Contacts</div>
+      </div>
+      <div class="ekwa-stat-card">
+        <div class="ekwa-stat-value">~830</div>
+        <div class="ekwa-stat-label">Raw Leads (est. 50%)</div>
+      </div>
+      <div class="ekwa-stat-card">
+        <div class="ekwa-stat-value">0</div>
+        <div class="ekwa-stat-label">Unowned <span class="ekwa-check">✅</span></div>
+      </div>
+      <div class="ekwa-stat-card">
+        <div class="ekwa-stat-value">~40</div>
+        <div class="ekwa-stat-label">Active Deals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Note -->
+  <section class="ekwa-section">
+    <div class="ekwa-alert ekwa-alert--info">
+      <strong>Important Note:</strong> The 'Aesthetics' vertical_zoom value (1,477 contacts) is the primary medspa/aesthetic pipeline. These include med spas, aesthetic practices, and body contouring clients. The 'Medspa' tag (182 contacts) is a more specific subset. When filtering, use <code>CONTAINS 'Aesthetics' OR EQUALS 'Medspa'</code> to capture the full universe.
+    </div>
+  </section>
+
+  <!-- Context Cards -->
+  <section class="ekwa-section">
+    <h2>Your MedSpa Vertical Overview</h2>
+    <div class="ekwa-grid ekwa-grid-2">
+      <div class="ekwa-card">
+        <h3>Lead Pipeline</h3>
+        <p>1,659 aesthetics/medspa contacts, all assigned. Primary tag is "Aesthetics" in vertical_zoom with more specific "Medspa" subset (182 contacts).</p>
+      </div>
+      <div class="ekwa-card">
+        <h3>Deal Pipeline</h3>
+        <p>Deals need vertical_derived_ycbm = "MedSpa" applied. Currently mixed in shared pipeline. Requires segmentation and custom views.</p>
+      </div>
+      <div class="ekwa-card">
+        <h3>What Claude Handles</h3>
+        <p>Tag deals with vertical, migrate to MedSpa pipeline, flag stalled opportunities, identify and segment Aesthetics contacts.</p>
+      </div>
+      <div class="ekwa-card">
+        <h3>What You Must Do</h3>
+        <p>Create MedSpa pipeline, custom properties, deal views, contact views, automation workflows, and reporting structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Setup Tasks -->
+  <section class="ekwa-section">
+    <h2>HubSpot Setup Tasks</h2>
+    <div class="ekwa-accordion">
+
+      <!-- Task 1 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 1: Create "MedSpa — Sales Pipeline"</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create a dedicated sales pipeline for MedSpa deals with 12 standard stages:</p>
+          <ol>
+            <li>Subscriber</li>
+            <li>Lead</li>
+            <li>Sales Qualified Lead</li>
+            <li>Presentation Scheduled</li>
+            <li>Proposal Sent</li>
+            <li>Negotiation</li>
+            <li>Closed Won</li>
+            <li>Closed Lost</li>
+            <li>Closed Lost — Bad Fit</li>
+            <li>Closed Lost — Budget</li>
+            <li>Closed Lost — Competition</li>
+            <li>Closed Lost — No Decision</li>
+          </ol>
+          <p><strong>Actions:</strong> In HubSpot, go to Settings → Pipelines → Create New Pipeline. Name it "MedSpa — Sales Pipeline" and add the 12 stages above.</p>
+        </div>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 2: Custom Deal Properties (Group: "MedSpa")</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create custom properties in the "MedSpa" property group:</p>
+          <ul>
+            <li><strong>medspa_practice_type</strong> (Dropdown): Medical Day Spa, Laser Center, Body Contouring, IV Therapy, Hormone Clinic, Comprehensive Aesthetic</li>
+            <li><strong>medspa_location_count</strong> (Dropdown): Solo (1), Small Group (2-5), Mid-Group (6-10), Multi-location (10+)</li>
+            <li><strong>medspa_service_tier</strong> (Dropdown): Starter, Growth, Authority</li>
+            <li><strong>medspa_switch_from</strong> (Dropdown): Diamond Accelerator, Growth99, Influx, PatientGain, In-house, Social only, Other</li>
+          </ul>
+          <p><strong>Actions:</strong> Go to Settings → Properties → Create Property for each above. Assign all to "MedSpa" group.</p>
+        </div>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 3: 5 Saved Deal Views (MedSpa Pipeline)</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create the following deal views in your MedSpa pipeline:</p>
+          <ol>
+            <li><strong>All MedSpa Deals</strong> — Filter: Pipeline = MedSpa, sort by close date</li>
+            <li><strong>Active Deals</strong> — Filter: Pipeline = MedSpa AND Deal Stage ≠ all closed stages, sort by close date descending</li>
+            <li><strong>High Priority (Authority Tier)</strong> — Filter: Pipeline = MedSpa AND medspa_service_tier = Authority</li>
+            <li><strong>Stalled Deals</strong> — Filter: Pipeline = MedSpa AND Last activity > 14 days ago, sort by last activity</li>
+            <li><strong>By Practice Type</strong> — Filter: Pipeline = MedSpa, group by medspa_practice_type</li>
+          </ol>
+          <p><strong>Actions:</strong> In Deals → MedSpa Pipeline, click "New View" for each. Save with filters applied.</p>
+        </div>
+      </div>
+
+      <!-- Task 4 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 4: 5 Lead Contact Views (Aesthetics OR MedSpa)</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create the following contact views with proper filtering:</p>
+          <ol>
+            <li><strong>All Aesthetics/MedSpa</strong> — Filter: vertical_zoom CONTAINS "Aesthetics" OR vertical_zoom EQUALS "Medspa"</li>
+            <li><strong>MedSpa Specific (182)</strong> — Filter: vertical_zoom EQUALS "Medspa"</li>
+            <li><strong>Broader Aesthetics (1,477)</strong> — Filter: vertical_zoom CONTAINS "Aesthetics"</li>
+            <li><strong>Recently Contacted</strong> — Filter: vertical_zoom CONTAINS "Aesthetics" OR EQUALS "Medspa" AND Last contacted < 30 days</li>
+            <li><strong>High Engagement</strong> — Filter: vertical_zoom CONTAINS "Aesthetics" OR EQUALS "Medspa" AND Engagement score ≥ 5</li>
+          </ol>
+          <p><strong>Actions:</strong> In Contacts → Create Views with above filters. Use "CONTAINS" for broader pool, "EQUALS" for specific tag.</p>
+        </div>
+      </div>
+
+      <!-- Task 5 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 5: 2 Automation Workflows</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p><strong>Workflow 1: Auto-Assign New Aesthetic Contacts</strong></p>
+          <ul>
+            <li>Trigger: Contact created with vertical_zoom = "Aesthetics" OR "Medspa"</li>
+            <li>Action: Assign to designated owner (or queue for manual assignment)</li>
+            <li>Action: Tag as "aesthetics_inbound"</li>
+          </ul>
+          <p><strong>Workflow 2: Stalled Deal Task Creation</strong></p>
+          <ul>
+            <li>Trigger: Deal in MedSpa pipeline with no activity for 14+ days</li>
+            <li>Action: Create task assigned to deal owner: "Reconnect with [company name]"</li>
+            <li>Action: Notify deal owner via notification</li>
+          </ul>
+          <p><strong>Actions:</strong> Go to Automation → Workflows → Create Workflow for each above.</p>
+        </div>
+      </div>
+
+      <!-- Task 6 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 6: 4 Deal Reports</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create these deal-focused reports:</p>
+          <ol>
+            <li><strong>MedSpa Pipeline Summary</strong> — Bar chart: Deal stage distribution (MedSpa pipeline only)</li>
+            <li><strong>Deals by Practice Type</strong> — Pie chart: medspa_practice_type breakdown with deal counts</li>
+            <li><strong>Won Deals by Service Tier</strong> — Table: medspa_service_tier, deal amount, close date, owner (filter: Closed Won only)</li>
+            <li><strong>Sales Forecast (Next 90 Days)</strong> — Line chart: Expected revenue by close date (MedSpa pipeline, Active deals only)</li>
+          </ol>
+          <p><strong>Actions:</strong> Go to Reports → Create Report for each. Filter to MedSpa pipeline and customize visuals.</p>
+        </div>
+      </div>
+
+      <!-- Task 7 -->
+      <div class="ekwa-accordion__item">
+        <button class="ekwa-accordion__header">
+          <span>Task 7: 8 Full-Funnel Reports</span>
+          <span class="ekwa-accordion__icon">+</span>
+        </button>
+        <div class="ekwa-accordion__content">
+          <p>Create these full-funnel contact + deal reports:</p>
+          <ol>
+            <li><strong>Contacts → Deals Conversion</strong> — Table: All aesthetics/medspa contacts, their associated deals, close stage</li>
+            <li><strong>Lead Source Distribution</strong> — Pie chart: How 1,659 aesthetics/medspa contacts were acquired</li>
+            <li><strong>Practice Type Performance</strong> — Table: medspa_practice_type, contact count, deals created, deals won, avg deal size</li>
+            <li><strong>Location Count Impact</strong> — Bar chart: medspa_location_count vs avg deal size (won deals)</li>
+            <li><strong>Sales Tier Breakdown</strong> — Table: medspa_service_tier, contact count, active deals, won deals, revenue</li>
+            <li><strong>Competitor Switching</strong> — Bar chart: medspa_switch_from distribution (which platforms are we stealing from?)</li>
+            <li><strong>Owner Performance</strong> — Table: Deal owner, # of aesthetics/medspa contacts owned, active deals, deals won, win rate</li>
+            <li><strong>Health Score vs Conversion</strong> — Scatter plot: Contact engagement/health vs likelihood of becoming a deal</li>
+          </ol>
+          <p><strong>Actions:</strong> Go to Reports → Create Report for each. Use custom metrics and group by relevant properties.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Claude Automation Checklist -->
+  <section class="ekwa-section">
+    <h2>Claude Automation Checklist</h2>
+    <p>After you've set up the pipeline and properties above, Claude can handle the following:</p>
+    <div class="ekwa-checklist">
+      <div class="ekwa-checklist__item">
+        <input type="checkbox" id="check1" disabled>
+        <label for="check1">Tag all aesthetic/medspa deals in CRM with vertical classification</label>
+      </div>
+      <div class="ekwa-checklist__item">
+        <input type="checkbox" id="check2" disabled>
+        <label for="check2">Migrate existing deals to new MedSpa pipeline</label>
+      </div>
+      <div class="ekwa-checklist__item">
+        <input type="checkbox" id="check3" disabled>
+        <label for="check3">Cross-reference Aesthetics contacts against Medspa tag for accuracy</label>
+      </div>
+      <div class="ekwa-checklist__item">
+        <input type="checkbox" id="check4" disabled>
+        <label for="check4">Flag stalled deals and create reconnection tasks</label>
+      </div>
+      <div class="ekwa-checklist__item">
+        <input type="checkbox" id="check5" disabled>
+        <label for="check5">Build segmentation between med spa vs pure aesthetics vs body contouring</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Sequences Section -->
+  <section class="ekwa-section">
+    <h2>Email Sequences</h2>
+    <p>Manage your MedSpa email campaigns and sequences below:</p>
+    <div class="ekwa-grid ekwa-grid-2">
+      <a href="email-sequences/index.html" class="ekwa-card ekwa-card--link">
+        <h3>All Email Sequences</h3>
+        <p>View all automated and manual email sequences for MedSpa contacts.</p>
+      </a>
+      <a href="email-sequences/index.html" class="ekwa-card ekwa-card--link">
+        <h3>Inbound Welcome Series</h3>
+        <p>5-email welcome sequence for new Aesthetics/MedSpa contacts.</p>
+      </a>
+      <a href="email-sequences/index.html" class="ekwa-card ekwa-card--link">
+        <h3>Nurture Campaigns</h3>
+        <p>Mid-funnel nurture sequences by practice type and service tier.</p>
+      </a>
+      <a href="email-sequences/index.html" class="ekwa-card ekwa-card--link">
+        <h3>Closing Sequences</h3>
+        <p>5-email closing sequences for qualified opportunities.</p>
+      </a>
+      <a href="email-sequences/index.html" class="ekwa-card ekwa-card--link">
+        <h3>Retention & Upsell</h3>
+        <p>Post-close sequences for customer retention and tier upgrades.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="ekwa-footer">
+  <div class="ekwa-container">
+    <p>&copy; 2026 Ekwa Intelligence. Internal use only. <a href="../../../index.html">Back to All Verticals</a></p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', function() {
+  const isExpanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !isExpanded);
+  mobileMenu.classList.toggle('ekwa-nav__mobile--active');
+});
+
+// Accordion Functionality
+const accordionHeaders = document.querySelectorAll('.ekwa-accordion__header');
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', function() {
+    const item = this.parentElement;
+    const content = this.nextElementSibling;
+    const icon = this.querySelector('.ekwa-accordion__icon');
+    
+    // Close all other items
+    document.querySelectorAll('.ekwa-accordion__item').forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('ekwa-accordion__item--open')) {
+        otherItem.classList.remove('ekwa-accordion__item--open');
+        otherItem.querySelector('.ekwa-accordion__content').style.maxHeight = '0';
+        otherItem.querySelector('.ekwa-accordion__icon').textContent = '+';
+      }
+    });
+    
+    // Toggle current item
+    item.classList.toggle('ekwa-accordion__item--open');
+    
+    if (item.classList.contains('ekwa-accordion__item--open')) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      icon.textContent = '−';
+    } else {
+      content.style.maxHeight = '0';
+      icon.textContent = '+';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

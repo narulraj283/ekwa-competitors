@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Show Recovery Sequence — Dentistry — Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        .ekwa-email-content {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        
+        .ekwa-email-sequence {
+            display: grid;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .ekwa-email-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .ekwa-email-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ekwa-email-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .ekwa-email-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-timing {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-body {
+            padding: 2rem;
+        }
+        
+        .ekwa-field-group {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-field-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .ekwa-field-content {
+            background: #f8f9fa;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            word-break: break-word;
+        }
+        
+        .ekwa-field-content code {
+            background: #e8ecf1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: #c9a227;
+            font-weight: 600;
+        }
+        
+        .ekwa-copy-btn {
+            display: inline-block;
+            background: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            margin-top: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .ekwa-copy-btn:hover {
+            background: #2a5299;
+        }
+        
+        .ekwa-alert--info {
+            background: #e8f0fb;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #1C305D;
+        }
+        
+        .ekwa-alert--info strong {
+            color: #1C305D;
+        }
+        
+        .ekwa-nav-back {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-nav-back a {
+            color: #3B74BB;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ekwa-nav-back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-container">
+            <div class="ekwa-nav-brand">Ekwa</div>
+            <div class="ekwa-nav-toggle" id="navToggle">☰</div>
+            <ul class="ekwa-nav-menu" id="navMenu">
+                <li><a href="../index.html">Head of Sales</a></li>
+                <li><a href="../../../index.html">Dentistry Dashboard</a></li>
+                <li><a href="index.html">Email Sequences</a></li>
+                <li><a href="../../../../index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
+        <div class="ekwa-container">
+            <h1>No-Show Recovery Sequence</h1>
+            <p>Win back leads who missed their scheduled marketing strategy meeting. A warm and understanding approach that keeps the door open for rescheduling.</p>
+        </div>
+    </div>
+
+    <main class="ekwa-container ekwa-email-content">
+        <div class="ekwa-nav-back">
+            <a href="index.html">← Back to Email Sequences</a>
+        </div>
+
+        <div class="ekwa-email-sequence">
+            <!-- Email 1: Day 0 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 1 of 2</span>
+                        <span class="ekwa-email-timing">Day 0 (1 Hour After)</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email1-subject">
+We missed you today, {{contact.firstname}}
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email1-preview">
+No worries — let's reschedule when it works for you
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email1-body">
+Hi {{contact.firstname}},
+
+I noticed we didn't connect for our call today. No worries at all — things come up.
+
+I'd still love to chat about how we can help {{contact.company}} attract more new patients. When works better for you? You can grab a new time here: {{BOOKING_LINK}}
+
+Looking forward to connecting soon.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> Send this immediately (within 1 hour) after the scheduled meeting time passes. Use a warm, understanding tone — this person is still interested, they just didn't make it. Don't be sarcastic or passive-aggressive.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2: Day 3 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 2 of 2</span>
+                        <span class="ekwa-email-timing">Day 3</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email2-subject">
+Still worth 15 minutes? — {{contact.company}}
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email2-preview">
+One more chance to connect — or let's try again later
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email2-body">
+Hi {{contact.firstname}},
+
+Just following up one more time. I know we scheduled a call a few days ago and it didn't happen.
+
+If now's the right time to talk, I'd still love to learn about {{contact.company}} and see if we can help. You can reschedule here: {{BOOKING_LINK}}
+
+If now's not the right moment, that's okay too. Just reply "not now" and I'll circle back with you in about 3 months. No pressure.
+
+Either way, I'm rooting for {{contact.company}} to find the right marketing partner.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> This is your final recovery email. Give them one more clear path forward (rescheduling or deferring to 3 months later). If they don't engage, move them to a slower nurture cadence or a separate workflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="ekwa-footer">
+        <div class="ekwa-container">
+            <p>&copy; 2026 Ekwa. Dental marketing specialists.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('ekwa-nav-menu-active');
+        });
+
+        document.querySelectorAll('.ekwa-copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                navigator.clipboard.writeText(target.innerText.trim()).then(() => {
+                    btn.textContent = '✅ Copied!';
+                    setTimeout(() => btn.textContent = '📋 Copy', 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
     <title>Multi-Specialty Bridge™ - Unified Derm, MedSpa, Plastics Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +15,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: #f5f7fa;
             color: #333;
             line-height: 1.6;
@@ -25,24 +27,28 @@
             padding: 20px;
         }
 
-        header {
-            background: linear-gradient(135deg, #f5a623 0%, #1a1a2e 100%);
+        /* Header Styles */
+        .ekwa-page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
             border-radius: 8px;
             margin-bottom: 40px;
+            border-bottom: 4px solid #7B68EE;
         }
 
-        h1 {
+        .ekwa-page-header h1 {
             font-size: 2.2em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .subheading {
             font-size: 1.3em;
-            color: #00a651;
+            color: #C9A227;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .tagline {
@@ -52,15 +58,16 @@
 
         .opportunity-section {
             background: #fff3cd;
-            border-left: 4px solid #f5a623;
+            border-left: 4px solid #C9A227;
             padding: 30px;
             border-radius: 8px;
             margin: 40px 0;
         }
 
         .opportunity-section h2 {
-            color: #f5a623;
+            color: #C9A227;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .opportunity-section p {
@@ -74,14 +81,15 @@
             padding: 40px;
             border-radius: 8px;
             margin: 40px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
         }
 
         .journey-section h2 {
-            color: #1a1a2e;
+            color: #1C305D;
             margin-bottom: 30px;
             text-align: center;
             font-size: 1.6em;
+            font-weight: 700;
         }
 
         .journey-flow {
@@ -95,7 +103,7 @@
         .journey-box {
             flex: 1;
             min-width: 150px;
-            background: linear-gradient(135deg, #f5a623 0%, #f5a623 100%);
+            background: linear-gradient(135deg, #3B74BB 0%, #1C305D 100%);
             color: white;
             padding: 25px;
             border-radius: 8px;
@@ -105,6 +113,7 @@
         .journey-box h3 {
             font-size: 1.1em;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .journey-box p {
@@ -117,7 +126,7 @@
             flex: 0.3;
             text-align: center;
             font-size: 1.8em;
-            color: #f5a623;
+            color: #3B74BB;
             min-width: 30px;
         }
 
@@ -132,14 +141,15 @@
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #f5a623;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
+            border-top: 4px solid #C9A227;
         }
 
         .feature-card h3 {
-            color: #1a1a2e;
+            color: #1C305D;
             margin-bottom: 12px;
             font-size: 1.2em;
+            font-weight: 600;
         }
 
         .feature-card p {
@@ -148,16 +158,18 @@
         }
 
         .roi-box {
-            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
             color: white;
             padding: 40px;
             border-radius: 8px;
             margin: 40px 0;
+            border-bottom: 4px solid #7B68EE;
         }
 
         .roi-box h2 {
             margin-bottom: 25px;
             font-size: 1.6em;
+            font-weight: 700;
         }
 
         .roi-grid {
@@ -175,7 +187,7 @@
         .roi-item .number {
             font-size: 2em;
             font-weight: bold;
-            color: #f5a623;
+            color: #C9A227;
             margin-bottom: 8px;
         }
 
@@ -184,18 +196,21 @@
             line-height: 1.6;
         }
 
+        .ekwa-table-wrap {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
+            margin: 40px 0;
+        }
+
         .integration-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
         }
 
         .integration-table thead {
-            background: #1a1a2e;
+            background: #1C305D;
             color: white;
         }
 
@@ -203,6 +218,7 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .integration-table td {
@@ -225,8 +241,8 @@
             background: white;
             padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #f5a623;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #C9A227;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
         }
 
         .testimonial-text {
@@ -238,22 +254,24 @@
 
         .testimonial-author {
             font-weight: bold;
-            color: #1a1a2e;
+            color: #1C305D;
             font-size: 0.95em;
         }
 
         .cta-section {
-            background: linear-gradient(135deg, #f5a623 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
             color: white;
             padding: 40px;
             border-radius: 8px;
             text-align: center;
             margin: 50px 0;
+            border-bottom: 4px solid #7B68EE;
         }
 
         .cta-section h2 {
             font-size: 1.8em;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .cta-section p {
@@ -267,13 +285,14 @@
             border-radius: 8px;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(28, 48, 93, 0.1);
         }
 
         form h3 {
-            color: #1a1a2e;
+            color: #1C305D;
             margin-bottom: 25px;
             text-align: center;
+            font-weight: 600;
         }
 
         .form-group {
@@ -283,8 +302,9 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #1a1a2e;
+            color: #1C305D;
             font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
         }
 
         input[type="text"],
@@ -296,15 +316,15 @@
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-family: inherit;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1em;
             color: #333;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #f5a623;
-            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+            border-color: #3B74BB;
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
         }
 
         textarea {
@@ -315,19 +335,20 @@
         button {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #f5a623 0%, #d48c1f 100%);
+            background: linear-gradient(135deg, #3B74BB 0%, #1C305D 100%);
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 1.05em;
             font-weight: bold;
             cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 116, 187, 0.3);
         }
 
         .privacy-note {
@@ -337,8 +358,28 @@
             margin-top: 15px;
         }
 
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #3B74BB;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            color: #1C305D;
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
-            h1 {
+            .ekwa-page-header h1 {
                 font-size: 1.6em;
             }
 
@@ -357,8 +398,15 @@
     </style>
 </head>
 <body>
+    <div class="ekwa-nav">
+        <nav>
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Dermatology</a>
+        </nav>
+    </div>
+
     <div class="container">
-        <header>
+        <header class="ekwa-page-header">
             <div class="subheading">Operation Multi-Specialty Bridge™</div>
             <h1>One Agency. Derm + MedSpa + Plastics.</h1>
             <p class="tagline">Unified Strategy. Cross-Specialty Patient Journeys. Higher Revenue.</p>
@@ -394,7 +442,7 @@
                 </div>
                 <div class="arrow">→</div>
                 <div class="journey-box">
-                    <h3>Books Complimentary Service</h3>
+                    <h3>Books Complementary Service</h3>
                     <p>Revenue +35%</p>
                 </div>
             </div>
@@ -432,61 +480,63 @@
             </div>
         </div>
 
-        <div class="integration-table">
-            <thead>
-                <tr>
-                    <th>Marketing Channel</th>
-                    <th>Medical Derm</th>
-                    <th>Cosmetic/MedSpa</th>
-                    <th>Surgical Procedures</th>
-                    <th>Unified Approach</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Website Architecture</strong></td>
-                    <td>Medical content, clinical focus</td>
-                    <td>Before/after, lifestyle imagery</td>
-                    <td>Surgical expertise, outcomes</td>
-                    <td>Integrated site shows all three services with clear cross-linking</td>
-                </tr>
-                <tr>
-                    <td><strong>SEO Strategy</strong></td>
-                    <td>"Dermatologist," "eczema treatment"</td>
-                    <td>"Botox," "laser hair removal"</td>
-                    <td>"Breast surgery," "facelift"</td>
-                    <td>Keyword clusters targeting all three markets simultaneously</td>
-                </tr>
-                <tr>
-                    <td><strong>PPC Campaigns</strong></td>
-                    <td>Medical insurance-friendly keywords</td>
-                    <td>High-intent cosmetic keywords</td>
-                    <td>Surgical procedure keywords</td>
-                    <td>Shared budget, dynamic landing pages by interest</td>
-                </tr>
-                <tr>
-                    <td><strong>Email Marketing</strong></td>
-                    <td>Clinical condition-based</td>
-                    <td>Result-focused, lifestyle</td>
-                    <td>Surgical transformation</td>
-                    <td>Automated cross-sells: medical patient → medspa; medspa → surgical</td>
-                </tr>
-                <tr>
-                    <td><strong>Social Media</strong></td>
-                    <td>Educational posts, testimonials</td>
-                    <td>Before/after reels, tips</td>
-                    <td>Result showcase, patient stories</td>
-                    <td>Unified brand voice showing all services as complementary</td>
-                </tr>
-                <tr>
-                    <td><strong>Reputation Management</strong></td>
-                    <td>Medical credibility, expertise</td>
-                    <td>Aesthetic results, satisfaction</td>
-                    <td>Surgical outcome quality</td>
-                    <td>Reviews aggregated by service; higher star ratings overall</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="ekwa-table-wrap">
+            <table class="integration-table">
+                <thead>
+                    <tr>
+                        <th>Marketing Channel</th>
+                        <th>Medical Derm</th>
+                        <th>Cosmetic/MedSpa</th>
+                        <th>Surgical Procedures</th>
+                        <th>Unified Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Website Architecture</strong></td>
+                        <td>Medical content, clinical focus</td>
+                        <td>Before/after, lifestyle imagery</td>
+                        <td>Surgical expertise, outcomes</td>
+                        <td>Integrated site shows all three services with clear cross-linking</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SEO Strategy</strong></td>
+                        <td>"Dermatologist," "eczema treatment"</td>
+                        <td>"Botox," "laser hair removal"</td>
+                        <td>"Breast surgery," "facelift"</td>
+                        <td>Keyword clusters targeting all three markets simultaneously</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PPC Campaigns</strong></td>
+                        <td>Medical insurance-friendly keywords</td>
+                        <td>High-intent cosmetic keywords</td>
+                        <td>Surgical procedure keywords</td>
+                        <td>Shared budget, dynamic landing pages by interest</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Marketing</strong></td>
+                        <td>Clinical condition-based</td>
+                        <td>Result-focused, lifestyle</td>
+                        <td>Surgical transformation</td>
+                        <td>Automated cross-sells: medical patient → medspa; medspa → surgical</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Media</strong></td>
+                        <td>Educational posts, testimonials</td>
+                        <td>Before/after reels, tips</td>
+                        <td>Result showcase, patient stories</td>
+                        <td>Unified brand voice showing all services as complementary</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reputation Management</strong></td>
+                        <td>Medical credibility, expertise</td>
+                        <td>Aesthetic results, satisfaction</td>
+                        <td>Surgical outcome quality</td>
+                        <td>Reviews aggregated by service; higher star ratings overall</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="roi-box">
             <h2>Multi-Specialty ROI: Better Than Single-Service</h2>
@@ -527,19 +577,19 @@
             <div class="testimonial">
                 <div class="testimonial-text">"We had separate marketing for derm and our medspa. Patients didn't even know we offered both. After consolidating with ekwa, our medspa revenue grew 47% just from internal cross-sells. Should've done this years ago."</div>
                 <div class="testimonial-author">Dr. Lisa Wang</div>
-                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Advanced Dermatology + MedSpa, San Diego CA</div>
+                <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Advanced Dermatology + MedSpa, San Diego CA</div>
             </div>
 
             <div class="testimonial">
                 <div class="testimonial-text">"Managing marketing for derm + surgical practice with three different agencies was a nightmare. ekwa unified everything. One invoice, one strategy, one voice. Patients actually understand we do all three now."</div>
                 <div class="testimonial-author">David Martinez</div>
-                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Executive Director, Comprehensive Aesthetics Group</div>
+                <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Executive Director, Comprehensive Aesthetics Group</div>
             </div>
 
             <div class="testimonial">
                 <div class="testimonial-text">"The unified patient journey ekwa mapped out was eye-opening. We were leaving money on the table by having siloed marketing. Now a patient books Botox and receives an email 2 weeks later about our laser hair removal. Genius."</div>
                 <div class="testimonial-author">Dr. Michael Chen</div>
-                <div style="color: #f5a623; font-size: 0.85em; margin-top: 5px;">Integrated Cosmetic & Surgical Center</div>
+                <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Integrated Cosmetic & Surgical Center</div>
             </div>
         </div>
 
@@ -613,5 +663,27 @@
             </div>
         </form>
     </div>
+
+    <footer class="ekwa-footer">
+        <p>&copy; 2026 ekwa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.ekwa-nav');
+            if (!nav.querySelector('.hamburger')) {
+                const hamburger = document.createElement('button');
+                hamburger.className = 'hamburger';
+                hamburger.innerHTML = '&#9776;';
+                hamburger.setAttribute('aria-label', 'Toggle navigation');
+                nav.insertBefore(hamburger, nav.firstChild);
+                
+                hamburger.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

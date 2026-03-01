@@ -5,190 +5,366 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>Switching from EyeCarePro? What Ophthalmology Practices Discovered</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #cc0000 0%, #1a1a2e 100%); color: #fff; padding: 50px 20px; text-align: center; }
-        header h1 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
-        header p { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .comparison { background: #fff; border: 1px solid #ddd; margin: 25px 0; border-radius: 8px; overflow: hidden; }
-        .comparison table { width: 100%; border-collapse: collapse; }
-        .comparison th { background: #1a1a2e; color: #fff; padding: 15px; text-align: left; font-size: 14px; }
-        .comparison td { padding: 15px; border-bottom: 1px solid #eee; font-size: 13px; }
-        .comparison tr:hover { background: #f5f5f5; }
-        .eyecarepro-cell { background: #ffebee; }
-        .ekwa-cell { background: #e8f0fe; font-weight: 600; color: #0066cc; }
-        h2 { font-size: 26px; color: #1a1a2e; margin: 35px 0 20px; padding-top: 20px; border-top: 2px solid #0066cc; }
-        .card { background: #fff; border-left: 4px solid #0066cc; padding: 20px; margin: 20px 0; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h3 { color: #0066cc; font-size: 16px; margin-bottom: 10px; }
-        .card p { font-size: 13px; color: #555; }
-        form { background: #e8f0fe; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        form h3 { color: #0066cc; margin-bottom: 20px; }
-        label { display: block; margin-top: 15px; font-weight: 600; color: #333; font-size: 13px; }
-        input, select, textarea { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
-        button { background: #0066cc; color: #fff; padding: 12px 24px; border: none; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; }
-        button:hover { background: #00509e; }
-        footer { text-align: center; padding: 30px 20px; color: #999; font-size: 11px; border-top: 1px solid #ddd; margin-top: 40px; }
+        .ekwa-section--comparison {
+            background: var(--ekwa-gray-100);
+        }
+        .comparison-table {
+            background: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--ekwa-success);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-6) 0;
+        }
+        .testimonial-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+        }
+        .testimonial-title {
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-600);
+        }
+        .financial-box {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .financial-box h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        .financial-box ul {
+            padding-left: var(--space-5);
+        }
+        .financial-box li {
+            margin-bottom: var(--space-2);
+            line-height: 1.6;
+            font-size: var(--text-sm);
+        }
+        .form-section {
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-3);
+            border: 1px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: var(--text-sm);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ekwa-blue);
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        .card-highlight {
+            background: var(--ekwa-white);
+            border-left: 4px solid var(--ekwa-blue);
+            padding: var(--space-5);
+            border-radius: var(--radius-md);
+            margin: var(--space-4) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .card-highlight h3 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        .card-highlight p {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--ekwa-gray-700);
+            margin-bottom: var(--space-2);
+        }
+        .vertical-accent {
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-1);
+        }
+        h2 {
+            color: var(--ekwa-navy);
+            font-weight: 800;
+            font-size: var(--text-3xl);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            padding-bottom: var(--space-3);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-3);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Switching from EyeCarePro?</h1>
-        <p>What Ophthalmology Practices Discovered After Making the Change</p>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <div class="ekwa-nav__links">
+                <a href="../../../../index.html">All Verticals</a>
+                <a href="../../index.html">Ophthalmology</a>
+            </div>
+            <button class="ekwa-nav__hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile" id="navDrawer">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Ophthalmology</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__badge">Conquest Asset</div>
+            <h1>Switching from EyeCarePro?</h1>
+            <p>What Ophthalmology Practices Discovered After Making the Change</p>
+        </div>
+        <div class="vertical-accent"></div>
     </header>
 
-    <div class="container">
-        <h2>EyeCarePro vs. ekwa: Feature Comparison</h2>
-        <div class="comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th style="background: #cc0000;">EyeCarePro</th>
-                        <th style="background: #0066cc;">ekwa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Account Manager Model</strong></td>
-                        <td class="eyecarepro-cell">One manager for 50–70 practices</td>
-                        <td class="ekwa-cell">Dedicated director (1 practice)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ophthalmology Specialization</strong></td>
-                        <td class="eyecarepro-cell">100% eye care, but commoditized across 1,000+ practices</td>
-                        <td class="ekwa-cell">100% ophthalmology focus with procedure-specific expertise</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Procedure-Specific Content Authority</strong></td>
-                        <td class="eyecarepro-cell">Generic eye care content templates</td>
-                        <td class="ekwa-cell">LASIK, cataract, dry eye, premium IOL authority programs</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paid Media (PPC, Social, YouTube)</strong></td>
-                        <td class="eyecarepro-cell">Limited paid media; organic-focused</td>
-                        <td class="ekwa-cell">Full-service paid media + optimization</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dry Eye Marketing Specialization</strong></td>
-                        <td class="eyecarepro-cell">Dry eye content exists; not specialized</td>
-                        <td class="ekwa-cell">Dedicated dry eye program ($500–$2K/year per patient)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Premium IOL Upsell Education</strong></td>
-                        <td class="eyecarepro-cell">Not a focus area</td>
-                        <td class="ekwa-cell">Content-driven upsell strategy ($2K–$4K per case)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Response Time & Availability</strong></td>
-                        <td class="eyecarepro-cell">Slow; manager handles dozens of clients</td>
-                        <td class="ekwa-cell">Fast; dedicated director focused on your practice</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Contract Terms</strong></td>
-                        <td class="eyecarepro-cell">Month-to-month</td>
-                        <td class="ekwa-cell">12-month (ensures strategy continuity + market lock)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Proprietary Technology</strong></td>
-                        <td class="eyecarepro-cell">Standard marketing stack</td>
-                        <td class="ekwa-cell">AI-human hybrid, compliance automation, ophthalmology-specific tools</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Main Content -->
+    <main class="ekwa-section">
+        <div class="ekwa-container">
+            <h2>EyeCarePro vs. ekwa: Feature Comparison</h2>
+            
+            <div class="comparison-table">
+                <div style="overflow-x: auto;">
+                    <table class="ekwa-table ekwa-table--striped">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>EyeCarePro</th>
+                                <th>ekwa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Account Manager Model</strong></td>
+                                <td>One manager for 50–70 practices</td>
+                                <td><strong>Dedicated director (1 practice)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ophthalmology Specialization</strong></td>
+                                <td>100% eye care, but commoditized across 1,000+ practices</td>
+                                <td><strong>100% ophthalmology focus with procedure-specific expertise</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Procedure-Specific Content Authority</strong></td>
+                                <td>Generic eye care content templates</td>
+                                <td><strong>LASIK, cataract, dry eye, premium IOL authority programs</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paid Media (PPC, Social, YouTube)</strong></td>
+                                <td>Limited paid media; organic-focused</td>
+                                <td><strong>Full-service paid media + optimization</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dry Eye Marketing Specialization</strong></td>
+                                <td>Dry eye content exists; not specialized</td>
+                                <td><strong>Dedicated dry eye program ($500–$2K/year per patient)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Premium IOL Upsell Education</strong></td>
+                                <td>Not a focus area</td>
+                                <td><strong>Content-driven upsell strategy ($2K–$4K per case)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Response Time & Availability</strong></td>
+                                <td>Slow; manager handles dozens of clients</td>
+                                <td><strong>Fast; dedicated director focused on your practice</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contract Terms</strong></td>
+                                <td>Month-to-month</td>
+                                <td><strong>12-month (ensures strategy continuity + market lock)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proprietary Technology</strong></td>
+                                <td>Standard marketing stack</td>
+                                <td><strong>AI-human hybrid, compliance automation, ophthalmology-specific tools</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>Why Ophthalmology Practices Switch to ekwa</h2>
+
+            <div class="card-highlight">
+                <h3>1. Commoditization at Scale</h3>
+                <p>"EyeCarePro's 981K appointments stat is for their entire portfolio. We were one of 1,000+ practices getting commodity service. Worse, our competitor down the street was getting the same strategy. Why pay for marketing that your competition is also paying for?"</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Model:</strong> One ophthalmology partner per market. Geographic exclusivity. Your strategy is unique to your practice.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>2. Account Manager Overload</h3>
+                <p>"Our account manager at EyeCarePro was great, but managing 50+ practices means we got attention 1 of 50 times. Response times were slow. Strategic insights were generic. We needed someone who had bandwidth to think about OUR practice specifically."</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Model:</strong> Dedicated marketing director (one person, one practice). Weekly strategy calls. Proprietary analysis of YOUR market, YOUR procedures, YOUR growth goals.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>3. Missing Procedure-Specific Expertise</h3>
+                <p>"EyeCarePro is good at general eye care marketing, but they don't have deep content expertise in LASIK candidacy, cataract + premium IOL upsell strategy, or dry eye recurring revenue optimization. We needed specialists."</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Model:</strong> Procedure-specific content authority programs. LASIK decision journey content. Premium IOL education ($2K–$4K upsell per case). Dry eye program ($500–$2K recurring per patient).</p>
+            </div>
+
+            <h2>What Practices Found After Switching</h2>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"Within 6 months, we saw a 34% increase in dry eye patient volume and built a $400K/year recurring revenue stream from a program EyeCarePro didn't prioritize. Our account manager at ekwa specifically built the dry eye content because she understood that dry eye = long-term patient value."</div>
+                <div class="testimonial-author">Dr. Michael Rodriguez, MD</div>
+                <div class="testimonial-title">Desert Dry Eye Center, Phoenix</div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"EyeCarePro and ekwa both exist in the eye care space, but they're different. EyeCarePro manages 1,000+ practices with volume plays. ekwa manages one practice per market with strategy plays. We needed strategy, not volume."</div>
+                <div class="testimonial-author">Dr. Sarah Mitchell, MD</div>
+                <div class="testimonial-title">SightFirst LASIK Center, Phoenix</div>
+            </div>
+
+            <h2>The Financial Impact</h2>
+            
+            <div class="financial-box">
+                <h4>Current Costs</h4>
+                <ul>
+                    <li><strong>EyeCarePro Cost:</strong> $500–$2,500/month (often $1,500/month average)</li>
+                    <li><strong>ekwa Cost:</strong> $2,200–$3,400/month depending on maneuver</li>
+                    <li><strong>Monthly Increase:</strong> $700–$1,900/month</li>
+                </ul>
+            </div>
+
+            <div class="financial-box">
+                <h4>Expected ROI</h4>
+                <p style="margin-bottom: var(--space-3);">The ROI comes from dedicated strategy resulting in:</p>
+                <ul>
+                    <li>28% average procedure volume increase (6–12 months)</li>
+                    <li>Dry eye program development ($500–$2K/year per new patient)</li>
+                    <li>Premium IOL upsell education ($2K–$4K per additional case)</li>
+                    <li><strong>Annual ROI: $150K–$400K</strong> depending on practice size and procedures</li>
+                </ul>
+            </div>
+
+            <h2>Next Step: Schedule a Transition Consultation</h2>
+            <p style="margin: var(--space-4) 0; font-size: var(--text-base);">We'll review your current EyeCarePro performance, identify missing strategy opportunities, and outline exactly how ekwa's model would differ.</p>
+
+            <div class="form-section">
+                <h3 style="color: var(--ekwa-navy); margin-bottom: var(--space-6);">EyeCarePro to ekwa Transition Inquiry</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Name *</label>
+                        <input type="text" name="practice_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City/State *</label>
+                        <input type="text" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What's your biggest frustration with EyeCarePro?</label>
+                        <textarea name="challenge" placeholder="e.g., Slow response time, generic strategy, don't feel like a priority..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="source" value="conquest-eyecarepro">
+                    <input type="hidden" name="competitor" value="EyeCarePro">
+                    <input type="hidden" name="vertical" value="ophthalmology">
+
+                    <button type="submit" class="ekwa-btn ekwa-btn--primary" style="width: 100%;">Get Transition Strategy →</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--ekwa-gray-600);">By submitting, you'll receive a no-obligation transition analysis and be contacted about switching to ekwa.</p>
+            </div>
         </div>
+    </main>
 
-        <h2>Why Ophthalmology Practices Switch to ekwa</h2>
-
-        <div class="card">
-            <h3>1. Commoditization at Scale</h3>
-            <p>"EyeCarePro's 981K appointments stat is for their entire portfolio. We were one of 1,000+ practices getting commodity service. Worse, our competitor down the street was getting the same strategy. Why pay for marketing that your competition is also paying for?"</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Model:</strong> One ophthalmology partner per market. Geographic exclusivity. Your strategy is unique to your practice.</p>
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <p>&copy; 2026 ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
+            <p>This page targets practices currently with EyeCarePro who may be experiencing account manager overload and commodity service.</p>
         </div>
-
-        <div class="card">
-            <h3>2. Account Manager Overload</h3>
-            <p>"Our account manager at EyeCarePro was great, but managing 50+ practices means we got attention 1 of 50 times. Response times were slow. Strategic insights were generic. We needed someone who had bandwidth to think about OUR practice specifically."</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Model:</strong> Dedicated marketing director (one person, one practice). Weekly strategy calls. Proprietary analysis of YOUR market, YOUR procedures, YOUR growth goals.</p>
-        </div>
-
-        <div class="card">
-            <h3>3. Missing Procedure-Specific Expertise</h3>
-            <p>"EyeCarePro is good at general eye care marketing, but they don't have deep content expertise in LASIK candidacy, cataract + premium IOL upsell strategy, or dry eye recurring revenue optimization. We needed specialists."</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Model:</strong> Procedure-specific content authority programs. LASIK decision journey content. Premium IOL education ($2K–$4K upsell per case). Dry eye program ($500–$2K recurring per patient).</p>
-        </div>
-
-        <h2>What Practices Found After Switching</h2>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"Within 6 months, we saw a 34% increase in dry eye patient volume and built a $400K/year recurring revenue stream from a program EyeCarePro didn't prioritize. Our account manager at ekwa specifically built the dry eye content because she understood that dry eye = long-term patient value."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. Michael Rodriguez, Desert Dry Eye Center, Phoenix</p>
-        </div>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"EyeCarePro and ekwa both exist in the eye care space, but they're different. EyeCarePro manages 1,000+ practices with volume plays. ekwa manages one practice per market with strategy plays. We needed strategy, not volume."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. Sarah Mitchell, SightFirst LASIK Center, Phoenix</p>
-        </div>
-
-        <h2>The Financial Impact</h2>
-        <p style="font-size: 13px; margin: 20px 0;">Switching from EyeCarePro to ekwa typically involves:</p>
-        <ul style="font-size: 13px; padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>EyeCarePro Cost:</strong> $500–$2,500/month (often $1,500/month average)</li>
-            <li><strong>ekwa Cost:</strong> $2,200–$3,400/month depending on maneuver</li>
-            <li><strong>Monthly Increase:</strong> $700–$1,900/month</li>
-        </ul>
-        <p style="font-size: 13px; margin: 20px 0;"><strong>But the ROI</strong> comes from dedicated strategy resulting in:</p>
-        <ul style="font-size: 13px; padding-left: 20px;">
-            <li>28% average procedure volume increase (6–12 months)</li>
-            <li>Dry eye program development ($500–$2K/year per new patient)</li>
-            <li>Premium IOL upsell education ($2K–$4K per additional case)</li>
-            <li>Annual ROI: $150K–$400K depending on practice size and procedures</li>
-        </ul>
-
-        <h2>Next Step: Schedule a Transition Consultation</h2>
-        <p style="margin: 20px 0; font-size: 13px;">We'll review your current EyeCarePro performance, identify missing strategy opportunities, and outline exactly how ekwa's model would differ.</p>
-
-        <form id="contactForm">
-            <h3>EyeCarePro to ekwa Transition Inquiry</h3>
-            <label>Full Name *</label>
-            <input type="text" name="name" required>
-
-            <label>Practice Name *</label>
-            <input type="text" name="practice_name" required>
-
-            <label>City/State *</label>
-            <input type="text" name="location" required>
-
-            <label>Phone *</label>
-            <input type="tel" name="phone" required>
-
-            <label>Email *</label>
-            <input type="email" name="email" required>
-
-            <label>What's your biggest frustration with EyeCarePro?</label>
-            <textarea name="challenge" placeholder="e.g., Slow response time, generic strategy, don't feel like a priority..."></textarea>
-
-            <input type="hidden" name="source" value="conquest-eyecarepro">
-            <input type="hidden" name="competitor" value="EyeCarePro">
-            <input type="hidden" name="vertical" value="ophthalmology">
-
-            <button type="submit">Get Transition Strategy →</button>
-        </form>
-
-        <p style="text-align: center; margin-top: 20px; font-size: 11px; color: #999;">By submitting, you'll receive a no-obligation transition analysis and be contacted about switching to ekwa.</p>
-    </div>
-
-    <footer>
-        <p>ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
-        <p>This page targets practices currently with EyeCarePro who may be experiencing account manager overload and commodity service.</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('navDrawer');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navDrawer.classList.toggle('open');
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('https://formspree.io/f/YOUR_FORM_ID', {

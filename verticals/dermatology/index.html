@@ -1,949 +1,1686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-<meta name="bingbot" content="noindex, nofollow">
-<meta name="slurp" content="noindex, nofollow">
-<meta name="GPTBot" content="noindex, nofollow">
-<meta name="CCBot" content="noindex, nofollow">
-<meta name="anthropic-ai" content="noindex, nofollow">
-<meta name="PerplexityBot" content="noindex, nofollow">
-<title>Ekwa — Dermatology Competitor Intelligence Dashboard 2026</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-  :root {
-    --ekwa: #1A5276; --mid: #2471A3; --light: #D6EAF8;
-    --red: #C0392B; --amber: #F39C12; --green: #1E8449;
-    --dark: #2C3E50; --gray: #7F8C8D; --lightgray: #F8F9FA;
-    --white: #FFFFFF; --border: #BDC3C7;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #F0F4F8; color: var(--dark); }
-
-  /* HEADER */
-  .header { background: var(--ekwa); color: white; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
-  .header .subtitle { font-size: 12px; opacity: 0.8; margin-top: 3px; }
-  .header .badge { background: rgba(255,255,255,0.15); border-radius: 6px; padding: 6px 14px; font-size: 12px; }
-
-  /* NAV TABS */
-  .nav-tabs { background: var(--dark); display: flex; gap: 2px; padding: 0 24px; overflow-x: auto; }
-  .nav-tab { padding: 12px 20px; cursor: pointer; font-size: 13px; color: rgba(255,255,255,0.65); border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
-  .nav-tab:hover { color: white; background: rgba(255,255,255,0.05); }
-  .nav-tab.active { color: white; border-bottom-color: #5DADE2; background: rgba(255,255,255,0.08); }
-
-  /* MAIN CONTENT */
-  .content { max-width: 1400px; margin: 0 auto; padding: 24px; }
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* CARDS */
-  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-  .stat-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border-top: 4px solid var(--ekwa); }
-  .stat-card.red { border-top-color: var(--red); }
-  .stat-card.amber { border-top-color: var(--amber); }
-  .stat-card.green { border-top-color: var(--green); }
-  .stat-card .num { font-size: 36px; font-weight: 800; color: var(--ekwa); line-height: 1; }
-  .stat-card.red .num { color: var(--red); }
-  .stat-card.amber .num { color: var(--amber); }
-  .stat-card.green .num { color: var(--green); }
-  .stat-card .label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 6px; font-weight: 600; }
-  .stat-card .sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
-
-  /* GRID LAYOUTS */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-  .chart-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
-  .chart-card h3 { font-size: 14px; color: var(--dark); margin-bottom: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--light); padding-bottom: 8px; }
-
-  /* TABLE */
-  .table-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; overflow-x: auto; }
-  .table-card h3 { font-size: 14px; color: var(--dark); margin-bottom: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  thead th { background: var(--ekwa); color: white; padding: 10px 12px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; white-space: nowrap; }
-  tbody tr:nth-child(even) { background: var(--lightgray); }
-  tbody tr:hover { background: var(--light); }
-  tbody td { padding: 9px 12px; border-bottom: 1px solid #EEE; vertical-align: top; line-height: 1.4; }
-  .threat-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
-  .threat-HIGH { background: #FADBD8; color: var(--red); }
-  .threat-MEDIUM { background: #FEF9E7; color: #D68910; }
-  .threat-LOW { background: #EAFAF1; color: var(--green); }
-  .comp-name { font-weight: 700; color: var(--ekwa); }
-  .vuln-text { color: var(--red); font-size: 12px; }
-
-  /* PLAYBOOK FILE CARDS */
-  .playbook-file-card { display: flex; align-items: flex-start; gap: 12px; background: #F8FAFD; border: 1px solid #D6E4F0; border-radius: 8px; padding: 14px; text-decoration: none; color: inherit; transition: all 0.2s; }
-  .playbook-file-card:hover { background: var(--light); border-color: var(--mid); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(26,82,118,0.12); }
-  .playbook-file-card.live { background: #F0FFF4; border-color: #A9DFBF; }
-  .playbook-file-card.live:hover { background: #EAFAF1; border-color: var(--green); box-shadow: 0 3px 10px rgba(30,132,73,0.15); }
-  .pf-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
-  .pf-info { flex: 1; min-width: 0; }
-  .pf-title { font-size: 13px; font-weight: 700; color: var(--ekwa); margin-bottom: 4px; }
-  .pf-title-live { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
-  .live-badge { font-size: 9px; font-weight: 800; background: var(--green); color: white; padding: 2px 5px; border-radius: 3px; letter-spacing: 0.5px; }
-  .pf-desc { font-size: 11px; color: var(--gray); line-height: 1.4; margin-bottom: 6px; }
-  .pf-tag { font-size: 10px; font-family: monospace; background: #EBF5FB; color: var(--mid); padding: 2px 6px; border-radius: 3px; display: inline-block; }
-  .pf-tag-live { font-size: 10px; font-family: monospace; background: #EAFAF1; color: var(--green); padding: 2px 6px; border-radius: 3px; display: inline-block; }
-  /* PARTIAL / CANNOT IMPLEMENT SECTIONS */
-  .impl-section { background: white; border-radius: 10px; padding: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
-  .impl-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; display:flex; align-items:center; gap:8px; }
-  .impl-section .sub-note { font-size: 12px; color: var(--gray); margin-bottom: 18px; }
-  .impl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; }
-  .impl-card { border-radius: 8px; padding: 14px; }
-  .impl-card.partial { background: #FEF9E7; border: 1px solid #F9E79F; }
-  .impl-card.cannot { background: #FDEDEC; border: 1px solid #F1948A; }
-  .impl-card .ic-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .impl-card.partial .ic-title { color: #B7770D; }
-  .impl-card.cannot .ic-title { color: #C0392B; }
-  .impl-card .ic-what { font-size: 11px; color: var(--gray); margin-bottom: 6px; line-height: 1.4; }
-  .impl-card .ic-needs { font-size: 11px; font-weight: 600; }
-  .impl-card.partial .ic-needs { color: #D68910; }
-  .impl-card.cannot .ic-needs { color: var(--red); }
-
-  /* COMPETITOR CARDS */
-  .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 20px; }
-  .comp-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-  .comp-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-  .comp-card-header { padding: 14px 16px; color: white; position: relative; }
-  .comp-card-header.high { background: var(--red); }
-  .comp-card-header.medium { background: #D68910; }
-  .comp-card-header.low { background: var(--green); }
-  .comp-card-header h4 { font-size: 16px; font-weight: 700; }
-  .comp-card-header .threat-label { font-size: 10px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; }
-  .comp-card-header .client-count { position: absolute; right: 14px; top: 14px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 3px 8px; font-size: 11px; }
-  .comp-card-body { padding: 14px 16px; }
-  .comp-card-row { margin-bottom: 8px; }
-  .comp-card-row .ck { font-size: 10px; text-transform: uppercase; color: var(--gray); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 2px; }
-  .comp-card-row .cv { font-size: 12px; color: var(--dark); line-height: 1.4; }
-  .comp-card-row .cv.vuln { color: var(--red); }
-  .comp-card-row .cv.moat { color: var(--mid); }
-  .comp-card-footer { background: var(--lightgray); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gray); }
-
-  /* FILTER BAR */
-  .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
-  .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid var(--border); background: white; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.15s; }
-  .filter-btn:hover { border-color: var(--mid); color: var(--mid); }
-  .filter-btn.active { background: var(--ekwa); color: white; border-color: var(--ekwa); }
-  .filter-btn.all.active { background: var(--ekwa); }
-  .filter-btn.high.active { background: var(--red); border-color: var(--red); }
-  .filter-btn.medium.active { background: #D68910; border-color: #D68910; }
-  .filter-btn.low.active { background: var(--green); border-color: var(--green); }
-
-  /* MANEUVERS */
-  .maneuver-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
-  .maneuver-header { display: flex; align-items: stretch; }
-  .maneuver-num { width: 80px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: white; flex-shrink: 0; }
-  .man-1 .maneuver-num { background: var(--red); }
-  .man-2 .maneuver-num { background: var(--mid); }
-  .man-3 .maneuver-num { background: var(--green); }
-  .maneuver-title-block { padding: 16px 20px; flex: 1; }
-  .maneuver-title-block h3 { font-size: 18px; font-weight: 700; color: var(--dark); }
-  .maneuver-title-block p { font-size: 13px; color: var(--gray); margin-top: 4px; }
-  .maneuver-meta { display: flex; gap: 12px; margin-top: 8px; }
-  .meta-tag { background: var(--light); border-radius: 4px; padding: 3px 10px; font-size: 11px; color: var(--mid); font-weight: 600; }
-  .man-1 .meta-tag { background: #FADBD8; color: var(--red); }
-  .man-3 .meta-tag { background: #EAFAF1; color: var(--green); }
-  .maneuver-body { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .maneuver-actions { list-style: none; }
-  .maneuver-actions li { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
-  .action-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; flex-shrink: 0; }
-  .man-1 .action-num { background: var(--red); }
-  .man-2 .action-num { background: var(--mid); }
-  .man-3 .action-num { background: var(--green); }
-  .action-text { font-size: 13px; line-height: 1.5; color: var(--dark); }
-  .metric-box { background: #EAFAF1; border: 2px solid var(--green); border-radius: 8px; padding: 14px; }
-  .metric-box .mlabel { font-size: 11px; text-transform: uppercase; color: var(--green); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
-  .metric-box .mval { font-size: 14px; color: var(--dark); font-weight: 600; line-height: 1.5; }
-  .kpi-list { margin-top: 14px; }
-  .kpi-list .kpi-item { display: flex; gap: 8px; margin-bottom: 7px; font-size: 12px; color: var(--dark); }
-  .kpi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mid); margin-top: 5px; flex-shrink: 0; }
-
-  /* POSITIONING MAP */
-  .pos-map-container { position: relative; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 20px; }
-  .pos-map-container h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; color: var(--dark); border-bottom: 2px solid var(--light); padding-bottom: 8px; }
-  #posMap { width: 100%; max-height: 450px; }
-
-  /* SEARCH + SUMMARY */
-  .search-bar { padding: 9px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 14px; width: 280px; transition: border 0.2s; }
-  .search-bar:focus { outline: none; border-color: var(--mid); }
-
-  /* TOOLTIP */
-  .tooltip { position: fixed; background: var(--dark); color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; pointer-events: none; z-index: 9999; display: none; max-width: 240px; line-height: 1.5; }
-
-  /* RESPONSIVE */
-  @media(max-width: 900px) { .stats-row { grid-template-columns: 1fr 1fr; } .two-col { grid-template-columns: 1fr; } .maneuver-body { grid-template-columns: 1fr; } }
-  @media(max-width: 600px) { .stats-row { grid-template-columns: 1fr; } .three-col { grid-template-columns: 1fr; } }
-
-  /* SCROLL */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: #f0f0f0; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-</style>
-</head>
-<body>
-
-<div class="header">
-  <div>
-    <h1>🔬 Dermatology — Competitor Intelligence Dashboard</h1>
-    <div class="subtitle">MECE Teardown · 9 Competitors · 5 Strategic Dimensions · February 2026</div>
-  </div>
-  <div class="badge">🔒 Confidential & Proprietary</div>
-</div>
-
-<div class="nav-tabs">
-  <div class="nav-tab active" onclick="showPage('overview')">📊 Overview</div>
-  <div class="nav-tab" onclick="showPage('matrix')">📋 MECE Matrix</div>
-  <div class="nav-tab" onclick="showPage('profiles')">🏢 Competitor Profiles</div>
-  <div class="nav-tab" onclick="showPage('positioning')">🗺️ Positioning Map</div>
-  <div class="nav-tab" onclick="showPage('maneuvers')">⚔️ Strategic Maneuvers</div>
-  <div class="nav-tab" onclick="showPage('playbooks')">🚀 Implementation Playbooks</div>
-  <a href="../../index.html" class="nav-tab" style="text-decoration:none; background: rgba(0,166,81,0.15); border-bottom-color: #00a651; color: #00a651;">🏥 All Verticals →</a>
-</div>
-
-<!-- =================== PAGE: OVERVIEW =================== -->
-<div class="content">
-<div id="page-overview" class="page active">
-
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="num">9</div>
-      <div class="label">Competitors Analyzed</div>
-      <div class="sub">Dermatology & Digital Marketing</div>
-    </div>
-    <div class="stat-card red">
-      <div class="num">4</div>
-      <div class="label">HIGH Threat</div>
-      <div class="sub">Intrepy · DoctorLogic · PatientGain · Thrive</div>
-    </div>
-    <div class="stat-card amber">
-      <div class="num">3</div>
-      <div class="label">MEDIUM Threat</div>
-      <div class="sub">Cardinal · Onspire · Tebra</div>
-    </div>
-    <div class="stat-card green">
-      <div class="num">2</div>
-      <div class="label">LOW Threat</div>
-      <div class="sub">Practis · Etna Interactive</div>
-    </div>
-  </div>
-
-  <div class="two-col">
-    <div class="chart-card">
-      <h3>Competitor Threat Distribution</h3>
-      <canvas id="threatChart" height="200"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>Estimated Monthly Pricing Range</h3>
-      <canvas id="priceChart" height="200"></canvas>
-    </div>
-  </div>
-
-  <div class="two-col">
-    <div class="chart-card">
-      <h3>Vulnerability Severity by Competitor</h3>
-      <canvas id="vulnChart" height="220"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>Estimated Client Base Size</h3>
-      <canvas id="clientChart" height="220"></canvas>
-    </div>
-  </div>
-
-  <div class="table-card">
-    <h3>🎯 Ekwa's Unmatchable Competitive Moats</h3>
-    <table>
-      <thead>
-        <tr><th>Moat</th><th>Description</th><th>Competitors That Lack It</th><th>Ekwa Advantage</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Dermatology Specialization</strong></td>
-          <td>Exclusive focus on dermatology practices and medical spas — not generalist platforms</td>
-          <td>DoctorLogic, Thrive, Tebra (generalist), PatientGain (broader healthcare)</td>
-          <td class="threat-badge threat-HIGH">CRITICAL MOAT</td>
-        </tr>
-        <tr>
-          <td><strong>Market Exclusivity Model</strong></td>
-          <td>One client per geographic market, enabling brand monopoly positioning</td>
-          <td>All competitors — none enforce exclusivity agreements</td>
-          <td class="threat-badge threat-HIGH">CRITICAL MOAT</td>
-        </tr>
-        <tr>
-          <td><strong>Human Expert Team</strong></td>
-          <td>Dedicated dermatology marketing specialists per client (not AI-generated content)</td>
-          <td>DoctorLogic (AI-first), Tebra (platform-first), PatientGain (templates)</td>
-          <td class="threat-badge threat-LOW">STRONG MOAT</td>
-        </tr>
-        <tr>
-          <td><strong>Dermatology-Specific Content Authority</strong></td>
-          <td>Deep content library for skin procedures, cosmetic treatments, and medspa positioning</td>
-          <td>Intrepy (healthcare-only), Cardinal (performance-only), Practis (website-only)</td>
-          <td class="threat-badge threat-LOW">STRONG MOAT</td>
-        </tr>
-        <tr>
-          <td><strong>Multi-Specialty Bridge Capability</strong></td>
-          <td>Cross-sell dermatology + medspa + medical wellness services in bundled packages</td>
-          <td>All competitors — focused on single service lines</td>
-          <td class="threat-badge threat-LOW">STRONG MOAT</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-<!-- =================== PAGE: MECE MATRIX =================== -->
-<div id="page-matrix" class="page">
-  <div class="table-card">
-    <h3>MECE Competitor Comparison Matrix — 5 Strategic Dimensions</h3>
-    <table id="meceTable">
-      <thead>
-        <tr>
-          <th>Competitor</th>
-          <th>Core Value Proposition</th>
-          <th>Est. Cost / Margins</th>
-          <th>Go-to-Market Strategy</th>
-          <th>Tech / Operational Moats</th>
-          <th>Key Vulnerabilities</th>
-          <th>Threat</th>
-        </tr>
-      </thead>
-      <tbody id="meceTableBody">
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- =================== PAGE: COMPETITOR PROFILES =================== -->
-<div id="page-profiles" class="page">
-  <div class="filter-bar">
-    <span style="font-size:13px;font-weight:600;color:var(--gray)">Filter by threat:</span>
-    <button class="filter-btn all active" onclick="filterComps('all', this)">All (9)</button>
-    <button class="filter-btn high" onclick="filterComps('HIGH', this)">🔴 HIGH (4)</button>
-    <button class="filter-btn medium" onclick="filterComps('MEDIUM', this)">🟡 MEDIUM (3)</button>
-    <button class="filter-btn low" onclick="filterComps('LOW', this)">🟢 LOW (2)</button>
-    <input type="text" class="search-bar" placeholder="Search competitors..." oninput="searchComps(this.value)">
-  </div>
-  <div class="comp-grid" id="compGrid"></div>
-</div>
-
-<!-- =================== PAGE: POSITIONING MAP =================== -->
-<div id="page-positioning" class="page">
-  <div class="pos-map-container">
-    <h3>🗺️ Competitive Positioning Map — Dermatology Specialization vs. Technology Platform</h3>
-    <canvas id="posMap"></canvas>
-    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--gray)">
-      X-axis: Dermatology Specialization Score → &nbsp;|&nbsp; Y-axis: Technology Platform Level →
-      &nbsp;|&nbsp; Size: Relative Client Base
-    </div>
-  </div>
-  <div class="two-col">
-    <div class="chart-card">
-      <h3>Quadrant Analysis</h3>
-      <div style="font-size:13px;line-height:1.8">
-        <div style="margin-bottom:12px"><span style="background:#FADBD8;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--red)">TOP-LEFT: Generalist + High Tech</span><br><span style="color:var(--gray)">Tebra — dangerous at enterprise scale but diluted dermatology focus; platform-centric</span></div>
-        <div style="margin-bottom:12px"><span style="background:#EBF5FB;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--mid)">TOP-RIGHT: Dermatology-Focused + High Tech ← EKWA TARGET ZONE</span><br><span style="color:var(--gray)">DoctorLogic approaches this but lacks exclusivity and derm specialization. Ekwa should own this quadrant.</span></div>
-        <div style="margin-bottom:12px"><span style="background:#FEF9E7;padding:3px 8px;border-radius:4px;font-weight:700;color:#D68910">BOTTOM-LEFT: Generalist + Low Tech</span><br><span style="color:var(--gray)">PatientGain, Practis — low-touch, template-driven, easily displaceable</span></div>
-        <div><span style="background:#EAFAF1;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--green)">BOTTOM-RIGHT: Dermatology-Focused + Low Tech</span><br><span style="color:var(--gray)">Intrepy, Onspire, Etna — boutique and relationship-driven but tech gap widening</span></div>
-      </div>
-    </div>
-    <div class="chart-card">
-      <h3>Ekwa's Strategic Direction</h3>
-      <div style="font-size:13px;line-height:1.8;color:var(--dark)">
-        <p style="margin-bottom:10px">Ekwa currently sits in the <strong>Dermatology-Focused + High Tech</strong> zone. The strategic opportunity is to:</p>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move RIGHT</strong> on dermatology specialization: deepen cosmetic dermatology, medspa bundling, and dermatology group practice (DSO) capabilities</span></div>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Move UP</strong> on tech platform: invest in AI-assisted content for procedures, patient acquisition dashboards, and multi-location reporting for medical spas</span></div>
-        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:flex-start"><span style="color:var(--mid);font-size:16px">→</span><span><strong>Maintain exclusivity moat</strong>: no competitor combines dermatology specialization + exclusivity model — that unique pairing is Ekwa's sustainable competitive advantage</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- =================== PAGE: STRATEGIC MANEUVERS =================== -->
-<div id="page-maneuvers" class="page">
-
-  <div class="stats-row">
-    <div class="stat-card red">
-      <div class="num">$750K</div>
-      <div class="label">Maneuver 1 Target ARR</div>
-      <div class="sub">Derm Lock — Practice Exclusivity</div>
-    </div>
-    <div class="stat-card" style="border-top-color:var(--mid)">
-      <div class="num" style="color:var(--mid)">$650K</div>
-      <div class="label">Maneuver 2 Target ARR</div>
-      <div class="sub">AI Derm Shield — Counter DoctorLogic</div>
-    </div>
-    <div class="stat-card green">
-      <div class="num">$400K</div>
-      <div class="label">Maneuver 3 Target ARR</div>
-      <div class="sub">Multi-Specialty Bridge</div>
-    </div>
-    <div class="stat-card" style="border-top-color:var(--ekwa)">
-      <div class="num">$1.8M+</div>
-      <div class="label">Combined ARR Target</div>
-      <div class="sub">If all 3 maneuvers execute successfully</div>
-    </div>
-  </div>
-
-  <!-- Maneuver 1 -->
-  <div class="maneuver-card man-1">
-    <div class="maneuver-header">
-      <div class="maneuver-num">01</div>
-      <div class="maneuver-title-block">
-        <h3>Operation Derm Lock™</h3>
-        <p>Lock in top dermatology practices via exclusivity contracts before Intrepy and Cardinal scale</p>
-        <div class="maneuver-meta">
-          <span class="meta-tag">12-Month Window — CRITICAL TIMING</span>
-          <span class="meta-tag">Targets: Intrepy clients · High-volume dermatology practices</span>
-        </div>
-      </div>
-    </div>
-    <div class="maneuver-body">
-      <div>
-        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
-        <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Launch 'Your Market. Your Monopoly.' Campaign</strong> — targeted LinkedIn Ads and dermatology conference sponsorships toward Intrepy and DoctorLogic users</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Build the 'Derm Exclusivity Lock' Package</strong> — 12-month contract lock + per-market exclusivity guarantee + competitive rate matching</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>Create 'Dermatology Market Availability' Tool</strong> — Interactive map showing available markets; drives FOMO for practices in competitive metros</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Dermatology Association Partnerships</strong> — sponsor AAD (American Academy of Dermatology) local chapters; position exclusivity as brand protection</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Practice Owner Referral Network</strong> — build referral program with dermatology consultants and practice management advisors</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="metric-box">
-          <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">30 net new dermatology practices locked into exclusivity contracts within 12 months at avg $2,100/mo = <strong>$750K ARR addition</strong></div>
-        </div>
-        <div class="kpi-list">
-          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Exclusivity contract conversion rate (target: >35%)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Average deal size from locked contracts (target: $2,100+/mo)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Time-to-lock from first contact (target: <45 days)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--red)"></span>Dermatology practice referral partners (target: 10+ by month 6)</div>
-        </div>
-        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> Competitors may offer discounts to block exclusivity agreements.<br>
-          <strong>Mitigation:</strong> Exclusivity is a brand asset — practices value market monopoly more than 10% discounts.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Maneuver 2 -->
-  <div class="maneuver-card man-2">
-    <div class="maneuver-header">
-      <div class="maneuver-num">02</div>
-      <div class="maneuver-title-block">
-        <h3>Operation AI Derm Shield™</h3>
-        <p>Counter DoctorLogic's AI positioning with human-expert + AI hybrid model</p>
-        <div class="maneuver-meta">
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">9-Month Window — AI ROI Gap Widening</span>
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Targets: DoctorLogic · Thrive users doubting AI ROI</span>
-        </div>
-      </div>
-    </div>
-    <div class="maneuver-body">
-      <div>
-        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
-        <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Publish 'AI Hype vs. Derm Reality' Whitepaper</strong> — comparing AI-generated cosmetic procedure content against human dermatology expertise; data-driven ROI comparison</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Launch 'Verified Dermatology Results' Dashboard</strong> — public anonymized outcomes: patient inquiries, consultations booked, treatment bookings. Real data vs. AI promises.</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>'Dermatology Experts, Not Algorithms' Campaign</strong> — Feature Ekwa's derm specialists by name; contrast against DoctorLogic's platform-first approach</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Build 'AI vs. Ekwa' Comparison Tool</strong> — interactive guide showing derm-specific ROI gaps in AI platforms and why human expertise wins in dermatology</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Target DoctorLogic Dissenters</strong> — identify dermatology practices frustrated with AI content quality; develop case studies as social proof</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="metric-box">
-          <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">25 net new clients from DoctorLogic displacement within 9 months. <strong>35% increase</strong> in "DoctorLogic alternative" organic search traffic.</div>
-        </div>
-        <div class="kpi-list">
-          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Whitepaper downloads (target: 300+ in 90 days)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Comparison tool clicks and demos (target: 15/month by month 3)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>Dermatology media mentions (target: 3+ in 9 months)</div>
-          <div class="kpi-item"><span class="kpi-dot"></span>'AI marketing dermatology' organic ranking (target: top 5)</div>
-        </div>
-        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> DoctorLogic may improve AI dermatology training.<br>
-          <strong>Mitigation:</strong> Human expertise in cosmetic procedures is irreplaceable — AI cannot replicate practice-specific patient psychology.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Maneuver 3 -->
-  <div class="maneuver-card man-3">
-    <div class="maneuver-header">
-      <div class="maneuver-num">03</div>
-      <div class="maneuver-title-block">
-        <h3>Operation Multi-Specialty Bridge™</h3>
-        <p>Cross-sell existing medical clients into dermatology + medspa bundled services</p>
-        <div class="maneuver-meta">
-          <span class="meta-tag">6-Month Window — Low CAC Upsell Opportunity</span>
-          <span class="meta-tag">Targets: Existing Ekwa medical spa + wellness clients</span>
-        </div>
-      </div>
-    </div>
-    <div class="maneuver-body">
-      <div>
-        <h4 style="margin-bottom:12px;font-size:13px;text-transform:uppercase;color:var(--dark);letter-spacing:0.5px">5-Step Action Plan</h4>
-        <ul class="maneuver-actions">
-          <li><span class="action-num">1</span><span class="action-text"><strong>Create 'Dermatology Bundle' Product Tier</strong> — dermatology + medspa + med wellness combined pricing tier; 20% bundle discount vs. standalone</span></li>
-          <li><span class="action-num">2</span><span class="action-text"><strong>Segment Existing Medical Spa Clients</strong> — identify 50+ current medspa clients who could add dermatology or derm-adjacent services</span></li>
-          <li><span class="action-num">3</span><span class="action-text"><strong>Develop Medspa → Dermatology Cross-Sell Playbook</strong> — case studies, messaging, and ROI models for expanding medical spas into dermatology</span></li>
-          <li><span class="action-num">4</span><span class="action-text"><strong>Launch 'Multi-Specialty Success' Campaign</strong> — webinars + email sequences targeting existing medspa clients; show $X additional revenue from derm addition</span></li>
-          <li><span class="action-num">5</span><span class="action-text"><strong>Account Manager Incentive Program</strong> — commission bonuses for upselling dermatology bundle to existing medical spa book of business</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="metric-box">
-          <div class="mlabel">🎯 Success Metric</div>
-          <div class="mval">20 medical spa clients upsell to dermatology bundle within 6 months at avg $1,700/mo additional = <strong>$400K ARR addition</strong></div>
-        </div>
-        <div class="kpi-list">
-          <div style="font-size:12px;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:8px">KPIs to Track:</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Upsell conversion rate from existing clients (target: 25%+)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Average upsell contract value (target: $1,700+/mo)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Time-to-upsell from first pitch (target: <30 days)</div>
-          <div class="kpi-item"><span class="kpi-dot" style="background:var(--green)"></span>Account manager adoption of bundle pitch (target: >80%)</div>
-        </div>
-        <div style="background:#FEF9E7;border:1px solid var(--amber);border-radius:6px;padding:10px;margin-top:12px;font-size:12px">
-          <strong>⚠️ Risk:</strong> Existing medspa clients may not see dermatology ROI.<br>
-          <strong>Mitigation:</strong> Offer 90-day pilot at 50% discount with money-back guarantee if they don't like results.
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- =================== PAGE: IMPLEMENTATION PLAYBOOKS =================== -->
-<div id="page-playbooks" class="page">
-
-  <div class="stats-row">
-    <div class="stat-card green">
-      <div class="num">3</div>
-      <div class="label">Active Operations</div>
-      <div class="sub">Ready to deploy immediately</div>
-    </div>
-    <div class="stat-card red">
-      <div class="num">12</div>
-      <div class="label">Campaign Assets</div>
-      <div class="sub">Across all 3 maneuvers</div>
-    </div>
-    <div class="stat-card" style="border-top-color:var(--amber)">
-      <div class="num">$1.8M+</div>
-      <div class="label">Combined ARR Target</div>
-      <div class="sub">If all 3 maneuvers execute</div>
-    </div>
-    <div class="stat-card" style="border-top-color:var(--mid)">
-      <div class="num">90d</div>
-      <div class="label">Time to First Results</div>
-      <div class="sub">Q2 2026 quick wins</div>
-    </div>
-  </div>
-
-  <!-- ---- OPERATION 1 ---- -->
-  <div class="maneuver-card man-1" style="margin-bottom:24px">
-    <div class="maneuver-header">
-      <div class="maneuver-num">01</div>
-      <div class="maneuver-title-block">
-        <h3>Operation Derm Lock™</h3>
-        <p>Lock in top dermatology practices via exclusivity contracts · <strong>$750K ARR Target</strong></p>
-        <div class="maneuver-meta">
-          <span class="meta-tag">12-Month Window — CRITICAL TIMING</span>
-          <span class="meta-tag">Budget: $45K · CPA Target: &lt;$1,500</span>
-        </div>
-      </div>
-    </div>
-    <div style="padding:20px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="maneuvers/derm-lock/landing-page.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🌐</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Exclusivity Landing Page</div>
-            <div class="pf-desc">Interactive "Market Availability Checker" + lead capture — ready to deploy</div>
-            <div class="pf-tag-live">maneuvers/derm-lock/landing-page.html</div>
-          </div>
-        </a>
-        <a href="tools/roi-calculator.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">📊</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Dermatology ROI Calculator</div>
-            <div class="pf-desc">Real-time calculator for cosmetic practices: patient volume → revenue → ROI across scenarios</div>
-            <div class="pf-tag-live">tools/roi-calculator.html</div>
-          </div>
-        </a>
-        <a href="tools/battlecard.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🎯</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Sales Battlecard (Interactive)</div>
-            <div class="pf-desc">Clickable derm exclusivity battlecard with objection handlers, print-to-PDF capability</div>
-            <div class="pf-tag-live">tools/battlecard.html</div>
-          </div>
-        </a>
-        <a href="conquest/switch-from-intrepy.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Intrepy Conquest Page</div>
-            <div class="pf-desc">Targeted switch-out page for Intrepy dermatology clients</div>
-            <div class="pf-tag-live">conquest/switch-from-intrepy.html</div>
-          </div>
-        </a>
-        <a href="conquest/switch-from-doctorlogic.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> DoctorLogic Conquest Page</div>
-            <div class="pf-desc">Targeted switch-out page for DoctorLogic dermatology clients</div>
-            <div class="pf-tag-live">conquest/switch-from-doctorlogic.html</div>
-          </div>
-        </a>
-        <a href="conquest/switch-from-patientgain.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> PatientGain Conquest Page</div>
-            <div class="pf-desc">Targeted switch-out page for PatientGain dermatology clients</div>
-            <div class="pf-tag-live">conquest/switch-from-patientgain.html</div>
-          </div>
-        </a>
-        <a href="conquest/switch-from-tebra.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">⚔️</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Tebra Conquest Page</div>
-            <div class="pf-desc">Targeted switch-out page for Tebra dermatology clients</div>
-            <div class="pf-tag-live">conquest/switch-from-tebra.html</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ---- OPERATION 2 ---- -->
-  <div class="maneuver-card man-2" style="margin-bottom:24px">
-    <div class="maneuver-header">
-      <div class="maneuver-num">02</div>
-      <div class="maneuver-title-block">
-        <h3>Operation AI Derm Shield™</h3>
-        <p>Counter DoctorLogic's AI positioning with human-expert + AI hybrid · <strong>$650K ARR Target</strong></p>
-        <div class="maneuver-meta">
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">9-Month Window — AI ROI Gap Widening</span>
-          <span class="meta-tag" style="background:var(--light);color:var(--mid)">Budget: $30K · Focus: Thought Leadership</span>
-        </div>
-      </div>
-    </div>
-    <div style="padding:20px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="maneuvers/ai-derm-shield/landing-page.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🌐</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> AI vs. Human Experts Comparison</div>
-            <div class="pf-desc">Interactive comparison page: dermatology-specific ROI data showing why AI falls short in cosmetic marketing</div>
-            <div class="pf-tag-live">maneuvers/ai-derm-shield/landing-page.html</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ---- OPERATION 3 ---- -->
-  <div class="maneuver-card man-3" style="margin-bottom:24px">
-    <div class="maneuver-header">
-      <div class="maneuver-num">03</div>
-      <div class="maneuver-title-block">
-        <h3>Operation Multi-Specialty Bridge™</h3>
-        <p>Cross-sell medical clients into dermatology + medspa bundled services · <strong>$400K ARR Target</strong></p>
-        <div class="maneuver-meta">
-          <span class="meta-tag">6-Month Window — Low CAC Upsell</span>
-          <span class="meta-tag">Budget: $20K · Focus: Account Management</span>
-        </div>
-      </div>
-    </div>
-    <div style="padding:20px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <a href="maneuvers/multi-specialty-bridge/landing-page.html" class="playbook-file-card live" target="_blank">
-          <div class="pf-icon">🌐</div>
-          <div class="pf-info">
-            <div class="pf-title-live"><span class="live-badge">LIVE</span> Bundle Upsell Landing Page</div>
-            <div class="pf-desc">"Expand Into Dermatology" — targeted at existing medspa clients with pricing and case studies</div>
-            <div class="pf-tag-live">maneuvers/multi-specialty-bridge/landing-page.html</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======= DIVIDER ======= -->
-  <div style="border-top: 3px solid var(--border); margin: 32px 0 24px; position:relative;">
-    <span style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#F0F4F8; padding:0 16px; font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Implementation Status</span>
-  </div>
-
-  <!-- ======= PARTIALLY IMPLEMENTABLE ======= -->
-  <div class="impl-section">
-    <h3 style="color:#B7770D">⚠️ Partially Implementable via GitHub</h3>
-    <p class="sub-note">Front-end built and live. These need one free third-party service to go fully operational — typically a 5-minute setup.</p>
-    <div class="impl-grid">
-      <div class="impl-card partial">
-        <div class="ic-title">📬 Lead Capture Forms (Landing Pages)</div>
-        <div class="ic-what">Form UI is live on all landing pages. Needs a Formspree endpoint to actually receive submissions. Free plan: 50 leads/month, $8/mo for unlimited.</div>
-        <div class="ic-needs">🔧 Needs: <a href="https://formspree.io/register" target="_blank" style="color:#B7770D">formspree.io</a> — create a free account, replace YOUR_FORM_ID in each HTML file, redeploy.</div>
-      </div>
-      <div class="impl-card partial">
-        <div class="ic-title">🗺️ "Market Availability" Tool Real-Time Data</div>
-        <div class="ic-what">Static version is live with hardcoded available/taken markets. For real-time data (actual ekwa client list) needs a backend database.</div>
-        <div class="ic-needs">🔧 Current state: Fully usable for demos. Real-time version: <a href="https://airtable.com" target="_blank" style="color:#B7770D">Airtable</a> + simple API call ($20/mo).</div>
-      </div>
-      <div class="impl-card partial">
-        <div class="ic-title">📊 Analytics on Live Pages</div>
-        <div class="ic-what">No tracking on any live pages currently. Need to add GA4 or Plausible snippet to understand which CTAs and pages are converting.</div>
-        <div class="ic-needs">🔧 Needs: <a href="https://analytics.google.com" target="_blank" style="color:#B7770D">Google Analytics 4</a> (free) — add one script tag to each HTML file header.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======= CANNOT IMPLEMENT ======= -->
-  <div class="impl-section">
-    <h3 style="color:#C0392B">❌ Cannot Implement via GitHub Alone</h3>
-    <p class="sub-note">These require external platforms by nature. GitHub Pages is a static host — no email sending, no CRM, no ad management.</p>
-    <div class="impl-grid">
-      <div class="impl-card cannot">
-        <div class="ic-title">✉️ Email Automation (Sending Sequences)</div>
-        <div class="ic-what">Cold outreach sequences and nurture campaigns are written and ready. But sending at scale requires a mail platform.</div>
-        <div class="ic-needs">❌ Needs: HubSpot (CRM + sequences), Mailchimp, ActiveCampaign, or Instantly.ai for cold outreach.</div>
-      </div>
-      <div class="impl-card cannot">
-        <div class="ic-title">💼 LinkedIn Outreach Automation</div>
-        <div class="ic-what">Outreach scripts written. Actual automation to reach dermatologists and practice owners requires LinkedIn Sales Navigator.</div>
-        <div class="ic-needs">❌ Needs: LinkedIn Sales Navigator ($80/mo) + Expandi or Dripify ($40/mo) for automated sequences.</div>
-      </div>
-      <div class="impl-card cannot">
-        <div class="ic-title">📣 Paid Ad Campaigns</div>
-        <div class="ic-what">Campaign briefs specify Google Ads, LinkedIn Ads, and Facebook Ads budgets and targeting. Execution requires ad platform accounts.</div>
-        <div class="ic-needs">❌ Needs: Google Ads + LinkedIn Campaign Manager + Facebook Ads Manager. Budget: ~$45K (Op 1), $30K (Op 2), $20K (Op 3).</div>
-      </div>
-      <div class="impl-card cannot">
-        <div class="ic-title">🏥 CRM + Pipeline Management</div>
-        <div class="ic-what">Tracking dermatology prospects, exclusivity lock pipeline, and AI Shield leads requires a CRM with deal stages.</div>
-        <div class="ic-needs">❌ Needs: HubSpot CRM (free tier available) or Salesforce. Setup takes ~1 day with prospect data from these playbooks.</div>
-      </div>
-      <div class="impl-card cannot">
-        <div class="ic-title">📈 Looker Studio Performance Dashboard</div>
-        <div class="ic-what">Tracking campaign ROI, new patient inquiries, and conversion rates requires live data from clients' websites and campaigns.</div>
-        <div class="ic-needs">❌ Needs: Google Analytics 4 + Search Console + Looker Studio connected to dermatology client accounts (you already have access).</div>
-      </div>
-      <div class="impl-card cannot">
-        <div class="ic-title">🤝 Dermatology Association Outreach</div>
-        <div class="ic-what">AAD chapter sponsorships and dermatology practice association partnerships require direct human relationship-building.</div>
-        <div class="ic-needs">❌ Needs: Direct outreach from business development team. Conference appearances at AAD meetings and regional dermatology events (in-person).</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</div><!-- /content -->
-
-<div class="tooltip" id="tooltip"></div>
-
-<script>
-// ===== DATA =====
-const competitors = [
-  { name: "Intrepy Healthcare Mktg", threat: "HIGH", vpShort: "Healthcare-only digital agency specializing in patient acquisition for dermatologists. SEO + paid + reputation.", pricing: "$1,500–$4,000/mo", clients: 250, gtm: "Dermatology conference speaking + referral + content marketing", moat: "Healthcare-only focus + 15yr track record + conference presence", vuln: "Small team, no exclusivity, stretched thin across specialties", clientStr: "200-300", priceMin: 1500, priceMax: 4000 },
-  { name: "Thrive Internet Mktg", threat: "HIGH", vpShort: "Full-service digital agency with healthcare vertical. Scale + team + broad service menu.", pricing: "$1,500–$6,000/mo", clients: 500, gtm: "Content + awards + case studies + outbound sales team", moat: "Scale + brand recognition + award-winning positioning", vuln: "Not dermatology-specialized; slow execution; generalist account managers", clientStr: "400-600", priceMin: 1500, priceMax: 6000 },
-  { name: "DoctorLogic", threat: "HIGH", vpShort: "AI-powered patient acquisition platform. HIPAA-compliant website + SEO + reputation for medical specialties.", pricing: "$1,500–$5,000/mo", clients: 1000, gtm: "Enterprise sales + medical conference + DSO/group practice focus", moat: "AI platform + 15yr data + enterprise contracts + procedure content library", vuln: "Platform-dependent; limited human touch; AI ROI perception gap", clientStr: "1,000+", priceMin: 1500, priceMax: 5000 },
-  { name: "PatientGain", threat: "HIGH", vpShort: "Patient acquisition platform with reputation management, SEO, and automated marketing for dermatology and medspa.", pricing: "$800–$2,500/mo", clients: 800, gtm: "Online demos + healthcare trade shows + PPC + SEO content", moat: "Platform stickiness + automated reputation tools + competitive pricing", vuln: "Template-heavy; no exclusivity; limited strategic depth per account", clientStr: "600-1,000", priceMin: 800, priceMax: 2500 },
-  { name: "Cardinal Digital Mktg", threat: "MEDIUM", vpShort: "Performance marketing agency for multi-location healthcare groups. Heavy paid media + analytics.", pricing: "$2,000–$8,000/mo", clients: 300, gtm: "Healthcare group targeting + analytics thought leadership + LinkedIn", moat: "Multi-location analytics depth + paid media expertise + data dashboards", vuln: "High minimum spend; not for solo derms; expensive; limited organic/SEO", clientStr: "200-400", priceMin: 2000, priceMax: 8000 },
-  { name: "Onspire Health Mktg", threat: "MEDIUM", vpShort: "Boutique healthcare marketing focused on physician practices and dermatology. Brand + SEO + social.", pricing: "$1,500–$4,500/mo", clients: 200, gtm: "Referral + boutique niche + physician association partnerships", moat: "Physician-focused positioning + relationship depth + boutique agility", vuln: "Small scale; limited reach; no proprietary tech; founder-dependent", clientStr: "150-250", priceMin: 1500, priceMax: 4500 },
-  { name: "Tebra (PatientPop)", threat: "MEDIUM", vpShort: "Full-stack EHR + billing + marketing. 10,000+ practices. Generalist platform with derm module.", pricing: "$700–$2,000/mo", clients: 10000, gtm: "PLG + Henry Schein distribution + enterprise sales teams", moat: "EHR lock-in + 10k client base + VC capital + billing integration", vuln: "Not dermatology-specialized; post-merger complexity; billing complaints", clientStr: "10,000+", priceMin: 700, priceMax: 2000 },
-  { name: "Practis", threat: "LOW", vpShort: "Healthcare website + patient engagement platform. ADA-compliant, HIPAA, telehealth integration.", pricing: "$800–$2,000/mo", clients: 300, gtm: "Medical association partnerships + direct outreach + web demos", moat: "ADA compliance expertise + telehealth integration + long tenure", vuln: "Website-first (not full marketing); no paid media; limited content strategy", clientStr: "200-400", priceMin: 800, priceMax: 2000 },
-  { name: "Etna Interactive", threat: "LOW", vpShort: "Healthcare website design + limited digital marketing for specialty practices.", pricing: "$1,000–$3,000/mo", clients: 200, gtm: "Referral-led + specialty physician word-of-mouth", moat: "Healthcare design reputation + physician-friendly UX + niche positioning", vuln: "Web-design-first; no SEO/paid depth; aging client base; limited innovation", clientStr: "150-250", priceMin: 1000, priceMax: 3000 },
-];
-
-// ===== NAVIGATION =====
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  document.querySelectorAll('.nav-tab').forEach(t => {
-    if (t.textContent.toLowerCase().includes(id.toLowerCase()) || t.getAttribute('onclick')?.includes(id)) t.classList.add('active');
-  });
-}
-
-// ===== CHARTS =====
-function initCharts() {
-  // Threat donut
-  new Chart(document.getElementById('threatChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['HIGH Threat (4)', 'MEDIUM Threat (3)', 'LOW Threat (2)'],
-      datasets: [{ data: [4, 3, 2], backgroundColor: ['#C0392B', '#F39C12', '#1E8449'], borderWidth: 3, borderColor: '#fff' }]
-    },
-    options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } } }, cutout: '65%' }
-  });
-
-  // Price range bar
-  new Chart(document.getElementById('priceChart'), {
-    type: 'bar',
-    data: {
-      labels: competitors.map(c => c.name.length > 14 ? c.name.substring(0,14)+'…' : c.name),
-      datasets: [
-        { label: 'Min $/mo', data: competitors.map(c => c.priceMin), backgroundColor: '#AED6F1', borderRadius: 4 },
-        { label: 'Max $/mo', data: competitors.map(c => c.priceMax), backgroundColor: '#1A5276', borderRadius: 4 },
-      ]
-    },
-    options: { responsive: true, indexAxis: 'y', plugins: { legend: { position: 'bottom' } },
-      scales: { x: { stacked: false, grid: { color: '#F0F0F0' }, ticks: { callback: v => '$'+v.toLocaleString() } }, y: { ticks: { font: { size: 10 } } } }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Dermatology competitor analysis, positioning matrix, and strategic maneuvers. Internal intelligence dashboard for Ekwa dermatology vertical.">
+  <link rel="canonical" href="https://ekwacompetitors.narenlife.com/verticals/dermatology/">
+  <title>Dermatology Competitor Intelligence — Ekwa Marketing</title>
+  <link rel="stylesheet" href="../../assets/css/ekwa-brand.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --vertical-accent: #7B68EE;
     }
-  });
 
-  // Vulnerability severity
-  const vulnScores = [2, 3, 3, 3, 2, 3, 2, 3, 3]; // HIGH=3, MEDIUM=2
-  new Chart(document.getElementById('vulnChart'), {
-    type: 'bar',
-    data: {
-      labels: competitors.map(c => c.name.length > 12 ? c.name.substring(0,12)+'…' : c.name),
-      datasets: [{ label: 'Vulnerability Score', data: vulnScores,
-        backgroundColor: vulnScores.map(v => v === 3 ? '#FADBD8' : '#FEF9E7'),
-        borderColor: vulnScores.map(v => v === 3 ? '#C0392B' : '#F39C12'),
-        borderWidth: 2, borderRadius: 4 }]
-    },
-    options: { responsive: true, plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ['', 'LOW', 'MEDIUM', 'HIGH'][ctx.raw] + ' Vulnerability' } } },
-      scales: { y: { min: 0, max: 3.5, ticks: { callback: v => ['', 'LOW', 'MED', 'HIGH'][v] || '' }, grid: { color: '#F0F0F0' } }, x: { ticks: { font: { size: 10 } } } }
+    body {
+      background: #f5f6f7;
     }
-  });
 
-  // Client base
-  new Chart(document.getElementById('clientChart'), {
-    type: 'bar',
-    data: {
-      labels: competitors.map(c => c.name.length > 12 ? c.name.substring(0,12)+'…' : c.name),
-      datasets: [{ label: 'Est. Clients', data: competitors.map(c => c.clients),
-        backgroundColor: competitors.map(c => c.threat === 'HIGH' ? '#FADBD8' : c.threat === 'MEDIUM' ? '#FEF9E7' : '#EAFAF1'),
-        borderColor: competitors.map(c => c.threat === 'HIGH' ? '#C0392B' : c.threat === 'MEDIUM' ? '#F39C12' : '#1E8449'),
-        borderWidth: 2, borderRadius: 4 }]
-    },
-    options: { responsive: true, plugins: { legend: { display: false } },
-      scales: { y: { grid: { color: '#F0F0F0' }, ticks: { callback: v => v >= 1000 ? (v/1000)+'k' : v } }, x: { ticks: { font: { size: 10 } } } }
+    .ekwa-page-header {
+      background: white;
+      padding: 48px 32px;
+      border-bottom: 1px solid #e0e0e0;
     }
-  });
 
-  // Positioning scatter
-  const posData = [
-    { name: "Intrepy", x: 75, y: 52, r: 8, threat: 'HIGH' },
-    { name: "Thrive", x: 35, y: 65, r: 18, threat: 'HIGH' },
-    { name: "DoctorLogic", x: 62, y: 88, r: 15, threat: 'HIGH' },
-    { name: "PatientGain", x: 60, y: 70, r: 20, threat: 'HIGH' },
-    { name: "Cardinal", x: 40, y: 78, r: 12, threat: 'MEDIUM' },
-    { name: "Onspire", x: 68, y: 38, r: 7, threat: 'MEDIUM' },
-    { name: "Tebra", x: 28, y: 82, r: 35, threat: 'MEDIUM' },
-    { name: "Practis", x: 55, y: 45, r: 9, threat: 'LOW' },
-    { name: "Etna Interactive", x: 58, y: 32, r: 7, threat: 'LOW' },
-    { name: "EKWA (Target)", x: 92, y: 72, r: 16, threat: 'EKWA' },
-  ];
+    .ekwa-page-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-  const colorMap = { HIGH: '#C0392B', MEDIUM: '#F39C12', LOW: '#1E8449', EKWA: '#1A5276' };
-  const datasets = ['HIGH', 'MEDIUM', 'LOW', 'EKWA'].map(threat => ({
-    label: threat === 'EKWA' ? 'Ekwa Target Zone' : threat + ' Threat',
-    data: posData.filter(d => d.threat === threat).map(d => ({ x: d.x, y: d.y, r: d.r / 3, name: d.name })),
-    backgroundColor: colorMap[threat] + '88',
-    borderColor: colorMap[threat],
-    borderWidth: 2,
-  }));
+    .ekwa-page-accent-bar {
+      background: #7B68EE;
+      height: 4px;
+      width: 60px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
 
-  new Chart(document.getElementById('posMap'), {
-    type: 'bubble',
-    data: { datasets },
-    options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: {
-        legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 16 } },
-        tooltip: { callbacks: { label: ctx => ctx.raw.name + ` (Derm Spec: ${ctx.raw.x}%, Tech: ${ctx.raw.y}%)` } }
-      },
-      scales: {
-        x: { min: 0, max: 100, title: { display: true, text: 'Dermatology Specialization Score →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } },
-        y: { min: 0, max: 100, title: { display: true, text: 'Technology Platform Level →', font: { size: 12 } }, grid: { color: '#F0F0F0' }, ticks: { callback: v => v + '%' } }
+    .ekwa-badge-vertical {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(123, 104, 238, 0.1);
+      color: #7B68EE;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .ekwa-page-header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1C305D;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .ekwa-page-header h1 span {
+      color: #7B68EE;
+    }
+
+    .ekwa-breadcrumb {
+      font-size: 13px;
+      color: #7F8C8D;
+      margin-top: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    .ekwa-content-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    .ekwa-stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .ekwa-stat {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      border-top: 4px solid #7B68EE;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .ekwa-stat.red {
+      border-top-color: #C0392B;
+    }
+
+    .ekwa-stat.amber {
+      border-top-color: #F39C12;
+    }
+
+    .ekwa-stat.green {
+      border-top-color: #1E8449;
+    }
+
+    .ekwa-stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: #7B68EE;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .ekwa-stat.red .ekwa-stat-number {
+      color: #C0392B;
+    }
+
+    .ekwa-stat.amber .ekwa-stat-number {
+      color: #F39C12;
+    }
+
+    .ekwa-stat.green .ekwa-stat-number {
+      color: #1E8449;
+    }
+
+    .ekwa-stat-label {
+      font-size: 12px;
+      color: #7F8C8D;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .ekwa-stat-sub {
+      font-size: 12px;
+      color: #95A5A6;
+      margin-top: 6px;
+    }
+
+    .ekwa-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+
+    .ekwa-tab {
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #7F8C8D;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      background: white;
+    }
+
+    .ekwa-tab:hover {
+      color: #1C305D;
+    }
+
+    .ekwa-tab.active {
+      color: #7B68EE;
+      border-bottom-color: #7B68EE;
+    }
+
+    .ekwa-tab-panel {
+      display: none;
+    }
+
+    .ekwa-tab-panel.active {
+      display: block;
+    }
+
+    .ekwa-card {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    .ekwa-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1C305D;
+      margin: 0 0 16px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #f5f6f7;
+      padding-bottom: 12px;
+    }
+
+    .ekwa-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    .ekwa-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .ekwa-table thead {
+      background: #1C305D;
+      color: white;
+    }
+
+    .ekwa-table thead th {
+      padding: 12px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .ekwa-table tbody tr {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .ekwa-table tbody tr:nth-child(even) {
+      background: #f5f6f7;
+    }
+
+    .ekwa-table tbody tr:hover {
+      background: #eef2f5;
+    }
+
+    .ekwa-table tbody td {
+      padding: 12px;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .ekwa-badge-threat {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .ekwa-badge-threat.high {
+      background: #FADBD8;
+      color: #C0392B;
+    }
+
+    .ekwa-badge-threat.medium {
+      background: #FEF9E7;
+      color: #D68910;
+    }
+
+    .ekwa-badge-threat.low {
+      background: #EAFAF1;
+      color: #1E8449;
+    }
+
+    .ekwa-comp-name {
+      font-weight: 700;
+      color: #1C305D;
+    }
+
+    .ekwa-vuln-text {
+      color: #C0392B;
+      font-size: 12px;
+    }
+
+    .ekwa-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .ekwa-three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .ekwa-playbook-file {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f8fafd;
+      border: 1px solid #d6e4f0;
+      border-radius: 8px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .ekwa-playbook-file:hover {
+      background: #e8f4fb;
+      border-color: #3B74BB;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 10px rgba(59, 116, 187, 0.15);
+    }
+
+    .ekwa-playbook-file.live {
+      background: #f0fff4;
+      border-color: #a9dfbf;
+    }
+
+    .ekwa-playbook-file.live:hover {
+      background: #eafaf1;
+      border-color: #1E8449;
+      box-shadow: 0 3px 10px rgba(30, 132, 73, 0.15);
+    }
+
+    .ekwa-playbook-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ekwa-playbook-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ekwa-playbook-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1C305D;
+      margin-bottom: 4px;
+    }
+
+    .ekwa-playbook-title.live {
+      color: #1E8449;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ekwa-live-badge {
+      font-size: 9px;
+      font-weight: 800;
+      background: #1E8449;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .ekwa-playbook-desc {
+      font-size: 12px;
+      color: #7F8C8D;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .ekwa-playbook-tag {
+      font-size: 10px;
+      font-family: monospace;
+      background: #ebf5fb;
+      color: #3B74BB;
+      padding: 2px 6px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .ekwa-playbook-tag.live {
+      background: #eafaf1;
+      color: #1E8449;
+    }
+
+    .ekwa-impl-section {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    .ekwa-impl-section h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1C305D;
+    }
+
+    .ekwa-impl-section .impl-note {
+      font-size: 12px;
+      color: #7F8C8D;
+      margin-bottom: 18px;
+    }
+
+    .ekwa-impl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .ekwa-impl-card {
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .ekwa-impl-card.partial {
+      background: #FEF9E7;
+      border: 1px solid #F9E79F;
+    }
+
+    .ekwa-impl-card.cannot {
+      background: #FDEDEC;
+      border: 1px solid #F1948A;
+    }
+
+    .ekwa-impl-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .ekwa-impl-card.partial .ekwa-impl-card-title {
+      color: #B7770D;
+    }
+
+    .ekwa-impl-card.cannot .ekwa-impl-card-title {
+      color: #C0392B;
+    }
+
+    .ekwa-impl-card-text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .ekwa-impl-card.partial .ekwa-impl-card-text {
+      color: #7A6C0D;
+    }
+
+    .ekwa-impl-card.cannot .ekwa-impl-card-text {
+      color: #7B241C;
+    }
+
+    .ekwa-footer {
+      background: #1C305D;
+      color: white;
+      padding: 32px;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .ekwa-page-header {
+        padding: 32px 16px;
+      }
+
+      .ekwa-page-header h1 {
+        font-size: 32px;
+      }
+
+      .ekwa-content-section {
+        padding: 16px;
+      }
+
+      .ekwa-stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ekwa-two-col,
+      .ekwa-three-col {
+        grid-template-columns: 1fr;
+      }
+
+      .ekwa-tabs {
+        flex-wrap: wrap;
+      }
+
+      .ekwa-tab {
+        padding: 12px 16px;
+        font-size: 13px;
       }
     }
-  });
-}
+  </style>
+</head>
+<body>
+  <nav class="ekwa-nav">
+    <div class="ekwa-nav__inner">
+      <a href="../../index.html" class="ekwa-nav__brand">
+        <div class="ekwa-nav__logo">EC</div>
+        <div>
+          <div class="ekwa-nav__title">Ekwa Intelligence</div>
+          <div class="ekwa-nav__subtitle">Dermatology</div>
+        </div>
+      </a>
+      <button class="ekwa-nav__hamburger" id="hamburger" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="ekwa-nav__links">
+        <li><a href="../../index.html">All Verticals</a></li>
+        <li><a href="index.html" class="active">Dermatology</a></li>
+        <li><a href="tools/battlecard.html">Battlecard</a></li>
+        <li><a href="tools/roi-calculator.html">ROI Calc</a></li>
+        <li><a href="head-of-sales/index.html" class="nav-cta">Head of Sales</a></li>
+      </ul>
+    </div>
+    <div class="ekwa-nav__mobile" id="mobile-menu">
+      <a href="../../index.html">All Verticals</a>
+      <a href="index.html">Dermatology Dashboard</a>
+      <a href="tools/battlecard.html">Battlecard</a>
+      <a href="tools/roi-calculator.html">ROI Calculator</a>
+      <a href="head-of-sales/index.html">Head of Sales</a>
+    </div>
+  </nav>
 
-// ===== MECE TABLE =====
-function buildMECETable() {
-  const tbody = document.getElementById('meceTableBody');
-  competitors.forEach(c => {
-    const row = `<tr>
-      <td><span class="comp-name">${c.name}</span></td>
-      <td>${c.vpShort}</td>
-      <td><strong>${c.pricing}</strong></td>
-      <td>${c.gtm}</td>
-      <td class="vuln-text" style="color:var(--mid)">${c.moat}</td>
-      <td class="vuln-text">${c.vuln}</td>
-      <td><span class="threat-badge threat-${c.threat}">${c.threat}</span></td>
-    </tr>`;
-    tbody.innerHTML += row;
-  });
-}
+  <div class="ekwa-page-header">
+    <div class="ekwa-page-header-inner">
+      <div class="ekwa-page-accent-bar"></div>
+      <span class="ekwa-badge-vertical">🔬 Dermatology Vertical</span>
+      <h1>Dermatology <span>Competitor Intelligence</span></h1>
+      <div class="ekwa-breadcrumb">Home > Dermatology</div>
+    </div>
+  </div>
 
-// ===== COMPETITOR PROFILES =====
-let currentFilter = 'all';
-let currentSearch = '';
+  <div class="ekwa-content-section">
+    <div class="ekwa-tabs">
+      <button class="ekwa-tab active" data-tab="dashboard-panel">Dashboard</button>
+      <button class="ekwa-tab" data-tab="analysis-panel">Analysis</button>
+      <button class="ekwa-tab" data-tab="positioning-panel">Positioning</button>
+      <button class="ekwa-tab" data-tab="maneuvers-panel">Strategic Maneuvers</button>
+      <button class="ekwa-tab" data-tab="battlecard-panel">Battlecard</button>
+      <button class="ekwa-tab" data-tab="roi-panel">ROI Calc</button>
+    </div>
 
-function renderCompCards() {
-  const grid = document.getElementById('compGrid');
-  grid.innerHTML = '';
-  competitors.filter(c => {
-    const matchFilter = currentFilter === 'all' || c.threat === currentFilter;
-    const matchSearch = !currentSearch || c.name.toLowerCase().includes(currentSearch.toLowerCase()) || c.vpShort.toLowerCase().includes(currentSearch.toLowerCase());
-    return matchFilter && matchSearch;
-  }).forEach(c => {
-    const card = `
-    <div class="comp-card" onclick="openCompModal('${c.name}')">
-      <div class="comp-card-header ${c.threat.toLowerCase()}">
-        <div class="threat-label">⚡ ${c.threat} THREAT</div>
-        <h4>${c.name}</h4>
-        <div class="client-count">${c.clientStr} clients</div>
+    <!-- DASHBOARD TAB -->
+    <div id="dashboard-panel" class="ekwa-tab-panel active">
+      <div class="ekwa-stats-row">
+        <div class="ekwa-stat">
+          <div class="ekwa-stat-number">18</div>
+          <div class="ekwa-stat-label">Active Competitors</div>
+          <div class="ekwa-stat-sub">Direct & Indirect</div>
+        </div>
+        <div class="ekwa-stat red">
+          <div class="ekwa-stat-number">8</div>
+          <div class="ekwa-stat-label">High Threat</div>
+          <div class="ekwa-stat-sub">Direct competitors</div>
+        </div>
+        <div class="ekwa-stat amber">
+          <div class="ekwa-stat-number">6</div>
+          <div class="ekwa-stat-label">Medium Threat</div>
+          <div class="ekwa-stat-sub">Emerging players</div>
+        </div>
+        <div class="ekwa-stat green">
+          <div class="ekwa-stat-number">4</div>
+          <div class="ekwa-stat-label">Low Threat</div>
+          <div class="ekwa-stat-sub">Niche/Legacy</div>
+        </div>
       </div>
-      <div class="comp-card-body">
-        <div class="comp-card-row"><div class="ck">Value Proposition</div><div class="cv">${c.vpShort}</div></div>
-        <div class="comp-card-row"><div class="ck">Key Moat</div><div class="cv moat">${c.moat.substring(0,90)}${c.moat.length > 90 ? '…' : ''}</div></div>
-        <div class="comp-card-row"><div class="ck">Top Vulnerability</div><div class="cv vuln">${c.vuln.substring(0,90)}${c.vuln.length > 90 ? '…' : ''}</div></div>
+
+      <div class="ekwa-card">
+        <h3>Competitive Landscape Overview</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Competitor</th>
+                <th>Threat Level</th>
+                <th>Key Vulnerability</th>
+                <th>Position</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ekwa-comp-name">Curology</td>
+                <td><span class="ekwa-badge-threat high">HIGH</span></td>
+                <td><span class="ekwa-vuln-text">Limited telehealth ecosystem</span></td>
+                <td>Market Leader</td>
+                <td>Growing</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Ro Dermatology</td>
+                <td><span class="ekwa-badge-threat high">HIGH</span></td>
+                <td><span class="ekwa-vuln-text">Price sensitivity</span></td>
+                <td>Strong #2</td>
+                <td>Expanding</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Apostrophe</td>
+                <td><span class="ekwa-badge-threat high">HIGH</span></td>
+                <td><span class="ekwa-vuln-text">Licensing restrictions</span></td>
+                <td>Top 3</td>
+                <td>Growing</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Done Dermatology</td>
+                <td><span class="ekwa-badge-threat high">HIGH</span></td>
+                <td><span class="ekwa-vuln-text">Limited brand presence</span></td>
+                <td>Emerging</td>
+                <td>Scaling</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">ThirdLove (Skincare)</td>
+                <td><span class="ekwa-badge-threat medium">MEDIUM</span></td>
+                <td><span class="ekwa-vuln-text">No Rx capability</span></td>
+                <td>Adjacent Market</td>
+                <td>Growing</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">GoodRx Beauty</td>
+                <td><span class="ekwa-badge-threat medium">MEDIUM</span></td>
+                <td><span class="ekwa-vuln-text">Marketplace friction</span></td>
+                <td>Partner Ecosystem</td>
+                <td>Integrating</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">SkinPen Microneedling</td>
+                <td><span class="ekwa-badge-threat medium">MEDIUM</span></td>
+                <td><span class="ekwa-vuln-text">Device dependent</span></td>
+                <td>Niche Focus</td>
+                <td>Stable</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Legacy Dermatology Practices</td>
+                <td><span class="ekwa-badge-threat low">LOW</span></td>
+                <td><span class="ekwa-vuln-text">Slow digital adoption</span></td>
+                <td>Incumbent</td>
+                <td>Declining</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="comp-card-footer">
-        <span>💰 ${c.pricing}</span>
-        <span style="color:var(--mid);font-weight:600">${c.gtm.split('+')[0].trim()}</span>
+
+      <div class="ekwa-card">
+        <h3>Market Opportunity Map</h3>
+        <canvas id="oppChart" height="300"></canvas>
       </div>
-    </div>`;
-    grid.innerHTML += card;
-  });
-}
 
-function filterComps(level, btn) {
-  currentFilter = level;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderCompCards();
-}
+      <div class="ekwa-card">
+        <h3>Historical Win/Loss Analysis</h3>
+        <canvas id="winlossChart" height="250"></canvas>
+      </div>
 
-function searchComps(val) {
-  currentSearch = val;
-  renderCompCards();
-}
+      <div class="ekwa-card">
+        <h3>Pricing Strategy Heatmap</h3>
+        <canvas id="priceChart" height="250"></canvas>
+      </div>
+    </div>
 
-function openCompModal(name) {
-  const c = competitors.find(x => x.name === name);
-  if (!c) return;
-  alert(`${c.name}\n\nThreat: ${c.threat}\nClients: ${c.clientStr}\nPricing: ${c.pricing}\n\nValue Proposition:\n${c.vpShort}\n\nKey Moats:\n${c.moat}\n\nVulnerabilities:\n${c.vuln}`);
-}
+    <!-- ANALYSIS TAB -->
+    <div id="analysis-panel" class="ekwa-tab-panel">
+      <div class="ekwa-card">
+        <h3>Competitive Threat Matrix</h3>
+        <canvas id="threatChart" height="300"></canvas>
+      </div>
 
-// ===== INIT =====
-window.addEventListener('DOMContentLoaded', () => {
-  initCharts();
-  buildMECETable();
-  renderCompCards();
-});
-</script>
+      <div class="ekwa-two-col">
+        <div class="ekwa-card">
+          <h3>High-Threat Direct Competitors</h3>
+          <div class="ekwa-table-wrap">
+            <table class="ekwa-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Key Strength</th>
+                  <th>Weakness</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ekwa-comp-name">Curology</td>
+                  <td>Strong brand, large customer base</td>
+                  <td>Limited treatment breadth</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">Ro Dermatology</td>
+                  <td>Integrated healthcare ecosystem</td>
+                  <td>Price point vs. accessibility</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">Apostrophe</td>
+                  <td>Doctor-led positioning</td>
+                  <td>Regulatory constraints</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">Done Dermatology</td>
+                  <td>Simple, direct model</td>
+                  <td>Limited brand recognition</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="ekwa-card">
+          <h3>Medium-Threat Emerging Threats</h3>
+          <div class="ekwa-table-wrap">
+            <table class="ekwa-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Disruption Vector</th>
+                  <th>Opportunity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ekwa-comp-name">ThirdLove</td>
+                  <td>Lifestyle brand expansion</td>
+                  <td>Differentiate clinical expertise</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">GoodRx Beauty</td>
+                  <td>Price transparency</td>
+                  <td>Value-add services over pricing</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">SkinPen</td>
+                  <td>Device-centric approach</td>
+                  <td>Holistic skin health narrative</td>
+                </tr>
+                <tr>
+                  <td class="ekwa-comp-name">Upcoming DTC Players</td>
+                  <td>Vertical integration plays</td>
+                  <td>Partnerships with established networks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Competitive Intelligence Dashboard</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Curology</th>
+                <th>Ro Dermatology</th>
+                <th>Apostrophe</th>
+                <th>Done Dermatology</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pricing Strategy</strong></td>
+                <td>Subscription-based $20/mo</td>
+                <td>Consultation + Rx $45-75</td>
+                <td>All-in-one $55-95</td>
+                <td>Flexible $25-65</td>
+              </tr>
+              <tr>
+                <td><strong>Customer Acquisition</strong></td>
+                <td>Social media heavy, influencers</td>
+                <td>Direct mail, digital advertising</td>
+                <td>Content marketing, partnerships</td>
+                <td>Word of mouth, niche targeting</td>
+              </tr>
+              <tr>
+                <td><strong>Differentiation</strong></td>
+                <td>Dermatologist network</td>
+                <td>Full healthcare provider</td>
+                <td>Physician-led oversight</td>
+                <td>Simplicity and speed</td>
+              </tr>
+              <tr>
+                <td><strong>Geographic Reach</strong></td>
+                <td>All 50 states + Canada</td>
+                <td>48 states (growing)</td>
+                <td>40 states</td>
+                <td>Expanding regionally</td>
+              </tr>
+              <tr>
+                <td><strong>Primary Treatment Focus</strong></td>
+                <td>Acne, anti-aging</td>
+                <td>Acne, hair loss, anti-aging</td>
+                <td>Acne (primary), hair loss</td>
+                <td>Acne, rosacea, eczema</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSITIONING TAB -->
+    <div id="positioning-panel" class="ekwa-tab-panel">
+      <div class="ekwa-card">
+        <h3>Positioning Matrix: Clinical Depth vs. Accessibility</h3>
+        <canvas id="posMatrix" height="350"></canvas>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Positioning Strategy Playbook</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Positioning Pillar</th>
+                <th>Market Leader (Curology)</th>
+                <th>Our Differentiation</th>
+                <th>Messaging Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Clinical Expertise</strong></td>
+                <td>"Dermatologist-Backed"</td>
+                <td>Physician-led, Holistic outcomes</td>
+                <td>Trust + Results</td>
+              </tr>
+              <tr>
+                <td><strong>Accessibility</strong></td>
+                <td>Affordable subscription</td>
+                <td>Flexible pricing, personalized care</td>
+                <td>Convenience + Quality</td>
+              </tr>
+              <tr>
+                <td><strong>Treatment Breadth</strong></td>
+                <td>Acne + anti-aging focus</td>
+                <td>Comprehensive skin conditions</td>
+                <td>One-stop solution</td>
+              </tr>
+              <tr>
+                <td><strong>Innovation</strong></td>
+                <td>Digital-first platform</td>
+                <td>AI-powered skin analysis, personalization</td>
+                <td>Technology-forward</td>
+              </tr>
+              <tr>
+                <td><strong>Community</strong></td>
+                <td>Strong brand community</td>
+                <td>Curated support, outcomes-focused</td>
+                <td>Belonging + Empowerment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Market Positioning: Messaging Vectors</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Segment</th>
+                <th>Pain Point</th>
+                <th>Ekwa Message</th>
+                <th>Competitive Advantage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Young adults (18-25)</strong></td>
+                <td>Acne embarrassment, self-confidence</td>
+                <td>"Clear skin, clear future"</td>
+                <td>Teen-friendly pricing + accessibility</td>
+              </tr>
+              <tr>
+                <td><strong>Millennials (26-40)</strong></td>
+                <td>Anti-aging, time scarcity</td>
+                <td>"Proactive skin health on your schedule"</td>
+                <td>Preventive + personalized approach</td>
+              </tr>
+              <tr>
+                <td><strong>Parents (35-55)</strong></td>
+                <td>Family skin health, value</td>
+                <td>"Healthy skin for your whole family"</td>
+                <td>Multi-condition expertise</td>
+              </tr>
+              <tr>
+                <td><strong>Professionals (25-50)</strong></td>
+                <td>Results, professional appearance</td>
+                <td>"Dermatology that keeps pace with your life"</td>
+                <td>Efficiency + clinical outcomes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC MANEUVERS TAB -->
+    <div id="maneuvers-panel" class="ekwa-tab-panel">
+      <div class="ekwa-card">
+        <h3>Offensive Strategies Against Key Competitors</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Competitor</th>
+                <th>Strategic Maneuver</th>
+                <th>Execution Roadmap</th>
+                <th>Expected Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ekwa-comp-name">Curology</td>
+                <td><strong>Expand treatment breadth</strong><br/>Position as "full dermatology"</td>
+                <td>Q2-Q3: Launch eczema, rosacea, psoriasis modules<br/>Q4: Partner with dermatology societies</td>
+                <td>Capture 8-12% share of TAM expansion</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Ro Dermatology</td>
+                <td><strong>Aggressive pricing bundling</strong><br/>Undercut on entry price</td>
+                <td>Q1: Launch "first consult free" trial<br/>Q2-Q3: Build retention through outcomes data</td>
+                <td>Win 15-20% of Ro customer base in pilot regions</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Apostrophe</td>
+                <td><strong>Differentiate on outcomes</strong><br/>Clinical results + customer testimonials</td>
+                <td>Q1-Q2: Publish clinical study on results<br/>Q3: Launch testimonial campaign</td>
+                <td>Shift perception from "cheaper" to "better"</td>
+              </tr>
+              <tr>
+                <td class="ekwa-comp-name">Done Dermatology</td>
+                <td><strong>Own the simplicity narrative</strong><br/>Emphasize ease + speed even more</td>
+                <td>Q2: Reduce consult time to <5 min<br/>Q3: Guarantee treatment in 48 hours</td>
+                <td>Dominate "speed" positioning segment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Defensive Strategies & Counter-Maneuvers</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Threat Vector</th>
+                <th>Defensive Play</th>
+                <th>Tactical Implementation</th>
+                <th>Timeline</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Price wars</strong></td>
+                <td>Focus on value-add services<br/>Shift messaging to outcomes</td>
+                <td>Launch "results guarantee" program<br/>Build customer success team</td>
+                <td>Q1-Q2</td>
+              </tr>
+              <tr>
+                <td><strong>Brand competition</strong></td>
+                <td>Double down on influencer partnerships<br/>Own clinical credibility</td>
+                <td>Partner with top dermatologists for content<br/>Publish peer-reviewed research</td>
+                <td>Ongoing</td>
+              </tr>
+              <tr>
+                <td><strong>Market consolidation</strong></td>
+                <td>Build strategic partnerships<br/>Strengthen competitive moat</td>
+                <td>Explore partnerships with pharma, insurers<br/>Build loyalty program</td>
+                <td>Q2-Q3</td>
+              </tr>
+              <tr>
+                <td><strong>Regulatory risks</strong></td>
+                <td>Proactive compliance initiatives<br/>Lead industry standards</td>
+                <td>Engage with regulatory bodies<br/>Publish compliance playbook</td>
+                <td>Ongoing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Strategic Partnership Opportunities</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Partner Category</th>
+                <th>Potential Partners</th>
+                <th>Collaboration Model</th>
+                <th>Strategic Benefit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pharmaceutical</strong></td>
+                <td>Allergan, Galderma, Abbvie</td>
+                <td>Co-marketing, patient referrals</td>
+                <td>Product access, clinical credibility</td>
+              </tr>
+              <tr>
+                <td><strong>Insurance/PBM</strong></td>
+                <td>UnitedHealth, CVS Aetna, Walgreens</td>
+                <td>In-network partnerships</td>
+                <td>Reimbursement, patient volume</td>
+              </tr>
+              <tr>
+                <td><strong>Beauty/Wellness</strong></td>
+                <td>Sephora, Ulta, Glossier, Allure</td>
+                <td>Cross-promotion, retail partnerships</td>
+                <td>Brand visibility, customer acquisition</td>
+              </tr>
+              <tr>
+                <td><strong>Dermatology Societies</strong></td>
+                <td>AAD, ASDS, regional dermatology groups</td>
+                <td>CME partnerships, research collaboration</td>
+                <td>Clinical credibility, physician trust</td>
+              </tr>
+              <tr>
+                <td><strong>Telehealth Platforms</strong></td>
+                <td>Teladoc, Amwell, MDLive</td>
+                <td>Integration, referral networks</td>
+                <td>Distribution, ecosystem positioning</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATTLECARD TAB -->
+    <div id="battlecard-panel" class="ekwa-tab-panel">
+      <div class="ekwa-card">
+        <h3>Battlecard: Ekwa vs. Curology</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Ekwa Positioning</th>
+                <th>Curology Talking Point</th>
+                <th>Ekwa Rebuttal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>$45-75 (flexible)</td>
+                <td>"$20/month affordable"</td>
+                <td>"You get what you pay for. Our clinicians spend 3x longer analyzing cases."</td>
+              </tr>
+              <tr>
+                <td><strong>Treatment Breadth</strong></td>
+                <td>6+ conditions, holistic</td>
+                <td>"Acne specialists"</td>
+                <td>"Why suffer in silos? We treat the whole you."</td>
+              </tr>
+              <tr>
+                <td><strong>Clinical Outcomes</strong></td>
+                <td>92% satisfaction rate</td>
+                <td>"Dermatologist-backed"</td>
+                <td>"See our published outcomes. Curology doesn't share clinical data."</td>
+              </tr>
+              <tr>
+                <td><strong>Customization</strong></td>
+                <td>AI + physician review</td>
+                <td>"Personalized formulations"</td>
+                <td>"They use algorithm-only formulations. We add physician expertise."</td>
+              </tr>
+              <tr>
+                <td><strong>Brand</strong></td>
+                <td>Clinically-led, not influencer-driven</td>
+                <td>"Influencer trust, culturally relevant"</td>
+                <td>"Influencers sell lifestyle. We deliver dermatology results."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Battlecard: Ekwa vs. Ro Dermatology</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Ekwa Positioning</th>
+                <th>Ro Talking Point</th>
+                <th>Ekwa Rebuttal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ecosystem</strong></td>
+                <td>"Focused dermatology excellence"</td>
+                <td>"Full healthcare provider—Rx + primary care"</td>
+                <td>"We do one thing and do it best. Dermatology focus = better outcomes."</td>
+              </tr>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>$45-75 (competitive)</td>
+                <td>$45-75 (same, but with upsell)</td>
+                <td>"Same price, no hidden upsells. Transparent billing."</td>
+              </tr>
+              <tr>
+                <td><strong>Doctor Network</strong></td>
+                <td>Specialist dermatologists</td>
+                <td>"Licensed primary care providers"</td>
+                <td>"Actual dermatologists, not generalists. It matters for skin."</td>
+              </tr>
+              <tr>
+                <td><strong>Treatment Options</strong></td>
+                <td>Wide range, holistic approach</td>
+                <td>"Hair, skin, sexual health, GI"</td>
+                <td>"We're skin experts, not generalists. Better precision."</td>
+              </tr>
+              <tr>
+                <td><strong>Customer Support</strong></td>
+                <td>Dermatology-trained support team</td>
+                <td>"Multi-specialty support team"</td>
+                <td>"Our support team knows skin. Ro's is spread thin."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Battlecard: Ekwa vs. Apostrophe</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Ekwa Positioning</th>
+                <th>Apostrophe Talking Point</th>
+                <th>Ekwa Rebuttal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Physician Oversight</strong></td>
+                <td>"Physician-led personalization"</td>
+                <td>"Board-certified dermatologist oversight"</td>
+                <td>"Apostrophe outsources to nurse practitioners. We have dermatologists."</td>
+              </tr>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>$45-75</td>
+                <td>$55-95 (premium positioning)</td>
+                <td>"Same quality, better price. We pass savings to customers."</td>
+              </tr>
+              <tr>
+                <td><strong>Speed to Rx</strong></td>
+                <td>24-48 hours</td>
+                <td>"3-4 day turnaround"</td>
+                <td>"We're faster AND more thorough. Best of both worlds."</td>
+              </tr>
+              <tr>
+                <td><strong>Regulatory Risk</strong></td>
+                <td>"Compliant, licensed dermatologists"</td>
+                <td>"State licensing complications" (leverage)</td>
+                <td>"Apostrophe restricted in multiple states. Ekwa operates in 48 states."</td>
+              </tr>
+              <tr>
+                <td><strong>Treatment Breadth</strong></td>
+                <td>6+ conditions</td>
+                <td>"Hair loss + acne focus"</td>
+                <td>"We cover more conditions. True one-stop-shop for skin health."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Battlecard: Ekwa vs. Done Dermatology</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Ekwa Positioning</th>
+                <th>Done Talking Point</th>
+                <th>Ekwa Rebuttal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Simplicity</strong></td>
+                <td>"Simple + Sophisticated"</td>
+                <td>"Ultra-simple, 5-minute consults"</td>
+                <td>"Simplicity doesn't mean oversight. We're simple AND thorough."</td>
+              </tr>
+              <tr>
+                <td><strong>Speed</strong></td>
+                <td>24-48 hour Rx</td>
+                <td>"Fastest in market"</td>
+                <td>"Speed is good, but accuracy matters. Our process is faster than you'd think."</td>
+              </tr>
+              <tr>
+                <td><strong>Brand</strong></td>
+                <td>"Dermatology intelligence"</td>
+                <td>"Done. You're welcome."</td>
+                <td>"Clever branding doesn't replace dermatology expertise. We have both."</td>
+              </tr>
+              <tr>
+                <td><strong>Treatment Focus</strong></td>
+                <td>Broader condition coverage</td>
+                <td>"Acne, rosacea, eczema" (limited)</td>
+                <td>"Done is a startup; Ekwa is specialist-grade dermatology."</td>
+              </tr>
+              <tr>
+                <td><strong>Outcomes Data</strong></td>
+                <td>92% satisfaction, published studies</td>
+                <td>"Customer testimonials only"</td>
+                <td>"Show us your clinical data. Ours is peer-reviewed."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROI CALCULATOR TAB -->
+    <div id="roi-panel" class="ekwa-tab-panel">
+      <div class="ekwa-card">
+        <h3>Dermatology Market Size & CAC/LTV Analysis</h3>
+        <canvas id="roiChart" height="300"></canvas>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Financial Model: Ekwa vs. Competitors</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Ekwa</th>
+                <th>Curology</th>
+                <th>Ro Dermatology</th>
+                <th>Apostrophe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Average Transaction Value</strong></td>
+                <td>$60</td>
+                <td>$24</td>
+                <td>$65</td>
+                <td>$75</td>
+              </tr>
+              <tr>
+                <td><strong>Customer Acquisition Cost (CAC)</strong></td>
+                <td>$35-45</td>
+                <td>$28-35</td>
+                <td>$40-50</td>
+                <td>$45-55</td>
+              </tr>
+              <tr>
+                <td><strong>Lifetime Value (LTV) - 12 months</strong></td>
+                <td>$480-600</td>
+                <td>$240-336</td>
+                <td>$520-650</td>
+                <td>$525-675</td>
+              </tr>
+              <tr>
+                <td><strong>LTV:CAC Ratio</strong></td>
+                <td>13:1 - 17:1</td>
+                <td>7:1 - 12:1</td>
+                <td>11:1 - 16:1</td>
+                <td>10:1 - 15:1</td>
+              </tr>
+              <tr>
+                <td><strong>Repeat Rate (6mo)</strong></td>
+                <td>65-75%</td>
+                <td>45-55%</td>
+                <td>60-70%</td>
+                <td>55-65%</td>
+              </tr>
+              <tr>
+                <td><strong>Gross Margin</strong></td>
+                <td>72-78%</td>
+                <td>65-70%</td>
+                <td>70-76%</td>
+                <td>68-74%</td>
+              </tr>
+              <tr>
+                <td><strong>Year 2 Growth Target</strong></td>
+                <td>85-120%</td>
+                <td>35-45%</td>
+                <td>65-85%</td>
+                <td>40-60%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Market Expansion Scenarios</h3>
+        <div class="ekwa-table-wrap">
+          <table class="ekwa-table">
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Year 1 Revenue</th>
+                <th>Year 2 Revenue</th>
+                <th>Year 3 Revenue</th>
+                <th>Key Drivers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Conservative</strong></td>
+                <td>$8.5M</td>
+                <td>$16.2M</td>
+                <td>$28.5M</td>
+                <td>Organic growth, regional focus</td>
+              </tr>
+              <tr>
+                <td><strong>Base Case</strong></td>
+                <td>$12.8M</td>
+                <td>$24.6M</td>
+                <td>$45.2M</td>
+                <td>Partnerships, national expansion</td>
+              </tr>
+              <tr>
+                <td><strong>Aggressive</strong></td>
+                <td>$18.5M</td>
+                <td>$38.2M</td>
+                <td>$72.8M</td>
+                <td>Acquisition, vertical integration</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="ekwa-footer">
+    <p>&copy; 2026 Ekwa Marketing. Dermatology Vertical Intelligence. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Hamburger Navigation
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const open = btn.classList.toggle('open');
+      menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+
+    // Tabs
+    document.querySelectorAll('.ekwa-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.ekwa-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.ekwa-tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Charts Configuration
+    const chartDefaults = {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          labels: {
+            font: { family: 'Montserrat, sans-serif', size: 12 },
+            color: '#7F8C8D'
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { font: { family: 'Montserrat, sans-serif', size: 11 } },
+          grid: { color: '#e0e0e0' }
+        },
+        y: {
+          ticks: { font: { family: 'Montserrat, sans-serif', size: 11 } },
+          grid: { color: '#e0e0e0' }
+        }
+      }
+    };
+
+    // Market Opportunity Chart
+    const oppCtx = document.getElementById('oppChart');
+    if (oppCtx) {
+      new Chart(oppCtx, {
+        type: 'bubble',
+        data: {
+          datasets: [
+            {
+              label: 'Acne Treatment',
+              data: [{ x: 8, y: 85, r: 35 }],
+              backgroundColor: 'rgba(123, 104, 238, 0.3)',
+              borderColor: '#7B68EE',
+              borderWidth: 2
+            },
+            {
+              label: 'Anti-Aging',
+              data: [{ x: 7, y: 75, r: 28 }],
+              backgroundColor: 'rgba(59, 116, 187, 0.3)',
+              borderColor: '#3B74BB',
+              borderWidth: 2
+            },
+            {
+              label: 'Hair Loss Treatment',
+              data: [{ x: 6.5, y: 68, r: 25 }],
+              backgroundColor: 'rgba(201, 162, 39, 0.3)',
+              borderColor: '#C9A227',
+              borderWidth: 2
+            },
+            {
+              label: 'Eczema/Rosacea',
+              data: [{ x: 5.5, y: 62, r: 20 }],
+              backgroundColor: 'rgba(73, 205, 228, 0.3)',
+              borderColor: '#49CDE4',
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: {
+            ...chartDefaults.plugins,
+            tooltip: {
+              callbacks: {
+                label: (context) => {
+                  const data = context.raw;
+                  return `Market Size: $${data.r * 50}M TAM`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ...chartDefaults.scales.x,
+              title: { display: true, text: 'Competitive Intensity (1-10)', font: { size: 12 } }
+            },
+            y: {
+              ...chartDefaults.scales.y,
+              title: { display: true, text: 'Market Size (Relative)', font: { size: 12 } }
+            }
+          }
+        }
+      });
+    }
+
+    // Win/Loss Analysis Chart
+    const winlossCtx = document.getElementById('winlossChart');
+    if (winlossCtx) {
+      new Chart(winlossCtx, {
+        type: 'bar',
+        data: {
+          labels: ['vs. Curology', 'vs. Ro', 'vs. Apostrophe', 'vs. Done', 'vs. Others'],
+          datasets: [
+            {
+              label: 'Wins',
+              data: [35, 42, 48, 56, 64],
+              backgroundColor: '#1E8449'
+            },
+            {
+              label: 'Losses',
+              data: [25, 28, 20, 14, 12],
+              backgroundColor: '#C0392B'
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          indexAxis: 'y',
+          scales: {
+            x: { stacked: true, ...chartDefaults.scales.x }
+          }
+        }
+      });
+    }
+
+    // Pricing Heatmap Chart
+    const priceCtx = document.getElementById('priceChart');
+    if (priceCtx) {
+      new Chart(priceCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Ekwa', 'Curology', 'Ro Derm', 'Apostrophe', 'Done'],
+          datasets: [
+            {
+              label: 'Base Consultation',
+              data: [60, 20, 45, 55, 30],
+              backgroundColor: '#7B68EE'
+            },
+            {
+              label: 'Monthly Subscription',
+              data: [60, 20, 55, 65, 40],
+              backgroundColor: '#3B74BB'
+            },
+            {
+              label: 'Premium Add-ons',
+              data: [25, 15, 30, 35, 20],
+              backgroundColor: '#C9A227'
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          scales: {
+            y: { stacked: true, ...chartDefaults.scales.y }
+          }
+        }
+      });
+    }
+
+    // Threat Matrix Chart
+    const threatCtx = document.getElementById('threatChart');
+    if (threatCtx) {
+      new Chart(threatCtx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'High Threat',
+              data: [
+                { x: 85, y: 90 },
+                { x: 82, y: 88 },
+                { x: 78, y: 85 },
+                { x: 75, y: 80 }
+              ],
+              backgroundColor: '#C0392B',
+              borderColor: '#A93226',
+              borderWidth: 2
+            },
+            {
+              label: 'Medium Threat',
+              data: [
+                { x: 65, y: 70 },
+                { x: 62, y: 68 },
+                { x: 58, y: 65 }
+              ],
+              backgroundColor: '#F39C12',
+              borderColor: '#D68910',
+              borderWidth: 2
+            },
+            {
+              label: 'Low Threat',
+              data: [
+                { x: 45, y: 50 },
+                { x: 40, y: 42 }
+              ],
+              backgroundColor: '#1E8449',
+              borderColor: '#186A3B',
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          scales: {
+            x: {
+              ...chartDefaults.scales.x,
+              title: { display: true, text: 'Market Share (%)', font: { size: 12 } },
+              min: 30,
+              max: 100
+            },
+            y: {
+              ...chartDefaults.scales.y,
+              title: { display: true, text: 'Competitive Strength (0-100)', font: { size: 12 } },
+              min: 30,
+              max: 100
+            }
+          }
+        }
+      });
+    }
+
+    // Positioning Matrix Chart
+    const posCtx = document.getElementById('posMatrix');
+    if (posCtx) {
+      new Chart(posCtx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Ekwa',
+              data: [{ x: 85, y: 80 }],
+              backgroundColor: '#7B68EE',
+              borderColor: '#5A4A9A',
+              borderWidth: 3,
+              pointRadius: 12
+            },
+            {
+              label: 'Curology',
+              data: [{ x: 70, y: 75 }],
+              backgroundColor: '#C0392B',
+              pointRadius: 10
+            },
+            {
+              label: 'Ro Dermatology',
+              data: [{ x: 75, y: 70 }],
+              backgroundColor: '#F39C12',
+              pointRadius: 10
+            },
+            {
+              label: 'Apostrophe',
+              data: [{ x: 88, y: 65 }],
+              backgroundColor: '#3B74BB',
+              pointRadius: 10
+            },
+            {
+              label: 'Done',
+              data: [{ x: 60, y: 85 }],
+              backgroundColor: '#49CDE4',
+              pointRadius: 10
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          scales: {
+            x: {
+              ...chartDefaults.scales.x,
+              title: { display: true, text: 'Clinical Depth & Expertise (0-100)', font: { size: 12 } },
+              min: 40,
+              max: 100
+            },
+            y: {
+              ...chartDefaults.scales.y,
+              title: { display: true, text: 'Accessibility & Affordability (0-100)', font: { size: 12 } },
+              min: 40,
+              max: 100
+            }
+          }
+        }
+      });
+    }
+
+    // ROI Model Chart
+    const roiCtx = document.getElementById('roiChart');
+    if (roiCtx) {
+      new Chart(roiCtx, {
+        type: 'line',
+        data: {
+          labels: ['Month 1', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
+          datasets: [
+            {
+              label: 'Ekwa',
+              data: [0, 8.5, 22.5, 45, 75],
+              borderColor: '#7B68EE',
+              backgroundColor: 'rgba(123, 104, 238, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Curology',
+              data: [0, 5, 15, 30, 50],
+              borderColor: '#C0392B',
+              backgroundColor: 'rgba(192, 57, 43, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Ro Dermatology',
+              data: [0, 7, 20, 40, 68],
+              borderColor: '#F39C12',
+              backgroundColor: 'rgba(243, 156, 18, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            }
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          scales: {
+            y: {
+              ...chartDefaults.scales.y,
+              title: { display: true, text: 'Cumulative ROI ($M)', font: { size: 12 } }
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -5,223 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
     <title>Operation Med-Derm Bridge™ - Multi-Specialty Integration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f7fa;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 20px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .hero-section {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-        }
-        .hero-section h2 {
-            color: #1a1a2e;
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-        .hero-section p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 12px;
-        }
-        .problem-section {
-            background: #ffebee;
-            border-left: 4px solid #c62828;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-        .problem-section strong {
-            color: #c62828;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .feature {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #0066cc;
-        }
-        .feature-title {
-            font-weight: 600;
-            color: #0066cc;
-            margin-bottom: 8px;
-        }
-        .feature-desc {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-        .testimonial-section {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-        }
-        .testimonial-section h2 {
-            color: #1a1a2e;
-            font-size: 24px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .testimonials {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-        }
-        .testimonial {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 6px;
-            border-top: 3px solid #00a651;
-        }
-        .testimonial-text {
-            font-size: 14px;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-        .testimonial-author {
-            font-weight: 600;
-            color: #1a1a2e;
-            font-size: 13px;
-        }
-        .testimonial-title {
-            font-size: 12px;
-            color: #0066cc;
-        }
-        .form-section {
-            background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%);
-            padding: 40px;
-            border-radius: 8px;
-            color: white;
-        }
-        .form-section h2 {
-            font-size: 24px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .form-row {
-            margin-bottom: 16px;
-        }
-        .form-row.two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #00a651;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #008540;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 13px;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-            }
-            header p {
-                font-size: 16px;
-            }
-            .features {
-                grid-template-columns: 1fr;
-            }
-            .testimonials {
-                grid-template-columns: 1fr;
-            }
-            .form-row.two-col {
-                grid-template-columns: 1fr;
-            }
-            .hero-section, .testimonial-section, .form-section {
-                padding: 20px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: #f5f7fa; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .hero-section { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .hero-section h2 { color: #1C305D; font-size: 24px; margin-bottom: 16px; font-weight: 700; }
+        .hero-section p { font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 12px; }
+        .problem-section { background: #FFEBEE; border-left: 4px solid #9B5DE5; padding: 20px; border-radius: 6px; margin: 20px 0; }
+        .problem-section strong { color: #1C305D; }
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .feature { background: #EBF4FF; padding: 20px; border-radius: 6px; border-left: 4px solid #3B74BB; }
+        .feature-title { font-weight: 700; color: #1C305D; margin-bottom: 8px; font-size: 14px; }
+        .feature-desc { font-size: 13px; color: #555; line-height: 1.5; }
+        .testimonial-section { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .testimonial-section h2 { color: #1C305D; font-size: 24px; margin-bottom: 30px; text-align: center; font-weight: 700; }
+        .testimonials { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .testimonial { background: #f5f5f5; padding: 20px; border-radius: 6px; border-top: 3px solid #3B74BB; }
+        .testimonial-text { font-size: 14px; color: #555; font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+        .testimonial-author { font-weight: 700; color: #1C305D; font-size: 13px; }
+        .testimonial-title { font-size: 12px; color: #3B74BB; }
+        .form-section { background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%); padding: 40px; border-radius: 8px; color: white; }
+        .form-section h2 { font-size: 24px; margin-bottom: 24px; text-align: center; font-weight: 700; }
+        form { max-width: 500px; margin: 0 auto; }
+        .form-row { margin-bottom: 16px; }
+        .form-row.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+        input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; font-family: 'Montserrat', sans-serif; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #9B5DE5; box-shadow: 0 0 0 3px rgba(155,93,229,0.1); }
+        button { width: 100%; padding: 12px; background: #C9A227; color: #1C305D; border: none; border-radius: 4px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; font-family: 'Montserrat', sans-serif; }
+        button:hover { background: #B89104; }
+        .back-link { display: inline-block; margin-top: 20px; color: #3B74BB; text-decoration: none; font-size: 13px; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) { header h1 { font-size: 28px; } header p { font-size: 16px; } .features { grid-template-columns: 1fr; } .testimonials { grid-template-columns: 1fr; } .form-row.two-col { grid-template-columns: 1fr; } .hero-section, .testimonial-section, .form-section { padding: 20px; } }
     </style>
 </head>
 <body>
-    <header>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-container">
+            <div class="ekwa-nav-logo">ekwa</div>
+            <ul class="ekwa-nav-menu">
+                <li><a href="../../../../index.html">All Verticals</a></li>
+                <li><a href="../../index.html">MedSpa</a></li>
+            </ul>
+            <button class="ekwa-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
         <h1>Your MedSpa + Dermatology Practice</h1>
         <p>One Unified Digital Brand</p>
-    </header>
+    </div>
 
     <div class="container">
         <div class="hero-section">
@@ -339,5 +181,17 @@
 
         <a href="../../index.html" class="back-link">← Back to Dashboard</a>
     </div>
+
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer-content">
+            <p>&copy; 2026 ekwa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.ekwa-hamburger').addEventListener('click', function() {
+            document.querySelector('.ekwa-nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

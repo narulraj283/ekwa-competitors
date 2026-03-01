@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalled Deal Re-engagement — Dentistry — Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        .ekwa-email-content {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        
+        .ekwa-email-sequence {
+            display: grid;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .ekwa-email-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .ekwa-email-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ekwa-email-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .ekwa-email-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-timing {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-body {
+            padding: 2rem;
+        }
+        
+        .ekwa-field-group {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-field-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .ekwa-field-content {
+            background: #f8f9fa;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            word-break: break-word;
+        }
+        
+        .ekwa-field-content code {
+            background: #e8ecf1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: #c9a227;
+            font-weight: 600;
+        }
+        
+        .ekwa-copy-btn {
+            display: inline-block;
+            background: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            margin-top: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .ekwa-copy-btn:hover {
+            background: #2a5299;
+        }
+        
+        .ekwa-alert--info {
+            background: #e8f0fb;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #1C305D;
+        }
+        
+        .ekwa-alert--info strong {
+            color: #1C305D;
+        }
+        
+        .ekwa-nav-back {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-nav-back a {
+            color: #3B74BB;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ekwa-nav-back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-container">
+            <div class="ekwa-nav-brand">Ekwa</div>
+            <div class="ekwa-nav-toggle" id="navToggle">☰</div>
+            <ul class="ekwa-nav-menu" id="navMenu">
+                <li><a href="../index.html">Head of Sales</a></li>
+                <li><a href="../../../index.html">Dentistry Dashboard</a></li>
+                <li><a href="index.html">Email Sequences</a></li>
+                <li><a href="../../../../index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
+        <div class="ekwa-container">
+            <h1>Stalled Deal Re-engagement</h1>
+            <p>Re-engage prospects when deals go quiet in the pipeline. Gentle nudges over 21 days designed to keep Ekwa top-of-mind without being pushy.</p>
+        </div>
+    </div>
+
+    <main class="ekwa-container ekwa-email-content">
+        <div class="ekwa-nav-back">
+            <a href="index.html">← Back to Email Sequences</a>
+        </div>
+
+        <div class="ekwa-email-sequence">
+            <!-- Email 1: Day 1 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 1 of 3</span>
+                        <span class="ekwa-email-timing">Day 1 (Trigger: 14+ Days No Activity)</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email1-subject">
+Still thinking it over, {{contact.firstname}}?
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email1-preview">
+No rush — just wanted to check in on {{contact.company}}
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email1-body">
+Hi {{contact.firstname}},
+
+I haven't heard from you in a bit, and I wanted to check in. I know major decisions take time, and that's okay.
+
+Are you still thinking about moving forward with Ekwa? Or has something changed since we last talked?
+
+If you have questions about the proposal or need to discuss anything differently, I'm here.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> Trigger this email when a deal has had no activity in 14+ days. Use the "Last Activity" property to set up the automation. Keep this friendly and low-pressure.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2: Day 7 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 2 of 3</span>
+                        <span class="ekwa-email-timing">Day 7</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email2-subject">
+One thing changed since we last talked — relevant to {{contact.company}}
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email2-preview">
+Speed of decision matters in your market — here's why
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email2-body">
+Hi {{contact.firstname}},
+
+I wanted to share something I've observed working with dental practices: The ones who wait 60+ days to make a decision often end up behind the ones in their area who moved faster.
+
+Why? Because by the time they're ready, their competitors are already capturing first-mover advantage in local search and reputation.
+
+{{contact.company}} is in a great position right now. The question is whether you want to move first in your market, or wait and play catch-up.
+
+If you're ready to move, I can have everything set up within 2 weeks. What would help you make a decision?
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> This email provides genuine insight without being pushy. It addresses a real pain point (competitive disadvantage) and ties it back to their decision. Use this to gently increase urgency.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 3: Day 21 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 3 of 3</span>
+                        <span class="ekwa-email-timing">Day 21</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email3-subject">
+Checking in one last time — {{contact.firstname}}
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email3-preview">
+Last check-in from me — no pressure, just care about {{contact.company}}'s future
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email3-body">
+Hi {{contact.firstname}},
+
+This is the last check-in from me unless you want to reconnect.
+
+I genuinely care about seeing {{contact.company}} succeed with its marketing. Whether it's with Ekwa or someone else, I want you to find the right partner.
+
+If you've decided to move forward with us, awesome — let's do it.
+
+If you've decided to go another direction, I totally understand. No hard feelings.
+
+And if you're still on the fence or waiting for the right timing, I'm open to reconnecting down the road. Just let me know.
+
+Either way, I'm rooting for {{contact.company}}.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> This is your final touch. After this email, move the deal to a longer nurture cadence (like a quarterly check-in) or a separate workflow. Respect their time and decision-making process.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="ekwa-footer">
+        <div class="ekwa-container">
+            <p>&copy; 2026 Ekwa. Dental marketing specialists.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('ekwa-nav-menu-active');
+        });
+
+        document.querySelectorAll('.ekwa-copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                navigator.clipboard.writeText(target.innerText.trim()).then(() => {
+                    btn.textContent = '✅ Copied!';
+                    setTimeout(() => btn.textContent = '📋 Copy', 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

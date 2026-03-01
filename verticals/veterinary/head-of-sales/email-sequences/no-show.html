@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Show Sequence - Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --vertical-accent: #2A9D8F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .header-breadcrumb {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .header-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .header-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ekwa-nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 0;
+        }
+        
+        .ekwa-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ekwa-nav a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+        
+        .ekwa-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .sequence-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sequence-info h2 {
+            margin-top: 0;
+            color: var(--vertical-accent);
+        }
+        
+        .emails {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .email-item {
+            background: white;
+            border-left: 4px solid var(--vertical-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .email-header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .email-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .email-day-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .email-content {
+            padding: 30px;
+        }
+        
+        .email-section {
+            margin-bottom: 25px;
+        }
+        
+        .email-section-title {
+            font-weight: 700;
+            color: var(--vertical-accent);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .email-subject {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-word;
+            margin-bottom: 10px;
+        }
+        
+        .email-body {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--vertical-accent);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .email-body p {
+            margin: 0 0 15px 0;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .copy-button {
+            background: var(--vertical-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background: #1f6d63;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(42, 157, 143, 0.2);
+        }
+        
+        .copy-button.copied {
+            background: #27ae60;
+        }
+        
+        .token-note {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            border-left: 3px solid var(--vertical-accent);
+        }
+        
+        .token-note strong {
+            color: var(--vertical-accent);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-content">
+            <a href="../../../../">Home</a>
+            <a href="../../">Veterinary Vertical</a>
+            <a href="index.html">Email Sequences</a>
+            <a href="#">No-Show</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="header-content">
+            <h1>No-Show Sequence</h1>
+            <div class="header-breadcrumb">
+                <a href="../../../../">Home</a> > <a href="../../">Veterinary</a> > <a href="index.html">Email Sequences</a> > No-Show
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sequence-info">
+            <h2>Sequence Overview</h2>
+            <p><strong>Purpose:</strong> Re-engage prospects who missed a scheduled discovery meeting with empathy, understanding, and a clear path forward.</p>
+            <p><strong>Timeline:</strong> 2 emails strategically spaced</p>
+            <p><strong>Goal:</strong> Acknowledge the missed meeting without judgment, understand what happened, and reschedule if the prospect is still interested.</p>
+        </div>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 1: The Check-In</h3>
+                    <span class="email-day-badge">Immediate Follow-up</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">We missed you today, {{contact.firstName}}</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I had our meeting blocked off for today and wanted to reach out. I'm guessing something came up—that happens, especially in the veterinary business where emergencies don't follow a schedule.</p>
+                            <p>I'm still really interested in exploring how we can help {{contact.company}} attract more new clients and compete with the corporate chains in your area. The approach we discussed is working well for other independent practices.</p>
+                            <p>No pressure, but if you'd still like to have that conversation, I can work around your schedule. I have openings over the next couple of weeks.</p>
+                            <p>What does your calendar look like?</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email1')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> Uses {{contact.firstName}} and {{contact.company}} for personalization.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 2: Final Offer</h3>
+                    <span class="email-day-badge">3-5 Days Later</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">Last attempt to connect</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I haven't heard back, and I want to respect your time—but I also don't want to assume you're not interested. Sometimes emails get lost or schedules are just crazy.</p>
+                            <p>Here's what I'd suggest: If you're still interested in exploring how Ekwa can help {{contact.company}} stand out and attract more quality new clients, I'm willing to do a quick 15-minute call at your convenience—no long, drawn-out meetings required.</p>
+                            <p>Or, if now just isn't the right time, that's completely fine. Feel free to reach out in a few months when things have settled down.</p>
+                            <p>Let me know either way.</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email2')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> {{contact.firstName}} and {{contact.company}} for targeted messaging.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../../../../">Home</a>
+            <a href="../../../../about/">About</a>
+            <a href="../../../../contact/">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(button, emailId) {
+            const emailContent = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(emailContent).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurture Sequence - Ophthalmology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --ekwa-green: #40916C;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-light: #e0e0e0;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--ekwa-green);
+        }
+
+        .breadcrumb {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+        }
+
+        .meta-icon {
+            font-size: 1.2em;
+        }
+
+        .emails {
+            margin-bottom: 50px;
+        }
+
+        .email {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, var(--ekwa-green), #2d6a52);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .email-number {
+            font-size: 2em;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .email-timing {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .email-content {
+            padding: 30px;
+        }
+
+        .email-field {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--ekwa-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .field-value {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--ekwa-green);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .field-value code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c41e3a;
+            font-size: 0.9em;
+        }
+
+        .email-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--ekwa-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .copy-btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .copy-btn.copied {
+            background-color: #4caf50;
+        }
+
+        .notes {
+            background-color: #fffbf0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .notes strong {
+            color: #e65100;
+        }
+
+        footer {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 2px solid var(--ekwa-green);
+        }
+
+        footer a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--ekwa-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--ekwa-green);
+            border: 2px solid var(--ekwa-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f8f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html">← Back to All Sequences</a>
+            </div>
+            <h1>Lead Nurture Sequence</h1>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📧</span>
+                    <span>3 Emails</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Days 1, 3, 7</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎯</span>
+                    <span>Warm Leads</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">1</div>
+                    <div class="email-timing">Send: Day 1</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Quick question about {{contact.company}}'s patient acquisition</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I was researching {{contact.company}} and noticed something interesting about your market position.
+
+Ophthalmology practices have a unique marketing challenge — they need to attract LASIK patients (high value, emotional decision) while also serving routine eye care patients. These are completely different patient journeys and marketing approaches.
+
+Here's what I'm wondering: Is your current marketing optimized for BOTH your elective procedures AND your insurance-based patient base? Or are you focusing most of your efforts on just one?
+
+Most practices we work with realize they're missing 30-40% of their acquisition potential because they're not addressing the full spectrum of patient needs.
+
+Happy to share what we're seeing across the ophthalmology space if it would be helpful.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> This email opens conversation about their dual marketing challenge. It positions Ekwa as understanding the unique complexity of ophthalmology practice marketing.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this, 'email1-body')">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">2</div>
+                    <div class="email-timing">Send: Day 3</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">What ophthalmology practices are seeing with digital marketing in 2026</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I had a few conversations this week with ophthalmology practices about their digital marketing strategy, and a pattern emerged.
+
+The practices that dominate local search for BOTH "LASIK surgeon near me" AND "eye doctor near me" see 40-60% more new patient inquiries than those optimizing for just one.
+
+It's not enough to rank for one patient journey anymore. Your potential patients are searching in different ways depending on what they need:
+- Some want elective procedures (emotional, high-value)
+- Others need routine care (insurance-driven, habitual)
+
+Your current provider might handle one well, but the specialized ophthalmic practices we work with are winning because they address the entire spectrum.
+
+We've built SEO frameworks and content strategies specifically for this dual-purpose challenge. If you're curious how this could look for {{contact.company}}, let's grab 15 minutes.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> This email provides specific data (40-60% increase) to validate their concern. It subtly references "current provider" without naming competitors, and positions Ekwa's specialized approach.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this, 'email2-body')">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">3</div>
+                    <div class="email-timing">Send: Day 7</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Quick 15-min call?</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I've sent a couple of notes your way about ophthalmology-specific marketing strategy, and I don't want to be that person who keeps emailing without getting a real conversation going.
+
+If my insights haven't resonated, no problem — this might just be the wrong time.
+
+But if you're even slightly curious about how practices are winning the dual-patient-acquisition game, I'd love to spend 15 minutes together. No pitch, just strategy.
+
+Are you free for a quick call next week? I can work around your schedule.
+
+[Calendar link]
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Closing email with a soft CTA. Acknowledges potential lack of interest while making it easy to say yes. Includes optional calendar link placeholder.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this, 'email3-body')">Copy Body</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-secondary">Back to All Sequences</a>
+            <a href="post-msm.html" class="btn">Next: Post MSM</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Lead Nurture Sequence for Ophthalmology Sales</strong></p>
+        <p>Use these templates to engage warm leads and qualify interest in specialized ophthalmology marketing</p>
+        <p><a href="../../../../index.html">← Back to Home</a></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(button, elementId) {
+            const text = button.parentElement.querySelector('.field-value.email-body')?.textContent || 
+                         button.parentElement.querySelector('.field-value')?.textContent;
+            if (text) {
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -5,217 +5,425 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>Before They Google 'LASIK [Your City]' — Will They Find You First?</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #00a651 0%, #1a1a2e 100%); color: #fff; padding: 60px 20px; text-align: center; }
-        header h1 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
-        header p { font-size: 20px; opacity: 0.95; max-width: 700px; margin: 0 auto; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        .cta-box { background: #e8f5e9; border-left: 4px solid #00a651; padding: 20px; margin: 30px 0; border-radius: 8px; }
-        .cta-box strong { color: #00a651; }
-        h2 { font-size: 28px; color: #1a1a2e; margin: 40px 0 20px; padding-top: 20px; border-top: 2px solid #0066cc; }
-        h3 { font-size: 20px; color: #00a651; margin: 25px 0 15px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
-        .card { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h4 { color: #00a651; font-size: 16px; margin-bottom: 10px; }
-        .card p { font-size: 14px; color: #555; }
-        .testimonial { background: #fff; border: 1px solid #ddd; padding: 25px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #0066cc; }
-        .testimonial-name { font-weight: 700; color: #1a1a2e; margin-top: 15px; font-size: 14px; }
-        .testimonial-title { font-size: 12px; color: #666; }
-        form { background: #fff; border: 1px solid #ddd; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        form h3 { margin-top: 0; border-top: none; }
-        label { display: block; margin-top: 20px; font-weight: 600; color: #333; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
-        textarea { resize: vertical; min-height: 100px; }
-        button { background: #00a651; color: #fff; padding: 14px 28px; border: none; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: background 0.3s; width: 100%; }
-        button:hover { background: #008c3f; }
-        .success-msg { display: none; background: #e8f5e9; border: 1px solid #00a651; padding: 15px; border-radius: 4px; color: #2e7d32; }
-        footer { text-align: center; padding: 40px 20px; color: #999; font-size: 12px; border-top: 1px solid #ddd; }
-        .highlight { background: #fff3e0; padding: 10px; border-left: 4px solid #f5a623; margin: 15px 0; }
-        @media (max-width: 768px) { header h1 { font-size: 28px; } h2 { font-size: 22px; } }
+        .vertical-accent {
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-1);
+        }
+        .procedure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .procedure-card {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        .procedure-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .procedure-card h3 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        .procedure-card ul {
+            padding-left: var(--space-5);
+            font-size: var(--text-sm);
+            line-height: 1.8;
+        }
+        .procedure-card li {
+            margin-bottom: var(--space-2);
+            color: var(--ekwa-gray-700);
+        }
+        .testimonial-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--ekwa-success);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-6) 0;
+        }
+        .testimonial-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+        }
+        .testimonial-title {
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-600);
+        }
+        .pricing-table {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .pricing-table h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        .pricing-table ul {
+            padding-left: var(--space-5);
+            font-size: var(--text-sm);
+        }
+        .pricing-table li {
+            margin-bottom: var(--space-2);
+            line-height: 1.6;
+        }
+        .form-section {
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-3);
+            border: 1px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: var(--text-sm);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ekwa-blue);
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        .checkbox-group {
+            margin-top: var(--space-2);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        h2 {
+            color: var(--ekwa-navy);
+            font-weight: 800;
+            font-size: var(--text-3xl);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            padding-bottom: var(--space-3);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-3);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Before They Google 'LASIK [Your City]' — Will They Find You First?</h1>
-        <p>Own the procedure-specific content landscape. LASIK, cataract, dry eye, glaucoma, premium IOLs. Patient decision journeys, not generic practices.</p>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <div class="ekwa-nav__links">
+                <a href="../../../../index.html">All Verticals</a>
+                <a href="../../index.html">Ophthalmology</a>
+            </div>
+            <button class="ekwa-nav__hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile" id="navDrawer">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Ophthalmology</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__badge">Strategic Maneuver</div>
+            <h1>Before They Google 'LASIK [Your City]'</h1>
+            <p>Own the procedure-specific content landscape. LASIK, cataract, dry eye, glaucoma, premium IOLs. Patient decision journeys, not generic practices.</p>
+        </div>
+        <div class="vertical-accent"></div>
     </header>
 
-    <div class="container">
-        <div class="cta-box">
-            <strong>Eye Authority™ Promise:</strong> Your practice owns the procedure-specific search results. When patients search for LASIK, cataract surgery, dry eye treatment, or premium IOL information in your market, they find YOUR content first — with YOUR authority, YOUR clinical credibility, YOUR brand.
+    <!-- Main Content -->
+    <main class="ekwa-section">
+        <div class="ekwa-container">
+            <div class="ekwa-alert ekwa-alert--gold">
+                <strong>Eye Authority™ Promise</strong>
+                <p>Your practice owns the procedure-specific search results. When patients search for LASIK, cataract surgery, dry eye treatment, or premium IOL information in your market, they find YOUR content first — with YOUR authority, YOUR clinical credibility, YOUR brand.</p>
+            </div>
+
+            <h2>The Content Gap: Procedure Authority</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">Most ophthalmology practices have a website. Generic pages about LASIK, cataract surgery, dry eye. Buried under competitor content.</p>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">But what if you built the definitive content ecosystem for the procedures that drive 80% of your revenue? Not competitor-matching content. Authority content. E-E-A-T (experience, expertise, authoritativeness, trustworthiness) that Google ranks.</p>
+
+            <div class="ekwa-alert ekwa-alert--info">
+                <strong>The Opportunity</strong>
+                <p>Patients decide before they call. 73% of patients research treatments online before contacting a provider. Your content shapes that decision. Authority content wins.</p>
+            </div>
+
+            <h2>4 Procedure Content Programs</h2>
+
+            <div class="procedure-grid">
+                <div class="procedure-card">
+                    <h3>1. LASIK Decision Journey</h3>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Search volume:</strong> 550K+ monthly across top 50 US markets</p>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Patient value:</strong> $4,000–$6,000 + referrals</p>
+                    <ul>
+                        <li>LASIK candidacy & quiz</li>
+                        <li>Technology comparison</li>
+                        <li>Surgeon selection guide</li>
+                        <li>Recovery timeline</li>
+                        <li>Visual outcomes</li>
+                        <li>Cost justification</li>
+                        <li>FAQs (50+ questions)</li>
+                    </ul>
+                </div>
+
+                <div class="procedure-card">
+                    <h3>2. Premium IOL Cataract</h3>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Upsell opportunity:</strong> $2,000–$4,000 per patient</p>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Impact:</strong> Basic to premium IOL = high margin</p>
+                    <ul>
+                        <li>IOL comparison matrix</li>
+                        <li>Lifestyle IOL guide</li>
+                        <li>Cost justification</li>
+                        <li>Visual outcomes</li>
+                        <li>Insurance coverage</li>
+                        <li>Patient testimonials</li>
+                    </ul>
+                </div>
+
+                <div class="procedure-card">
+                    <h3>3. Dry Eye Authority</h3>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Patient base:</strong> 16M+ diagnosed in US</p>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Recurring revenue:</strong> $500–$2K/year per patient</p>
+                    <ul>
+                        <li>Dry eye diagnosis</li>
+                        <li>Treatment options comparison</li>
+                        <li>Lifestyle management</li>
+                        <li>Meibomian gland disease</li>
+                        <li>Long-term management</li>
+                        <li>Post-refractive care</li>
+                        <li>Success stories</li>
+                    </ul>
+                </div>
+
+                <div class="procedure-card">
+                    <h3>4. Glaucoma Management</h3>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>Patient value:</strong> Long-term, recurring medical</p>
+                    <p style="font-size: var(--text-sm); margin-bottom: var(--space-3);"><strong>LTV:</strong> Highest in ophthalmology</p>
+                    <ul>
+                        <li>Glaucoma basics</li>
+                        <li>Monitoring importance</li>
+                        <li>Medication adherence</li>
+                        <li>Treatment progression</li>
+                        <li>New treatments (MIGS)</li>
+                        <li>Lifestyle modifications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Why Eye Authority Works</h2>
+            
+            <div class="ekwa-grid-2" style="margin: var(--space-6) 0;">
+                <div class="ekwa-card ekwa-card--accent">
+                    <h4>Organic Search Dominance</h4>
+                    <p>Procedure-specific content ranks organically for high-intent searches. "LASIK near me," "cataract surgery options," "dry eye treatment." These are patients READY to buy.</p>
+                </div>
+                <div class="ekwa-card ekwa-card--accent">
+                    <h4>E-E-A-T Authority</h4>
+                    <p>Google's algorithm prioritizes experience, expertise, authoritativeness, trustworthiness. Your content, reviewed by YOUR ophthalmologist, is the definition of E-E-A-T.</p>
+                </div>
+                <div class="ekwa-card ekwa-card--accent">
+                    <h4>Conversion Velocity</h4>
+                    <p>Patients who find procedure-specific content convert faster. They've already done the research. Your content answered their questions. Consultation booking is natural next step.</p>
+                </div>
+                <div class="ekwa-card ekwa-card--accent">
+                    <h4>Competitor Protection</h4>
+                    <p>Build procedure content NOW, before competitors saturate these topics. First-mover content advantage is durable.</p>
+                </div>
+            </div>
+
+            <h2>Case Study: Dry Eye Authority</h2>
+            
+            <div class="testimonial-box">
+                <div class="testimonial-text">"We invested in a comprehensive dry eye content program with ekwa six months ago. The content ranks for 'dry eye treatment [city],' 'Lipiflow near me,' 'IPL for dry eyes,' and 50+ other dry eye keywords. We've seen a 34% increase in dry eye patient volume and average case value of $1,200 (includes diagnostic testing, Lipiflow, follow-ups). Annually, that's an additional $180K in dry eye revenue from content we built once and own forever."</div>
+                <div class="testimonial-author">Dr. Michael Rodriguez, MD</div>
+                <div class="testimonial-title">Desert Dry Eye Center — Phoenix, AZ</div>
+            </div>
+
+            <h2>Eye Authority Pricing & Scope</h2>
+
+            <div class="pricing-table">
+                <h4>Base Package: $2,200/month</h4>
+                <p style="font-size: var(--text-sm); color: var(--ekwa-gray-600); margin-bottom: var(--space-3);">$26,400 annually</p>
+                <ul>
+                    <li>4-month content roadmap (40–60 pieces across 4 procedures)</li>
+                    <li>Physician-reviewed content + SEO optimization</li>
+                    <li>Monthly performance tracking (rankings, traffic, conversions)</li>
+                    <li>Quarterly strategy pivots based on data</li>
+                    <li>Basic paid media integration (Google Ads for high-intent keywords)</li>
+                </ul>
+            </div>
+
+            <div class="pricing-table">
+                <h4>Premium Package: $3,200/month</h4>
+                <p style="font-size: var(--text-sm); color: var(--ekwa-gray-600); margin-bottom: var(--space-3);">$38,400 annually</p>
+                <ul>
+                    <li><strong>Everything in Base +</strong></li>
+                    <li>Video content production (patient testimonials, procedure explainers)</li>
+                    <li>Advanced paid media (Google Ads, YouTube, social retargeting)</li>
+                    <li>Content distribution (social, email, patient education portals)</li>
+                    <li>Monthly SEO optimization and link building</li>
+                </ul>
+            </div>
+
+            <h2>Is Eye Authority Right For You?</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;"><strong>Ideal if:</strong> You're doing $2M–$8M annual revenue, have 1–3 primary procedures driving 70%+ of revenue, want to own organic search for those procedures, and are willing to invest in content that compounds over time.</p>
+
+            <h2>Next Step: Content Strategy Consultation</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">Let's audit your current content, identify ranking gaps, and map a 12-month Eye Authority roadmap. Fill out the form below.</p>
+
+            <div class="form-section">
+                <h3 style="color: var(--ekwa-navy); margin-bottom: var(--space-6);">Eye Authority Content Strategy Inquiry</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Name *</label>
+                        <input type="text" name="practice_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City/State *</label>
+                        <input type="text" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which procedures drive 70%+ of your revenue?</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="procedures" value="LASIK"> LASIK/Refractive Surgery</label>
+                            <label><input type="checkbox" name="procedures" value="Cataract"> Cataract Surgery</label>
+                            <label><input type="checkbox" name="procedures" value="Dry Eye"> Dry Eye Treatment</label>
+                            <label><input type="checkbox" name="procedures" value="Glaucoma"> Glaucoma Management</label>
+                            <label><input type="checkbox" name="procedures" value="Retina"> Retina Services</label>
+                            <label><input type="checkbox" name="procedures" value="Other"> Other</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current monthly marketing spend? *</label>
+                        <select name="marketing_spend" required>
+                            <option value="">— Select —</option>
+                            <option value="Under 1K">Under $1,000</option>
+                            <option value="1K-3K">$1,000–$3,000</option>
+                            <option value="3K-6K">$3,000–$6,000</option>
+                            <option value="6K-10K">$6,000–$10,000</option>
+                            <option value="10K+">$10,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What's your biggest content/SEO challenge?</label>
+                        <textarea name="challenge" placeholder="e.g., Don't rank for LASIK keywords, dry eye content is generic, competitors outrank us..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="source" value="eye-authority-landing">
+                    <input type="hidden" name="vertical" value="ophthalmology">
+
+                    <button type="submit" class="ekwa-btn ekwa-btn--primary" style="width: 100%;">Get Content Strategy Recommendation →</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--ekwa-gray-600);">By submitting, you'll receive a content strategy recommendation and be contacted about Eye Authority. We respect your privacy.</p>
+            </div>
         </div>
+    </main>
 
-        <h2>The Content Gap: Procedure Authority</h2>
-        <p>Most ophthalmology practices have a website. Generic pages about LASIK, cataract surgery, dry eye. Buried under competitor content.</p>
-        <p style="margin-top: 15px;">But what if you built the definitive content ecosystem for the procedures that drive 80% of your revenue? Not competitor-matching content. Authority content. E-E-A-T (experience, expertise, authoritativeness, trustworthiness) that Google ranks.</p>
-
-        <div class="highlight">
-            <strong>The Opportunity:</strong> Patients decide before they call. 73% of patients research treatments online before contacting a provider. Your content shapes that decision. Authority content wins.
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <p>&copy; 2026 ekwa.com | Healthcare Digital Marketing | Ophthalmology Vertical</p>
+            <p>Eye Authority™ is a strategic maneuver in ekwa's Ophthalmology Vertical Expansion | Confidential</p>
         </div>
-
-        <h2>4 Procedure Content Programs</h2>
-
-        <h3>1. LASIK Decision Journey Content (Highest ROI)</h3>
-        <p><strong>Search volume:</strong> 550K+ monthly searches for "LASIK [city]" across top 50 US markets.</p>
-        <p><strong>Patient value per procedure:</strong> $4,000–$6,000 + future referrals.</p>
-        <p><strong>Content pillars we build:</strong></p>
-        <ul style="margin: 10px 0; padding-left: 20px;">
-            <li>LASIK candidacy: Am I a candidate? (quiz, medical criteria, contraindications)</li>
-            <li>Technology comparison: SMILE vs. LASIK vs. PRK — what's the difference?</li>
-            <li>Surgeon selection guide: How to choose a LASIK surgeon</li>
-            <li>Recovery timeline: What to expect days 1–90 post-op</li>
-            <li>Visual outcomes: Realistic expectations for vision correction</li>
-            <li>Cost justification: Why LASIK is an investment, not an expense</li>
-            <li>FAQs: The 50 questions patients ask before surgery</li>
-        </ul>
-
-        <h3>2. Premium IOL Cataract Content (Highest Upsell)</h3>
-        <p><strong>Upsell opportunity:</strong> $2,000–$4,000 per patient. Basic cataract to premium IOL = high-margin upgrade.</p>
-        <p><strong>Content pillars we build:</strong></p>
-        <ul style="margin: 10px 0; padding-left: 20px;">
-            <li>IOL comparison: Monofocal vs. Toric vs. Multifocal vs. Extended Range</li>
-            <li>Lifestyle IOL guide: Which IOL matches YOUR lifestyle?</li>
-            <li>Cost justification: Why premium IOLs are worth it</li>
-            <li>Visual outcomes: Realistic expectations for each IOL type</li>
-            <li>Insurance coverage: What does insurance cover? What's out-of-pocket?</li>
-            <li>Patient testimonials: Real results from premium IOL patients</li>
-        </ul>
-
-        <h3>3. Dry Eye Authority Content (Highest Recurring Revenue)</h3>
-        <p><strong>Patient base:</strong> 16M+ diagnosed in the US. Recurring revenue: $500–$2,000/year per patient.</p>
-        <p><strong>Content pillars we build:</strong></p>
-        <ul style="margin: 10px 0; padding-left: 20px;">
-            <li>Dry eye diagnosis: Causes, symptoms, testing (Meibomography, osmolarity, STT)</li>
-            <li>Treatment options: Lipiflow, IPL, TearLab, Restasis, Xiidra, OTC drops — comparison</li>
-            <li>Lifestyle management: Screen time, humidity, nutrition, hydration</li>
-            <li>Meibomian gland disease: What is it? Why it matters. How we treat it.</li>
-            <li>Long-term management: Building a dry eye care plan</li>
-            <li>Post-refractive surgery dry eye: Special considerations after LASIK/PRK</li>
-            <li>Patient stories: Success stories from dry eye treatment</li>
-        </ul>
-
-        <h3>4. Glaucoma Management Content (Highest LTV Medical Patients)</h3>
-        <p><strong>Patient value:</strong> Long-term, recurring medical patients. Highest lifetime value in ophthalmology.</p>
-        <p><strong>Content pillars we build:</strong></p>
-        <ul style="margin: 10px 0; padding-left: 20px;">
-            <li>Glaucoma basics: Types, risk factors, screening importance</li>
-            <li>Monitoring: Why frequent monitoring is critical. IOP, visual fields, optic nerve.</li>
-            <li>Medication adherence: How to remember your glaucoma drops. Why adherence matters.</li>
-            <li>Treatment progression: From drops to laser to surgery. When and why.</li>
-            <li>New treatments: MIGS (Minimally Invasive Glaucoma Surgery), Selective Laser Trabeculoplasty</li>
-            <li>Lifestyle modifications: Exercise, diet, stress management for glaucoma</li>
-        </ul>
-
-        <h2>Why Eye Authority Works</h2>
-        <div class="grid-2">
-            <div class="card">
-                <h4>Organic Search Dominance</h4>
-                <p>Procedure-specific content ranks organically for high-intent searches. "LASIK near me," "cataract surgery options," "dry eye treatment." These are patients READY to buy.</p>
-            </div>
-            <div class="card">
-                <h4>E-E-A-T Authority</h4>
-                <p>Google's algorithm prioritizes experience, expertise, authoritativeness, trustworthiness. Your content, reviewed by YOUR ophthalmologist, is the definition of E-E-A-T.</p>
-            </div>
-            <div class="card">
-                <h4>Conversion Velocity</h4>
-                <p>Patients who find procedure-specific content convert faster. They've already done the research. Your content answered their questions. Consultation booking is natural next step.</p>
-            </div>
-            <div class="card">
-                <h4>Competitor Saturation Protection</h4>
-                <p>Build procedure content NOW, before competitors saturate these topics. First-mover content advantage is durable.</p>
-            </div>
-        </div>
-
-        <h2>Case Study: Dry Eye Authority in Action</h2>
-        <div class="testimonial">
-            <p>"We invested in a comprehensive dry eye content program with ekwa six months ago. The content ranks for 'dry eye treatment [city],' 'Lipiflow near me,' 'IPL for dry eyes,' and 50+ other dry eye keywords. We've seen a 34% increase in dry eye patient volume and average case value of $1,200 (includes diagnostic testing, Lipiflow, follow-ups). Annually, that's an additional $180K in dry eye revenue from content we built once and own forever."</p>
-            <div class="testimonial-name">Dr. Michael Rodriguez, MD</div>
-            <div class="testimonial-title">Owner, Desert Dry Eye Center — Phoenix, AZ</div>
-        </div>
-
-        <h2>Eye Authority Pricing & Scope</h2>
-        <p><strong>Base Package: $2,200/month</strong> ($26,400 annually)</p>
-        <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
-            <li>4-month content roadmap (40–60 pieces across 4 procedures)</li>
-            <li>Physician-reviewed content + SEO optimization</li>
-            <li>Monthly performance tracking (rankings, traffic, conversions)</li>
-            <li>Quarterly strategy pivots based on data</li>
-            <li>Basic paid media integration (Google Ads for high-intent keywords)</li>
-        </ul>
-
-        <p style="margin-top: 20px;"><strong>Premium Package: $3,200/month</strong> ($38,400 annually)</p>
-        <ul style="margin: 15px 0; padding-left: 20px; font-size: 14px;">
-            <li>Everything in Base +</li>
-            <li>Video content production (patient testimonials, procedure explainers)</li>
-            <li>Advanced paid media (Google Ads, YouTube, social retargeting)</li>
-            <li>Content distribution (social, email, patient education portals)</li>
-            <li>Monthly SEO optimization and link building</li>
-        </ul>
-
-        <h2>Is Eye Authority Right For You?</h2>
-        <p><strong>Ideal if:</strong> You're doing $2M–$8M annual revenue, have 1–3 primary procedures driving 70%+ of revenue, want to own organic search for those procedures, and are willing to invest in content that compounds over time.</p>
-
-        <h2>Next Step: Content Strategy Consultation</h2>
-        <p>Let's audit your current content, identify ranking gaps, and map a 12-month Eye Authority roadmap. Fill out the form below.</p>
-
-        <form id="contactForm">
-            <h3>Eye Authority Content Strategy Inquiry</h3>
-            <label>Full Name *</label>
-            <input type="text" name="name" required>
-
-            <label>Practice Name *</label>
-            <input type="text" name="practice_name" required>
-
-            <label>City/State *</label>
-            <input type="text" name="location" required>
-
-            <label>Phone *</label>
-            <input type="tel" name="phone" required>
-
-            <label>Email *</label>
-            <input type="email" name="email" required>
-
-            <label>Which procedures drive 70%+ of your revenue? (Check all that apply)</label>
-            <div style="margin-top: 10px;">
-                <input type="checkbox" name="procedures" value="LASIK"> LASIK/Refractive Surgery
-                <input type="checkbox" name="procedures" value="Cataract"> Cataract Surgery
-                <input type="checkbox" name="procedures" value="Dry Eye"> Dry Eye Treatment
-                <input type="checkbox" name="procedures" value="Glaucoma"> Glaucoma Management
-                <input type="checkbox" name="procedures" value="Retina"> Retina Services
-                <input type="checkbox" name="procedures" value="Other"> Other
-            </div>
-
-            <label>Current monthly marketing spend? *</label>
-            <select name="marketing_spend" required>
-                <option value="">— Select —</option>
-                <option value="Under 1K">Under $1,000</option>
-                <option value="1K-3K">$1,000–$3,000</option>
-                <option value="3K-6K">$3,000–$6,000</option>
-                <option value="6K-10K">$6,000–$10,000</option>
-                <option value="10K+">$10,000+</option>
-            </select>
-
-            <label>What's your biggest content/SEO challenge?</label>
-            <textarea name="challenge" placeholder="e.g., Don't rank for LASIK keywords, dry eye content is generic, competitors outrank us..."></textarea>
-
-            <input type="hidden" name="source" value="eye-authority-landing">
-            <input type="hidden" name="vertical" value="ophthalmology">
-
-            <button type="submit">Get Content Strategy Recommendation →</button>
-            <div class="success-msg" id="successMsg">Thank you! We'll analyze your content gap and send a personalized Eye Authority roadmap within 48 hours.</div>
-        </form>
-
-        <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">By submitting, you'll receive a content strategy recommendation and be contacted about Eye Authority. We respect your privacy.</p>
-    </div>
-
-    <footer>
-        <p>ekwa.com | Healthcare Digital Marketing | Ophthalmology Vertical</p>
-        <p>Eye Authority™ is a strategic maneuver in ekwa's Ophthalmology Vertical Expansion | Confidential</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('navDrawer');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navDrawer.classList.toggle('open');
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('https://formspree.io/f/YOUR_FORM_ID', {
@@ -223,9 +431,9 @@
                 body: new FormData(this),
                 headers: { 'Accept': 'application/json' }
             }).then(() => {
-                document.getElementById('contactForm').style.display = 'none';
-                document.getElementById('successMsg').style.display = 'block';
-            }).catch(err => console.error('Form submission error:', err));
+                alert('Thank you! We will contact you within 48 hours.');
+                this.reset();
+            }).catch(err => console.error('Error:', err));
         });
     </script>
 </body>

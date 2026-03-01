@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-MSM Follow-up Sequence — Dentistry — Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        .ekwa-email-content {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        
+        .ekwa-email-sequence {
+            display: grid;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .ekwa-email-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .ekwa-email-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ekwa-email-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .ekwa-email-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-timing {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .ekwa-email-body {
+            padding: 2rem;
+        }
+        
+        .ekwa-field-group {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-field-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .ekwa-field-content {
+            background: #f8f9fa;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            word-break: break-word;
+        }
+        
+        .ekwa-field-content code {
+            background: #e8ecf1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: #c9a227;
+            font-weight: 600;
+        }
+        
+        .ekwa-copy-btn {
+            display: inline-block;
+            background: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            margin-top: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .ekwa-copy-btn:hover {
+            background: #2a5299;
+        }
+        
+        .ekwa-alert--info {
+            background: #e8f0fb;
+            border-left: 4px solid #3B74BB;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #1C305D;
+        }
+        
+        .ekwa-alert--info strong {
+            color: #1C305D;
+        }
+        
+        .ekwa-nav-back {
+            margin-bottom: 2rem;
+        }
+        
+        .ekwa-nav-back a {
+            color: #3B74BB;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ekwa-nav-back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-container">
+            <div class="ekwa-nav-brand">Ekwa</div>
+            <div class="ekwa-nav-toggle" id="navToggle">☰</div>
+            <ul class="ekwa-nav-menu" id="navMenu">
+                <li><a href="../index.html">Head of Sales</a></li>
+                <li><a href="../../../index.html">Dentistry Dashboard</a></li>
+                <li><a href="index.html">Email Sequences</a></li>
+                <li><a href="../../../../index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
+        <div class="ekwa-container">
+            <h1>Post-MSM Follow-up Sequence</h1>
+            <p>Guide prospects toward a decision after their marketing strategy meeting. Four emails over two weeks designed to address concerns, build social proof, and move toward commitment.</p>
+        </div>
+    </div>
+
+    <main class="ekwa-container ekwa-email-content">
+        <div class="ekwa-nav-back">
+            <a href="index.html">← Back to Email Sequences</a>
+        </div>
+
+        <div class="ekwa-email-sequence">
+            <!-- Email 1: Day 1 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 1 of 4</span>
+                        <span class="ekwa-email-timing">Day 1 (Same Day)</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email1-subject">
+Great talking with you, {{contact.firstname}} — next steps
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email1-preview">
+Summary of our conversation + what happens next
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email1-body">
+Hi {{contact.firstname}},
+
+Thanks so much for taking the time to meet with me today. It was great learning about {{contact.company}}'s practice goals and the challenges you're facing with new patient acquisition.
+
+Here's what I'm working on for you:
+• A custom marketing strategy tailored to your practice, location, and patient demographics
+• A breakdown of how Ekwa will handle everything from website optimization to lead nurturing
+• Pricing and timeline so you know exactly what to expect
+
+I'll have your proposal ready by [DATE]. You can review it here: {{PROPOSAL_LINK}}
+
+If you have any questions before you review it, just reply to this email. I'm happy to clarify anything.
+
+Looking forward to moving forward with {{contact.company}}.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email1-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> Send this immediately after the MSM ends. Include your actual proposal link in place of {{PROPOSAL_LINK}}. This sets expectations and keeps momentum going.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2: Day 3 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 2 of 4</span>
+                        <span class="ekwa-email-timing">Day 3</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email2-subject">
+Did you get a chance to review the proposal, {{contact.firstname}}?
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email2-preview">
+Quick check-in — I wanted to address one thing from our conversation
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email2-body">
+Hi {{contact.firstname}},
+
+Just circling back — did you get a chance to look over the proposal I sent on [DATE]?
+
+I know you mentioned concern about [SPECIFIC_CONCERN_FROM_MEETING] during our call. I want to make sure that section of the proposal addresses it clearly. If not, I'd love to walk through it with you — it's one of the things we handle differently than most agencies.
+
+Let me know if you have questions.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email2-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> Customize [SPECIFIC_CONCERN_FROM_MEETING] based on what the prospect actually said in the meeting. Reference notes from your MSM to make this feel personal and relevant.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 3: Day 7 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 3 of 4</span>
+                        <span class="ekwa-email-timing">Day 7</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email3-subject">
+A few dental practices in [similar areas] started this month — want to compare?
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email3-preview">
+Social proof — practices that moved early are already seeing results
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email3-body">
+Hi {{contact.firstname}},
+
+Quick update: We just onboarded three dental practices in similar markets to {{contact.company}} this month. One is in [AREA], another in [AREA].
+
+Here's why I'm mentioning it: They all made the decision quickly because they understood that the longer they wait, the more ground they lose to competitors in their area. Once a practice locks in with us, we focus exclusively on them — no competing dentists, no divided attention.
+
+Are you thinking about moving forward? If so, we can get {{contact.company}} onboarded before [DATE] and you'll be ahead of any competitors in your market who might be thinking about the same thing.
+
+Let me know.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email3-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> This email uses social proof and gentle urgency without being pushy. Customize [AREA] references to be similar to the prospect's location. This drives FOMO naturally.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 4: Day 14 -->
+            <div class="ekwa-email-item">
+                <div class="ekwa-email-header">
+                    <div class="ekwa-email-meta">
+                        <span class="ekwa-email-badge">Email 4 of 4</span>
+                        <span class="ekwa-email-timing">Day 14</span>
+                    </div>
+                </div>
+                <div class="ekwa-email-body">
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Subject Line</label>
+                        <div class="ekwa-field-content" id="email4-subject">
+Final note from {{owner.firstname}} — {{contact.company}} proposal
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email4-subject">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Preview Text</label>
+                        <div class="ekwa-field-content" id="email4-preview">
+No pressure — just wanted to make sure this doesn't fall through the cracks
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email4-preview">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-field-group">
+                        <label class="ekwa-field-label">Email Body</label>
+                        <div class="ekwa-field-content" id="email4-body">
+Hi {{contact.firstname}},
+
+I'm going to step back and give you some breathing room, but I didn't want this to fall through the cracks.
+
+If {{contact.company}} has decided to move forward with us, just hit reply and we'll get everything rolling. If you're going in a different direction, that's totally okay too — no hard feelings.
+
+If you're still on the fence or waiting for the right time, I'll keep your proposal available for the next 7 days. After that, I'll archive it and we can reconnect later if circumstances change.
+
+Either way, I wanted to thank you for your time and consideration. Whether we work together or not, I wish {{contact.company}} huge success.
+
+—{{owner.firstname}}
+Ekwa
+                        </div>
+                        <button class="ekwa-copy-btn" data-target="email4-body">📋 Copy</button>
+                    </div>
+
+                    <div class="ekwa-alert--info">
+                        <strong>HubSpot Tip:</strong> This is your final touch in the post-MSM sequence. Keep it warm and professional. If they don't engage by day 14, move them to a longer-term nurture workflow or a different cadence.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="ekwa-footer">
+        <div class="ekwa-container">
+            <p>&copy; 2026 Ekwa. Dental marketing specialists.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('ekwa-nav-menu-active');
+        });
+
+        document.querySelectorAll('.ekwa-copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.dataset.target);
+                navigator.clipboard.writeText(target.innerText.trim()).then(() => {
+                    btn.textContent = '✅ Copied!';
+                    setTimeout(() => btn.textContent = '📋 Copy', 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

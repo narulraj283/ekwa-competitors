@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Plastic Surgery Marketing ROI Calculator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Plastic Surgery Marketing ROI Calculator — Ekwa</title>
+    <meta name="description" content="Ekwa Competitors | Tools & Resources">
+    <meta name="canonical" content="https://ekwacompetitors.narenlife.com/">
+    
+    <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
-
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid #00a651;
+        
+        
+        /* Page-specific overrides (if any) */
+        body {
+            font-family: var(--font-primary);
         }
+        
+        /* Preserve calculator/tool specific styles */
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: var(--ekwa-gray-800); line-height: 1.6; }
+
+        
         .header h1 { font-size: 32px; margin-bottom: 10px; }
         .header p { font-size: 16px; opacity: 0.95; }
 
@@ -117,11 +124,11 @@
             border: none;
             cursor: pointer;
             font-weight: 600;
-            color: #666;
+            color: var(--ekwa-gray-500);
             transition: all 0.3s;
             font-size: 14px;
         }
-        .scenario-tab:hover { background: #f5f5f5; }
+        .scenario-tab:hover { background: var(--ekwa-gray-100); }
         .scenario-tab.active { color: #0066cc; border-bottom: 3px solid #0066cc; }
 
         .projection-table {
@@ -181,13 +188,69 @@
             .results-grid { grid-template-columns: repeat(2, 1fr); }
             .scenario-tabs { flex-direction: column; }
         }
+    
+    
+    
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Plastic Surgery Marketing ROI Calculator</h1>
-        <p>See your projected case volume increase and revenue impact</p>
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">E</div>
+      <div>
+        <div class="ekwa-nav__title">ekwa</div>
+        <div class="ekwa-nav__subtitle">Competitors</div>
+      </div>
+    </a>
+    <div class="ekwa-nav__links">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Plastic Surgery</a>
     </div>
+    <button class="ekwa-nav__hamburger" onclick="toggleMobileMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="ekwa-nav__mobile">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Plastic Surgery</a>
+  </div>
+</nav>
+
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Plastic Surgery</span>
+    </div>
+    <h1>Plastic Surgery Marketing ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Plastic Surgery</span>
+    </div>
+    <h1>Plastic Surgery Marketing ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+  <div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Plastic Surgery</span>
+    </div>
+    <h1>Plastic Surgery Marketing ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+
+    
 
     <div class="container">
         <div class="calculator-section">
@@ -285,7 +348,7 @@
                 <canvas id="projectionChart"></canvas>
             </div>
 
-            <table class="projection-table" id="projectionTable">
+            <div class="ekwa-table-wrap"><div class="ekwa-table-wrap"><div class="ekwa-table-wrap"><table class="projection-table" id="projectionTable">
                 <thead>
                     <tr>
                         <th>Year</th>
@@ -297,12 +360,12 @@
                 </thead>
                 <tbody id="tableBody">
                 </tbody>
-            </table>
+            </table></div></div></div>
         </div>
 
         <div class="form-section">
             <h3>Ready to See These Results? Let's Talk.</h3>
-            <p style="margin-bottom: 20px; color: #666;">
+            <p style="margin-bottom: 20px; color: var(--ekwa-gray-500);">
                 The numbers above assume standard market conditions and typical conversion increases from SEO, PPC, and reputation management.
                 Your specific results may vary based on your market, specialty, and current marketing maturity.
             </p>
@@ -469,5 +532,438 @@
         // Initialize
         updateCalculator();
     </script>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+</div>
+
+<script>
+        let projectionChart = null;
+
+        function updateCalculator() {
+            const procedure = document.getElementById('procedure').value;
+            const surgeons = parseInt(document.getElementById('surgeons').value);
+            const consults = parseInt(document.getElementById('consults').value);
+            const conversion = parseInt(document.getElementById('conversion').value);
+            const casefee = parseInt(document.getElementById('casefee').value);
+            const price = parseInt(document.getElementById('price').value);
+
+            document.getElementById('conversionValue').textContent = conversion;
+            document.getElementById('casefeeValue').textContent = (casefee).toLocaleString();
+
+            // Base multiplier based on surgery type
+            const multipliers = {
+                'breast-aug': 1.25,
+                'rhinoplasty': 1.35,
+                'bbl': 1.30,
+                'liposuction': 1.20,
+                'mommy-makeover': 1.40,
+                'glp1': 1.50,
+                'mixed': 1.25
+            };
+
+            const multiplier = multipliers[procedure] || 1.25;
+            const caseIncrease = Math.round(consults * (conversion / 100) * (multiplier - 1));
+            const monthlyRevenue = caseIncrease * casefee;
+            const annualRevenue = monthlyRevenue * 12;
+            const annualCost = price * 12;
+            const roi = (annualRevenue / annualCost).toFixed(1);
+
+            document.getElementById('caseIncrease').textContent = `+${caseIncrease}`;
+            document.getElementById('newRevenue').textContent = `$${(annualRevenue / 1000).toFixed(0)}K`;
+            document.getElementById('annualInvest').textContent = `$${(annualCost / 1000).toFixed(0)}K`;
+            document.getElementById('roi').textContent = `${roi}x`;
+
+            generateProjection(caseIncrease, casefee, annualCost, procedure);
+        }
+
+        function generateProjection(caseIncrease, casefee, annualCost, procedure) {
+            const scenarios = {
+                conservative: 0.12,
+                moderate: 0.25,
+                aggressive: 0.40
+            };
+
+            const activeScenario = document.querySelector('.scenario-tab.active').textContent.toLowerCase().split(' ')[0];
+            const growth = scenarios[activeScenario] || 0.25;
+
+            const projData = [];
+            let currentCases = caseIncrease;
+
+            for (let year = 1; year <= 3; year++) {
+                const cases = Math.round(currentCases * (1 + growth * (year - 1)));
+                const revenue = cases * casefee * 12;
+                const net = revenue - annualCost;
+                projData.push({
+                    year,
+                    cases,
+                    revenue,
+                    cost: annualCost,
+                    net
+                });
+                if (year === 1) currentCases = cases;
+            }
+
+            // Update table
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            projData.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>Year ${row.year}</strong></td>
+                    <td>${row.cases}</td>
+                    <td>$${(row.revenue / 1000).toFixed(0)}K</td>
+                    <td>$${(row.cost / 1000).toFixed(0)}K</td>
+                    <td class="positive">$${(row.net / 1000).toFixed(0)}K</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update chart
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+            if (projectionChart) projectionChart.destroy();
+
+            projectionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [
+                        {
+                            label: 'Additional Revenue ($)',
+                            data: projData.map(d => d.revenue / 1000),
+                            backgroundColor: '#0066cc',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'ekwa Cost ($)',
+                            data: projData.map(d => d.cost / 1000),
+                            backgroundColor: '#ff9800',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'K';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchScenario(scenario) {
+            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            updateCalculator();
+        }
+
+        // Initialize
+        updateCalculator();
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+
+</div>
+
+<footer class="ekwa-footer">
+  <div class="ekwa-footer__inner">
+    <div>&copy; 2026 Ekwa | Internal Tools</div>
+    <a href="../../../index.html">Back to Verticals</a>
+  </div>
+</footer>
+
+<script>
+        let projectionChart = null;
+
+        function updateCalculator() {
+            const procedure = document.getElementById('procedure').value;
+            const surgeons = parseInt(document.getElementById('surgeons').value);
+            const consults = parseInt(document.getElementById('consults').value);
+            const conversion = parseInt(document.getElementById('conversion').value);
+            const casefee = parseInt(document.getElementById('casefee').value);
+            const price = parseInt(document.getElementById('price').value);
+
+            document.getElementById('conversionValue').textContent = conversion;
+            document.getElementById('casefeeValue').textContent = (casefee).toLocaleString();
+
+            // Base multiplier based on surgery type
+            const multipliers = {
+                'breast-aug': 1.25,
+                'rhinoplasty': 1.35,
+                'bbl': 1.30,
+                'liposuction': 1.20,
+                'mommy-makeover': 1.40,
+                'glp1': 1.50,
+                'mixed': 1.25
+            };
+
+            const multiplier = multipliers[procedure] || 1.25;
+            const caseIncrease = Math.round(consults * (conversion / 100) * (multiplier - 1));
+            const monthlyRevenue = caseIncrease * casefee;
+            const annualRevenue = monthlyRevenue * 12;
+            const annualCost = price * 12;
+            const roi = (annualRevenue / annualCost).toFixed(1);
+
+            document.getElementById('caseIncrease').textContent = `+${caseIncrease}`;
+            document.getElementById('newRevenue').textContent = `$${(annualRevenue / 1000).toFixed(0)}K`;
+            document.getElementById('annualInvest').textContent = `$${(annualCost / 1000).toFixed(0)}K`;
+            document.getElementById('roi').textContent = `${roi}x`;
+
+            generateProjection(caseIncrease, casefee, annualCost, procedure);
+        }
+
+        function generateProjection(caseIncrease, casefee, annualCost, procedure) {
+            const scenarios = {
+                conservative: 0.12,
+                moderate: 0.25,
+                aggressive: 0.40
+            };
+
+            const activeScenario = document.querySelector('.scenario-tab.active').textContent.toLowerCase().split(' ')[0];
+            const growth = scenarios[activeScenario] || 0.25;
+
+            const projData = [];
+            let currentCases = caseIncrease;
+
+            for (let year = 1; year <= 3; year++) {
+                const cases = Math.round(currentCases * (1 + growth * (year - 1)));
+                const revenue = cases * casefee * 12;
+                const net = revenue - annualCost;
+                projData.push({
+                    year,
+                    cases,
+                    revenue,
+                    cost: annualCost,
+                    net
+                });
+                if (year === 1) currentCases = cases;
+            }
+
+            // Update table
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            projData.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>Year ${row.year}</strong></td>
+                    <td>${row.cases}</td>
+                    <td>$${(row.revenue / 1000).toFixed(0)}K</td>
+                    <td>$${(row.cost / 1000).toFixed(0)}K</td>
+                    <td class="positive">$${(row.net / 1000).toFixed(0)}K</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update chart
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+            if (projectionChart) projectionChart.destroy();
+
+            projectionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [
+                        {
+                            label: 'Additional Revenue ($)',
+                            data: projData.map(d => d.revenue / 1000),
+                            backgroundColor: '#0066cc',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'ekwa Cost ($)',
+                            data: projData.map(d => d.cost / 1000),
+                            backgroundColor: '#ff9800',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'K';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchScenario(scenario) {
+            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            updateCalculator();
+        }
+
+        // Initialize
+        updateCalculator();
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
+        let projectionChart = null;
+
+        function updateCalculator() {
+            const procedure = document.getElementById('procedure').value;
+            const surgeons = parseInt(document.getElementById('surgeons').value);
+            const consults = parseInt(document.getElementById('consults').value);
+            const conversion = parseInt(document.getElementById('conversion').value);
+            const casefee = parseInt(document.getElementById('casefee').value);
+            const price = parseInt(document.getElementById('price').value);
+
+            document.getElementById('conversionValue').textContent = conversion;
+            document.getElementById('casefeeValue').textContent = (casefee).toLocaleString();
+
+            // Base multiplier based on surgery type
+            const multipliers = {
+                'breast-aug': 1.25,
+                'rhinoplasty': 1.35,
+                'bbl': 1.30,
+                'liposuction': 1.20,
+                'mommy-makeover': 1.40,
+                'glp1': 1.50,
+                'mixed': 1.25
+            };
+
+            const multiplier = multipliers[procedure] || 1.25;
+            const caseIncrease = Math.round(consults * (conversion / 100) * (multiplier - 1));
+            const monthlyRevenue = caseIncrease * casefee;
+            const annualRevenue = monthlyRevenue * 12;
+            const annualCost = price * 12;
+            const roi = (annualRevenue / annualCost).toFixed(1);
+
+            document.getElementById('caseIncrease').textContent = `+${caseIncrease}`;
+            document.getElementById('newRevenue').textContent = `$${(annualRevenue / 1000).toFixed(0)}K`;
+            document.getElementById('annualInvest').textContent = `$${(annualCost / 1000).toFixed(0)}K`;
+            document.getElementById('roi').textContent = `${roi}x`;
+
+            generateProjection(caseIncrease, casefee, annualCost, procedure);
+        }
+
+        function generateProjection(caseIncrease, casefee, annualCost, procedure) {
+            const scenarios = {
+                conservative: 0.12,
+                moderate: 0.25,
+                aggressive: 0.40
+            };
+
+            const activeScenario = document.querySelector('.scenario-tab.active').textContent.toLowerCase().split(' ')[0];
+            const growth = scenarios[activeScenario] || 0.25;
+
+            const projData = [];
+            let currentCases = caseIncrease;
+
+            for (let year = 1; year <= 3; year++) {
+                const cases = Math.round(currentCases * (1 + growth * (year - 1)));
+                const revenue = cases * casefee * 12;
+                const net = revenue - annualCost;
+                projData.push({
+                    year,
+                    cases,
+                    revenue,
+                    cost: annualCost,
+                    net
+                });
+                if (year === 1) currentCases = cases;
+            }
+
+            // Update table
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            projData.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>Year ${row.year}</strong></td>
+                    <td>${row.cases}</td>
+                    <td>$${(row.revenue / 1000).toFixed(0)}K</td>
+                    <td>$${(row.cost / 1000).toFixed(0)}K</td>
+                    <td class="positive">$${(row.net / 1000).toFixed(0)}K</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update chart
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+            if (projectionChart) projectionChart.destroy();
+
+            projectionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [
+                        {
+                            label: 'Additional Revenue ($)',
+                            data: projData.map(d => d.revenue / 1000),
+                            backgroundColor: '#0066cc',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'ekwa Cost ($)',
+                            data: projData.map(d => d.cost / 1000),
+                            backgroundColor: '#ff9800',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'K';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchScenario(scenario) {
+            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            updateCalculator();
+        }
+
+        // Initialize
+        updateCalculator();
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+<script>
+function toggleMobileMenu(btn) {
+  btn.classList.toggle('open');
+  const menu = btn.nextElementSibling;
+  if (menu) menu.classList.toggle('open');
+}
+</script>
 </body>
 </html>

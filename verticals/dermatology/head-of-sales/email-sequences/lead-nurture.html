@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurture Email Sequence — Dermatology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        nav {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #C9A227;
+        }
+        
+        .nav-separator {
+            color: #3B74BB;
+            margin: 0 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .page-header {
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            color: #1C305D;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .sequence-info {
+            background-color: #f0f5ff;
+            border-left: 4px solid #3B74BB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .sequence-info h3 {
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sequence-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .emails-container {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .email-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #7B68EE;
+        }
+        
+        .email-timing {
+            display: inline-block;
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .email-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-subject {
+            color: #1C305D;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-preview {
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .email-body {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        button {
+            background-color: #3B74BB;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        button:hover {
+            background-color: #2d5a8f;
+        }
+        
+        .copy-feedback {
+            display: none;
+            color: #27ae60;
+            font-size: 0.85rem;
+            padding-left: 0.5rem;
+        }
+        
+        footer {
+            background-color: #f0f1f3;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-link {
+            color: #3B74BB;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Email Sequences</a>
+        <span class="nav-separator">•</span>
+        <a href="../index.html">Head of Sales</a>
+        <span class="nav-separator">•</span>
+        <a href="../../../index.html">Dermatology</a>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Lead Nurture Sequence</h1>
+            <p>3-email sequence for new dermatology leads who haven't booked a call yet</p>
+        </div>
+        
+        <div class="sequence-info">
+            <h3>Sequence Overview</h3>
+            <p><strong>Goal:</strong> Introduce Ekwa's dermatology-specific expertise and qualify interest in working with a specialist who understands both cosmetic and medical dermatology marketing.</p>
+            <p><strong>Timeline:</strong> Day 1, Day 3, Day 7</p>
+            <p><strong>Best for:</strong> Inbound leads, LinkedIn outreach responses, and referrals who haven't yet scheduled a discovery call.</p>
+        </div>
+        
+        <div class="emails-container">
+            <!-- Email 1 -->
+            <div class="email-card">
+                <span class="email-timing">Day 1</span>
+                <div class="email-header">
+                    <div class="email-subject">Quick question about your dermatology practice, {{contact.firstname}}</div>
+                    <div class="email-preview">Preview: "30 seconds — might be relevant for {{contact.company}}"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I work with dermatology practices across the country on patient acquisition and marketing strategy.</p>
+                    <p>Quick question: Is your current marketing consistently bringing in the right types of patients — cosmetic, medical derm, or both?</p>
+                    <p>If you've got 15 minutes this week, I'd love to explore whether we're a fit. No pressure either way.</p>
+                    <p>What does your calendar look like?</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email1')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email1"></span>
+                </div>
+            </div>
+            
+            <!-- Email 2 -->
+            <div class="email-card">
+                <span class="email-timing">Day 3</span>
+                <div class="email-header">
+                    <div class="email-subject">Derm practices are seeing this with their marketing right now</div>
+                    <div class="email-preview">Preview: "One insight we're sharing with our partners"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I've been working with dermatology practices over the past few months, and I'm noticing a pattern: practices that offer both cosmetic and medical dermatology often struggle to attract the right patient mix. It's hard to build messaging that resonates across both segments when your current marketing partner doesn't specialize in derm.</p>
+                    <p>That's exactly where Ekwa comes in. We specialize in medical practice marketing, and dermatology is our focus. We know how to position you for the patient types that matter to your practice.</p>
+                    <p>Would you be open to exploring this further? I think there might be some quick wins for {{contact.company}}.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email2')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email2"></span>
+                </div>
+            </div>
+            
+            <!-- Email 3 -->
+            <div class="email-card">
+                <span class="email-timing">Day 7</span>
+                <div class="email-header">
+                    <div class="email-subject">Last note — {{contact.firstname}} — I'll keep it brief</div>
+                    <div class="email-preview">Preview: "One more thing about your practice"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I know you might be happy with your current marketing setup, and that's completely fine. I just wanted to mention that Ekwa works exclusively with one dermatology practice per geography — so if you ever want to explore what specialist marketing for derm looks like, there's a seat reserved for {{contact.company}}.</p>
+                    <p>I'm available for a quick 15-minute call anytime this week if you're interested.</p>
+                    <p>If this isn't a fit right now, just reply and let me know — I'll remove you from my list.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email3')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <p>Dermatology-focused marketing strategies for sustainable practice growth.</p>
+    </footer>
+    
+    <script>
+        function copyToClipboard(button, emailId) {
+            let textToCopy = '';
+            
+            if (emailId === 'email1') {
+                textToCopy = `Subject: Quick question about your dermatology practice, {{contact.firstname}}
+Preview: "30 seconds — might be relevant for {{contact.company}}"
+
+Hi {{contact.firstname}},
+
+I work with dermatology practices across the country on patient acquisition and marketing strategy.
+
+Quick question: Is your current marketing consistently bringing in the right types of patients — cosmetic, medical derm, or both?
+
+If you've got 15 minutes this week, I'd love to explore whether we're a fit. No pressure either way.
+
+What does your calendar look like?
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email2') {
+                textToCopy = `Subject: Derm practices are seeing this with their marketing right now
+Preview: "One insight we're sharing with our partners"
+
+Hi {{contact.firstname}},
+
+I've been working with dermatology practices over the past few months, and I'm noticing a pattern: practices that offer both cosmetic and medical dermatology often struggle to attract the right patient mix. It's hard to build messaging that resonates across both segments when your current marketing partner doesn't specialize in derm.
+
+That's exactly where Ekwa comes in. We specialize in medical practice marketing, and dermatology is our focus. We know how to position you for the patient types that matter to your practice.
+
+Would you be open to exploring this further? I think there might be some quick wins for {{contact.company}}.
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email3') {
+                textToCopy = `Subject: Last note — {{contact.firstname}} — I'll keep it brief
+Preview: "One more thing about your practice"
+
+Hi {{contact.firstname}},
+
+I know you might be happy with your current marketing setup, and that's completely fine. I just wanted to mention that Ekwa works exclusively with one dermatology practice per geography — so if you ever want to explore what specialist marketing for derm looks like, there's a seat reserved for {{contact.company}}.
+
+I'm available for a quick 15-minute call anytime this week if you're interested.
+
+If this isn't a fit right now, just reply and let me know — I'll remove you from my list.
+
+— {{owner.firstname}}`;
+            }
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const feedback = document.getElementById(`feedback-${emailId}`);
+                feedback.textContent = '✓ Copied!';
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

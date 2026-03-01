@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Switch Email Sequence — Dermatology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        nav {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #C9A227;
+        }
+        
+        .nav-separator {
+            color: #3B74BB;
+            margin: 0 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .page-header {
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            color: #1C305D;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .sequence-info {
+            background-color: #f0f5ff;
+            border-left: 4px solid #3B74BB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .sequence-info h3 {
+            color: #1C305D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sequence-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .emails-container {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .email-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #7B68EE;
+        }
+        
+        .email-timing {
+            display: inline-block;
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .email-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-subject {
+            color: #1C305D;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-preview {
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .email-body {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        button {
+            background-color: #3B74BB;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        button:hover {
+            background-color: #2d5a8f;
+        }
+        
+        .copy-feedback {
+            display: none;
+            color: #27ae60;
+            font-size: 0.85rem;
+            padding-left: 0.5rem;
+        }
+        
+        footer {
+            background-color: #f0f1f3;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-link {
+            color: #3B74BB;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Email Sequences</a>
+        <span class="nav-separator">•</span>
+        <a href="../index.html">Head of Sales</a>
+        <span class="nav-separator">•</span>
+        <a href="../../../index.html">Dermatology</a>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Provider Switch Sequence</h1>
+            <p>3-email sequence for prospects actively switching from their current marketing provider</p>
+        </div>
+        
+        <div class="sequence-info">
+            <h3>Sequence Overview</h3>
+            <p><strong>Goal:</strong> Position Ekwa as the specialist alternative to generalist marketing agencies. Emphasize dermatology-specific expertise and the risks of switching to another generalist provider.</p>
+            <p><strong>Timeline:</strong> Day 1, Day 5, Day 10</p>
+            <p><strong>Best for:</strong> Prospects who've mentioned wanting to leave their current provider or are actively evaluating alternatives.</p>
+            <p><strong>Key Context:</strong> Dermatologists often partner with large generalist agencies that don't understand the unique differences between cosmetic and medical dermatology marketing.</p>
+        </div>
+        
+        <div class="emails-container">
+            <!-- Email 1 -->
+            <div class="email-card">
+                <span class="email-timing">Day 1</span>
+                <div class="email-header">
+                    <div class="email-subject">Making a switch? Here's what I'd reconsider</div>
+                    <div class="email-preview">Preview: "One thing about leaving your current provider"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I heard that {{contact.company}} is exploring options beyond your current marketing provider — and honestly, I think that's smart. Most generalist agencies treat dermatology like any other specialty, which is why so many derm practices struggle with the fundamentals: clearly segmenting cosmetic vs. medical messaging, positioning physician credibility, and actually attracting the patient types that move the needle on revenue.</p>
+                    <p>Here's the catch: if you switch to another generalist agency, you'll run into the same problems.</p>
+                    <p>Ekwa exists because dermatology is different. We specialize exclusively in medical practice marketing, and we understand the nuances of derm — the decision-making differences between cosmetic and medical patients, how to build trust around procedures, seasonal demand cycles, everything.</p>
+                    <p>Before you make a move, it's worth a conversation. What's broken with your current setup?</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email1')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email1"></span>
+                </div>
+            </div>
+            
+            <!-- Email 2 -->
+            <div class="email-card">
+                <span class="email-timing">Day 5</span>
+                <div class="email-header">
+                    <div class="email-subject">Why other dermatology practices chose Ekwa</div>
+                    <div class="email-preview">Preview: "Three reasons they left their last provider"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I wanted to share some patterns I'm seeing from other dermatology practices that recently made the switch.</p>
+                    <p><strong>Reason 1 — Clarity on patient segments:</strong> Their old agency was lumping cosmetic and medical derm together, diluting messaging. We separate them completely, with distinct positioning and patient acquisition strategies for each. Result: 35% more qualified cosmetic inquiries and 20% lift in booked medical consultations.</p>
+                    <p><strong>Reason 2 — Physician positioning:</strong> Dermatology buyers care about provider expertise and credentials. Generalist agencies miss this. We build thought leadership and patient confidence around your physicians specifically. That credibility translates to higher conversion rates and higher-value cases.</p>
+                    <p><strong>Reason 3 — Speed and accountability:</strong> Ekwa partners with one dermatology practice per geography. That means you get dedicated strategy and results. No "just another client" treatment. We're invested in your success.</p>
+                    <p>I think {{contact.company}} could see similar results. Worth exploring?</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email2')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email2"></span>
+                </div>
+            </div>
+            
+            <!-- Email 3 -->
+            <div class="email-card">
+                <span class="email-timing">Day 10</span>
+                <div class="email-header">
+                    <div class="email-subject">Let's talk about timing on this switch</div>
+                    <div class="email-preview">Preview: "When are you planning to make a change?"</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi {{contact.firstname}},</p>
+                    <p>I realize I've been pitching pretty hard, so let me be direct: if {{contact.company}} is unhappy with your current provider, switching is the right call. But switching to another generalist agency will waste another 6-12 months while you run into the same problems.</p>
+                    <p>Specialized dermatology marketing exists for a reason — because it works better. We've seen it time and time again.</p>
+                    <p>Two quick questions:</p>
+                    <p>1. When are you actually planning to make the switch? (This month, next quarter, etc.)</p>
+                    <p>2. What's your biggest pain point with your current provider? Is it patient volume, patient quality, or something else?</p>
+                    <p>If we're the right fit — and I think we might be — I'd rather have this conversation now than have you go through another false start with a mediocre provider.</p>
+                    <p>Let me know what makes sense.</p>
+                    <p>— {{owner.firstname}}</p>
+                </div>
+                <div class="email-actions">
+                    <button onclick="copyToClipboard(this, 'email3')">Copy Email</button>
+                    <span class="copy-feedback" id="feedback-email3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <p>Dermatology-focused marketing strategies for sustainable practice growth.</p>
+    </footer>
+    
+    <script>
+        function copyToClipboard(button, emailId) {
+            let textToCopy = '';
+            
+            if (emailId === 'email1') {
+                textToCopy = `Subject: Making a switch? Here's what I'd reconsider
+Preview: "One thing about leaving your current provider"
+
+Hi {{contact.firstname}},
+
+I heard that {{contact.company}} is exploring options beyond your current marketing provider — and honestly, I think that's smart. Most generalist agencies treat dermatology like any other specialty, which is why so many derm practices struggle with the fundamentals: clearly segmenting cosmetic vs. medical messaging, positioning physician credibility, and actually attracting the patient types that move the needle on revenue.
+
+Here's the catch: if you switch to another generalist agency, you'll run into the same problems.
+
+Ekwa exists because dermatology is different. We specialize exclusively in medical practice marketing, and we understand the nuances of derm — the decision-making differences between cosmetic and medical patients, how to build trust around procedures, seasonal demand cycles, everything.
+
+Before you make a move, it's worth a conversation. What's broken with your current setup?
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email2') {
+                textToCopy = `Subject: Why other dermatology practices chose Ekwa
+Preview: "Three reasons they left their last provider"
+
+Hi {{contact.firstname}},
+
+I wanted to share some patterns I'm seeing from other dermatology practices that recently made the switch.
+
+Reason 1 — Clarity on patient segments: Their old agency was lumping cosmetic and medical derm together, diluting messaging. We separate them completely, with distinct positioning and patient acquisition strategies for each. Result: 35% more qualified cosmetic inquiries and 20% lift in booked medical consultations.
+
+Reason 2 — Physician positioning: Dermatology buyers care about provider expertise and credentials. Generalist agencies miss this. We build thought leadership and patient confidence around your physicians specifically. That credibility translates to higher conversion rates and higher-value cases.
+
+Reason 3 — Speed and accountability: Ekwa partners with one dermatology practice per geography. That means you get dedicated strategy and results. No "just another client" treatment. We're invested in your success.
+
+I think {{contact.company}} could see similar results. Worth exploring?
+
+— {{owner.firstname}}`;
+            } else if (emailId === 'email3') {
+                textToCopy = `Subject: Let's talk about timing on this switch
+Preview: "When are you planning to make a change?"
+
+Hi {{contact.firstname}},
+
+I realize I've been pitching pretty hard, so let me be direct: if {{contact.company}} is unhappy with your current provider, switching is the right call. But switching to another generalist agency will waste another 6-12 months while you run into the same problems.
+
+Specialized dermatology marketing exists for a reason — because it works better. We've seen it time and time again.
+
+Two quick questions:
+
+1. When are you actually planning to make the switch? (This month, next quarter, etc.)
+2. What's your biggest pain point with your current provider? Is it patient volume, patient quality, or something else?
+
+If we're the right fit — and I think we might be — I'd rather have this conversation now than have you go through another false start with a mediocre provider.
+
+Let me know what makes sense.
+
+— {{owner.firstname}}`;
+            }
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const feedback = document.getElementById(`feedback-${emailId}`);
+                feedback.textContent = '✓ Copied!';
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

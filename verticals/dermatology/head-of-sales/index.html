@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dermatology Head of Sales — HubSpot Setup & Pipeline — Ekwa</title>
+  <meta name="description" content="Dermatology vertical HubSpot pipeline setup, lead management, and email sequences. Internal use only.">
+  <link rel="canonical" href="https://ekwacompetitors.narenlife.com/verticals/dermatology/head-of-sales/">
+  <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+  <style>
+    :root {
+      --ekwa-navy: #1C305D;
+      --ekwa-blue: #3B74BB;
+      --ekwa-gold: #C9A227;
+      --ekwa-purple: #7B68EE;
+      --ekwa-gray: #f5f5f5;
+      --ekwa-dark-gray: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ekwa-dark-gray);
+      background-color: #fff;
+    }
+
+    /* Navigation */
+    .ekwa-nav {
+      background: var(--ekwa-navy);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 4px solid var(--ekwa-blue);
+    }
+
+    .ekwa-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ekwa-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: white;
+    }
+
+    .ekwa-nav__logo {
+      width: 40px;
+      height: 40px;
+      background: var(--ekwa-gold);
+      color: var(--ekwa-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .ekwa-nav__title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .ekwa-nav__subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+      line-height: 1.2;
+    }
+
+    .ekwa-nav__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ekwa-nav__hamburger span {
+      width: 25px;
+      height: 2px;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .ekwa-nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .ekwa-nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .ekwa-nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .ekwa-nav__links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .ekwa-nav__links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .ekwa-nav__links a:hover {
+      color: var(--ekwa-gold);
+    }
+
+    .nav-cta {
+      background: var(--ekwa-gold) !important;
+      color: var(--ekwa-navy) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+
+    .ekwa-nav__mobile {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--ekwa-navy);
+      border-bottom: 4px solid var(--ekwa-blue);
+      padding: 1rem 2rem;
+      gap: 1rem;
+    }
+
+    .ekwa-nav__mobile.open {
+      display: flex;
+    }
+
+    .ekwa-nav__mobile a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .ekwa-nav__hamburger {
+        display: flex;
+      }
+
+      .ekwa-nav__links {
+        display: none;
+      }
+    }
+
+    /* Page Header */
+    .ekwa-page-header {
+      background: white;
+      border-left: 6px solid var(--ekwa-purple);
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ekwa-badge {
+      display: inline-block;
+      background: var(--ekwa-gray);
+      color: var(--ekwa-navy);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .ekwa-breadcrumb {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .ekwa-page-header h1 {
+      font-size: 2.5rem;
+      color: var(--ekwa-navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .ekwa-page-header h1 span {
+      color: var(--ekwa-blue);
+    }
+
+    .ekwa-page-header p {
+      font-size: 16px;
+      color: #555;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Content Container */
+    .ekwa-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Stats Grid */
+    .ekwa-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .ekwa-stat {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .ekwa-stat__label {
+      font-size: 12px;
+      color: #666;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .ekwa-stat__value {
+      font-size: 2.5rem;
+      color: var(--ekwa-navy);
+      font-weight: bold;
+    }
+
+    .ekwa-stat__detail {
+      font-size: 13px;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+
+    /* Grid Layout */
+    .ekwa-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    /* Card */
+    .ekwa-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .ekwa-card h3 {
+      color: var(--ekwa-navy);
+      margin-bottom: 1rem;
+      font-size: 18px;
+    }
+
+    .ekwa-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .ekwa-card ul {
+      margin-left: 1.5rem;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .ekwa-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Section Title */
+    .ekwa-section-title {
+      font-size: 28px;
+      color: var(--ekwa-navy);
+      margin: 3rem 0 2rem 0;
+      font-weight: 700;
+    }
+
+    /* Accordion */
+    .ekwa-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .ekwa-accordion__item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .ekwa-accordion__header {
+      background: var(--ekwa-gray);
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--ekwa-navy);
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .ekwa-accordion__header:hover {
+      background: #eee;
+    }
+
+    .ekwa-accordion__header.open {
+      background: var(--ekwa-blue);
+      color: white;
+    }
+
+    .ekwa-accordion__arrow {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .ekwa-accordion__header.open .ekwa-accordion__arrow {
+      transform: rotate(180deg);
+    }
+
+    .ekwa-accordion__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: white;
+    }
+
+    .ekwa-accordion__content.open {
+      max-height: 2000px;
+      padding: 1.5rem;
+    }
+
+    .ekwa-accordion__content h4 {
+      color: var(--ekwa-navy);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .ekwa-accordion__content p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .ekwa-accordion__content ol,
+    .ekwa-accordion__content ul {
+      margin-left: 1.5rem;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .ekwa-accordion__content li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    .ekwa-footer {
+      background: var(--ekwa-navy);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 3rem;
+      border-top: 4px solid var(--ekwa-blue);
+    }
+
+    .ekwa-footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    .ekwa-footer a {
+      color: var(--ekwa-gold);
+      text-decoration: none;
+    }
+
+    .ekwa-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav class="ekwa-nav">
+    <div class="ekwa-nav__inner">
+      <a href="../../../index.html" class="ekwa-nav__brand">
+        <div class="ekwa-nav__logo">EC</div>
+        <div><div class="ekwa-nav__title">Ekwa Intelligence</div><div class="ekwa-nav__subtitle">Dermatology · HoS</div></div>
+      </a>
+      <button class="ekwa-nav__hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="ekwa-nav__links">
+        <li><a href="../../../index.html">All Verticals</a></li>
+        <li><a href="../index.html">Dermatology</a></li>
+        <li><a href="../../../head-of-sales/index.html">HoS Hub</a></li>
+        <li><a href="email-sequences/index.html" class="nav-cta">Email Sequences</a></li>
+      </ul>
+    </div>
+    <div class="ekwa-nav__mobile" id="mobile-menu">
+      <a href="../../../index.html">All Verticals</a>
+      <a href="../index.html">Dermatology Dashboard</a>
+      <a href="../../../head-of-sales/index.html">HoS Hub</a>
+      <a href="email-sequences/index.html">Email Sequences</a>
+    </div>
+  </nav>
+
+  <div class="ekwa-page-header">
+    <div class="ekwa-badge">🔬 Dermatology · Head of Sales</div>
+    <div class="ekwa-breadcrumb">Home > Dermatology > Head of Sales</div>
+    <h1>Dermatology <span>Head of Sales</span></h1>
+    <p>HubSpot CRM setup, pipeline management, lead automation, and email sequences for the dermatology vertical.</p>
+  </div>
+
+  <div class="ekwa-container">
+    <!-- Funnel Snapshot Stats -->
+    <div class="ekwa-stat-grid">
+      <div class="ekwa-stat">
+        <div class="ekwa-stat__label">Total Contacts</div>
+        <div class="ekwa-stat__value">91</div>
+        <div class="ekwa-stat__detail">All dermatology leads</div>
+      </div>
+      <div class="ekwa-stat">
+        <div class="ekwa-stat__label">Raw Leads (Est.)</div>
+        <div class="ekwa-stat__value">~45</div>
+        <div class="ekwa-stat__detail">50% of contacts at lead stage</div>
+      </div>
+      <div class="ekwa-stat">
+        <div class="ekwa-stat__label">Unowned Contacts</div>
+        <div class="ekwa-stat__value">0</div>
+        <div class="ekwa-stat__detail">✅ All assigned to BDRs</div>
+      </div>
+      <div class="ekwa-stat">
+        <div class="ekwa-stat__label">Active Deals (Est.)</div>
+        <div class="ekwa-stat__value">~15</div>
+        <div class="ekwa-stat__detail">In pipeline</div>
+      </div>
+    </div>
+
+    <!-- Context Section -->
+    <h2 class="ekwa-section-title">Pipeline Context</h2>
+    <div class="ekwa-grid-2">
+      <div class="ekwa-card">
+        <h3>Lead Pipeline (BDR Layer)</h3>
+        <p>91 dermatology contacts in CRM (vertical_zoom = "Dermatologists"). All contacts currently assigned to BDRs.</p>
+        <ul>
+          <li>Lead flow is smaller but higher-value than dental</li>
+          <li>Target: dermatologists and aesthetic dermatologists</li>
+          <li>Lifecycle tracking from lead through MQL</li>
+        </ul>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>Deal Pipeline</h3>
+        <p>Deals tracked via vertical_dervied_ycbm = "Dermatology". Currently mixed in shared Sales Pipeline.</p>
+        <ul>
+          <li>Need separate Dermatology pipeline for proper tracking</li>
+          <li>Custom deal properties by practice type</li>
+          <li>Pipeline visibility and forecasting</li>
+        </ul>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>What Claude Handles</h3>
+        <p>Automated CRM operations and data management:</p>
+        <ul>
+          <li>Tag all derm deals with vertical_dervied_ycbm = Dermatology</li>
+          <li>Migrate to new Dermatology pipeline</li>
+          <li>Flag stalled deals for follow-up</li>
+          <li>Identify contacts that may be derm but tagged as Aesthetics</li>
+        </ul>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>What You Must Do in HubSpot UI</h3>
+        <p>Manual setup tasks for full pipeline functionality:</p>
+        <ul>
+          <li>Create Dermatology deal pipeline</li>
+          <li>Add custom deal properties</li>
+          <li>Create contact and deal views</li>
+          <li>Create automation workflows</li>
+          <li>Create pipeline reports</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HubSpot Setup Tasks -->
+    <h2 class="ekwa-section-title">HubSpot Setup Tasks</h2>
+    <div class="ekwa-accordion">
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 1: Create "Dermatology — Sales Pipeline"</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Settings → Objects → Deals → Pipelines</p>
+          <p>Create a new pipeline named "Dermatology — Sales Pipeline" with the following 12 stages:</p>
+          <ol>
+            <li>MSM Scheduled (10%)</li>
+            <li>MSM Rescheduled (10%)</li>
+            <li>MSM No Show (5%)</li>
+            <li>Unqualified by BDR (0%)</li>
+            <li>Qualified by BDR (20%)</li>
+            <li>Evaluation / Follow-ups (40%)</li>
+            <li>Stalled / Parked (15%)</li>
+            <li>Ready to Sign (75%)</li>
+            <li>Contract Sent (85%)</li>
+            <li>Contract Won (100%)</li>
+            <li>Contract Lost (0%)</li>
+            <li>Rekindle Attempt (10%)</li>
+          </ol>
+          <p>These stages align with the dermatology sales process and allow proper deal velocity tracking.</p>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 2: Add 4 Custom Deal Properties</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Settings → Objects → Deals → Properties</p>
+          <p>Create a new property group named "Dermatology" and add the following 4 custom properties:</p>
+          <h4>1. derm_practice_type</h4>
+          <p>Type: Dropdown | Options:</p>
+          <ul>
+            <li>General Derm</li>
+            <li>Cosmetic Derm</li>
+            <li>Mohs Surgery</li>
+            <li>Academic/Hospital</li>
+            <li>Multi-specialty</li>
+          </ul>
+          <h4>2. derm_location_count</h4>
+          <p>Type: Dropdown | Options:</p>
+          <ul>
+            <li>Solo (1)</li>
+            <li>Small Group (2-5)</li>
+            <li>Mid-Group (6-10)</li>
+            <li>Large Group (10+)</li>
+          </ul>
+          <h4>3. derm_service_tier</h4>
+          <p>Type: Dropdown | Options:</p>
+          <ul>
+            <li>Starter</li>
+            <li>Growth</li>
+            <li>Authority</li>
+          </ul>
+          <h4>4. derm_switch_from</h4>
+          <p>Type: Dropdown | Options:</p>
+          <ul>
+            <li>Podium</li>
+            <li>PatientPop/Tebra</li>
+            <li>Weave</li>
+            <li>In-house</li>
+            <li>Intrepy</li>
+            <li>DoctorLogic</li>
+            <li>Other</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 3: Create 5 Saved Deal Views</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Deals → Views → Create view</p>
+          <p>Create the following 5 saved views to organize dermatology deals:</p>
+          <h4>1. All Dermatology Deals</h4>
+          <p>Filter: Pipeline = Dermatology</p>
+          <h4>2. Derm Deals — Evaluation Stage</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Evaluation / Follow-ups</p>
+          <h4>3. Derm Deals — Ready to Sign</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Ready to Sign</p>
+          <h4>4. Derm Deals — Stalled/Parked (needs attention)</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Stalled / Parked</p>
+          <h4>5. Derm Deals — Won This Month</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Contract Won AND (Last stage change date within current month)</p>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 4: Create 5 Lead Contact Views</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Contacts → Views → Create view</p>
+          <p>Create the following 5 saved views to track dermatology leads:</p>
+          <h4>1. All Derm Leads</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = Lead</p>
+          <h4>2. Derm Leads — No Activity 7+ Days</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = Lead AND (Last activity date older than 7 days)</p>
+          <h4>3. Derm Leads — Pre-Qualified (ready to hand to Sales)</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = Lead AND Lead status = Pre-qualified</p>
+          <h4>4. Derm Leads — Active (BDR currently working)</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = Lead AND Owner is not empty</p>
+          <h4>5. Derm MQLs — MSM Booked</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = MQL AND Has upcoming meeting = true</p>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 5: Create 2 Automation Workflows</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Automation → Workflows → Create workflow</p>
+          <h4>Workflow 1: "Derm Lead Assigned"</h4>
+          <p><strong>Trigger:</strong> Contact created with vertical_zoom = Dermatologists AND no owner</p>
+          <p><strong>Action:</strong> Auto-assign to next available BDR in rotation</p>
+          <p><strong>Purpose:</strong> Ensure all new derm leads are immediately assigned for follow-up</p>
+          <h4>Workflow 2: "Derm Deal Stalled"</h4>
+          <p><strong>Trigger:</strong> Deal enters Dermatology pipeline AND no activity for 7 days</p>
+          <p><strong>Actions:</strong></p>
+          <ul>
+            <li>Create task "Follow up on stalled derm deal" assigned to deal owner</li>
+            <li>Add internal note "Last activity &gt; 7 days"</li>
+          </ul>
+          <p><strong>Purpose:</strong> Automatically flag and task stalled deals for proactive management</p>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 6: Create 4 Deal Reports</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Reports → Create report → Choose "Deals"</p>
+          <h4>1. Derm Pipeline by Stage</h4>
+          <p>Chart type: Bar chart</p>
+          <p>X-axis: Pipeline stage (Dermatology pipeline only)</p>
+          <p>Y-axis: Count of deals</p>
+          <p>Purpose: Visual overview of deal distribution across sales stages</p>
+          <h4>2. Derm Deal Velocity</h4>
+          <p>Chart type: Table</p>
+          <p>Metric: Average days in each stage (Dermatology pipeline only)</p>
+          <p>Purpose: Identify bottlenecks in the sales process</p>
+          <h4>3. Derm Deals Won vs Lost (Monthly)</h4>
+          <p>Chart type: Bar chart</p>
+          <p>X-axis: Month</p>
+          <p>Y-axis: Count of deals (Won vs Lost, Dermatology pipeline)</p>
+          <p>Purpose: Track deal conversion trends month-over-month</p>
+          <h4>4. Derm Revenue Forecast</h4>
+          <p>Chart type: Funnel chart</p>
+          <p>Filter: Dermatology pipeline</p>
+          <p>Include: Deal amount by stage with win probability percentages</p>
+          <p>Purpose: Forecast expected revenue based on pipeline health</p>
+        </div>
+      </div>
+
+      <div class="ekwa-accordion__item">
+        <div class="ekwa-accordion__header">
+          <span>Task 7: Create 8 Full-Funnel Reports (Contacts + Deals)</span>
+          <span class="ekwa-accordion__arrow">▼</span>
+        </div>
+        <div class="ekwa-accordion__content">
+          <p><strong>Location:</strong> Reports → Create report → Choose "Contacts" or "Deals" as appropriate</p>
+          <h4>1. Derm Contacts by Lead Status</h4>
+          <p>Filter: vertical_zoom = Dermatologists</p>
+          <p>Chart type: Pie chart | Metric: Lead status distribution</p>
+          <h4>2. Derm MQL Trend (Monthly)</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND Lifecycle stage = MQL</p>
+          <p>Chart type: Line chart | X-axis: Month | Y-axis: Count of MQLs</p>
+          <h4>3. Derm Contacts — Activity Gap (no activity 14+ days)</h4>
+          <p>Filter: vertical_zoom = Dermatologists AND (Last activity date older than 14 days)</p>
+          <p>Chart type: Table | Show: Contact name, owner, last activity, days since activity</p>
+          <h4>4. Derm Lead-to-MQL Conversion Rate</h4>
+          <p>Filter: vertical_zoom = Dermatologists</p>
+          <p>Metric: (Count of MQLs) / (Count of Leads) × 100</p>
+          <p>Chart type: Table | Include: Monthly trends</p>
+          <h4>5. Derm Deal Win Rate by BDR</h4>
+          <p>Filter: Pipeline = Dermatology</p>
+          <p>Group by: Deal owner (Sales rep name)</p>
+          <p>Metric: (Won deals) / (Total deals) × 100</p>
+          <h4>6. Derm Average Deal Value</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Contract Won</p>
+          <p>Metric: Average deal amount | Show: By time period and by BDR</p>
+          <h4>7. Derm Pipeline Coverage Ratio</h4>
+          <p>Filter: Pipeline = Dermatology AND Pipeline stage = Ready to Sign and beyond</p>
+          <p>Metric: Total deal amount / Monthly quota target | Show: By BDR and overall</p>
+          <h4>8. Derm Monthly New Leads vs MQLs</h4>
+          <p>Filter: vertical_zoom = Dermatologists</p>
+          <p>Chart type: Bar chart | X-axis: Month | Y-axis: New leads vs newly created MQLs</p>
+          <p>Purpose: Track top-of-funnel efficiency and lead qualification rates</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Claude Automation Checklist -->
+    <h2 class="ekwa-section-title">Claude Automation Checklist</h2>
+    <div class="ekwa-card">
+      <p>After completing all 7 HubSpot setup tasks above, trigger Claude to execute the following automation checks:</p>
+      <ul>
+        <li>[ ] Verify all derm deals have vertical_dervied_ycbm = "Dermatology" set</li>
+        <li>[ ] Migrate derm deals to new Dermatology pipeline</li>
+        <li>[ ] Flag any Aesthetics-tagged contacts that look like dermatology practices</li>
+        <li>[ ] Create tasks on any stalled derm deals (no activity > 7 days)</li>
+        <li>[ ] Generate a derm pipeline health report</li>
+      </ul>
+    </div>
+
+    <!-- Email Sequences Section -->
+    <h2 class="ekwa-section-title">Email Sequences</h2>
+    <p style="max-width: 1200px; margin: 0 0 2rem 0; font-size: 14px; color: #555;">Five core email sequences to support dermatology sales and lead nurturing:</p>
+    <div class="ekwa-grid-2">
+      <div class="ekwa-card">
+        <h3>📧 Lead Nurture</h3>
+        <p>3 emails over 7 days (Days 1, 3, 7) to introduce platform value and build early-stage interest with new dermatology contacts.</p>
+        <p><strong>View:</strong> <a href="lead-nurture.html" style="color: var(--ekwa-blue); text-decoration: none; font-weight: 600;">lead-nurture.html</a></p>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>📧 Post-MSM Follow-up</h3>
+        <p>4 emails over 14 days (Days 1, 3, 7, 14) to nurture prospects after initial demo meeting and drive decision momentum.</p>
+        <p><strong>View:</strong> <a href="post-msm.html" style="color: var(--ekwa-blue); text-decoration: none; font-weight: 600;">post-msm.html</a></p>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>📧 No-Show Recovery</h3>
+        <p>2 emails (Days 0 and 3) to re-engage prospects who miss their scheduled demo meeting and recover the opportunity.</p>
+        <p><strong>View:</strong> <a href="no-show.html" style="color: var(--ekwa-blue); text-decoration: none; font-weight: 600;">no-show.html</a></p>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>📧 Stalled Deal Re-engagement</h3>
+        <p>3 emails over 21 days (Days 1, 7, 21) to revive prospects stuck in evaluation stage and create urgency for close.</p>
+        <p><strong>View:</strong> <a href="stalled.html" style="color: var(--ekwa-blue); text-decoration: none; font-weight: 600;">stalled.html</a></p>
+      </div>
+
+      <div class="ekwa-card">
+        <h3>📧 Provider Switch Sequence</h3>
+        <p>3 emails to target dermatologists actively switching from competing platforms and highlight our migration benefits.</p>
+        <p><strong>View:</strong> <a href="provider-switch.html" style="color: var(--ekwa-blue); text-decoration: none; font-weight: 600;">provider-switch.html</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="ekwa-footer">
+    <p><strong>Ekwa Intelligence — Dermatology Head of Sales</strong></p>
+    <p>Internal use only. <a href="../../../index.html">Back to All Verticals</a></p>
+    <p style="margin-top: 1rem; font-size: 12px; opacity: 0.8;">Last updated: 2026-03-01</p>
+  </footer>
+
+  <script>
+    // Hamburger Navigation
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isOpen);
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.ekwa-nav__mobile a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Accordion
+    document.querySelectorAll('.ekwa-accordion__header').forEach(header => {
+      header.addEventListener('click', () => {
+        const isOpen = header.classList.contains('open');
+        header.classList.toggle('open', !isOpen);
+        header.nextElementSibling.classList.toggle('open', !isOpen);
+      });
+    });
+  </script>
+</body>
+</html>

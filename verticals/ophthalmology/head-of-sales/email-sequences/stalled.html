@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalled Deal Sequence - Ophthalmology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --ekwa-green: #40916C;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-light: #e0e0e0;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--ekwa-green);
+        }
+
+        .breadcrumb {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+        }
+
+        .meta-icon {
+            font-size: 1.2em;
+        }
+
+        .emails {
+            margin-bottom: 50px;
+        }
+
+        .email {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, var(--ekwa-green), #2d6a52);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .email-number {
+            font-size: 2em;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .email-timing {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .email-content {
+            padding: 30px;
+        }
+
+        .email-field {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--ekwa-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .field-value {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--ekwa-green);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .email-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--ekwa-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .copy-btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .copy-btn.copied {
+            background-color: #4caf50;
+        }
+
+        .notes {
+            background-color: #fffbf0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .notes strong {
+            color: #e65100;
+        }
+
+        footer {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 2px solid var(--ekwa-green);
+        }
+
+        footer a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--ekwa-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--ekwa-green);
+            border: 2px solid var(--ekwa-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f8f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html">← Back to All Sequences</a>
+            </div>
+            <h1>Stalled Deal Sequence</h1>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📧</span>
+                    <span>3 Emails</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Days 1, 3, 7</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎯</span>
+                    <span>Re-Activation</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">1</div>
+                    <div class="email-timing">Send: Day 1</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Checking in on {{contact.company}}'s marketing roadmap</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I haven't heard from you in a bit and wanted to check in. We had some great conversations about getting {{contact.company}} positioned to capture both your elective and routine patient base, and I'm curious where things stand.
+
+A couple of possibilities:
+1. You decided to move forward with your current provider (totally fair)
+2. It got pushed to the back burner as other priorities emerged
+3. You wanted to explore more but needed to figure out timing/budget
+
+Regardless of which one it is, I'd love to know. And if timing just wasn't right, that's okay — sometimes these things need to bake for a bit before they're ready to move.
+
+Happy to jump back in whenever it makes sense for {{contact.company}}.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Non-pushy check-in that gives multiple options for why they've gone quiet. Opens conversation without pressure.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">2</div>
+                    <div class="email-timing">Send: Day 3</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">One thing to consider before you decide</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I want to give you something to think about before you make a final decision on your marketing direction.
+
+If you're still with your current provider, they're probably handling one thing well: either your LASIK marketing OR your routine eye care acquisition. But are they doing both really well?
+
+Here's what we're seeing: Ophthalmology practices that stick with generalist solutions miss out on specialized SEO frameworks and content strategies that speak to the unique patient decision-making process for elective procedures.
+
+Translation: You're probably not capturing as many high-value elective patients as you could be.
+
+The practices that switch to us don't do it because their current provider is bad — they do it because they realize we bring something specialized that generic solutions can't deliver. Procedure-specific SEO pages, physician credentialing emphasis, content architecture built for the full patient journey.
+
+That often makes the difference between 30 new patients and 50 new patients per month.
+
+Just something to consider.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Addresses the "good enough current provider" objection. Differentiates Ekwa's specialized approach without naming competitors directly.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">3</div>
+                    <div class="email-timing">Send: Day 7</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Still open to a conversation when you're ready</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I'm going to step back and stop emailing so much — I don't want to become that person!
+
+But before I do, I want you to know that the door is open whenever {{contact.company}} is ready to explore this. Whether that's next month, next quarter, or next year.
+
+Every month you're not optimized for the full patient acquisition spectrum is revenue walking out the door. And when you're ready to address that, we know exactly how to help.
+
+Just hit reply or grab my calendar link. No strings attached.
+
+Here's to your success,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Final closing email. Acknowledges potential deal loss while keeping the relationship warm for future opportunity.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-secondary">Back to All Sequences</a>
+            <a href="provider-switch.html" class="btn">Next: Provider Switch</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Stalled Deal Sequence for Ophthalmology Sales</strong></p>
+        <p>Use these templates to re-activate deals that have gone quiet and move them forward</p>
+        <p><a href="../../../../index.html">← Back to Home</a></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(button) {
+            const text = button.parentElement.querySelector('.field-value.email-body')?.textContent || 
+                         button.parentElement.querySelector('.field-value')?.textContent;
+            if (text) {
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

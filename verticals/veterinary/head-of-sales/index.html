@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Veterinary vertical HubSpot pipeline setup, lead management, and email sequences. Internal use only.">
+    <link rel="canonical" href="https://ekwacompetitors.narenlife.com/verticals/veterinary/head-of-sales/">
+    <title>Veterinary Head of Sales — HubSpot Setup & Pipeline — Ekwa</title>
+    <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --navy: #1C305D;
+            --blue: #3B74BB;
+            --gold: #C9A227;
+            --vet-accent: #2A9D8F;
+            --font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--navy);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--vet-accent);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            border-bottom: 2px solid var(--vet-accent);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--navy);
+        }
+
+        nav .nav-subtitle {
+            font-size: 0.85rem;
+            color: var(--vet-accent);
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: white;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            color: white;
+            padding: 3rem 1rem;
+            border-left: 6px solid var(--vet-accent);
+        }
+
+        .page-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header .badge {
+            display: inline-block;
+            background-color: var(--vet-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .page-header h1 span {
+            color: var(--vet-accent);
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 1rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Funnel Stats */
+        .funnel-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--vet-accent);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card .stat-number {
+            font-size: 2rem;
+            color: var(--vet-accent);
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .stat-card .stat-description {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Alert */
+        .ekwa-alert {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .ekwa-alert--danger {
+            background-color: #fee;
+            border-left: 4px solid #d32f2f;
+            color: #c62828;
+        }
+
+        /* Context Cards */
+        .context-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .context-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--blue);
+        }
+
+        .context-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .context-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Setup Tasks */
+        .setup-section {
+            margin-bottom: 3rem;
+        }
+
+        .setup-section h2 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--vet-accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .setup-tasks {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .task-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--vet-accent);
+        }
+
+        .task-card h3 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .task-card .task-number {
+            display: inline-block;
+            background-color: var(--vet-accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+
+        .task-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .task-details p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .task-details ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        .task-details li {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Automation Checklist */
+        .checklist {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            cursor: pointer;
+        }
+
+        /* Email Sequences */
+        .email-section {
+            margin-bottom: 3rem;
+        }
+
+        .email-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .email-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--blue);
+        }
+
+        .email-card h3 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .email-card p {
+            margin: 0 0 1rem 0;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .email-card a {
+            display: inline-block;
+            background-color: var(--vet-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .email-card a:hover {
+            background-color: var(--blue);
+            color: white;
+        }
+
+        /* Accordion */
+        .accordion {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background: white;
+            border: none;
+            width: 100%;
+            padding: 1.25rem;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: #f5f5f5;
+        }
+
+        .accordion-header.active {
+            background-color: var(--vet-accent);
+            color: white;
+        }
+
+        .accordion-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #eee;
+            background-color: #fafafa;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-content p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .accordion-content ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .accordion-content li {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Footer */
+        .ekwa-footer {
+            background-color: var(--navy);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .ekwa-footer p {
+            margin: 0.5rem 0;
+        }
+
+        .ekwa-footer a {
+            color: var(--gold);
+        }
+
+        .ekwa-footer a:hover {
+            color: var(--vet-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .funnel-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .context-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .email-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <div class="nav-brand">Ekwa Marketing</div>
+            <div class="nav-subtitle">Veterinary · HoS</div>
+        </div>
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul id="navMenu">
+            <li><a href="../../../index.html">All Verticals</a></li>
+            <li><a href="../index.html">Veterinary</a></li>
+            <li><a href="../../../head-of-sales/index.html">HoS Hub</a></li>
+            <li><a href="email-sequences/index.html">Email Sequences</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <span class="badge">🐾 Veterinary · Head of Sales</span>
+            <h1>Veterinary <span>Head of Sales</span></h1>
+            <div class="breadcrumb">
+                <a href="../../../index.html">Home</a> &gt; 
+                <a href="../index.html">Veterinary</a> &gt; 
+                <span>Head of Sales</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Funnel Stats -->
+        <div class="funnel-stats">
+            <div class="stat-card">
+                <h3>Total Contacts</h3>
+                <div class="stat-number">37</div>
+                <div class="stat-description">Veterinary contacts in HubSpot</div>
+            </div>
+            <div class="stat-card">
+                <h3>Raw Leads (Est.)</h3>
+                <div class="stat-number">~18</div>
+                <div class="stat-description">Unqualified leads requiring nurture</div>
+            </div>
+            <div class="stat-card">
+                <h3>Unowned Leads</h3>
+                <div class="stat-number">1 ⚠️</div>
+                <div class="stat-description">Needs immediate BDR assignment</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Deals (Est.)</h3>
+                <div class="stat-number">~10</div>
+                <div class="stat-description">In progress veterinary opportunities</div>
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div class="ekwa-alert ekwa-alert--danger">
+            ⚠️ <strong>1 unowned veterinary contact detected</strong> — no BDR assigned. This lead is not being worked. Assign immediately.
+        </div>
+
+        <!-- Context Cards -->
+        <div class="context-cards">
+            <div class="context-card">
+                <h3>Lead Pipeline</h3>
+                <p>37 veterinary contacts with 1 unowned contact requiring urgent assignment. This is a smaller but highly specialized vertical focused on veterinary practices.</p>
+            </div>
+            <div class="context-card">
+                <h3>Deal Pipeline</h3>
+                <p>Veterinary practices tend to be independent or small group operations. Average contract value ranges from $800–$1,500 monthly with growth potential in multi-location groups.</p>
+            </div>
+            <div class="context-card">
+                <h3>What Claude Handles</h3>
+                <p>Automated tag/migration of deals, task assignment for unowned contacts, flagging of stalled opportunities, and pipeline health monitoring for the veterinary vertical.</p>
+            </div>
+            <div class="context-card">
+                <h3>What You Must Do</h3>
+                <p>Create the veterinary pipeline, custom properties, saved views, automation workflows, reports, and ensure proper lead routing and follow-up sequences are in place.</p>
+            </div>
+        </div>
+
+        <!-- Setup Tasks Section -->
+        <div class="setup-section">
+            <h2>7 HubSpot Setup Tasks</h2>
+
+            <div class="setup-tasks">
+                <!-- Task 1 -->
+                <div class="task-card">
+                    <h3><span class="task-number">1</span>Create "Veterinary — Sales Pipeline"</h3>
+                    <div class="task-details">
+                        <p><strong>12-Stage Deal Pipeline:</strong></p>
+                        <ul>
+                            <li>Stage 1: Prospect Lead</li>
+                            <li>Stage 2: Qualified Lead</li>
+                            <li>Stage 3: Needs Analysis</li>
+                            <li>Stage 4: Proposal / Demo Scheduled</li>
+                            <li>Stage 5: Proposal Sent</li>
+                            <li>Stage 6: Demo Completed</li>
+                            <li>Stage 7: Negotiation</li>
+                            <li>Stage 8: Technical Review</li>
+                            <li>Stage 9: Contract Approved</li>
+                            <li>Stage 10: Ready to Sign</li>
+                            <li>Stage 11: Won</li>
+                            <li>Stage 12: Lost</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="task-card">
+                    <h3><span class="task-number">2</span>Custom Properties (Group: "Veterinary")</h3>
+                    <div class="task-details">
+                        <p><strong>Define these custom properties for deals and contacts:</strong></p>
+                        <ul>
+                            <li><strong>vet_practice_type:</strong> Small Animal (General) | Large Animal | Mixed Practice | Exotic | Emergency/Specialty | Corporate/VCA</li>
+                            <li><strong>vet_location_count:</strong> Solo (1) | Small Group (2-5) | Group (6+)</li>
+                            <li><strong>vet_service_tier:</strong> Starter | Growth | Authority</li>
+                            <li><strong>vet_switch_from:</strong> GeniusVets | Cardinal Digital | InTouch Vet | PetDesk | In-house | Other</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="task-card">
+                    <h3><span class="task-number">3</span>5 Saved Deal Views</h3>
+                    <div class="task-details">
+                        <p><strong>Create these filtered views for deal management:</strong></p>
+                        <ul>
+                            <li>All Veterinary Deals (Veterinary vertical filter)</li>
+                            <li>Veterinary Deals — This Stage (Active deals by stage)</li>
+                            <li>Veterinary Deals — Stalled (No activity > 7 days)</li>
+                            <li>Veterinary Deals — High Value ($1,200+/mo ACV)</li>
+                            <li>Veterinary Deals — By Practice Type (Corporate vs. Independent)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 4 -->
+                <div class="task-card">
+                    <h3><span class="task-number">4</span>5 Lead/Contact Views</h3>
+                    <div class="task-details">
+                        <p><strong>Create these filtered views for lead management:</strong></p>
+                        <ul>
+                            <li>All Veterinary Contacts (37 total)</li>
+                            <li>Unowned Veterinary Leads (1 — urgent assignment)</li>
+                            <li>Veterinary Leads — Raw / Unqualified (~18)</li>
+                            <li>Veterinary Leads — Engaged (Last 30 days activity)</li>
+                            <li>Veterinary Leads — By Practice Size (Solo vs. Group)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 5 -->
+                <div class="task-card">
+                    <h3><span class="task-number">5</span>2 Automation Workflows</h3>
+                    <div class="task-details">
+                        <p><strong>Create these workflows:</strong></p>
+                        <ul>
+                            <li><strong>Workflow 1:</strong> Unowned Veterinary Lead Alert — Detect unowned lead, assign task to sales ops, notify BDR (daily check)</li>
+                            <li><strong>Workflow 2:</strong> Veterinary Deal Follow-up — Auto-trigger email sequence 7 days after demo, delay if stalled, flag for manager review if no response</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 6 -->
+                <div class="task-card">
+                    <h3><span class="task-number">6</span>4 Deal Reports</h3>
+                    <div class="task-details">
+                        <p><strong>Create these reports:</strong></p>
+                        <ul>
+                            <li>Veterinary Deal Pipeline Overview (all 12 stages, # & ACV)</li>
+                            <li>Veterinary Deal Win/Loss Rate (by practice type)</li>
+                            <li>Veterinary Deal Conversion Funnel (Lead → Qualified → Demo → Won)</li>
+                            <li>Veterinary Deal Velocity (Average time in each stage)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Task 7 -->
+                <div class="task-card">
+                    <h3><span class="task-number">7</span>8 Full-Funnel Reports</h3>
+                    <div class="task-details">
+                        <p><strong>Create these reports for leadership visibility:</strong></p>
+                        <ul>
+                            <li>Veterinary Vertical Funnel Overview (Contacts → Leads → Deals → Revenue)</li>
+                            <li>Veterinary Quarterly Revenue Report (Closed revenue + pipeline)</li>
+                            <li>Veterinary Lead Quality Scorecard (Conversion rates by source)</li>
+                            <li>Veterinary BDR Performance Dashboard (Lead assignment, follow-up, conversion)</li>
+                            <li>Veterinary Sales Rep Leaderboard (Deals closed, ACV, cycle time)</li>
+                            <li>Veterinary Unowned Lead Status (1 unowned — current owner, age, next action)</li>
+                            <li>Veterinary Stalled Deal Report (Inactive deals, owner, last activity)</li>
+                            <li>Veterinary Practice Type Breakdown (Deal distribution by vet type)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Claude Automation Checklist -->
+        <div class="checklist">
+            <h3>Claude Automation Checklist</h3>
+            <p>These tasks are handled by Claude automation for ongoing pipeline management:</p>
+            <div class="checklist-item">
+                <input type="checkbox" id="check1">
+                <label for="check1">Detect and alert on unowned veterinary leads daily</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check2">
+                <label for="check2">Assign unowned contacts to available BDR</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check3">
+                <label for="check3">Tag and migrate deals to veterinary pipeline</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check4">
+                <label for="check4">Flag stalled deals (no activity > 7 days)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check5">
+                <label for="check5">Trigger follow-up sequences post-demo</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check6">
+                <label for="check6">Update pipeline metrics and health scores</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check7">
+                <label for="check7">Generate weekly vertical performance summaries</label>
+            </div>
+        </div>
+
+        <!-- Email Sequences Section -->
+        <div class="email-section">
+            <h2 style="font-size: 1.8rem; color: var(--navy); margin-bottom: 1.5rem; border-bottom: 3px solid var(--vet-accent); padding-bottom: 0.5rem;">Email Sequences</h2>
+            <p style="margin-bottom: 1.5rem; color: #555;">Predefined email sequences for veterinary prospect nurturing and follow-up:</p>
+
+            <div class="email-cards">
+                <div class="email-card">
+                    <h3>Prospect Outreach Sequence</h3>
+                    <p>Initial 3-email introduction for new veterinary prospects. Highlights benefits for practice owners and managers.</p>
+                    <a href="email-sequences/index.html">View Sequence</a>
+                </div>
+                <div class="email-card">
+                    <h3>Post-Demo Follow-up</h3>
+                    <p>5-email sequence to nurture after demo. Addresses objections and re-engages silent prospects.</p>
+                    <a href="email-sequences/index.html">View Sequence</a>
+                </div>
+                <div class="email-card">
+                    <h3>Re-engagement Campaign</h3>
+                    <p>4-email campaign to re-activate dormant veterinary leads. Includes case studies and ROI messaging.</p>
+                    <a href="email-sequences/index.html">View Sequence</a>
+                </div>
+                <div class="email-card">
+                    <h3>Proposal / Contract Close</h3>
+                    <p>2-email signature-driven sequence with contract reminders and final incentives to accelerate close.</p>
+                    <a href="email-sequences/index.html">View Sequence</a>
+                </div>
+                <div class="email-card">
+                    <h3>Vertical-Specific Education</h3>
+                    <p>3-email educational series on veterinary-specific features and best practices in HubSpot for clinics.</p>
+                    <a href="email-sequences/index.html">View Sequence</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Section -->
+        <div class="setup-section" style="margin-bottom: 3rem;">
+            <h2>Quick Reference Guides</h2>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>HubSpot Vertical Zoom Value</span>
+                        <span class="accordion-toggle">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Veterinary Vertical:</strong> Use the value <code style="background: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 3px;">Vet</code> in HubSpot field filters and property mappings.</p>
+                        <p>This ensures all veterinary contacts, deals, and reports properly segment this vertical from others in your system.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Average Contract Values by Practice Type</span>
+                        <span class="accordion-toggle">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Small Animal (General):</strong> $800–$1,200/mo</li>
+                            <li><strong>Large Animal:</strong> $1,000–$1,500/mo</li>
+                            <li><strong>Mixed Practice:</strong> $1,200–$1,800/mo</li>
+                            <li><strong>Exotic/Specialty:</strong> $1,400–$2,000/mo</li>
+                            <li><strong>Emergency Clinic:</strong> $1,500–$2,500/mo</li>
+                            <li><strong>Corporate/VCA:</strong> $3,000–$5,000+/mo (multi-location)</li>
+                        </ul>
+                        <p>Use these as benchmarks when qualifying veterinary opportunities and forecasting revenue.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Common Objections & Responses</span>
+                        <span class="accordion-toggle">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>"We're currently with GeniusVets / Cardinal Digital / PetDesk."</strong><br>
+                        Response: "I understand. Let me show you how our platform works specifically for veterinary practices and how we reduce setup time to just 2 weeks, with zero downtime."</p>
+                        <p><strong>"We don't have budget for tools right now."</strong><br>
+                        Response: "I get it. Most practices we work with find that better lead management and follow-up reduces cost-per-acquisition by 20-30%. Can we look at your current client acquisition cost?"</p>
+                        <p><strong>"The owner is away / we're busy."</strong><br>
+                        Response: "Totally fair. Let me schedule a brief 15-min discovery call with you and the practice manager to see if this makes sense. No pressure either way."</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Key Veterinary Industry Insights</span>
+                        <span class="accordion-toggle">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Decision-Maker:</strong> Practice owner or clinic manager (operations-focused)</li>
+                            <li><strong>Buying Timeline:</strong> 6–12 weeks from first touch to close</li>
+                            <li><strong>Top Pain Points:</strong> Lead leakage, appointment no-shows, inconsistent follow-up</li>
+                            <li><strong>Top Motivation:</strong> Increase new client revenue, reduce administrative burden</li>
+                            <li><strong>Influencers:</strong> Associate veterinarians and office staff (tech comfort level matters)</li>
+                            <li><strong>Best Contact Channels:</strong> LinkedIn, email (avoid calls before 10am / after 5pm), afternoon outreach best</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <p><strong>Veterinary Head of Sales Hub</strong></p>
+        <p>Internal use only | HubSpot pipeline, lead management, and sales acceleration</p>
+        <p><a href="../../../index.html">← Back to All Verticals</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.8;">Last updated: 2026-03-01</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Accordion Toggle
+        function toggleAccordion(header) {
+            const isActive = header.classList.contains('active');
+            const content = header.nextElementSibling;
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('active');
+            });
+
+            // Toggle current
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Show Recovery Sequence - Med Spa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+        .page-header p {
+            margin: 0;
+            opacity: 0.95;
+        }
+        .email-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #9B5DE5;
+        }
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+        .email-header h2 {
+            color: #1C305D;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .email-day {
+            background-color: #9B5DE5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .email-body {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            border: 1px solid #e0e0e0;
+        }
+        .email-body strong {
+            color: #1C305D;
+        }
+        .copy-btn {
+            display: inline-block;
+            background-color: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #1C305D;
+        }
+        .copy-confirmation {
+            display: none;
+            color: #C9A227;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            color: #3B74BB;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Ekwa</h1>
+        <a href="index.html">← Back to All Sequences</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to All Sequences</a>
+        
+        <div class="page-header">
+            <h1>No-Show Recovery Sequence</h1>
+            <p>2 emails over 3 days • Re-engage missed opportunities</p>
+        </div>
+
+        <!-- Email 1 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 1: Immediate Recovery</h2>
+                <span class="email-day">Day 0</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> We missed you on our call today
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I noticed we weren't able to connect on our scheduled call today. No judgment — life happens. I know things get busy.
+
+I was really looking forward to chatting about how Ekwa could help {{contact.company}} attract higher-quality patients and improve retention. It's something we've helped dozens of med spas with, and I think there's real potential here.
+
+Are you still interested in exploring this? If so, let's find another time that works better for you. I'm flexible and can work around your schedule.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Reschedule Here]
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email1-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email1-body" style="display: none;">Hi {{contact.firstname}},
+
+I noticed we weren't able to connect on our scheduled call today. No judgment — life happens. I know things get busy.
+
+I was really looking forward to chatting about how Ekwa could help {{contact.company}} attract higher-quality patients and improve retention. It's something we've helped dozens of med spas with, and I think there's real potential here.
+
+Are you still interested in exploring this? If so, let's find another time that works better for you. I'm flexible and can work around your schedule.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Reschedule Here]</div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 2: Social Proof Close</h2>
+                <span class="email-day">Day 3</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Quick proof that this matters for med spas like yours
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+Last chance to reconnect on this. I wanted to share something quickly that might be helpful.
+
+We recently worked with another med spa similar to {{contact.company}} — great providers, solid reputation, but they weren't attracting the patient quality or volume they wanted. Their current marketing partner was treating them like a standard spa instead of the medical practice they are.
+
+Here's what changed in the first 90 days of working with Ekwa:
+- New patient inquiries increased 40%
+- Higher percentage of inquiries converted to bookings
+- Better patient retention and repeat visit rates
+- Average patient lifetime value improved 25%
+
+These aren't flukes. This is what happens when med spas shift from generic spa marketing to medical-grade positioning.
+
+If you're curious about how we'd approach {{contact.company}}, I'm here. Just let me know.
+
+If not, I understand — no hard feelings. You can unsubscribe here.
+
+Best,
+{{owner.firstname}}
+Ekwa Marketing
+
+[Unsubscribe Link]
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email2-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email2-body" style="display: none;">Hi {{contact.firstname}},
+
+Last chance to reconnect on this. I wanted to share something quickly that might be helpful.
+
+We recently worked with another med spa similar to {{contact.company}} — great providers, solid reputation, but they weren't attracting the patient quality or volume they wanted. Their current marketing partner was treating them like a standard spa instead of the medical practice they are.
+
+Here's what changed in the first 90 days of working with Ekwa:
+- New patient inquiries increased 40%
+- Higher percentage of inquiries converted to bookings
+- Better patient retention and repeat visit rates
+- Average patient lifetime value improved 25%
+
+These aren't flukes. This is what happens when med spas shift from generic spa marketing to medical-grade positioning.
+
+If you're curious about how we'd approach {{contact.company}}, I'm here. Just let me know.
+
+If not, I understand — no hard feelings. You can unsubscribe here.
+
+Best,
+{{owner.firstname}}
+Ekwa Marketing
+
+[Unsubscribe Link]</div>
+        </div>
+    </div>
+
+    <script>
+        function copySectionToClipboard(button, sectionId) {
+            const element = document.getElementById(sectionId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const confirmation = button.nextElementSibling;
+                confirmation.style.display = 'inline-block';
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

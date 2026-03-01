@@ -5,43 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
     <title>Leaving PatientGain? Dermatologists Explain Why They Upgraded</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        body { font-family: 'Montserrat', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        header { background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%); color: white; padding: 50px 20px; text-align: center; border-radius: 8px; margin-bottom: 40px; }
-        h1 { font-size: 2em; margin-bottom: 12px; }
-        .comparison-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 40px 0; }
-        .comparison-table thead { background: #1a1a2e; color: white; }
-        .comparison-table th { padding: 15px; text-align: left; font-weight: 600; }
-        .comparison-table td { padding: 12px 15px; border-bottom: 1px solid #ddd; }
-        .ekwa-advantage { background: #e8f4f8; color: #0066cc; font-weight: bold; }
-        .problem-box { background: #fff3cd; border-left: 4px solid #f5a623; padding: 25px; border-radius: 8px; margin: 40px 0; }
-        .problem-box h3 { color: #f5a623; margin-bottom: 12px; }
-        .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0; }
-        .reason-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #0066cc; }
-        .reason-card h3 { color: #0066cc; margin-bottom: 15px; }
-        .testimonial-section { background: #f0f4ff; padding: 40px; border-radius: 8px; margin: 40px 0; }
-        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px; }
-        .testimonial { background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #f5a623; }
-        .testimonial-text { font-style: italic; color: #666; margin-bottom: 15px; line-height: 1.8; }
-        .cta-section { background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%); color: white; padding: 40px; border-radius: 8px; text-align: center; margin: 50px 0; }
-        .cta-section h2 { margin-bottom: 20px; font-size: 1.6em; }
-        form { background: white; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        form h3 { color: #1a1a2e; margin-bottom: 25px; text-align: center; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; color: #1a1a2e; font-weight: 500; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; font-size: 1em; color: #333; }
-        input:focus, textarea:focus { outline: none; border-color: #0066cc; box-shadow: 0 0 0 3px rgba(0,102,204,0.1); }
-        textarea { resize: vertical; min-height: 100px; }
-        button { width: 100%; padding: 14px; background: linear-gradient(135deg, #0066cc 0%, #00509e 100%); color: white; border: none; border-radius: 5px; font-size: 1.05em; font-weight: bold; cursor: pointer; }
-        button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,102,204,0.3); }
-        .section-title { font-size: 1.6em; color: #1a1a2e; margin: 40px 0 25px 0; border-bottom: 3px solid #0066cc; padding-bottom: 10px; }
+        
+        /* Header Styles */
+        .ekwa-page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #7B68EE;
+        }
+        
+        .ekwa-page-header h1 {
+            font-size: 2em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        /* Table Wrapping */
+        .ekwa-table-wrap {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        .comparison-table thead {
+            background: #1C305D;
+            color: white;
+        }
+        
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .ekwa-advantage {
+            background: #e8f4f8;
+            color: #3B74BB;
+            font-weight: bold;
+        }
+        
+        .problem-box {
+            background: #fff3cd;
+            border-left: 4px solid #C9A227;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .problem-box h3 {
+            color: #C9A227;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .reason-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
+            border-left: 4px solid #3B74BB;
+        }
+        
+        .reason-card h3 {
+            color: #1C305D;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .testimonial-section {
+            background: #f0f4ff;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 4px solid #7B68EE;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #C9A227;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+            border-bottom: 4px solid #7B68EE;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        
+        form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(28, 48, 93, 0.1);
+        }
+        
+        form h3 {
+            color: #1C305D;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1C305D;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            color: #333;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3B74BB;
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #3B74BB 0%, #1C305D 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 116, 187, 0.3);
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            color: #1C305D;
+            margin: 40px 0 25px 0;
+            border-bottom: 3px solid #3B74BB;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #3B74BB;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        nav a:hover {
+            color: #1C305D;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <div class="ekwa-nav">
+        <nav>
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Dermatology</a>
+        </nav>
+    </div>
+
     <div class="container">
-        <header>
+        <header class="ekwa-page-header">
             <h1>Leaving PatientGain?</h1>
             <p style="font-size: 1.05em; opacity: 0.95;">Dermatologists Explain Why They Upgraded</p>
         </header>
@@ -53,57 +264,59 @@
 
         <h2 class="section-title">Comparison: ekwa vs. PatientGain</h2>
 
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Factor</th>
-                    <th>PatientGain</th>
-                    <th>ekwa</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Content Philosophy</strong></td>
-                    <td>AI-first (ChatGPT + templates)</td>
-                    <td class="ekwa-advantage">✓ Human-first (physician-reviewed)</td>
-                </tr>
-                <tr>
-                    <td><strong>Patient Trust Factor</strong></td>
-                    <td>Robotic, generic tone</td>
-                    <td class="ekwa-advantage">✓ Authentic physician voice</td>
-                </tr>
-                <tr>
-                    <td><strong>Medical Accuracy</strong></td>
-                    <td>AI sometimes generates outdated advice</td>
-                    <td class="ekwa-advantage">✓ Clinically verified, current</td>
-                </tr>
-                <tr>
-                    <td><strong>E-E-A-T Signals (Google)</strong></td>
-                    <td>Weak author authority</td>
-                    <td class="ekwa-advantage">✓ Strong physician bylines</td>
-                </tr>
-                <tr>
-                    <td><strong>Google Rankings</strong></td>
-                    <td>Declining (E-E-A-T penalty)</td>
-                    <td class="ekwa-advantage">✓ Improving (E-E-A-T focus)</td>
-                </tr>
-                <tr>
-                    <td><strong>Account Support</strong></td>
-                    <td>Platform-based, limited support</td>
-                    <td class="ekwa-advantage">✓ Dedicated marketing director</td>
-                </tr>
-                <tr>
-                    <td><strong>Strategic Guidance</strong></td>
-                    <td>Minimal strategy layer</td>
-                    <td class="ekwa-advantage">✓ Custom quarterly strategies</td>
-                </tr>
-                <tr>
-                    <td><strong>Pricing</strong></td>
-                    <td>$1,399–$1,999/month</td>
-                    <td class="ekwa-advantage">✓ $1,500–$3,000/month (better value)</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="ekwa-table-wrap">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>PatientGain</th>
+                        <th>ekwa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Content Philosophy</strong></td>
+                        <td>AI-first (ChatGPT + templates)</td>
+                        <td class="ekwa-advantage">✓ Human-first (physician-reviewed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Patient Trust Factor</strong></td>
+                        <td>Robotic, generic tone</td>
+                        <td class="ekwa-advantage">✓ Authentic physician voice</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medical Accuracy</strong></td>
+                        <td>AI sometimes generates outdated advice</td>
+                        <td class="ekwa-advantage">✓ Clinically verified, current</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-E-A-T Signals (Google)</strong></td>
+                        <td>Weak author authority</td>
+                        <td class="ekwa-advantage">✓ Strong physician bylines</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Rankings</strong></td>
+                        <td>Declining (E-E-A-T penalty)</td>
+                        <td class="ekwa-advantage">✓ Improving (E-E-A-T focus)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Support</strong></td>
+                        <td>Platform-based, limited support</td>
+                        <td class="ekwa-advantage">✓ Dedicated marketing director</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strategic Guidance</strong></td>
+                        <td>Minimal strategy layer</td>
+                        <td class="ekwa-advantage">✓ Custom quarterly strategies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pricing</strong></td>
+                        <td>$1,399–$1,999/month</td>
+                        <td class="ekwa-advantage">✓ $1,500–$3,000/month (better value)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2 class="section-title">Why Dermatologists Switch to ekwa</h2>
 
@@ -140,24 +353,24 @@
         </div>
 
         <div class="testimonial-section">
-            <h2 style="color: #0066cc; margin-bottom: 25px;">What PatientGain Users Say After Switching</h2>
+            <h2 style="color: #1C305D; margin-bottom: 25px; font-weight: 700;">What PatientGain Users Say After Switching</h2>
             <div class="testimonials">
                 <div class="testimonial">
                     <div class="testimonial-text">"PatientGain's AI felt cheap, and patients could tell. Within 3 months of switching to ekwa's physician-reviewed content, our Google rankings improved noticeably. More importantly, patient inquiries went up 28%."</div>
                     <div class="testimonial-author">Dr. Jennifer Park</div>
-                    <div style="color: #0066cc; font-size: 0.85em; margin-top: 5px;">Cosmetic Dermatology Center, Seattle</div>
+                    <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Cosmetic Dermatology Center, Seattle</div>
                 </div>
 
                 <div class="testimonial">
                     <div class="testimonial-text">"I was nervous about the price jump, but ekwa's content quality and Google rankings more than made up for it. The compliance peace of mind alone is worth it—no more wondering if our AI content is accurate."</div>
                     <div class="testimonial-author">Dr. Marcus Thompson</div>
-                    <div style="color: #0066cc; font-size: 0.85em; margin-top: 5px;">Medical Dermatology Group</div>
+                    <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Medical Dermatology Group</div>
                 </div>
 
                 <div class="testimonial">
                     <div class="testimonial-text">"PatientGain treated me like another practice in their system. ekwa treats me like their only client. The difference in attention and results is night and day. I should've upgraded years ago."</div>
                     <div class="testimonial-author">Amanda Roberts</div>
-                    <div style="color: #0066cc; font-size: 0.85em; margin-top: 5px;">Practice Owner, Advanced Skin Clinic</div>
+                    <div style="color: #3B74BB; font-size: 0.85em; margin-top: 5px;">Practice Owner, Advanced Skin Clinic</div>
                 </div>
             </div>
         </div>
@@ -206,5 +419,27 @@
             </div>
         </form>
     </div>
+
+    <footer class="ekwa-footer">
+        <p>&copy; 2026 ekwa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('.ekwa-nav');
+            if (!nav.querySelector('.hamburger')) {
+                const hamburger = document.createElement('button');
+                hamburger.className = 'hamburger';
+                hamburger.innerHTML = '&#9776;';
+                hamburger.setAttribute('aria-label', 'Toggle navigation');
+                nav.insertBefore(hamburger, nav.firstChild);
+                
+                hamburger.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

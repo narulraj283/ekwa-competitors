@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post MSM Sequence - Ophthalmology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --ekwa-green: #40916C;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-light: #e0e0e0;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--ekwa-green);
+        }
+
+        .breadcrumb {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+        }
+
+        .meta-icon {
+            font-size: 1.2em;
+        }
+
+        .emails {
+            margin-bottom: 50px;
+        }
+
+        .email {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, var(--ekwa-green), #2d6a52);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .email-number {
+            font-size: 2em;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .email-timing {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .email-content {
+            padding: 30px;
+        }
+
+        .email-field {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--ekwa-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .field-value {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--ekwa-green);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .email-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--ekwa-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .copy-btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .copy-btn.copied {
+            background-color: #4caf50;
+        }
+
+        .notes {
+            background-color: #fffbf0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .notes strong {
+            color: #e65100;
+        }
+
+        footer {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 2px solid var(--ekwa-green);
+        }
+
+        footer a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--ekwa-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--ekwa-green);
+            border: 2px solid var(--ekwa-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f8f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html">← Back to All Sequences</a>
+            </div>
+            <h1>Post MSM Sequence</h1>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📧</span>
+                    <span>4 Emails</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Days 1, 2, 4, 7</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎯</span>
+                    <span>Post Meeting Follow-up</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">1</div>
+                    <div class="email-timing">Send: Day 1</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Great conversation today — here's what we discussed</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+Thanks for taking the time to chat today about {{contact.company}}'s patient acquisition strategy. I really enjoyed hearing about your vision for the practice.
+
+As promised, here's a quick recap of the key points we discussed:
+
+• Your current challenge: Optimizing for both LASIK patients and routine eye care in a single marketing strategy
+• Your goal: Increase new patient inquiries by 30-40% in the next 12 months
+• Key opportunity: Dominating local search for the full patient journey, not just one service line
+
+Next steps:
+I'm going to pull together some specific examples of how we've helped similar practices dominate both "LASIK near me" and "eye doctor near me" searches. I'll have that to you by {{date}} so we can discuss what this could look like for {{contact.company}}.
+
+Looking forward to the next conversation.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Same-day follow-up recapping meeting key points. Sets expectations for next deliverable and reinforces value proposition.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">2</div>
+                    <div class="email-timing">Send: Day 2</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Ophthalmology marketing case study — {{contact.company}} might relate to this</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I came across this case study this morning and immediately thought of our conversation yesterday.
+
+It's about a 3-location ophthalmology practice that was losing elective procedure patients to competitors while also struggling to fill their routine appointment schedule. Sound familiar?
+
+After we restructured their SEO strategy and content framework to address BOTH patient types, they saw:
+• 47% increase in LASIK consultation requests
+• 32% increase in routine eye exam bookings
+• Consolidated marketing spend across unified platform
+
+The key difference was treating the two patient journeys as interconnected rather than separate channels.
+
+I'll send over the full case study shortly, but wanted you to see this first.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Provides social proof through case study. Specific metrics validate the strategy and show tangible results similar to their goals.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">3</div>
+                    <div class="email-timing">Send: Day 4</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">{{contact.firstname}}, what would a 40% increase in new patients mean for {{contact.company}}?</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I've been thinking about our conversation and specifically about the 40% new patient acquisition goal you mentioned.
+
+Here's what I'm curious about: What would that actually mean for your practice?
+
+If you're seeing 100 new patients per month right now, a 40% increase is 140 patients — additional revenue opportunity, more procedures booked, higher practice utilization. That compounds quickly.
+
+But here's the thing — it only happens if you're capturing BOTH the elective and routine patient segments. Your current provider might be strong in one, but practices don't win by being strong in half the market.
+
+The practices we work with understand this. That's why they're growing faster.
+
+I want to show you exactly how this works for {{contact.company}}. Should we set up a more detailed strategy session where I can walk you through the data specific to your market and service lines?
+
+Let me know what works for your schedule.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Quantifies their stated goal and makes it personal. Subtly positions Ekwa advantage and moves toward deeper engagement (strategy session).
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 4 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">4</div>
+                    <div class="email-timing">Send: Day 7</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Let's lock in that strategy session</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I sent a couple of follow-ups last week about diving deeper into a market-specific strategy for {{contact.company}}, and I want to make sure you didn't get buried.
+
+Here's what I'm thinking: Let's carve out 45 minutes next week and I'll show you:
+
+1. Competitive analysis for {{contact.company}}'s market (who's winning the LASIK search right now)
+2. Your current SEO positioning for both service lines
+3. A specific 90-day roadmap to increase new patient inquiries
+
+No pressure whatsoever — but I think you'll find it valuable even if we never work together.
+
+I've got some openings next Tuesday through Thursday. Does any of that work for you?
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Closing email before stalled sequence. Provides specific value prop for the strategy session and easy opt-in CTA with multiple options.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-secondary">Back to All Sequences</a>
+            <a href="no-show.html" class="btn">Next: No-Show</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Post MSM Sequence for Ophthalmology Sales</strong></p>
+        <p>Use these templates to follow up after marketing strategy meetings and move deals forward</p>
+        <p><a href="../../../../index.html">← Back to Home</a></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(button) {
+            const text = button.parentElement.querySelector('.field-value.email-body')?.textContent || 
+                         button.parentElement.querySelector('.field-value')?.textContent;
+            if (text) {
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

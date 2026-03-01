@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ekwa Brand Guide — Competitor Intelligence System</title>
+  <meta name="description" content="Internal brand guide for the Ekwa Competitor Intelligence site. Colors, typography, components, and usage patterns.">
+  <link rel="stylesheet" href="../assets/css/ekwa-brand.css">
+  <style>
+    .swatch-grid { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+    .swatch { width: 120px; }
+    .swatch__color { height: 80px; border-radius: 8px; margin-bottom: 8px; border: 1px solid rgba(0,0,0,0.08); }
+    .swatch__name { font-size: 11px; font-weight: 700; color: var(--ekwa-gray-700); }
+    .swatch__hex  { font-size: 11px; color: var(--ekwa-gray-500); font-family: monospace; }
+    .token-row { display: grid; grid-template-columns: 200px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--ekwa-gray-100); font-size: 13px; }
+    .token-name { font-family: monospace; color: var(--ekwa-blue); }
+    .token-val  { color: var(--ekwa-gray-600); }
+    .component-demo { background: var(--ekwa-gray-100); padding: 24px; border-radius: 12px; margin-bottom: 16px; }
+    h2.section-title { font-size: 22px; font-weight: 800; color: var(--ekwa-navy); margin: 48px 0 16px; padding-bottom: 12px; border-bottom: 3px solid var(--ekwa-gold); }
+    h3.sub-title { font-size: 14px; font-weight: 700; color: var(--ekwa-gray-600); text-transform: uppercase; letter-spacing: 0.06em; margin: 24px 0 12px; }
+    code { background: var(--ekwa-gray-100); padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: monospace; color: var(--ekwa-navy); }
+    pre { background: var(--ekwa-navy); color: #E2E8F0; padding: 20px; border-radius: 10px; overflow-x: auto; font-size: 12px; line-height: 1.7; margin: 12px 0; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="ekwa-nav" role="navigation" aria-label="Main navigation">
+  <div class="ekwa-nav__inner">
+    <a href="../index.html" class="ekwa-nav__brand" aria-label="Ekwa Competitor Intelligence — Home">
+      <div class="ekwa-nav__logo" aria-hidden="true">EC</div>
+      <div>
+        <div class="ekwa-nav__title">Ekwa Intelligence</div>
+        <div class="ekwa-nav__subtitle">Brand Guide</div>
+      </div>
+    </a>
+    <button class="ekwa-nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="ekwa-nav__links" role="list">
+      <li><a href="../index.html">All Verticals</a></li>
+      <li><a href="../head-of-sales/index.html" class="nav-cta">Head of Sales</a></li>
+    </ul>
+  </div>
+  <div class="ekwa-nav__mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="../index.html">All Verticals</a>
+    <a href="../head-of-sales/index.html">Head of Sales</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="ekwa-page-header" role="banner">
+  <div class="ekwa-container">
+    <nav class="ekwa-page-header__breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> › Brand Guide
+    </nav>
+    <div class="ekwa-page-header__badge" aria-label="Internal use only">🎨 Internal Brand System</div>
+    <h1>Ekwa <span>Brand Guide</span></h1>
+    <p>The single source of truth for colors, typography, components, and patterns used across the Competitor Intelligence site.</p>
+    <div class="ekwa-page-header__meta">
+      <span class="ekwa-page-header__meta-item">📁 CSS: <code style="background:rgba(255,255,255,0.15);color:white">/assets/css/ekwa-brand.css</code></span>
+      <span class="ekwa-page-header__meta-item">🔒 Internal Use Only — noindex/nofollow</span>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="ekwa-section" style="min-height:60vh">
+<div class="ekwa-container">
+
+<!-- COLORS -->
+<h2 class="section-title">Brand Colors</h2>
+<p style="color:var(--ekwa-gray-600);margin-bottom:24px;font-size:14px;">Extracted directly from ekwa.com CSS variables. Use these tokens — never hardcode hex values in page CSS.</p>
+
+<h3 class="sub-title">Primary Palette</h3>
+<div class="swatch-grid">
+  <div class="swatch">
+    <div class="swatch__color" style="background:#1C305D;"></div>
+    <div class="swatch__name">Deep Navy</div>
+    <div class="swatch__hex">--ekwa-navy · #1C305D</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch__color" style="background:#3B74BB;"></div>
+    <div class="swatch__name">Medium Blue</div>
+    <div class="swatch__hex">--ekwa-blue · #3B74BB</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch__color" style="background:#3974B8;"></div>
+    <div class="swatch__name">Dark Blue</div>
+    <div class="swatch__hex">--ekwa-dark-blue · #3974B8</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch__color" style="background:#C9A227;"></div>
+    <div class="swatch__name">Gold</div>
+    <div class="swatch__hex">--ekwa-gold · #C9A227</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch__color" style="background:#FDE78C;"></div>
+    <div class="swatch__name">Gold Light</div>
+    <div class="swatch__hex">--ekwa-gold-light · #FDE78C</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch__color" style="background:#49CDE4;"></div>
+    <div class="swatch__name">Cyan</div>
+    <div class="swatch__hex">--ekwa-cyan · #49CDE4</div>
+  </div>
+</div>
+
+<h3 class="sub-title">Usage Rules</h3>
+<div class="ekwa-grid-3" style="margin-bottom:32px">
+  <div class="ekwa-card ekwa-card--navy">
+    <div style="font-size:11px;font-weight:700;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">--ekwa-navy</div>
+    <div style="font-weight:700;font-size:15px">Primary Brand</div>
+    <div style="font-size:13px;opacity:0.8;margin-top:8px">Headers, navigation background, primary buttons, all h1/h2, page headers</div>
+  </div>
+  <div class="ekwa-card ekwa-card--blue">
+    <div style="font-size:11px;font-weight:700;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">--ekwa-blue</div>
+    <div style="font-weight:700;font-size:15px">Secondary / Links</div>
+    <div style="font-size:13px;opacity:0.8;margin-top:8px">Links, secondary buttons, tab highlights, table headers, accent cards</div>
+  </div>
+  <div class="ekwa-card ekwa-card--gold">
+    <div style="font-size:11px;font-weight:700;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">--ekwa-gold</div>
+    <div style="font-weight:700;font-size:15px">CTA / Accent</div>
+    <div style="font-size:13px;opacity:0.8;margin-top:8px">Primary CTA buttons, active tab indicator, important highlights, "action" elements</div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<h2 class="section-title">Typography</h2>
+<p style="color:var(--ekwa-gray-600);margin-bottom:24px;font-size:14px;">One font family only: <strong>Montserrat</strong>. All weights from 300–800. Loaded via Google Fonts in the brand CSS.</p>
+
+<div class="component-demo">
+  <div style="font-size:48px;font-weight:800;color:var(--ekwa-navy);line-height:1.1;margin-bottom:16px">Heading 1 — 48px / 800</div>
+  <div style="font-size:36px;font-weight:800;color:var(--ekwa-navy);line-height:1.15;margin-bottom:16px">Heading 2 — 36px / 800</div>
+  <div style="font-size:30px;font-weight:700;color:var(--ekwa-navy);line-height:1.2;margin-bottom:16px">Heading 3 — 30px / 700</div>
+  <div style="font-size:24px;font-weight:700;color:var(--ekwa-navy);margin-bottom:16px">Heading 4 — 24px / 700</div>
+  <div style="font-size:18px;font-weight:600;color:var(--ekwa-gray-700);margin-bottom:12px">Lead paragraph — 18px / 600</div>
+  <div style="font-size:16px;color:var(--ekwa-gray-700);line-height:1.6;margin-bottom:12px">Body text — 16px / 400. Used for all paragraph content. Never go below 16px for body text to ensure readability on all devices.</div>
+  <div style="font-size:14px;color:var(--ekwa-gray-600);margin-bottom:8px">Small text — 14px / 400. Secondary descriptions, card subtitles.</div>
+  <div style="font-size:12px;color:var(--ekwa-gray-500);font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Label / Caption — 12px / 600 uppercase. Used for table headers, badge labels, metadata.</div>
+</div>
+
+<!-- IMPORT -->
+<h2 class="section-title">How to Import</h2>
+<p style="color:var(--ekwa-gray-600);margin-bottom:12px;font-size:14px;">Every HTML page must include this single link tag. Adjust the path based on directory depth.</p>
+<pre>&lt;!-- Root level --&gt;
+&lt;link rel="stylesheet" href="assets/css/ekwa-brand.css"&gt;
+
+&lt;!-- One level deep (e.g. /verticals/dentistry/) --&gt;
+&lt;link rel="stylesheet" href="../../assets/css/ekwa-brand.css"&gt;
+
+&lt;!-- Two levels deep (e.g. /verticals/dentistry/tools/) --&gt;
+&lt;link rel="stylesheet" href="../../../assets/css/ekwa-brand.css"&gt;
+
+&lt;!-- Three levels deep (e.g. /verticals/dentistry/head-of-sales/email-sequences/) --&gt;
+&lt;link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css"&gt;</pre>
+
+<!-- NAV COMPONENT -->
+<h2 class="section-title">Navigation Component</h2>
+<p style="color:var(--ekwa-gray-600);margin-bottom:12px;font-size:14px;">Use the same nav structure on every page. Copy-paste and adjust the active class and breadcrumb.</p>
+<pre>&lt;nav class="ekwa-nav" role="navigation" aria-label="Main navigation"&gt;
+  &lt;div class="ekwa-nav__inner"&gt;
+    &lt;a href="../../index.html" class="ekwa-nav__brand"&gt;
+      &lt;div class="ekwa-nav__logo" aria-hidden="true"&gt;EC&lt;/div&gt;
+      &lt;div&gt;
+        &lt;div class="ekwa-nav__title"&gt;Ekwa Intelligence&lt;/div&gt;
+        &lt;div class="ekwa-nav__subtitle"&gt;[Page Context]&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;button class="ekwa-nav__hamburger" id="hamburger" aria-expanded="false"&gt;
+      &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="ekwa-nav__links"&gt;
+      &lt;li&gt;&lt;a href="../../index.html"&gt;All Verticals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="index.html" class="active"&gt;[Current Vertical]&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="head-of-sales/index.html" class="nav-cta"&gt;Head of Sales&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="ekwa-nav__mobile" id="mobile-menu"&gt;...&lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- JS for hamburger (same on every page) --&gt;
+&lt;script&gt;
+const btn = document.getElementById('hamburger');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => {
+  const open = btn.classList.toggle('open');
+  menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+});
+&lt;/script&gt;</pre>
+
+<!-- BUTTONS -->
+<h2 class="section-title">Buttons</h2>
+<div class="component-demo" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+  <a href="#" class="ekwa-btn ekwa-btn--primary">Primary CTA</a>
+  <a href="#" class="ekwa-btn ekwa-btn--secondary">Secondary</a>
+  <a href="#" class="ekwa-btn ekwa-btn--outline">Outline</a>
+  <a href="#" class="ekwa-btn ekwa-btn--sm ekwa-btn--primary">Small CTA</a>
+  <a href="#" class="ekwa-btn ekwa-btn--lg ekwa-btn--primary">Large CTA</a>
+</div>
+
+<!-- BADGES -->
+<h2 class="section-title">Badges</h2>
+<div class="component-demo" style="display:flex;flex-wrap:wrap;gap:8px">
+  <span class="ekwa-badge ekwa-badge--navy">Navy</span>
+  <span class="ekwa-badge ekwa-badge--blue">Blue</span>
+  <span class="ekwa-badge ekwa-badge--gold">Gold</span>
+  <span class="ekwa-badge ekwa-badge--cyan">Cyan</span>
+  <span class="ekwa-badge ekwa-badge--success">Active</span>
+  <span class="ekwa-badge ekwa-badge--warning">Review</span>
+  <span class="ekwa-badge ekwa-badge--danger">Urgent</span>
+  <span class="ekwa-badge ekwa-badge--gray">Inactive</span>
+</div>
+
+<!-- ALERTS -->
+<h2 class="section-title">Alert / Callout Boxes</h2>
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+  <div class="ekwa-alert ekwa-alert--info"><strong>ℹ️ Info Callout</strong>Use for general guidance, tips, or process notes.</div>
+  <div class="ekwa-alert ekwa-alert--warning"><strong>⚠️ Warning</strong>Use for important caveats or items requiring manual review.</div>
+  <div class="ekwa-alert ekwa-alert--success"><strong>✅ Success / Complete</strong>Use when a task is done or a threshold is met.</div>
+  <div class="ekwa-alert ekwa-alert--danger"><strong>🚨 Action Required</strong>Use for urgent items — stalled deals, unowned leads, etc.</div>
+  <div class="ekwa-alert ekwa-alert--gold"><strong>⭐ Key Insight</strong>Use for strategic highlights or data standouts.</div>
+</div>
+
+<!-- CARDS -->
+<h2 class="section-title">Cards</h2>
+<div class="ekwa-grid-4" style="margin-bottom:16px">
+  <div class="ekwa-card">
+    <div style="font-weight:700;color:var(--ekwa-navy);margin-bottom:8px">Default Card</div>
+    <div style="font-size:13px;color:var(--ekwa-gray-600)">White background with border and hover shadow.</div>
+  </div>
+  <div class="ekwa-card ekwa-card--navy">
+    <div style="font-weight:700;margin-bottom:8px">Navy Card</div>
+    <div style="font-size:13px;opacity:0.8">For featured sections.</div>
+  </div>
+  <div class="ekwa-card ekwa-card--accent">
+    <div style="font-weight:700;color:var(--ekwa-navy);margin-bottom:8px">Blue Accent</div>
+    <div style="font-size:13px;color:var(--ekwa-gray-600)">Left border highlight.</div>
+  </div>
+  <div class="ekwa-card ekwa-card--gold-accent">
+    <div style="font-weight:700;color:var(--ekwa-navy);margin-bottom:8px">Gold Accent</div>
+    <div style="font-size:13px;color:var(--ekwa-gray-600)">For action items.</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<h2 class="section-title">Stat Cards</h2>
+<div class="ekwa-stat-grid" style="margin-bottom:16px">
+  <div class="ekwa-stat">
+    <div class="ekwa-stat__value">5,966</div>
+    <div class="ekwa-stat__label">Total Contacts</div>
+  </div>
+  <div class="ekwa-stat">
+    <div class="ekwa-stat__value ekwa-stat__value--gold">3,012</div>
+    <div class="ekwa-stat__label">Raw Leads</div>
+  </div>
+  <div class="ekwa-stat">
+    <div class="ekwa-stat__value ekwa-stat__value--blue">130</div>
+    <div class="ekwa-stat__label">MQL</div>
+  </div>
+  <div class="ekwa-stat">
+    <div class="ekwa-stat__value ekwa-stat__value--red">590</div>
+    <div class="ekwa-stat__label">Unowned</div>
+    <div class="ekwa-stat__sub">Need BDR assignment</div>
+  </div>
+</div>
+
+<!-- SEO RULES -->
+<h2 class="section-title">SEO Standards</h2>
+<div class="ekwa-alert ekwa-alert--info" style="margin-bottom:16px">
+  <strong>Every page must include all of the following in &lt;head&gt;:</strong>
+  This is an internal tool. All pages use noindex/nofollow but still maintain proper semantic HTML structure.
+</div>
+<pre>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="robots" content="noindex, nofollow"&gt;
+&lt;title&gt;[Unique Page Title] — Ekwa Competitor Intelligence&lt;/title&gt;
+&lt;meta name="description" content="[Unique 120-155 char description]"&gt;
+&lt;link rel="canonical" href="https://ekwacompetitors.narenlife.com/[path]"&gt;
+
+&lt;!-- Open Graph --&gt;
+&lt;meta property="og:title" content="[Page Title]"&gt;
+&lt;meta property="og:description" content="[Description]"&gt;
+&lt;meta property="og:type" content="website"&gt;
+
+&lt;!-- Semantic HTML --&gt;
+&lt;!-- Use: &lt;header&gt;, &lt;main&gt;, &lt;nav&gt;, &lt;footer&gt;, &lt;section&gt;, &lt;article&gt; --&gt;
+&lt;!-- One &lt;h1&gt; per page only --&gt;
+&lt;!-- All images have alt="" attributes --&gt;</pre>
+
+<!-- VERTICAL COLORS -->
+<h2 class="section-title">Vertical Identifier Colors</h2>
+<p style="color:var(--ekwa-gray-600);margin-bottom:16px;font-size:14px;">These are subtle accent colors used only for vertical-specific identity (colored bar under header, etc.). Never replace the primary Ekwa palette with these.</p>
+<div class="ekwa-grid-3">
+  <div class="ekwa-card" style="border-top:4px solid #3B74BB">
+    <div style="font-weight:700;color:var(--ekwa-navy)">Dentistry</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-dental · #3B74BB</div>
+  </div>
+  <div class="ekwa-card" style="border-top:4px solid #7B68EE">
+    <div style="font-weight:700;color:var(--ekwa-navy)">Dermatology</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-derm · #7B68EE</div>
+  </div>
+  <div class="ekwa-card" style="border-top:4px solid #9B5DE5">
+    <div style="font-weight:700;color:var(--ekwa-navy)">MedSpa</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-medspa · #9B5DE5</div>
+  </div>
+  <div class="ekwa-card" style="border-top:4px solid #E63946">
+    <div style="font-weight:700;color:var(--ekwa-navy)">Plastic Surgery</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-plastics · #E63946</div>
+  </div>
+  <div class="ekwa-card" style="border-top:4px solid #2A9D8F">
+    <div style="font-weight:700;color:var(--ekwa-navy)">Veterinary</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-vet · #2A9D8F</div>
+  </div>
+  <div class="ekwa-card" style="border-top:4px solid #40916C">
+    <div style="font-weight:700;color:var(--ekwa-navy)">Ophthalmology</div>
+    <div style="font-size:12px;font-family:monospace;color:var(--ekwa-gray-500)">.ekwa-vertical-ophtho · #40916C</div>
+  </div>
+</div>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="ekwa-footer" role="contentinfo">
+  <div class="ekwa-footer__inner">
+    <span>© 2026 Ekwa Marketing — Internal Use Only</span>
+    <nav aria-label="Footer navigation">
+      <a href="../index.html">All Verticals</a> ·
+      <a href="../head-of-sales/index.html">Head of Sales</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const btn = document.getElementById('hamburger');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => {
+  const open = btn.classList.toggle('open');
+  menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>

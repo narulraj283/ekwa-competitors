@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurture Sequence - Plastic Surgery | Ekwa Marketing</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #E63946;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .sequence-info {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .info-item {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .emails-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .email-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #E63946;
+        }
+
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .email-day {
+            background: #E63946;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .email-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #E63946;
+        }
+
+        .email-subject {
+            margin-bottom: 20px;
+        }
+
+        .email-subject-label {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .email-subject-text {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .email-body {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .email-body p {
+            margin-bottom: 15px;
+        }
+
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .copy-button {
+            background: #E63946;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: #c8282f;
+        }
+
+        .copy-button.copied {
+            background: #28a745;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .token-highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .sequence-note {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Sequences</a>
+            <h1>Lead Nurture Sequence</h1>
+            <p style="color: #666; margin-top: 10px;">Initial outreach designed to resonate with board-certified plastic surgeons</p>
+        </header>
+
+        <div class="sequence-info">
+            <div class="info-item">
+                <div class="info-label">Total Emails</div>
+                <div class="info-value">3</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Timeline</div>
+                <div class="info-value">7 Days</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Best For</div>
+                <div class="info-value">Cold Outreach</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Goal</div>
+                <div class="info-value">Establish Credibility</div>
+            </div>
+        </div>
+
+        <div class="emails-container">
+            <!-- Email 1 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div style="flex: 1;">
+                        <div class="email-number">1</div>
+                    </div>
+                    <div class="email-day">Day 1</div>
+                </div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line</div>
+                    <div class="email-subject-text">One question for <span class="token-highlight">{{contact.firstname}}</span> at <span class="token-highlight">{{contact.company}}</span></div>
+                </div>
+
+                <div class="email-body">
+                    <p>Hi <span class="token-highlight">{{contact.firstname}}</span>,</p>
+                    <p>Plastic surgeons deserve marketing that matches the caliber of their work.</p>
+                    <p>I have one question: Is your current online presence accurately reflecting your surgical skill and patient outcomes?</p>
+                    <p>At Ekwa, we work exclusively with plastic surgeons, and we've noticed something: the best surgeons often have the worst websites. Credentials get buried. Before-and-after galleries feel like afterthoughts. Patient testimonials don't showcase what you actually do.</p>
+                    <p>If this sounds familiar, let's talk about fixing it.</p>
+                    <p>Best,<br>
+                    [Your Name]<br>
+                    Ekwa Marketing</p>
+                </div>
+
+                <div class="button-container">
+                    <button class="copy-button" onclick="copyToClipboard(event, 'email1-body')">Copy Email Body</button>
+                </div>
+                <div id="email1-body" style="display: none;">Hi {{contact.firstname}},
+
+Plastic surgeons deserve marketing that matches the caliber of their work.
+
+I have one question: Is your current online presence accurately reflecting your surgical skill and patient outcomes?
+
+At Ekwa, we work exclusively with plastic surgeons, and we've noticed something: the best surgeons often have the worst websites. Credentials get buried. Before-and-after galleries feel like afterthoughts. Patient testimonials don't showcase what you actually do.
+
+If this sounds familiar, let's talk about fixing it.
+
+Best,
+[Your Name]
+Ekwa Marketing</div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div style="flex: 1;">
+                        <div class="email-number">2</div>
+                    </div>
+                    <div class="email-day">Day 3</div>
+                </div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line</div>
+                    <div class="email-subject-text">Board-certified plastic surgeons and digital marketing — what we're seeing</div>
+                </div>
+
+                <div class="email-body">
+                    <p>Hi <span class="token-highlight">{{contact.firstname}}</span>,</p>
+                    <p>Quick follow-up from my last email.</p>
+                    <p>We've been working with board-certified plastic surgeons for years, and the pattern is clear: surgeons who let their credentials and before-and-after results lead their digital presence consistently outperform those relying on generic "aesthetic practice" positioning.</p>
+                    <p>Why? Because your patients want to know:</p>
+                    <p>• What makes <strong>you</strong> different<br>
+                    • Your training and board certifications<br>
+                    • Real results from surgeries like theirs<br>
+                    • That they're choosing a specialist, not a general provider</p>
+                    <p>Ekwa specializes in surgeon-forward marketing. We build digital presence around your credentials, your results, and your specialty—not generic wellness messaging.</p>
+                    <p>Worth a conversation?</p>
+                    <p>Best,<br>
+                    [Your Name]<br>
+                    Ekwa Marketing</p>
+                </div>
+
+                <div class="button-container">
+                    <button class="copy-button" onclick="copyToClipboard(event, 'email2-body')">Copy Email Body</button>
+                </div>
+                <div id="email2-body" style="display: none;">Hi {{contact.firstname}},
+
+Quick follow-up from my last email.
+
+We've been working with board-certified plastic surgeons for years, and the pattern is clear: surgeons who let their credentials and before-and-after results lead their digital presence consistently outperform those relying on generic "aesthetic practice" positioning.
+
+Why? Because your patients want to know:
+
+• What makes YOU different
+• Your training and board certifications
+• Real results from surgeries like theirs
+• That they're choosing a specialist, not a general provider
+
+Ekwa specializes in surgeon-forward marketing. We build digital presence around your credentials, your results, and your specialty—not generic wellness messaging.
+
+Worth a conversation?
+
+Best,
+[Your Name]
+Ekwa Marketing</div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div style="flex: 1;">
+                        <div class="email-number">3</div>
+                    </div>
+                    <div class="email-day">Day 7</div>
+                </div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line</div>
+                    <div class="email-subject-text">Quick question</div>
+                </div>
+
+                <div class="email-body">
+                    <p>Hi <span class="token-highlight">{{contact.firstname}}</span>,</p>
+                    <p>I'll keep this short since I know you're busy.</p>
+                    <p>We're being selective about which practices we partner with. We only work with surgeons who are serious about upgrading their digital presence and understand that board certification and surgical outcomes should be front and center.</p>
+                    <p>Is that you?</p>
+                    <p>If so, I'd love to show you what we're building for surgeons like you. If not, I totally understand—no hard feelings.</p>
+                    <p>What do you think?</p>
+                    <p>Best,<br>
+                    [Your Name]<br>
+                    Ekwa Marketing</p>
+                </div>
+
+                <div class="sequence-note">
+                    <strong>Sequence Note:</strong> This is the final email in the lead nurture sequence. If no response, move to a longer-cadence stalled deal sequence or pause outreach for 30 days before re-engaging.
+                </div>
+
+                <div class="button-container">
+                    <button class="copy-button" onclick="copyToClipboard(event, 'email3-body')">Copy Email Body</button>
+                </div>
+                <div id="email3-body" style="display: none;">Hi {{contact.firstname}},
+
+I'll keep this short since I know you're busy.
+
+We're being selective about which practices we partner with. We only work with surgeons who are serious about upgrading their digital presence and understand that board certification and surgical outcomes should be front and center.
+
+Is that you?
+
+If so, I'd love to show you what we're building for surgeons like you. If not, I totally understand—no hard feelings.
+
+What do you think?
+
+Best,
+[Your Name]
+Ekwa Marketing</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(event, elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const button = event.target;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy Email Body';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

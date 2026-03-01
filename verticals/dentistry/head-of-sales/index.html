@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Dentistry vertical HubSpot pipeline setup, lead management tasks, and email sequences for Ekwa head of sales. Internal use only.">
+  <link rel="canonical" href="https://ekwacompetitors.narenlife.com/verticals/dentistry/head-of-sales/">
+  <title>Dentistry Head of Sales — HubSpot Setup & Pipeline — Ekwa</title>
+  <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+  <style>
+    /* Additional overrides and custom styles for this page */
+    .page-header__bar {
+      background: #3B74BB;
+      height: 4px;
+    }
+
+    .task-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ekwa-accordion {
+      border: 1px solid var(--ekwa-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .ekwa-accordion__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 14px;
+      background: white;
+    }
+
+    .ekwa-accordion__header:hover {
+      background: var(--ekwa-gray-100);
+    }
+
+    .ekwa-accordion__header.open {
+      background: var(--ekwa-gray-100);
+    }
+
+    .accordion-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ekwa-navy);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .accordion-title {
+      font-weight: 600;
+      flex: 1;
+      color: var(--ekwa-navy);
+    }
+
+    .accordion-meta {
+      font-size: 11px;
+      color: var(--ekwa-gray-600);
+      margin-top: 2px;
+    }
+
+    .accordion-time {
+      font-size: 11px;
+      color: var(--ekwa-gray-600);
+      background: var(--ekwa-gray-100);
+      padding: 3px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .accordion-chevron {
+      font-size: 12px;
+      color: var(--ekwa-gray-600);
+      transition: transform 0.2s;
+      margin-left: 4px;
+    }
+
+    .ekwa-accordion__header.open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .ekwa-accordion__body {
+      display: none;
+      border-top: 1px solid var(--ekwa-border);
+      padding: 18px 20px 20px 58px;
+      background: var(--ekwa-gray-50);
+    }
+
+    .ekwa-accordion__body.open {
+      display: block;
+    }
+
+    .ekwa-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ekwa-step {
+      display: flex;
+      gap: 12px;
+      padding: 10px 14px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--ekwa-border);
+    }
+
+    .ekwa-step__num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--ekwa-navy);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .ekwa-step__content {
+      flex: 1;
+    }
+
+    .ekwa-step__content strong {
+      font-size: 13px;
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ekwa-navy);
+    }
+
+    .ekwa-step__content p {
+      font-size: 12px;
+      color: var(--ekwa-gray-600);
+      line-height: 1.5;
+    }
+
+    .ekwa-step__content code {
+      background: #EEF2F7;
+      color: var(--ekwa-navy);
+      font-size: 11px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    .ekwa-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .ekwa-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .funnel-snapshot {
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--ekwa-border);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .funnel-snapshot__label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ekwa-gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0;
+      border: 1px solid var(--ekwa-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .funnel-cell {
+      padding: 12px 10px;
+      text-align: center;
+      border-right: 1px solid var(--ekwa-border);
+    }
+
+    .funnel-cell:last-child {
+      border-right: none;
+    }
+
+    .funnel-cell.highlight {
+      background: #FEF5F5;
+    }
+
+    .funnel-cell--alt {
+      background: var(--ekwa-gray-50);
+    }
+
+    .funnel-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ekwa-navy);
+      line-height: 1;
+    }
+
+    .funnel-cell.highlight .funnel-value {
+      color: #C0392B;
+    }
+
+    .funnel-label {
+      font-size: 10px;
+      color: var(--ekwa-gray-600);
+      margin-top: 2px;
+    }
+
+    .funnel-sublabel {
+      font-size: 9px;
+      color: var(--ekwa-gray-600);
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .ekwa-stat {
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--ekwa-border);
+      padding: 16px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .ekwa-stat__value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--ekwa-navy);
+      line-height: 1;
+    }
+
+    .ekwa-stat__label {
+      font-size: 11px;
+      color: var(--ekwa-gray-600);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .ekwa-stat__sub {
+      font-size: 11px;
+      color: var(--ekwa-green);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .ekwa-stat.amber .ekwa-stat__value {
+      color: var(--ekwa-gold);
+    }
+
+    .ekwa-stat.green .ekwa-stat__value {
+      color: var(--ekwa-green);
+    }
+
+    @media (max-width: 1024px) {
+      .ekwa-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .funnel-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ekwa-grid-2,
+      .ekwa-grid-3,
+      .funnel-grid,
+      .stat-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">EC</div>
+      <div><div class="ekwa-nav__title">Ekwa Intelligence</div><div class="ekwa-nav__subtitle">Dentistry · HoS</div></div>
+    </a>
+    <button class="ekwa-nav__hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="ekwa-nav__links">
+      <li><a href="../../../index.html">All Verticals</a></li>
+      <li><a href="../index.html">Dentistry</a></li>
+      <li><a href="../../../head-of-sales/index.html">HoS Hub</a></li>
+      <li><a href="email-sequences/index.html" class="nav-cta">Email Sequences</a></li>
+    </ul>
+  </div>
+  <div class="ekwa-nav__mobile" id="mobile-menu">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Dentistry Dashboard</a>
+    <a href="../../../head-of-sales/index.html">HoS Hub</a>
+    <a href="email-sequences/index.html">Email Sequences</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header__bar"></div>
+<div class="page-header">
+  <div class="page-header__inner">
+    <div class="page-header__badge">🦷 Dentistry · Head of Sales</div>
+    <h1 class="page-header__title">Dentistry <span>Head of Sales</span></h1>
+    <p class="page-header__description">HubSpot CRM setup, pipeline management, lead automation, and email sequences for the dental vertical.</p>
+    <div class="page-header__breadcrumb">
+      <a href="../../../index.html">Home</a>
+      <span>/</span>
+      <a href="../index.html">Dentistry</a>
+      <span>/</span>
+      <span>Head of Sales</span>
+    </div>
+  </div>
+</div>
+
+<div class="ekwa-container">
+
+  <!-- FUNNEL ALERT -->
+  <div class="ekwa-alert ekwa-alert--warning" style="margin-bottom: 20px;">
+    <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 4px; font-size: 13px;">Leads Layer Was Missing From Previous Plan</div>
+    <div style="font-size: 12px; color: var(--ekwa-navy); line-height: 1.6;">There are <strong>18,279 total contacts</strong> and <strong>5,966 dental contacts</strong> flowing through a separate BDR lead pipeline — completely independent of the 974 deals. Of those dental contacts, <strong>590 are unowned</strong> (no BDR assigned) and <strong>3,012 are still at raw "lead" stage</strong>. The plan below now covers both layers: the <em>lead pipeline</em> (contacts/BDR) and the <em>deal pipeline</em> (opportunities/sales).</div>
+  </div>
+
+  <!-- FULL FUNNEL NUMBERS -->
+  <div class="funnel-snapshot">
+    <div class="funnel-snapshot__label">🔬 Dental — Full Funnel Snapshot (Live Data)</div>
+    <div class="funnel-grid">
+      <div class="funnel-cell funnel-cell--alt">
+        <div class="funnel-value">5,966</div>
+        <div class="funnel-label">Total Dental</div>
+        <div class="funnel-sublabel">Contacts</div>
+      </div>
+      <div class="funnel-cell">
+        <div class="funnel-value" style="color: #E74C3C;">3,012</div>
+        <div class="funnel-label">Raw Lead</div>
+        <div class="funnel-sublabel">Stage</div>
+      </div>
+      <div class="funnel-cell">
+        <div class="funnel-value" style="color: var(--ekwa-gold);">130</div>
+        <div class="funnel-label">MQL</div>
+        <div class="funnel-sublabel">MSM Booked Direct</div>
+      </div>
+      <div class="funnel-cell">
+        <div class="funnel-value" style="color: #8E44AD;">~50</div>
+        <div class="funnel-label">SQL</div>
+        <div class="funnel-sublabel">MSM Booked BDR</div>
+      </div>
+      <div class="funnel-cell">
+        <div class="funnel-value" style="color: var(--ekwa-blue);">600+</div>
+        <div class="funnel-label">Deals</div>
+        <div class="funnel-sublabel">In Pipeline</div>
+      </div>
+      <div class="funnel-cell">
+        <div class="funnel-value" style="color: var(--ekwa-green);">708</div>
+        <div class="funnel-label">Customers</div>
+        <div class="funnel-sublabel">All Verticals</div>
+      </div>
+      <div class="funnel-cell highlight">
+        <div class="funnel-value">590</div>
+        <div class="funnel-label" style="font-weight: 700; color: #C0392B;">⚠️ Unowned</div>
+        <div class="funnel-sublabel" style="color: #C0392B;">No BDR Assigned</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY STATS -->
+  <div class="stat-row">
+    <div class="ekwa-stat">
+      <div class="ekwa-stat__value">7</div>
+      <div class="ekwa-stat__label">Manual HubSpot tasks</div>
+      <div class="ekwa-stat__sub">Needs your action in UI</div>
+    </div>
+    <div class="ekwa-stat amber">
+      <div class="ekwa-stat__value">590</div>
+      <div class="ekwa-stat__label">Unowned dental leads</div>
+      <div class="ekwa-stat__sub">⚠️ Assign immediately</div>
+    </div>
+    <div class="ekwa-stat">
+      <div class="ekwa-stat__value">3,012</div>
+      <div class="ekwa-stat__label">Dental leads (raw)</div>
+      <div class="ekwa-stat__sub">Need BDR follow-up</div>
+    </div>
+    <div class="ekwa-stat green">
+      <div class="ekwa-stat__value">600+</div>
+      <div class="ekwa-stat__label">Dental deals</div>
+      <div class="ekwa-stat__sub">To migrate to new pipeline</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT SECTION -->
+  <div class="section-header" style="margin-top: 0;">
+    <h2 class="ekwa-text-navy">Current HubSpot State — What We Found</h2>
+  </div>
+
+  <div class="ekwa-grid-2" style="margin-bottom: 28px;">
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">📋 Lead Pipeline (BDR Layer — Contacts)</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔴</span> <strong style="color: var(--ekwa-navy);">3,012 dental contacts</strong> still at raw "lead" stage — need BDR work
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔴</span> <strong style="color: var(--ekwa-navy);">590 dental contacts have no BDR assigned</strong> — nobody is working them
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟡</span> Lead statuses: New → Active (BDR) → Attempting → Connected → Pre-Qualified → <strong style="color: var(--ekwa-navy);">Qualified/MSM Booked</strong>
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟡</span> Also: Noshow, Reschedule, Inactive, Not Interested, Unqualified by BDR
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟢</span> <strong style="color: var(--ekwa-navy);">130 dental MQLs</strong> (MSM booked direct), ~50 SQLs (booked via BDR)
+        </li>
+      </ul>
+    </div>
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">📊 Deal Pipeline (Sales Layer)</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔴</span> All <strong style="color: var(--ekwa-navy);">974 deals</strong> are in one shared "Sales Pipeline" — no vertical separation
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟡</span> <strong style="color: var(--ekwa-navy);">~600+ deals</strong> tagged as "Dental" via <code style="background: #EEF2F7; color: var(--ekwa-navy); font-size: 11px; padding: 1px 5px; border-radius: 3px; font-family: monospace;">vertical_dervied_ycbm</code>
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟡</span> Existing pipelines: Sales (default), Up-sell, Retention, Partner
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟢</span> Two BDRs actively working deals: <strong style="color: var(--ekwa-navy);">samh</strong> and <strong style="color: var(--ekwa-navy);">lilas</strong>
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🟢</span> Deal naming convention consistent: <strong style="color: var(--ekwa-navy);">Name | Website | Stage | Source | Owner | Dates</strong>
+        </li>
+      </ul>
+    </div>
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">⚙️ What Claude Will Handle (Automatically)</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> Bulk-tag all ~600+ dental <strong style="color: var(--ekwa-navy);">deals</strong> with <code style="background: #EEF2F7; color: var(--ekwa-navy); font-size: 11px; padding: 1px 5px; border-radius: 3px; font-family: monospace;">vertical_dervied_ycbm = Dental</code>
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> Migrate dental deals to the new Dentistry pipeline
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> Enrich deal records with practice type, tier, competitor fields
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> Create tasks on the <strong style="color: var(--ekwa-navy);">590 unowned dental leads</strong> flagging them for assignment
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> Flag stalled deals (no activity > 7 days) with follow-up tasks
+        </li>
+      </ul>
+    </div>
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">✋ What You Must Do in HubSpot UI</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Create the Dentistry deal pipeline (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Add 4 custom deal properties (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Create contact views for dental lead stages (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Create deal views for the new pipeline (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Create 2 automation workflows (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🔧</span> Create reports covering leads + deals funnel (5 min)
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: #FEF5F5; display: flex; align-items: center; gap: 6px; font-weight: 700; color: #C0392B;">
+          <span>🔴</span> <strong>Assign the 590 unowned dental leads to BDRs NOW</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HUBSPOT SETUP TASKS -->
+  <div class="section-header" style="margin-top: 28px;">
+    <h2 class="ekwa-text-navy">HubSpot Setup Tasks — Step by Step</h2>
+  </div>
+
+  <div class="task-grid">
+
+    <!-- TASK 1 -->
+    <div class="ekwa-accordion" id="task1">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">1</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create the "Dentistry — Sales Pipeline"</div>
+          <div class="accordion-meta">CRM → Sales → Pipelines → Create new pipeline</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › CRM › Deals › ⚙️ Settings › Pipelines
+        </div>
+        <div class="ekwa-steps">
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">1</div>
+            <div class="ekwa-step__content">
+              <strong>Navigate to Pipeline Settings</strong>
+              <p>Go to <strong>Settings → Objects → Deals → Pipelines</strong>. Or click the gear icon in any Deals view and choose "Edit pipelines".</p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">2</div>
+            <div class="ekwa-step__content">
+              <strong>Create New Pipeline</strong>
+              <p>Click <strong>"Add pipeline"</strong>. Name it exactly: <code>Dentistry — Sales Pipeline</code></p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">3</div>
+            <div class="ekwa-step__content">
+              <strong>Add All 12 Stages (in order)</strong>
+              <p>Add each stage with the win probability shown below. Click "Add stage" for each one.</p>
+            </div>
+          </div>
+        </div>
+
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>#</th><th>Stage Name</th><th>Win Probability</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>MSM Scheduled</td><td>10%</td><td>Initial meeting booked</td></tr>
+            <tr><td>2</td><td>MSM Rescheduled</td><td>10%</td><td>Meeting moved</td></tr>
+            <tr><td>3</td><td>MSM No Show</td><td>5%</td><td>Did not attend</td></tr>
+            <tr><td>4</td><td>Unqualified by BDR</td><td>0%</td><td>Not a fit — closed</td></tr>
+            <tr><td>5</td><td>Qualified by BDR</td><td>20%</td><td>BDR confirmed fit</td></tr>
+            <tr><td>6</td><td>Evaluation / Follow-ups</td><td>40%</td><td>Post-MSM engagement</td></tr>
+            <tr><td>7</td><td>Stalled / Parked</td><td>15%</td><td>Paused / on hold</td></tr>
+            <tr><td>8</td><td>Ready to Sign</td><td>75%</td><td>Proposal accepted</td></tr>
+            <tr><td>9</td><td>Contract Sent</td><td>85%</td><td>Contract out for signature</td></tr>
+            <tr><td>10</td><td>Contract Won</td><td>100%</td><td>✅ Closed won</td></tr>
+            <tr><td>11</td><td>Contract Lost</td><td>0%</td><td>❌ Closed lost</td></tr>
+            <tr><td>12</td><td>Rekindle Attempt</td><td>10%</td><td>Re-engagement after loss</td></tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--info" style="margin-top: 12px;">
+          After creating, tell Claude the pipeline is ready — Claude will then bulk-migrate all ~600+ dental deals from the default Sales Pipeline into this new one automatically.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="ekwa-accordion" id="task2">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">2</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Add 4 Custom Deal Properties</div>
+          <div class="accordion-meta">Settings → Properties → Deals → Create property</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › Settings › Properties › Deal properties › Create property
+        </div>
+        <p style="font-size:12px; color:var(--ekwa-gray-600); margin-bottom: 10px;">Create each property below as a <strong>Dropdown select</strong> type. Group them under a new group called <strong>"Dentistry"</strong>.</p>
+
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>Property Name (Internal)</th><th>Label (Displayed)</th><th>Dropdown Options</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>dental_practice_type</code></td>
+              <td>Dental Practice Type</td>
+              <td>General, Orthodontics, Pediatric, Oral Surgery, Periodontics, Endodontics, Prosthodontics, DSO</td>
+            </tr>
+            <tr>
+              <td><code>dental_location_count</code></td>
+              <td>Number of Locations</td>
+              <td>Solo (1), Small Group (2–5), Mid-Group (6–10), DSO (10+)</td>
+            </tr>
+            <tr>
+              <td><code>dental_service_tier</code></td>
+              <td>Service Tier</td>
+              <td>Starter, Growth, Authority</td>
+            </tr>
+            <tr>
+              <td><code>dental_switch_from</code></td>
+              <td>Switching From (Competitor)</td>
+              <td>PatientPop / Tebra, DoctorLogic, Podium, Weave, In-house, Smile Marketing, Ekwa (upgrade), Other</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--warning" style="margin-top: 12px;">
+          Use the exact internal names shown (<code>dental_practice_type</code> etc.) — Claude will reference these property names when bulk-updating deals later.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="ekwa-accordion" id="task3">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">3</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create 5 Saved Deal Views</div>
+          <div class="accordion-meta">CRM → Deals → All deals → Filter → Save view</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › CRM › Deals › All Deals › Filter › Save as new view
+        </div>
+        <p style="font-size:12px; color:var(--ekwa-gray-600); margin-bottom: 10px;">For each view below: click <strong>Filter</strong>, add the filters shown, then click <strong>"Save as new view"</strong> with the name given.</p>
+
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>View Name</th><th>Filters to Apply</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dental — Active Pipeline</strong></td>
+              <td>Pipeline = Dentistry — Sales Pipeline AND Deal stage is not Contract Won / Contract Lost</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — samh Deals</strong></td>
+              <td>Pipeline = Dentistry — Sales Pipeline AND Deal owner = samh AND stage ≠ Won / Lost</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — lilas Deals</strong></td>
+              <td>Pipeline = Dentistry — Sales Pipeline AND Deal owner = lilas AND stage ≠ Won / Lost</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — Needs Follow-up</strong></td>
+              <td>Pipeline = Dentistry AND Stage = Evaluation/Follow-ups AND Last activity date is more than 7 days ago</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — Ready to Close</strong></td>
+              <td>Pipeline = Dentistry AND Stage = Ready to Sign OR Contract Sent</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--info" style="margin-top: 12px;">
+          Pin these views to the top of your Deals sidebar so the team sees them immediately every time they open Deals.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="ekwa-accordion" id="task4">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">4</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create 2 Automation Workflows</div>
+          <div class="accordion-meta">Automation → Workflows → Create workflow → Deal-based</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › Automation › Workflows › Create workflow › Deal-based
+        </div>
+
+        <p style="font-size:13px; font-weight:700; color:var(--ekwa-navy); margin-bottom:8px; margin-top:4px;">Workflow A — Auto-Tag Dental Deals</p>
+        <div class="ekwa-steps">
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">1</div>
+            <div class="ekwa-step__content">
+              <strong>Trigger: Deal is created OR updated</strong>
+              <p>Set enrollment trigger: <strong>Contact associated with deal has property "Vertical" (vertical_zoom) = Dental</strong></p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">2</div>
+            <div class="ekwa-step__content">
+              <strong>Action: Set deal property</strong>
+              <p>Action: <strong>Set property value</strong> → Property: <code>vertical_dervied_ycbm</code> → Value: <code>Dental</code></p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">3</div>
+            <div class="ekwa-step__content">
+              <strong>Name it and turn it ON</strong>
+              <p>Name: <code>Auto-Tag Dental Deals</code>. Toggle to <strong>Active</strong>. Also enable <strong>Re-enrollment</strong> so existing deals get tagged.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:13px; font-weight:700; color:var(--ekwa-navy); margin-bottom:8px; margin-top:16px;">Workflow B — Auto-Route to Dentistry Pipeline</p>
+        <div class="ekwa-steps">
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">1</div>
+            <div class="ekwa-step__content">
+              <strong>Trigger: Deal property changes</strong>
+              <p>Trigger: <code>vertical_dervied_ycbm</code> = <code>Dental</code> AND current pipeline = <code>Sales Pipeline</code> (default)</p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">2</div>
+            <div class="ekwa-step__content">
+              <strong>Action: Set pipeline</strong>
+              <p>Action: <strong>Set property value</strong> → Property: <code>Pipeline</code> → Value: <code>Dentistry — Sales Pipeline</code></p>
+            </div>
+          </div>
+          <div class="ekwa-step">
+            <div class="ekwa-step__num">3</div>
+            <div class="ekwa-step__content">
+              <strong>Name it and turn it ON</strong>
+              <p>Name: <code>Auto-Route Dental to Dentistry Pipeline</code>. Toggle to <strong>Active</strong>. Enable re-enrollment to catch all existing tagged deals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ekwa-alert ekwa-alert--warning" style="margin-top: 12px;">
+          Enable Workflow B <strong>after</strong> Claude has bulk-tagged all existing dental deals — otherwise the workflow triggers prematurely on unverified records.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="ekwa-accordion" id="task5">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">5</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create 4 Dentistry Pipeline Reports</div>
+          <div class="accordion-meta">Reporting → Reports → Create report → Deals</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › Reporting › Reports › Create report › Deals
+        </div>
+
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>Report Name</th><th>Type</th><th>X-Axis</th><th>Y-Axis / Metric</th><th>Filter</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dental Pipeline by Stage</strong></td>
+              <td>Bar chart</td>
+              <td>Deal stage</td>
+              <td>Total deal amount</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Deals Created per Week</strong></td>
+              <td>Line chart</td>
+              <td>Week (create date)</td>
+              <td>Count of deals</td>
+              <td>Pipeline = Dentistry, last 90 days</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Win Rate by Lead Source</strong></td>
+              <td>Bar chart</td>
+              <td>Original source</td>
+              <td>% deals Won vs Lost</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Avg. Days Per Stage</strong></td>
+              <td>Table / Bar</td>
+              <td>Deal stage</td>
+              <td>Avg. time in stage (days)</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--info" style="margin-top: 12px;">
+          Save all 4 reports to a new dashboard called <strong>"Dentistry Pipeline"</strong> — share it with samh and lilas so they see it as their default home screen.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="ekwa-accordion" id="task6">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">6</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create 5 Dental Lead Views (Contacts)</div>
+          <div class="accordion-meta">CRM → Contacts → All contacts → Filter → Save view</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › CRM › Contacts › All Contacts › Filter › Save as new view
+        </div>
+
+        <div class="ekwa-alert ekwa-alert--warning" style="margin-bottom: 12px; background: #FEF5F5; border-left-color: #C0392B; color: #7B241C;">
+          <strong>590 dental contacts have no BDR assigned.</strong> The first view below will surface them immediately so you can assign them before creating anything else.
+        </div>
+
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>View Name</th><th>Filters to Apply</th><th>Priority</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🚨 Dental — Unowned Leads</strong></td>
+              <td>Vertical (vertical_zoom) = Dental AND Contact owner is unknown/empty</td>
+              <td style="color:#C0392B; font-weight:700;">URGENT</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — All Active Leads</strong></td>
+              <td>Vertical = Dental AND Lifecycle stage = Lead OR MQL AND Lead status ≠ Inactive / Not Interested / Unqualified</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — samh Leads</strong></td>
+              <td>Vertical = Dental AND Contact owner = samh AND Lifecycle stage = Lead or MQL</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — lilas Leads</strong></td>
+              <td>Vertical = Dental AND Contact owner = lilas AND Lifecycle stage = Lead or MQL</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td><strong>Dental — Pre-Qualified (Ready for MSM)</strong></td>
+              <td>Vertical = Dental AND Lead status = "Pre Qualified - MSM Opportunity (Lead pipeline)"</td>
+              <td>High</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--info" style="margin-top: 12px;">
+          The lead status field name is <code>hs_lead_status</code>. When filtering, look for "Lead Status" in the contact property picker and use the exact stage names from the dropdown.
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK 7 -->
+    <div class="ekwa-accordion" id="task7">
+      <button class="ekwa-accordion__header" onclick="toggleAccordion(this)">
+        <div class="accordion-number">7</div>
+        <div style="flex: 1;">
+          <div class="accordion-title">Create Full-Funnel Reports (Leads + Deals)</div>
+          <div class="accordion-meta">Reporting → Reports → Create report</div>
+        </div>
+        <span class="accordion-time">⏱ ~5 min</span>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="ekwa-accordion__body">
+        <div style="background: #EEF2F7; border-radius: 6px; padding: 5px 10px; font-size: 11px; color: var(--ekwa-navy); font-weight: 600; margin-bottom: 10px; font-family: monospace; letter-spacing: 0.2px;">
+          app.hubspot.com › Reporting › Reports › Create report
+        </div>
+        <p style="font-size:12px; color:var(--ekwa-gray-600); margin-bottom:10px;">Add all 8 reports to a shared dashboard called <strong>"Dentistry — Full Funnel"</strong>. Share with samh, lilas, and leadership.</p>
+
+        <p style="font-size:13px; font-weight:700; color:var(--ekwa-navy); margin-bottom:8px;">📋 Lead Pipeline Reports (Contacts)</p>
+        <table class="ekwa-table" style="margin-bottom:14px;">
+          <thead>
+            <tr><th>Report Name</th><th>Type</th><th>Metric</th><th>Filter</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dental Lead Volume by Stage</strong></td>
+              <td>Bar chart</td>
+              <td>Count of contacts</td>
+              <td>Vertical = Dental, group by Lead Status</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Leads Created per Week</strong></td>
+              <td>Line chart</td>
+              <td>Count of contacts</td>
+              <td>Vertical = Dental, last 90 days, by create date</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Lead-to-MQL Conversion</strong></td>
+              <td>Funnel</td>
+              <td>Lead → MQL → SQL rate</td>
+              <td>Vertical = Dental, lifecycle stage funnel</td>
+            </tr>
+            <tr>
+              <td><strong>Unowned Dental Leads by Date</strong></td>
+              <td>Table</td>
+              <td>Contacts with no owner</td>
+              <td>Vertical = Dental, owner = empty, sort by create date</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="font-size:13px; font-weight:700; color:var(--ekwa-navy); margin-bottom:8px;">📊 Deal Pipeline Reports (from Task 5)</p>
+        <table class="ekwa-table">
+          <thead>
+            <tr><th>Report Name</th><th>Type</th><th>Metric</th><th>Filter</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dental Pipeline by Stage</strong></td>
+              <td>Bar chart</td>
+              <td>Total deal amount</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Deals Created per Week</strong></td>
+              <td>Line chart</td>
+              <td>Count of deals</td>
+              <td>Pipeline = Dentistry, last 90 days</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Win Rate by Lead Source</strong></td>
+              <td>Bar chart</td>
+              <td>% Won vs Lost</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Avg. Days Per Stage</strong></td>
+              <td>Table</td>
+              <td>Avg. time in stage</td>
+              <td>Pipeline = Dentistry</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ekwa-alert ekwa-alert--info" style="margin-top: 12px;">
+          8 reports total across both layers. Put them all on a single <strong>"Dentistry — Full Funnel"</strong> dashboard so leadership sees leads AND deals in one view.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AFTER SETUP SECTION -->
+  <div class="section-header" style="margin-top: 36px;">
+    <h2 class="ekwa-text-navy">After You Complete Setup — Claude Takes Over</h2>
+  </div>
+
+  <div class="ekwa-grid-2" style="margin-bottom: 28px;">
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">📦 What Claude Will Do Automatically</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Bulk-tag</strong> all ~600+ dental deals with <code style="background: #EEF2F7; color: var(--ekwa-navy); font-size: 11px; padding: 1px 5px; border-radius: 3px; font-family: monospace;">vertical_dervied_ycbm = Dental</code>
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Migrate</strong> tagged deals to the new Dentistry pipeline
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Create tasks</strong> on all 590 unowned dental contacts flagging them for BDR assignment
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Enrich</strong> deal records with practice type, tier, competitor fields
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Flag</strong> stalled deals (no activity > 7 days) with follow-up tasks
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>🤖</span> <strong style="color: var(--ekwa-navy);">Tag dental leads</strong> missing <code style="background: #EEF2F7; color: var(--ekwa-navy); font-size: 11px; padding: 1px 5px; border-radius: 3px; font-family: monospace;">vertical_zoom = Dental</code> based on email domain patterns
+        </li>
+      </ul>
+    </div>
+    <div class="ekwa-card">
+      <h3 style="font-size: 13px; font-weight: 700; color: var(--ekwa-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">✅ Handoff Checklist — Tell Claude When Done</h3>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 5px;">
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">Dentistry pipeline created</strong> → "Pipeline is live"
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">4 deal properties created</strong> → "Properties are set"
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">Lead views created</strong> → immediately assign 590 unowned leads
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">Workflow A ON</strong> → Claude does bulk deal tagging
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">Workflow B ON</strong> → Claude triggers deal migration
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">Unowned leads assigned</strong> → Claude creates follow-up tasks on them
+        </li>
+        <li style="font-size: 12px; color: var(--ekwa-gray-600); padding: 5px 8px; border-radius: 5px; background: var(--ekwa-gray-100); display: flex; align-items: center; gap: 6px;">
+          <span>☐</span> <strong style="color: var(--ekwa-navy);">8 reports + dashboard created</strong> → share with samh + lilas
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EMAIL SEQUENCES SECTION -->
+  <section style="margin-bottom: 40px;">
+    <h2 class="ekwa-text-navy" style="margin-bottom: 12px;">Email Sequences — Dentistry</h2>
+    <p style="font-size: 14px; color: var(--ekwa-gray-600); margin-bottom: 16px;">5 ready-to-paste email sequences for the dental vertical. No competitor names used — all generic provider-switching positioning.</p>
+    <div class="ekwa-grid-3">
+      <a href="email-sequences/lead-nurture.html" class="ekwa-card" style="text-decoration: none; display: block; cursor: pointer; transition: all 0.2s;">
+        <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 8px;">📧 Lead Nurture</div>
+        <div style="font-size: 13px; color: var(--ekwa-gray-600);">3 emails · Days 1, 3, 7 · New leads who haven't booked yet</div>
+      </a>
+      <a href="email-sequences/post-msm.html" class="ekwa-card" style="text-decoration: none; display: block; cursor: pointer; transition: all 0.2s;">
+        <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 8px;">📧 Post-MSM Follow-up</div>
+        <div style="font-size: 13px; color: var(--ekwa-gray-600);">4 emails · Days 1, 3, 7, 14 · After initial meeting</div>
+      </a>
+      <a href="email-sequences/no-show.html" class="ekwa-card" style="text-decoration: none; display: block; cursor: pointer; transition: all 0.2s;">
+        <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 8px;">📧 No-Show Recovery</div>
+        <div style="font-size: 13px; color: var(--ekwa-gray-600);">2 emails · Day 0, Day 3 · Missed the meeting</div>
+      </a>
+      <a href="email-sequences/stalled.html" class="ekwa-card" style="text-decoration: none; display: block; cursor: pointer; transition: all 0.2s;">
+        <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 8px;">📧 Stalled Deal Re-engagement</div>
+        <div style="font-size: 13px; color: var(--ekwa-gray-600);">3 emails · Days 1, 7, 21 · Deals parked/stalled</div>
+      </a>
+      <a href="email-sequences/provider-switch.html" class="ekwa-card" style="text-decoration: none; display: block; cursor: pointer; transition: all 0.2s;">
+        <div style="font-weight: 700; color: var(--ekwa-navy); margin-bottom: 8px;">📧 Provider Switch Sequence</div>
+        <div style="font-size: 13px; color: var(--ekwa-gray-600);">3 emails · Prospects switching from current provider</div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="ekwa-footer">
+  <p>Ekwa Competitor Intelligence Platform — Head of Sales Briefing · <a href="../index.html">← All Verticals Hub</a></p>
+</footer>
+
+<script>
+  // Accordion toggle
+  function toggleAccordion(button) {
+    const accordion = button.closest('.ekwa-accordion');
+    const body = accordion.querySelector('.ekwa-accordion__body');
+    const isOpen = button.classList.contains('open');
+    
+    button.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+
+  // Auto-open task 1 on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const task1Button = document.querySelector('#task1 .ekwa-accordion__header');
+    if (task1Button) {
+      task1Button.classList.add('open');
+      task1Button.nextElementSibling.classList.add('open');
+    }
+  });
+
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('open');
+    });
+  }
+</script>
+
+</body>
+</html>

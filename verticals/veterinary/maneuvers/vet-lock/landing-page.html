@@ -5,38 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Exclusive Veterinary Marketing | Operation Vet Lock</title>
+    <link rel="stylesheet" href="../../../../../assets/css/ekwa-brand.css">
     <style>
+        :root {
+            --ekwa-navy: #1C305D;
+            --ekwa-blue: #3B74BB;
+            --ekwa-gold: #C9A227;
+            --ekwa-teal: #2A9D8F;
+            --ekwa-light-bg: #f5f7fa;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f8f9fa; }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--ekwa-light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            background: linear-gradient(135deg, var(--ekwa-navy) 0%, var(--ekwa-blue) 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
+            border-bottom: 5px solid var(--ekwa-teal);
         }
 
-        .hero h1 { font-size: 42px; margin-bottom: 16px; line-height: 1.2; }
-        .hero .tagline { font-size: 20px; margin-bottom: 40px; opacity: 0.95; }
+        .hero h1 { 
+            font-size: 42px; 
+            margin-bottom: 16px; 
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero .tagline { 
+            font-size: 20px; 
+            margin-bottom: 40px; 
+            opacity: 0.95; 
+        }
 
         .cta-button {
             display: inline-block;
             padding: 16px 40px;
-            background: #00a651;
+            background: var(--ekwa-teal);
             color: white;
             text-decoration: none;
             border-radius: 4px;
             font-size: 16px;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .cta-button:hover { background: #008040; }
+        .cta-button:hover { 
+            background: var(--ekwa-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 48, 93, 0.3);
+        }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
 
-        .section { padding: 60px 0; }
-        .section h2 { font-size: 28px; margin-bottom: 30px; color: #1a1a2e; text-align: center; }
+        .section { 
+            padding: 60px 0; 
+        }
+
+        .section h2 { 
+            font-size: 28px; 
+            margin-bottom: 30px; 
+            color: var(--ekwa-navy); 
+            text-align: center;
+            font-weight: 700;
+        }
 
         .feature-grid {
             display: grid;
@@ -49,12 +95,21 @@
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-top: 4px solid #0066cc;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.1);
+            border-top: 4px solid var(--ekwa-teal);
         }
 
-        .feature-card h3 { color: #0066cc; margin-bottom: 12px; font-size: 18px; }
-        .feature-card p { color: #666; line-height: 1.6; }
+        .feature-card h3 { 
+            color: var(--ekwa-teal); 
+            margin-bottom: 12px; 
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .feature-card p { 
+            color: var(--text-light); 
+            line-height: 1.6; 
+        }
 
         .testimonials {
             display: grid;
@@ -67,28 +122,58 @@
             background: white;
             padding: 24px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 4px solid #00a651;
+            box-shadow: 0 2px 8px rgba(28, 48, 93, 0.08);
+            border-left: 4px solid var(--ekwa-teal);
         }
 
-        .testimonial-text { font-size: 15px; font-style: italic; color: #555; margin-bottom: 16px; line-height: 1.6; }
-        .testimonial-author { font-weight: 600; color: #1a1a2e; font-size: 14px; }
-        .testimonial-role { font-size: 13px; color: #0066cc; }
+        .testimonial-text { 
+            font-size: 15px; 
+            font-style: italic; 
+            color: var(--text-light); 
+            margin-bottom: 16px; 
+            line-height: 1.6; 
+        }
+
+        .testimonial-author { 
+            font-weight: 600; 
+            color: var(--ekwa-navy); 
+            font-size: 14px; 
+        }
+
+        .testimonial-role { 
+            font-size: 13px; 
+            color: var(--ekwa-teal); 
+        }
 
         .form-section {
-            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            background: linear-gradient(135deg, #e8f5f2 0%, #f0f8f6 100%);
             padding: 50px 40px;
             border-radius: 8px;
             margin: 40px 0;
+            border-left: 4px solid var(--ekwa-teal);
         }
 
-        .form-section h3 { text-align: center; margin-bottom: 30px; font-size: 24px; color: #1b5e20; }
+        .form-section h3 { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            font-size: 24px; 
+            color: var(--ekwa-navy);
+            font-weight: 700;
+        }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px; }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--text-dark); 
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         input, select, textarea {
             width: 100%;
             padding: 12px;
@@ -100,34 +185,40 @@
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+            border-color: var(--ekwa-teal);
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
         }
 
         .form-submit {
             width: 100%;
             padding: 14px;
-            background: #0066cc;
+            background: var(--ekwa-teal);
             color: white;
             border: none;
             border-radius: 4px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .form-submit:hover { background: #0052a3; }
+        .form-submit:hover { 
+            background: var(--ekwa-navy);
+            transform: translateY(-2px);
+        }
 
         .highlight-box {
             background: #fff9c4;
-            border-left: 4px solid #f5a623;
+            border-left: 4px solid var(--ekwa-gold);
             padding: 20px;
             border-radius: 4px;
             margin: 30px 0;
         }
 
-        .highlight-box strong { color: #f57f17; }
+        .highlight-box strong { 
+            color: var(--ekwa-gold); 
+        }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
@@ -137,6 +228,36 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="nav-container">
+            <div class="nav-brand">ekwa</div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../../../../index.html">All Verticals</a></li>
+                <li><a href="../../../index.html">Veterinary</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="ekwa-page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../../../../../index.html">All Verticals</a>
+                <span>/</span>
+                <a href="../../../index.html">Veterinary</a>
+                <span>/</span>
+                <span>Operation Vet Lock</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
     <div class="hero">
         <div class="container">
             <h1>Exclusive Veterinary Marketing:<br>One Practice Per Market</h1>
@@ -145,10 +266,11 @@
         </div>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
         <div class="section">
             <h2>The Challenge: Corporate Consolidation</h2>
-            <p style="text-align: center; font-size: 16px; color: #666; max-width: 700px; margin: 0 auto 30px; line-height: 1.7;">
+            <p style="text-align: center; font-size: 16px; color: var(--text-light); max-width: 700px; margin: 0 auto 30px; line-height: 1.7;">
                 VCA, Banfield, and BluePearl now control 40%+ of US veterinary revenue. Independent practices face unprecedented competition with resources they can't match. But there's one thing corporate chains will never have: <strong>your deep roots in the community.</strong>
             </p>
 
@@ -176,7 +298,7 @@
         </div>
 
         <div class="highlight-box">
-            <strong>📊 Market Reality:</strong> Independent practices with strong local digital presence report 40-60% lower client acquisition costs than those competing on price. Corporate chains win on scale. You win on trust, personal service, and community presence.
+            <strong>Market Reality:</strong> Independent practices with strong local digital presence report 40-60% lower client acquisition costs than those competing on price. Corporate chains win on scale. You win on trust, personal service, and community presence.
         </div>
 
         <div class="section">
@@ -206,16 +328,16 @@
         <div class="section">
             <h2>What's Included in Operation Vet Lock</h2>
 
-            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(28, 48, 93, 0.08);">
                 <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Dedicated marketing director (yours and yours only in your market)</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Full local SEO strategy + monthly optimization</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Fear Free/AAHA certification content calendar</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Google Maps + Local Citation management</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Review generation & reputation management</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Email + social media strategy (pet parent community focus)</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: #0066cc;">✓</strong> Monthly performance reporting (calls, new clients, revenue impact)</li>
-                    <li style="padding: 12px 0;"><strong style="color: #0066cc;">✓</strong> Quarterly strategy reviews + optimization</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Dedicated marketing director (yours and yours only in your market)</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Full local SEO strategy + monthly optimization</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Fear Free/AAHA certification content calendar</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Google Maps + Local Citation management</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Review generation & reputation management</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Email + social media strategy (pet parent community focus)</li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;"><strong style="color: var(--ekwa-teal);">✓</strong> Monthly performance reporting (calls, new clients, revenue impact)</li>
+                    <li style="padding: 12px 0;"><strong style="color: var(--ekwa-teal);">✓</strong> Quarterly strategy reviews + optimization</li>
                 </ul>
             </div>
         </div>
@@ -223,7 +345,7 @@
         <div class="section" id="contact-form">
             <div class="form-section">
                 <h3>Claim Your Market Exclusivity</h3>
-                <p style="text-align: center; color: #555; margin-bottom: 24px;">Limited availability — only one practice per market. Fill out the form to see if your market is still available and schedule a strategy call.</p>
+                <p style="text-align: center; color: #666; margin-bottom: 24px;">Limited availability — only one practice per market. Fill out the form to see if your market is still available and schedule a strategy call.</p>
 
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <input type="hidden" name="source" value="vet-lock-landing">
@@ -291,9 +413,46 @@
 
         <div class="section" style="text-align: center;">
             <h2>Ready to Own Your Market?</h2>
-            <p style="color: #666; font-size: 16px; margin-bottom: 30px;">Operation Vet Lock is ekwa's flagship veterinary program. Limited to one practice per market. If your market is still available, let's talk about what it takes to build a dominant local brand while corporate chains stay busy chasing national scale.</p>
+            <p style="color: var(--text-light); font-size: 16px; margin-bottom: 30px;">Operation Vet Lock is ekwa's flagship veterinary program. Limited to one practice per market. If your market is still available, let's talk about what it takes to build a dominant local brand while corporate chains stay busy chasing national scale.</p>
             <a href="#contact-form" class="cta-button">Check Market Availability</a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ekwa Veterinary</h4>
+                <p>Specialized marketing for independent veterinary practices.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="../../../../../index.html">All Verticals</a></li>
+                    <li><a href="../../../index.html">Veterinary</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ekwa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile hamburger menu
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

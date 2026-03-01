@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Veterinary Practice ROI Calculator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <title>Veterinary Practice ROI Calculator — Ekwa</title>
+    <meta name="description" content="Ekwa Competitors | Tools & Resources">
+    <meta name="canonical" content="https://ekwacompetitors.narenlife.com/">
+    
+    <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8f9fa; color: #333; }
-
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+        
+        
+        /* Page-specific overrides (if any) */
+        body {
+            font-family: var(--font-primary);
         }
+        
+        /* Preserve calculator/tool specific styles */
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8f9fa; color: var(--ekwa-gray-800); }
+
+        
 
         .header h1 { font-size: 28px; margin-bottom: 8px; }
         .header p { opacity: 0.95; }
@@ -42,7 +50,7 @@
             margin-bottom: 20px;
         }
 
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--ekwa-gray-800); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
 
         input, select {
             width: 100%;
@@ -75,7 +83,7 @@
             border-left: 4px solid #0066cc;
         }
 
-        .result-label { font-size: 12px; color: #666; text-transform: uppercase; margin-bottom: 4px; }
+        .result-label { font-size: 12px; color: var(--ekwa-gray-500); text-transform: uppercase; margin-bottom: 4px; }
         .result-value { font-size: 22px; font-weight: bold; color: #0066cc; }
         .result-subtext { font-size: 12px; color: #999; margin-top: 4px; }
 
@@ -113,7 +121,7 @@
 
         .scenario-name { font-weight: 600; color: #1a1a2e; margin-bottom: 8px; }
         .scenario-growth { font-size: 20px; font-weight: bold; color: #0066cc; margin-bottom: 8px; }
-        .scenario-desc { font-size: 12px; color: #666; }
+        .scenario-desc { font-size: 12px; color: var(--ekwa-gray-500); }
 
         .projection-chart {
             background: white;
@@ -155,13 +163,69 @@
             .scenario-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; }
         }
+    
+    
+    
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Veterinary Practice ROI Calculator</h1>
-        <p>See how ekwa's marketing strategy impacts your practice revenue</p>
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">E</div>
+      <div>
+        <div class="ekwa-nav__title">ekwa</div>
+        <div class="ekwa-nav__subtitle">Competitors</div>
+      </div>
+    </a>
+    <div class="ekwa-nav__links">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Veterinary</a>
     </div>
+    <button class="ekwa-nav__hamburger" onclick="toggleMobileMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="ekwa-nav__mobile">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Veterinary</a>
+  </div>
+</nav>
+
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Veterinary</span>
+    </div>
+    <h1>Veterinary Practice ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Veterinary</span>
+    </div>
+    <h1>Veterinary Practice ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+  <div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Veterinary</span>
+    </div>
+    <h1>Veterinary Practice ROI Calculator</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+
+    
 
     <div class="container">
         <div class="calculator-grid">
@@ -208,7 +272,7 @@
                     <label for="household-spend">Average Annual Spend Per Household *</label>
                     <input type="range" id="household-spend" min="800" max="2500" value="1500" onchange="updateSliderDisplay(this); calculateROI()" style="width: 100%;">
                     <div style="text-align: center; margin-top: 8px; color: #0066cc; font-weight: 600;">$<span id="household-display">1500</span>/year</div>
-                    <div style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">Veterinary industry avg: $800–$2,500</div>
+                    <div style="font-size: 12px; color: var(--ekwa-gray-500); margin-top: 8px; text-align: center;">Veterinary industry avg: $800–$2,500</div>
                 </div>
 
                 <div class="form-group" style="margin-top: 24px;">
@@ -271,7 +335,7 @@
 
             <div class="scenarios-section">
                 <h3 style="margin-bottom: 16px; color: #1a1a2e;">Growth Scenarios</h3>
-                <p style="margin-bottom: 16px; font-size: 14px; color: #666;">Select a scenario to see different growth projections:</p>
+                <p style="margin-bottom: 16px; font-size: 14px; color: var(--ekwa-gray-500);">Select a scenario to see different growth projections:</p>
 
                 <div class="scenario-grid">
                     <div class="scenario-card active" onclick="selectScenario('conservative')">
@@ -460,5 +524,411 @@
         // Initialize
         calculateROI();
     </script>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+</div>
+
+<script>
+        let currentScenario = 'conservative';
+
+        function updateSliderDisplay(slider) {
+            document.getElementById('household-display').textContent = slider.value;
+        }
+
+        function selectScenario(scenario) {
+            currentScenario = scenario;
+            document.querySelectorAll('.scenario-card').forEach(card => card.classList.remove('active'));
+            event.target.closest('.scenario-card').classList.add('active');
+            calculateROI();
+            document.getElementById('form-scenario').value = scenario;
+        }
+
+        function calculateROI() {
+            const practiceType = document.getElementById('practice-type').value;
+            const locations = parseInt(document.getElementById('locations').value) || 1;
+            const currentClients = parseInt(document.getElementById('current-clients').value) || 15;
+            const householdSpend = parseInt(document.getElementById('household-spend').value) || 1500;
+            const currentSpend = parseInt(document.getElementById('current-spend').value) || 1500;
+            const ekwaPricing = parseInt(document.getElementById('ekwa-pricing').value) || 0;
+
+            if (!practiceType || !locations) return;
+
+            // Scenario growth rates
+            const scenarioGrowth = {
+                conservative: 0.18,
+                moderate: 0.35,
+                aggressive: 0.55
+            };
+
+            const growthRate = scenarioGrowth[currentScenario];
+            const newClients = Math.round(currentClients * growthRate);
+            const totalClients = currentClients + newClients;
+
+            // Financial calculations
+            const monthlyRevenue = newClients * householdSpend;
+            const annualRevenue = monthlyRevenue * 12;
+            const monthlyEkwaCost = ekwaPricing || 2000;
+            const annualEkwaCost = monthlyEkwaCost * 12;
+            const monthlyNetGain = monthlyRevenue - monthlyEkwaCost;
+            const annualNetGain = annualRevenue - annualEkwaCost;
+            const paybackMonths = monthlyNetGain > 0 ? Math.ceil(monthlyEkwaCost / monthlyNetGain) : 0;
+            const threeYearRevenue = (annualRevenue * 3) - (annualEkwaCost * 3);
+
+            // Update display
+            document.getElementById('result-new-clients').textContent = totalClients;
+            document.getElementById('result-current-clients').textContent = currentClients;
+            document.getElementById('result-client-growth').textContent = Math.round(growthRate * 100) + '%';
+            document.getElementById('result-annual-impact').textContent = '$' + annualRevenue.toLocaleString();
+            document.getElementById('result-net-gain').textContent = '$' + annualNetGain.toLocaleString();
+            document.getElementById('result-payback').textContent = paybackMonths + ' mo';
+            document.getElementById('result-3year').textContent = '$' + threeYearRevenue.toLocaleString();
+
+            // Update form hidden fields
+            document.getElementById('form-results').value = `Growth: ${growthRate * 100}% | New Clients: ${newClients}/month | Annual Impact: $${annualRevenue} | 3-Year: $${threeYearRevenue}`;
+
+            // Update chart
+            updateChart(currentClients, totalClients, householdSpend, monthlyEkwaCost);
+        }
+
+        function updateChart(currentClients, projectedClients, householdSpend, monthlyEkwaCost) {
+            const ctx = document.getElementById('projectionChart');
+            if (!ctx || !ctx.getContext) return;
+
+            const months = [];
+            const revenueData = [];
+            const costData = [];
+
+            for (let month = 0; month <= 36; month++) {
+                months.push('Month ' + month);
+                const clientsAtMonth = currentClients + Math.round((projectedClients - currentClients) * (month / 12));
+                const monthlyRev = clientsAtMonth * householdSpend;
+                const monthlyCost = monthlyEkwaCost * month;
+                revenueData.push(monthlyRev);
+                costData.push(monthlyCost);
+            }
+
+            if (window.projectionChartInstance) {
+                window.projectionChartInstance.destroy();
+            }
+
+            window.projectionChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months.filter((_, i) => i % 3 === 0), // Show every 3rd month
+                    datasets: [
+                        {
+                            label: 'Monthly Client Revenue',
+                            data: revenueData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#00a651',
+                            backgroundColor: 'rgba(0, 166, 81, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'ekwa Monthly Cost',
+                            data: costData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#0066cc',
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: (value) => '$' + (value / 1000).toFixed(0) + 'k' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize
+        calculateROI();
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+
+</div>
+
+<footer class="ekwa-footer">
+  <div class="ekwa-footer__inner">
+    <div>&copy; 2026 Ekwa | Internal Tools</div>
+    <a href="../../../index.html">Back to Verticals</a>
+  </div>
+</footer>
+
+<script>
+        let currentScenario = 'conservative';
+
+        function updateSliderDisplay(slider) {
+            document.getElementById('household-display').textContent = slider.value;
+        }
+
+        function selectScenario(scenario) {
+            currentScenario = scenario;
+            document.querySelectorAll('.scenario-card').forEach(card => card.classList.remove('active'));
+            event.target.closest('.scenario-card').classList.add('active');
+            calculateROI();
+            document.getElementById('form-scenario').value = scenario;
+        }
+
+        function calculateROI() {
+            const practiceType = document.getElementById('practice-type').value;
+            const locations = parseInt(document.getElementById('locations').value) || 1;
+            const currentClients = parseInt(document.getElementById('current-clients').value) || 15;
+            const householdSpend = parseInt(document.getElementById('household-spend').value) || 1500;
+            const currentSpend = parseInt(document.getElementById('current-spend').value) || 1500;
+            const ekwaPricing = parseInt(document.getElementById('ekwa-pricing').value) || 0;
+
+            if (!practiceType || !locations) return;
+
+            // Scenario growth rates
+            const scenarioGrowth = {
+                conservative: 0.18,
+                moderate: 0.35,
+                aggressive: 0.55
+            };
+
+            const growthRate = scenarioGrowth[currentScenario];
+            const newClients = Math.round(currentClients * growthRate);
+            const totalClients = currentClients + newClients;
+
+            // Financial calculations
+            const monthlyRevenue = newClients * householdSpend;
+            const annualRevenue = monthlyRevenue * 12;
+            const monthlyEkwaCost = ekwaPricing || 2000;
+            const annualEkwaCost = monthlyEkwaCost * 12;
+            const monthlyNetGain = monthlyRevenue - monthlyEkwaCost;
+            const annualNetGain = annualRevenue - annualEkwaCost;
+            const paybackMonths = monthlyNetGain > 0 ? Math.ceil(monthlyEkwaCost / monthlyNetGain) : 0;
+            const threeYearRevenue = (annualRevenue * 3) - (annualEkwaCost * 3);
+
+            // Update display
+            document.getElementById('result-new-clients').textContent = totalClients;
+            document.getElementById('result-current-clients').textContent = currentClients;
+            document.getElementById('result-client-growth').textContent = Math.round(growthRate * 100) + '%';
+            document.getElementById('result-annual-impact').textContent = '$' + annualRevenue.toLocaleString();
+            document.getElementById('result-net-gain').textContent = '$' + annualNetGain.toLocaleString();
+            document.getElementById('result-payback').textContent = paybackMonths + ' mo';
+            document.getElementById('result-3year').textContent = '$' + threeYearRevenue.toLocaleString();
+
+            // Update form hidden fields
+            document.getElementById('form-results').value = `Growth: ${growthRate * 100}% | New Clients: ${newClients}/month | Annual Impact: $${annualRevenue} | 3-Year: $${threeYearRevenue}`;
+
+            // Update chart
+            updateChart(currentClients, totalClients, householdSpend, monthlyEkwaCost);
+        }
+
+        function updateChart(currentClients, projectedClients, householdSpend, monthlyEkwaCost) {
+            const ctx = document.getElementById('projectionChart');
+            if (!ctx || !ctx.getContext) return;
+
+            const months = [];
+            const revenueData = [];
+            const costData = [];
+
+            for (let month = 0; month <= 36; month++) {
+                months.push('Month ' + month);
+                const clientsAtMonth = currentClients + Math.round((projectedClients - currentClients) * (month / 12));
+                const monthlyRev = clientsAtMonth * householdSpend;
+                const monthlyCost = monthlyEkwaCost * month;
+                revenueData.push(monthlyRev);
+                costData.push(monthlyCost);
+            }
+
+            if (window.projectionChartInstance) {
+                window.projectionChartInstance.destroy();
+            }
+
+            window.projectionChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months.filter((_, i) => i % 3 === 0), // Show every 3rd month
+                    datasets: [
+                        {
+                            label: 'Monthly Client Revenue',
+                            data: revenueData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#00a651',
+                            backgroundColor: 'rgba(0, 166, 81, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'ekwa Monthly Cost',
+                            data: costData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#0066cc',
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: (value) => '$' + (value / 1000).toFixed(0) + 'k' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize
+        calculateROI();
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
+        let currentScenario = 'conservative';
+
+        function updateSliderDisplay(slider) {
+            document.getElementById('household-display').textContent = slider.value;
+        }
+
+        function selectScenario(scenario) {
+            currentScenario = scenario;
+            document.querySelectorAll('.scenario-card').forEach(card => card.classList.remove('active'));
+            event.target.closest('.scenario-card').classList.add('active');
+            calculateROI();
+            document.getElementById('form-scenario').value = scenario;
+        }
+
+        function calculateROI() {
+            const practiceType = document.getElementById('practice-type').value;
+            const locations = parseInt(document.getElementById('locations').value) || 1;
+            const currentClients = parseInt(document.getElementById('current-clients').value) || 15;
+            const householdSpend = parseInt(document.getElementById('household-spend').value) || 1500;
+            const currentSpend = parseInt(document.getElementById('current-spend').value) || 1500;
+            const ekwaPricing = parseInt(document.getElementById('ekwa-pricing').value) || 0;
+
+            if (!practiceType || !locations) return;
+
+            // Scenario growth rates
+            const scenarioGrowth = {
+                conservative: 0.18,
+                moderate: 0.35,
+                aggressive: 0.55
+            };
+
+            const growthRate = scenarioGrowth[currentScenario];
+            const newClients = Math.round(currentClients * growthRate);
+            const totalClients = currentClients + newClients;
+
+            // Financial calculations
+            const monthlyRevenue = newClients * householdSpend;
+            const annualRevenue = monthlyRevenue * 12;
+            const monthlyEkwaCost = ekwaPricing || 2000;
+            const annualEkwaCost = monthlyEkwaCost * 12;
+            const monthlyNetGain = monthlyRevenue - monthlyEkwaCost;
+            const annualNetGain = annualRevenue - annualEkwaCost;
+            const paybackMonths = monthlyNetGain > 0 ? Math.ceil(monthlyEkwaCost / monthlyNetGain) : 0;
+            const threeYearRevenue = (annualRevenue * 3) - (annualEkwaCost * 3);
+
+            // Update display
+            document.getElementById('result-new-clients').textContent = totalClients;
+            document.getElementById('result-current-clients').textContent = currentClients;
+            document.getElementById('result-client-growth').textContent = Math.round(growthRate * 100) + '%';
+            document.getElementById('result-annual-impact').textContent = '$' + annualRevenue.toLocaleString();
+            document.getElementById('result-net-gain').textContent = '$' + annualNetGain.toLocaleString();
+            document.getElementById('result-payback').textContent = paybackMonths + ' mo';
+            document.getElementById('result-3year').textContent = '$' + threeYearRevenue.toLocaleString();
+
+            // Update form hidden fields
+            document.getElementById('form-results').value = `Growth: ${growthRate * 100}% | New Clients: ${newClients}/month | Annual Impact: $${annualRevenue} | 3-Year: $${threeYearRevenue}`;
+
+            // Update chart
+            updateChart(currentClients, totalClients, householdSpend, monthlyEkwaCost);
+        }
+
+        function updateChart(currentClients, projectedClients, householdSpend, monthlyEkwaCost) {
+            const ctx = document.getElementById('projectionChart');
+            if (!ctx || !ctx.getContext) return;
+
+            const months = [];
+            const revenueData = [];
+            const costData = [];
+
+            for (let month = 0; month <= 36; month++) {
+                months.push('Month ' + month);
+                const clientsAtMonth = currentClients + Math.round((projectedClients - currentClients) * (month / 12));
+                const monthlyRev = clientsAtMonth * householdSpend;
+                const monthlyCost = monthlyEkwaCost * month;
+                revenueData.push(monthlyRev);
+                costData.push(monthlyCost);
+            }
+
+            if (window.projectionChartInstance) {
+                window.projectionChartInstance.destroy();
+            }
+
+            window.projectionChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months.filter((_, i) => i % 3 === 0), // Show every 3rd month
+                    datasets: [
+                        {
+                            label: 'Monthly Client Revenue',
+                            data: revenueData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#00a651',
+                            backgroundColor: 'rgba(0, 166, 81, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'ekwa Monthly Cost',
+                            data: costData.filter((_, i) => i % 3 === 0),
+                            borderColor: '#0066cc',
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            tension: 0.4,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: (value) => '$' + (value / 1000).toFixed(0) + 'k' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize
+        calculateROI();
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+
+<script>
+function toggleMobileMenu(btn) {
+  btn.classList.toggle('open');
+  const menu = btn.nextElementSibling;
+  if (menu) menu.classList.toggle('open');
+}
+</script>
 </body>
 </html>

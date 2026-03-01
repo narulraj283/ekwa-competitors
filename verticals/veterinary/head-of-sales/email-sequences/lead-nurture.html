@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurture Sequence - Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --vertical-accent: #2A9D8F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .header-breadcrumb {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .header-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .header-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ekwa-nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 0;
+        }
+        
+        .ekwa-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ekwa-nav a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+        
+        .ekwa-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .sequence-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sequence-info h2 {
+            margin-top: 0;
+            color: var(--vertical-accent);
+        }
+        
+        .emails {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .email-item {
+            background: white;
+            border-left: 4px solid var(--vertical-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .email-header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .email-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .email-day-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .email-content {
+            padding: 30px;
+        }
+        
+        .email-section {
+            margin-bottom: 25px;
+        }
+        
+        .email-section-title {
+            font-weight: 700;
+            color: var(--vertical-accent);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .email-subject {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-word;
+            margin-bottom: 10px;
+        }
+        
+        .email-body {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--vertical-accent);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .email-body p {
+            margin: 0 0 15px 0;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .copy-button {
+            background: var(--vertical-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background: #1f6d63;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(42, 157, 143, 0.2);
+        }
+        
+        .copy-button.copied {
+            background: #27ae60;
+        }
+        
+        .token-note {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            border-left: 3px solid var(--vertical-accent);
+        }
+        
+        .token-note strong {
+            color: var(--vertical-accent);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-content">
+            <a href="../../../../">Home</a>
+            <a href="../../">Veterinary Vertical</a>
+            <a href="index.html">Email Sequences</a>
+            <a href="#">Lead Nurture</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="header-content">
+            <h1>Lead Nurture Sequence</h1>
+            <div class="header-breadcrumb">
+                <a href="../../../../">Home</a> > <a href="../../">Veterinary</a> > <a href="index.html">Email Sequences</a> > Lead Nurture
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sequence-info">
+            <h2>Sequence Overview</h2>
+            <p><strong>Purpose:</strong> Engage prospects by highlighting how independent vet practices can differentiate from corporate chains through personalized care and trust-based relationships.</p>
+            <p><strong>Timeline:</strong> 3 emails over 7 days (Days 1, 3, 7)</p>
+            <p><strong>Goal:</strong> Demonstrate understanding of the competitive landscape and position Ekwa as the solution for independent veterinary practices seeking to stand out.</p>
+        </div>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 1: The Opening</h3>
+                    <span class="email-day-badge">Day 1</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">Quick question about {{contact.company}}'s new client flow</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I was doing some research on {{contact.company}} and noticed something interesting—independent practices like yours are increasingly competing with corporate chains like VCA and Banfield for new pet owners.</p>
+                            <p>These chains have massive marketing budgets and name recognition. But here's what they don't have: the personal touch, the deep relationships, the continuity of care that pet owners actually prefer.</p>
+                            <p>I have a quick question: Is your current marketing helping you stand out from the corporate practices in your area? Or are you competing on price, just like everyone else?</p>
+                            <p>We work specifically with independent veterinary practices to communicate what makes you different—the trust, the relationships, the personalized care that corporate chains can never deliver at scale.</p>
+                            <p>If you're interested in exploring how to differentiate without a corporate marketing budget, I'd love to chat.</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email1')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> This email uses {{contact.firstName}} and {{contact.company}} which will automatically populate from your HubSpot contact records.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 2: The Value Prop</h3>
+                    <span class="email-day-badge">Day 3</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">What independent vet practices are doing to compete with corporate chains</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>Following up on my last message—I wanted to share something we're seeing across independent vet practices right now.</p>
+                            <p>The most successful independent practices aren't trying to out-market the corporate chains. Instead, they're leaning into what they do best:</p>
+                            <p><strong>Trust.</strong> Pet owners remember the vet who knows their pet by name, who listens to their concerns, who takes time with them.<br>
+                            <strong>Relationships.</strong> Long-term relationships drive loyalty and referrals in ways no marketing campaign can replicate.<br>
+                            <strong>Continuity of Care.</strong> Seeing the same veterinarian creates confidence and better health outcomes.</p>
+                            <p>These aren't just feel-good factors—they're business drivers. And they're incredibly powerful in SEO, local search, and word-of-mouth marketing.</p>
+                            <p>At Ekwa, we specialize in helping independent vets communicate these advantages through targeted SEO, web strategy, and content that speaks to pet owner psychology—not just product features.</p>
+                            <p>The question isn't whether you have these advantages. The question is: are you showing up in search when pet owners are looking for them?</p>
+                            <p>Interested in learning more?</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email2')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> Uses {{contact.firstName}} for personalization.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 3: The Close</h3>
+                    <span class="email-day-badge">Day 7</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">Quick call next week?</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I've sent a couple of messages your way, and I realize I should just ask directly: Is now a good time to explore how other independent practices are positioning themselves against the corporate chains?</p>
+                            <p>We typically work with practices like {{contact.company}} to:</p>
+                            <p>• Rank higher in local search for key service terms<br>
+                            • Create web and SEO strategies that attract new clients who value relationship-based care<br>
+                            • Build content that communicates your unique differentiators</p>
+                            <p>I'm offering exclusivity to a handful of practices in the area. If you'd like to explore whether we're a fit, I have some time next week.</p>
+                            <p>Are you open to a brief conversation?</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email3')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> Uses {{contact.firstName}} and {{contact.company}} for targeted personalization.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../../../../">Home</a>
+            <a href="../../../../about/">About</a>
+            <a href="../../../../contact/">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(button, emailId) {
+            const emailContent = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(emailContent).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -3,116 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>ekwa - The Human Advantage in Dental Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 40px 0;
-            border-bottom: 2px solid #003d82;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #003d82;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: 42px;
-            color: #003d82;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .tagline {
-            font-size: 18px;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-            font-style: italic;
-        }
-
-        /* Main Comparison Section */
+        /* Page-specific overrides */
         .comparison-section {
-            margin-bottom: 60px;
+            padding: var(--space-12) 0;
         }
 
         .comparison-section h2 {
             text-align: center;
-            font-size: 32px;
-            color: #003d82;
-            margin-bottom: 40px;
+            font-size: var(--text-3xl);
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-10);
+            font-weight: 800;
         }
 
         .comparison-table {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-6);
+            margin-bottom: var(--space-10);
         }
 
         .comparison-column {
-            border-radius: 8px;
-            padding: 30px;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            background: var(--ekwa-white);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            border: 1px solid var(--ekwa-gray-200);
         }
 
         .comparison-column:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .column-header {
-            font-size: 20px;
+            font-size: var(--text-lg);
             font-weight: 700;
-            color: white;
-            padding: 15px;
-            margin: -30px -30px 20px -30px;
-            border-radius: 8px 8px 0 0;
+            color: var(--ekwa-white);
+            padding: var(--space-4) var(--space-5);
+            margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-5) calc(var(--space-6) * -1);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
             text-align: center;
         }
 
         .ai-platform .column-header {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
         }
 
         .ekwa .column-header {
-            background: #003d82;
-        }
-
-        .neutral .column-header {
-            background: #7f8c8d;
+            background: linear-gradient(135deg, var(--ekwa-navy) 0%, var(--ekwa-blue) 100%);
         }
 
         .comparison-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ecf0f1;
+            margin-bottom: var(--space-5);
+            padding-bottom: var(--space-5);
+            border-bottom: 1px solid var(--ekwa-gray-200);
         }
 
         .comparison-item:last-child {
@@ -122,103 +75,102 @@
         }
 
         .item-label {
-            font-weight: 600;
-            color: #003d82;
-            margin-bottom: 8px;
-            font-size: 14px;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-2);
+            font-size: var(--text-xs);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
         }
 
         .item-content {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
+            font-size: var(--text-sm);
+            color: var(--ekwa-gray-700);
+            line-height: 1.6;
         }
 
         .ai-platform .item-content {
-            color: #d35400;
-        }
-
-        .ekwa .item-content {
-            color: #27ae60;
+            color: #D35400;
             font-weight: 500;
         }
 
-        .neutral .item-content {
-            color: #7f8c8d;
+        .ekwa .item-content {
+            color: var(--ekwa-success);
+            font-weight: 600;
         }
 
-        /* Proof Points Section */
         .proof-points-section {
-            background: white;
-            border-radius: 8px;
-            padding: 50px;
-            margin-bottom: 60px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-10) var(--space-6);
+            margin-bottom: var(--space-12);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--ekwa-gray-200);
         }
 
         .proof-points-section h2 {
             text-align: center;
-            font-size: 32px;
-            color: #003d82;
-            margin-bottom: 40px;
+            font-size: var(--text-3xl);
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-10);
+            font-weight: 800;
         }
 
         .proof-points {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
         }
 
         .proof-point {
             text-align: center;
-            padding: 30px;
-            border-radius: 8px;
-            background: #f8f9fa;
-            border-left: 4px solid #003d82;
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            background: var(--ekwa-gray-100);
+            border-left: 4px solid var(--ekwa-blue);
         }
 
         .proof-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #003d82;
-            margin-bottom: 10px;
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-2);
         }
 
         .proof-metric {
-            font-size: 16px;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 15px;
+            font-size: var(--text-base);
+            font-weight: 700;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
         }
 
         .proof-description {
-            font-size: 14px;
-            color: #777;
+            font-size: var(--text-sm);
+            color: var(--ekwa-gray-600);
             line-height: 1.6;
         }
 
-        /* Testimonial Section */
         .testimonial-section {
-            background: #003d82;
-            color: white;
-            border-radius: 8px;
-            padding: 50px;
-            margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--ekwa-navy) 0%, var(--ekwa-blue) 100%);
+            color: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-10);
+            margin-bottom: var(--space-12);
             text-align: center;
+            box-shadow: var(--shadow-lg);
         }
 
         .testimonial-section h2 {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: white;
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-6);
+            color: var(--ekwa-white);
+            font-weight: 700;
         }
 
         .testimonial-quote {
-            font-size: 18px;
+            font-size: var(--text-lg);
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-4);
             line-height: 1.8;
             max-width: 800px;
             margin-left: auto;
@@ -226,24 +178,24 @@
         }
 
         .testimonial-attribution {
-            font-size: 14px;
-            color: #bdc3c7;
-            margin-top: 15px;
+            font-size: var(--text-sm);
+            color: rgba(255,255,255,0.7);
+            margin-top: var(--space-3);
         }
 
-        /* Why Choose Section */
         .why-choose-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: var(--space-10);
+            margin-bottom: var(--space-12);
             align-items: center;
         }
 
         .why-choose-content h2 {
-            font-size: 28px;
-            color: #003d82;
-            margin-bottom: 20px;
+            font-size: var(--text-3xl);
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-6);
+            font-weight: 800;
         }
 
         .why-choose-list {
@@ -251,166 +203,136 @@
         }
 
         .why-choose-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
+            margin-bottom: var(--space-4);
+            padding-left: var(--space-6);
             position: relative;
-            font-size: 15px;
-            color: #555;
+            font-size: var(--text-base);
+            color: var(--ekwa-gray-700);
+            line-height: 1.6;
         }
 
         .why-choose-list li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 18px;
+            color: var(--ekwa-success);
+            font-weight: 800;
+            font-size: var(--text-lg);
         }
 
         .why-choose-image {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 40px;
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-10);
             text-align: center;
-            font-size: 14px;
-            color: #999;
+            font-size: var(--text-sm);
+            color: var(--ekwa-gray-500);
             min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px dashed #ddd;
+            border: 2px dashed var(--ekwa-gray-300);
         }
 
-        /* CTA SECTION */
         .cta-section {
-            background: linear-gradient(135deg, #003d82 0%, #005aad 100%);
-            color: white;
-            border-radius: 8px;
-            padding: 60px;
+            background: linear-gradient(135deg, var(--ekwa-navy) 0%, var(--ekwa-blue) 100%);
+            color: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-12) var(--space-6);
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: var(--space-10);
+            box-shadow: var(--shadow-lg);
         }
 
         .cta-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: white;
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+            color: var(--ekwa-white);
+            font-weight: 800;
         }
 
         .cta-section p {
-            font-size: 16px;
-            margin-bottom: 30px;
+            font-size: var(--text-base);
+            margin-bottom: var(--space-6);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 16px 40px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background: #229954;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-secondary {
-            display: inline-block;
-            color: white;
-            text-decoration: underline;
-            font-size: 14px;
-            margin-top: 15px;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .cta-secondary:hover {
-            color: #f0f0f0;
-        }
-
-        /* FORM SECTION */
         .form-section {
-            background: white;
-            border-radius: 8px;
-            padding: 50px;
-            margin-bottom: 60px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #003d82;
+            background: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-10) var(--space-6);
+            margin-bottom: var(--space-12);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--ekwa-gray-200);
+            border-top: 4px solid var(--ekwa-navy);
         }
 
         .form-section h3 {
-            font-size: 28px;
-            color: #003d82;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: var(--text-2xl);
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-3);
+            font-weight: 800;
             text-align: center;
         }
 
         .form-section p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 16px;
+            color: var(--ekwa-gray-600);
+            margin-bottom: var(--space-6);
+            font-size: var(--text-base);
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-5);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #003d82;
-            font-size: 14px;
+            margin-bottom: var(--space-2);
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s;
+            padding: var(--space-3) var(--space-4);
+            border: 2px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
             font-family: inherit;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #003d82;
-            box-shadow: 0 0 0 3px rgba(0, 61, 130, 0.1);
+            border-color: var(--ekwa-navy);
+            box-shadow: 0 0 0 3px rgba(28, 48, 93, 0.1);
         }
 
         .form-submit {
             width: 100%;
-            background-color: #003d82;
-            color: white;
-            padding: 14px;
+            background-color: var(--ekwa-navy);
+            color: var(--ekwa-white);
+            padding: var(--space-4);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--radius-md);
             font-weight: 700;
-            font-size: 16px;
+            font-size: var(--text-base);
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
+            transition: all var(--transition-fast);
+            margin-top: var(--space-2);
         }
 
         .form-submit:hover {
-            background-color: #002a5c;
-            box-shadow: 0 4px 12px rgba(0, 61, 130, 0.3);
+            background-color: var(--ekwa-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
         }
 
         .form-submit:disabled {
@@ -419,53 +341,69 @@
         }
 
         .form-legal {
-            font-size: 12px;
-            color: #999;
-            margin-top: 1rem;
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-500);
+            margin-top: var(--space-3);
             text-align: center;
         }
 
         .form-success {
             display: none;
-            padding: 1.5rem;
-            background-color: #d4f8e8;
-            border: 2px solid #27ae60;
-            border-radius: 4px;
-            color: #27ae60;
-            font-weight: 600;
+            padding: var(--space-4);
+            background-color: #F0FDF4;
+            border: 2px solid var(--ekwa-success);
+            border-radius: var(--radius-md);
+            color: var(--ekwa-success);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
         }
 
         .form-error {
             display: none;
-            padding: 1.5rem;
-            background-color: #fadbd8;
-            border: 2px solid #e74c3c;
-            border-radius: 4px;
-            color: #e74c3c;
-            font-weight: 600;
+            padding: var(--space-4);
+            background-color: #FEF2F2;
+            border: 2px solid var(--ekwa-danger);
+            border-radius: var(--radius-md);
+            color: var(--ekwa-danger);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #ecf0f1;
-            color: #999;
-            font-size: 12px;
+        .stat-highlight {
+            background: #FFFBEB;
+            border-left: 4px solid var(--ekwa-gold);
+            padding: var(--space-5);
+            border-radius: var(--radius-md);
+            margin: var(--space-6) 0;
+            font-size: var(--text-base);
+            color: var(--ekwa-gray-800);
+            line-height: 1.6;
         }
 
-        /* Responsive */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-6);
+            color: var(--ekwa-gray-600);
+        }
+
+        .breadcrumb a {
+            color: var(--ekwa-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--ekwa-navy);
+            text-decoration: underline;
+        }
+
         @media (max-width: 1024px) {
             .comparison-table {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .comparison-table .neutral {
-                grid-column: 1 / -1;
+                grid-template-columns: 1fr;
             }
 
             .proof-points {
@@ -478,70 +416,70 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 28px;
+            .cta-section {
+                padding: var(--space-8) var(--space-4);
             }
 
-            .comparison-table {
-                grid-template-columns: 1fr;
+            .form-section {
+                padding: var(--space-6) var(--space-4);
             }
 
-            .comparison-table .neutral {
-                grid-column: 1;
+            .cta-section h2 {
+                font-size: var(--text-2xl);
             }
 
             .proof-points {
                 grid-template-columns: 1fr;
             }
-
-            .why-choose-section {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-section {
-                padding: 40px 20px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            header {
-                padding: 20px 0;
-            }
-        }
-
-        .badge {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        .stat-highlight {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 20px 0;
-            font-size: 14px;
-            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">ekwa.com</div>
-            <h1>The Human Advantage</h1>
-            <p class="tagline">Why ekwa Outperforms AI-First Platforms in Dental Marketing</p>
-        </header>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <ul class="ekwa-nav__links">
+                <li><a href="../../../../index.html">All Verticals</a></li>
+                <li><a href="../../index.html">Dentistry</a></li>
+                <li><a href="../" class="nav-cta">Back</a></li>
+            </ul>
+            <button class="ekwa-nav__hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Dentistry</a>
+            <a href="../">Back</a>
+        </div>
+    </nav>
 
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__breadcrumb">
+                <a href="../../../../index.html">All Verticals</a>
+                <span>·</span>
+                <a href="../../index.html">Dentistry</a>
+                <span>·</span>
+                <span>AI Credibility Shield</span>
+            </div>
+            <h1>The Human Advantage <span>in Dental Marketing</span></h1>
+            <p>Why ekwa Outperforms AI-First Platforms in Dental Marketing</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ekwa-container">
         <!-- Comparison Section -->
         <section class="comparison-section">
             <h2>AI Platform vs. Human Expert</h2>
@@ -659,12 +597,10 @@
         <section class="cta-section">
             <h2>See What Real Dental Marketing Looks Like</h2>
             <p>Schedule a free 30-minute strategy call. We'll audit your current content, identify your biggest opportunity in the next 90 days, and show you what patient-focused marketing actually delivers.</p>
-            <button class="cta-button" onclick="scrollToForm(event)">Schedule Your Free Strategy Call</button>
-            <p class="cta-secondary" onclick="scrollToForm(event)">No pitch. No obligation. Just clarity.</p>
+            <button class="ekwa-btn ekwa-btn--primary" onclick="scrollToForm(event)">Schedule Your Free Strategy Call</button>
         </section>
 
-        <!-- FORM SECTION: Get Your Free Content Quality Audit -->
-        <!-- FORMSPREE SETUP: Replace YOUR_FORM_ID with your form ID from formspree.io/register -->
+        <!-- FORM SECTION -->
         <section id="audit-form">
             <div class="form-section">
                 <h3>Get Your Free Content Quality Audit</h3>
@@ -715,17 +651,26 @@
                 </form>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>ekwa.com | Dental Marketing Specialists | Founded 2008</p>
-        <p>© 2026 ekwa. All rights reserved. | Privacy Policy | Contact Us</p>
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <div>ekwa.com | Dental Marketing Specialists | Founded 2008</div>
+            <div>© 2026 ekwa. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></div>
+        </div>
     </footer>
 
     <script>
         // FORMSPREE CONFIGURATION
         const AUDIT_FORMSPREE_ID = 'YOUR_FORM_ID';
+
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.ekwa-nav__hamburger');
+            const mobileNav = document.querySelector('.ekwa-nav__mobile');
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        }
 
         function scrollToForm(event) {
             if (event) {

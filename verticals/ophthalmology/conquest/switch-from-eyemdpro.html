@@ -5,186 +5,358 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>Beyond EyeMDPro: When Physician-Grade Content Meets Real Marketing Results</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #9933cc 0%, #1a1a2e 100%); color: #fff; padding: 50px 20px; text-align: center; }
-        header h1 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
-        header p { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .comparison { background: #fff; border: 1px solid #ddd; margin: 25px 0; border-radius: 8px; overflow: hidden; }
-        .comparison table { width: 100%; border-collapse: collapse; }
-        .comparison th { background: #1a1a2e; color: #fff; padding: 15px; text-align: left; font-size: 14px; }
-        .comparison td { padding: 15px; border-bottom: 1px solid #eee; font-size: 13px; }
-        .comparison tr:hover { background: #f5f5f5; }
-        .eyemdpro-cell { background: #f3e5f5; }
-        .ekwa-cell { background: #e8f0fe; font-weight: 600; color: #0066cc; }
-        h2 { font-size: 26px; color: #1a1a2e; margin: 35px 0 20px; padding-top: 20px; border-top: 2px solid #0066cc; }
-        .card { background: #fff; border-left: 4px solid #0066cc; padding: 20px; margin: 20px 0; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h3 { color: #0066cc; font-size: 16px; margin-bottom: 10px; }
-        .card p { font-size: 13px; color: #555; }
-        form { background: #e8f0fe; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        form h3 { color: #0066cc; margin-bottom: 20px; }
-        label { display: block; margin-top: 15px; font-weight: 600; color: #333; font-size: 13px; }
-        input, select, textarea { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
-        button { background: #0066cc; color: #fff; padding: 12px 24px; border: none; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; }
-        button:hover { background: #00509e; }
-        footer { text-align: center; padding: 30px 20px; color: #999; font-size: 11px; border-top: 1px solid #ddd; margin-top: 40px; }
+        .ekwa-section--comparison {
+            background: var(--ekwa-gray-100);
+        }
+        .comparison-table {
+            background: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--ekwa-success);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-6) 0;
+        }
+        .testimonial-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+        }
+        .testimonial-title {
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-600);
+        }
+        .financial-box {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .financial-box h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        .financial-box ul {
+            padding-left: var(--space-5);
+        }
+        .financial-box li {
+            margin-bottom: var(--space-2);
+            line-height: 1.6;
+            font-size: var(--text-sm);
+        }
+        .form-section {
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-3);
+            border: 1px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: var(--text-sm);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ekwa-blue);
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        .card-highlight {
+            background: var(--ekwa-white);
+            border-left: 4px solid var(--ekwa-blue);
+            padding: var(--space-5);
+            border-radius: var(--radius-md);
+            margin: var(--space-4) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .card-highlight h3 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        .card-highlight p {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--ekwa-gray-700);
+            margin-bottom: var(--space-2);
+        }
+        .vertical-accent {
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-1);
+        }
+        h2 {
+            color: var(--ekwa-navy);
+            font-weight: 800;
+            font-size: var(--text-3xl);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            padding-bottom: var(--space-3);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-3);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Beyond EyeMDPro</h1>
-        <p>When Physician-Grade Content Meets Real Marketing Results</p>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <div class="ekwa-nav__links">
+                <a href="../../../../index.html">All Verticals</a>
+                <a href="../../index.html">Ophthalmology</a>
+            </div>
+            <button class="ekwa-nav__hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile" id="navDrawer">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Ophthalmology</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__badge">Conquest Asset</div>
+            <h1>Beyond EyeMDPro</h1>
+            <p>When Physician-Grade Content Meets Real Marketing Results</p>
+        </div>
+        <div class="vertical-accent"></div>
     </header>
 
-    <div class="container">
-        <h2>EyeMDPro vs. ekwa: Comprehensive Comparison</h2>
-        <div class="comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dimension</th>
-                        <th style="background: #9933cc;">EyeMDPro</th>
-                        <th style="background: #0066cc;">ekwa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Content Quality (Physician-Reviewed)</strong></td>
-                        <td class="eyemdpro-cell">Excellent — deep clinical accuracy</td>
-                        <td class="ekwa-cell">Excellent + SEO-optimized + performance-tested</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Content Production Speed</strong></td>
-                        <td class="eyemdpro-cell">Slow (3–4 weeks per piece)</td>
-                        <td class="ekwa-cell">Fast (7–10 days per piece)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paid Media (Google Ads, Social)</strong></td>
-                        <td class="eyemdpro-cell">Limited; organic-focused</td>
-                        <td class="ekwa-cell">Full-service paid media + optimization</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Procedure-Specific Authority Programs</strong></td>
-                        <td class="eyemdpro-cell">Content-focused; limited strategy depth</td>
-                        <td class="ekwa-cell">LASIK, cataract, dry eye, premium IOL authority programs</td>
-                    </tr>
-                    <tr>
-                        <td><strong>SEO + Search Ranking Focus</strong></td>
-                        <td class="eyemdpro-cell">Content quality drives rankings eventually</td>
-                        <td class="ekwa-cell">Content + SEO optimization + link building + technical SEO</td>
-                    </tr>
-                    <tr>
-                        <td><strong>A/B Testing & Optimization</strong></td>
-                        <td class="eyemdpro-cell">Minimal; content is static</td>
-                        <td class="ekwa-cell">Continuous testing, optimization, performance analysis</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dry Eye Program Specialization</strong></td>
-                        <td class="eyemdpro-cell">General dry eye content possible</td>
-                        <td class="ekwa-cell">Dedicated dry eye recurring revenue program</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Premium IOL Upsell Strategy</strong></td>
-                        <td class="eyemdpro-cell">Education content exists; limited upsell focus</td>
-                        <td class="ekwa-cell">Content-driven upsell strategy ($2K–$4K per case)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pricing</strong></td>
-                        <td class="eyemdpro-cell">$1,500–$4,000/month</td>
-                        <td class="ekwa-cell">$2,200–$3,400/month (higher value, faster results)</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Main Content -->
+    <main class="ekwa-section">
+        <div class="ekwa-container">
+            <h2>EyeMDPro vs. ekwa: Comprehensive Comparison</h2>
+            
+            <div class="comparison-table">
+                <div style="overflow-x: auto;">
+                    <table class="ekwa-table ekwa-table--striped">
+                        <thead>
+                            <tr>
+                                <th>Dimension</th>
+                                <th>EyeMDPro</th>
+                                <th>ekwa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Content Quality (Physician-Reviewed)</strong></td>
+                                <td>Excellent — deep clinical accuracy</td>
+                                <td><strong>Excellent + SEO-optimized + performance-tested</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Production Speed</strong></td>
+                                <td>Slow (3–4 weeks per piece)</td>
+                                <td><strong>Fast (7–10 days per piece)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paid Media (Google Ads, Social)</strong></td>
+                                <td>Limited; organic-focused</td>
+                                <td><strong>Full-service paid media + optimization</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Procedure-Specific Authority Programs</strong></td>
+                                <td>Content-focused; limited strategy depth</td>
+                                <td><strong>LASIK, cataract, dry eye, premium IOL authority programs</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>SEO + Search Ranking Focus</strong></td>
+                                <td>Content quality drives rankings eventually</td>
+                                <td><strong>Content + SEO optimization + link building + technical SEO</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>A/B Testing & Optimization</strong></td>
+                                <td>Minimal; content is static</td>
+                                <td><strong>Continuous testing, optimization, performance analysis</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dry Eye Program Specialization</strong></td>
+                                <td>General dry eye content possible</td>
+                                <td><strong>Dedicated dry eye recurring revenue program</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Premium IOL Upsell Strategy</strong></td>
+                                <td>Education content exists; limited upsell focus</td>
+                                <td><strong>Content-driven upsell strategy ($2K–$4K per case)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pricing</strong></td>
+                                <td>$1,500–$4,000/month</td>
+                                <td><strong>$2,200–$3,400/month (higher value, faster results)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>The Physician-Grade vs. Performance-Grade Dilemma</h2>
+            <p style="margin: var(--space-4) 0; font-size: var(--text-base);">EyeMDPro's core claim is "physician-grade" — and they deliver. Their content is medically accurate, clinically rigorous, and written by/reviewed by board-certified ophthalmologists. That's valuable.</p>
+            <p style="font-size: var(--text-base); color: var(--ekwa-gray-800);"><strong>But physician-grade is a quality bar, not a conversion guarantee.</strong></p>
+
+            <div class="card-highlight">
+                <h3>The Hidden Problem: Content That Doesn't Rank</h3>
+                <p>Physician-graded content that takes 3–4 weeks to produce and doesn't rank in search results isn't helping your practice. A patient searching "LASIK near me" won't find your EyeMDPro content if it's buried on page 5 of Google results.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Approach:</strong> Physician-reviewed content + SEO optimization + paid media amplification. Your content ranks, converts, and gets results.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>The Speed Problem</h3>
+                <p>EyeMDPro's content production timeline (3–4 weeks per piece) is designed for quality. But in a fast-moving market, speed matters. If a new LASIK technology emerges or dry eye treatment trends shift, you need to be able to respond quickly with updated content.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Approach:</strong> Faster production (7–10 days) without sacrificing quality. Physician-reviewed in-house, so we maintain clinical accuracy while moving faster.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>The Paid Media Gap</h3>
+                <p>EyeMDPro is known for content excellence but doesn't offer meaningful paid media support (Google Ads, Facebook, YouTube). Organic search is powerful, but paid media captures high-intent patients immediately and complements organic long-term strategy.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Approach:</strong> Integrated paid media (Google Ads for "LASIK near me," YouTube for procedure explainers, Facebook retargeting). Content + paid media = faster volume growth.</p>
+            </div>
+
+            <h2>Why Ophthalmologists Switch From EyeMDPro to ekwa</h2>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"EyeMDPro produces great content, but great content that doesn't rank and doesn't convert isn't worth much. We switched to ekwa and the difference was immediate: faster turnaround, paid media amplification, and actual patient volume increase instead of just good-looking website content."</div>
+                <div class="testimonial-author">Dr. Jennifer Lee, MD</div>
+                <div class="testimonial-title">Comprehensive Eye Care, San Francisco</div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"I liked EyeMDPro's ophthalmology expertise, but they felt like a content team, not a marketing team. ekwa felt like marketing with ophthalmology depth. Different mindset. Better results for our practice."</div>
+                <div class="testimonial-author">Dr. David Park, MD</div>
+                <div class="testimonial-title">LASIK Center, Austin</div>
+            </div>
+
+            <h2>The Performance Difference</h2>
+            
+            <div class="financial-box">
+                <h4>Typical Results for Practices Switching from EyeMDPro</h4>
+                <ul>
+                    <li><strong>Content production speed:</strong> 3–4 weeks → 7–10 days (4x faster)</li>
+                    <li><strong>Paid media launch:</strong> Not available → 30 days (immediate PPC campaigns)</li>
+                    <li><strong>Procedure volume increase:</strong> 6 months +18%–28% (organic + paid combined)</li>
+                    <li><strong>Average case value:</strong> +8%–15% (premium IOL upsell content, dry eye program)</li>
+                </ul>
+            </div>
+
+            <h2>Next Step: Transition Analysis</h2>
+            <p style="margin: var(--space-4) 0; font-size: var(--text-base);">We'll review your current EyeMDPro content performance, identify missed paid media opportunities, and show you how ekwa's performance-focused approach can drive faster results.</p>
+
+            <div class="form-section">
+                <h3 style="color: var(--ekwa-navy); margin-bottom: var(--space-6);">EyeMDPro to ekwa Analysis Request</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Name *</label>
+                        <input type="text" name="practice_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City/State *</label>
+                        <input type="text" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What would you change about EyeMDPro if you could?</label>
+                        <textarea name="challenge" placeholder="e.g., Slower content production, no paid media, want faster results..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="source" value="conquest-eyemdpro">
+                    <input type="hidden" name="competitor" value="EyeMDPro">
+                    <input type="hidden" name="vertical" value="ophthalmology">
+
+                    <button type="submit" class="ekwa-btn ekwa-btn--primary" style="width: 100%;">Get Performance Analysis →</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--ekwa-gray-600);">By submitting, you'll receive a content performance analysis and be contacted about ekwa's approach.</p>
+            </div>
         </div>
+    </main>
 
-        <h2>The Physician-Grade vs. Performance-Grade Dilemma</h2>
-        <p style="margin: 20px 0; font-size: 13px;">EyeMDPro's core claim is "physician-grade" — and they deliver. Their content is medically accurate, clinically rigorous, and written by/reviewed by board-certified ophthalmologists. That's valuable.</p>
-        <p style="font-size: 13px;"><strong>But physician-grade is a quality bar, not a conversion guarantee.</strong></p>
-
-        <div class="card">
-            <h3>The Hidden Problem: Content That Doesn't Rank</h3>
-            <p>Physician-graded content that takes 3–4 weeks to produce and doesn't rank in search results isn't helping your practice. A patient searching "LASIK near me" won't find your EyeMDPro content if it's buried on page 5 of Google results.</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Approach:</strong> Physician-reviewed content + SEO optimization + paid media amplification. Your content ranks, converts, and gets results.</p>
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <p>&copy; 2026 ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
+            <p>This page targets practices using EyeMDPro who may want faster content production and paid media capabilities.</p>
         </div>
-
-        <div class="card">
-            <h3>The Speed Problem</h3>
-            <p>EyeMDPro's content production timeline (3–4 weeks per piece) is designed for quality. But in a fast-moving market, speed matters. If a new LASIK technology emerges or dry eye treatment trends shift, you need to be able to respond quickly with updated content.</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Approach:</strong> Faster production (7–10 days) without sacrificing quality. Physician-reviewed in-house, so we maintain clinical accuracy while moving faster.</p>
-        </div>
-
-        <div class="card">
-            <h3>The Paid Media Gap</h3>
-            <p>EyeMDPro is known for content excellence but doesn't offer meaningful paid media support (Google Ads, Facebook, YouTube). Organic search is powerful, but paid media captures high-intent patients immediately and complements organic long-term strategy.</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Approach:</strong> Integrated paid media (Google Ads for "LASIK near me," YouTube for procedure explainers, Facebook retargeting). Content + paid media = faster volume growth.</p>
-        </div>
-
-        <h2>Why Ophthalmologists Switch From EyeMDPro to ekwa</h2>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"EyeMDPro produces great content, but great content that doesn't rank and doesn't convert isn't worth much. We switched to ekwa and the difference was immediate: faster turnaround, paid media amplification, and actual patient volume increase instead of just good-looking website content."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. Jennifer Lee, Comprehensive Eye Care, San Francisco</p>
-        </div>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"I liked EyeMDPro's ophthalmology expertise, but they felt like a content team, not a marketing team. ekwa felt like marketing with ophthalmology depth. Different mindset. Better results for our practice."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. David Park, LASIK Center, Austin</p>
-        </div>
-
-        <h2>The Performance Difference</h2>
-        <p style="margin: 20px 0; font-size: 13px;">Practices switching from EyeMDPro to ekwa typically report:</p>
-        <ul style="font-size: 13px; padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>Content production speed:</strong> 3–4 weeks → 7–10 days (4x faster)</li>
-            <li><strong>Paid media launch:</strong> Not available → 30 days (immediate PPC campaigns)</li>
-            <li><strong>Procedure volume increase:</strong> 6 months +18%–28% (organic + paid combined)</li>
-            <li><strong>Average case value:</strong> +8%–15% (premium IOL upsell content, dry eye program)</li>
-        </ul>
-
-        <h2>Next Step: Transition Analysis</h2>
-        <p style="margin: 20px 0; font-size: 13px;">We'll review your current EyeMDPro content performance, identify missed paid media opportunities, and show you how ekwa's performance-focused approach can drive faster results.</p>
-
-        <form id="contactForm">
-            <h3>EyeMDPro to ekwa Analysis Request</h3>
-            <label>Full Name *</label>
-            <input type="text" name="name" required>
-
-            <label>Practice Name *</label>
-            <input type="text" name="practice_name" required>
-
-            <label>City/State *</label>
-            <input type="text" name="location" required>
-
-            <label>Phone *</label>
-            <input type="tel" name="phone" required>
-
-            <label>Email *</label>
-            <input type="email" name="email" required>
-
-            <label>What would you change about EyeMDPro if you could?</label>
-            <textarea name="challenge" placeholder="e.g., Slower content production, no paid media, want faster results..."></textarea>
-
-            <input type="hidden" name="source" value="conquest-eyemdpro">
-            <input type="hidden" name="competitor" value="EyeMDPro">
-            <input type="hidden" name="vertical" value="ophthalmology">
-
-            <button type="submit">Get Performance Analysis →</button>
-        </form>
-
-        <p style="text-align: center; margin-top: 20px; font-size: 11px; color: #999;">By submitting, you'll receive a content performance analysis and be contacted about ekwa's approach.</p>
-    </div>
-
-    <footer>
-        <p>ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
-        <p>This page targets practices using EyeMDPro who may want faster content production and paid media capabilities.</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('navDrawer');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navDrawer.classList.toggle('open');
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('https://formspree.io/f/YOUR_FORM_ID', {

@@ -5,202 +5,390 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>Claim Your Market Before EyeCarePro Does</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #0066cc 0%, #1a1a2e 100%); color: #fff; padding: 60px 20px; text-align: center; }
-        header h1 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
-        header p { font-size: 20px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        .cta-box { background: #e8f0fe; border-left: 4px solid #0066cc; padding: 20px; margin: 30px 0; border-radius: 8px; }
-        .cta-box strong { color: #0066cc; }
-        h2 { font-size: 28px; color: #1a1a2e; margin: 40px 0 20px; padding-top: 20px; border-top: 2px solid #00a651; }
-        h3 { font-size: 20px; color: #0066cc; margin: 25px 0 15px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
-        .card { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h4 { color: #0066cc; font-size: 16px; margin-bottom: 10px; }
-        .card p { font-size: 14px; color: #555; }
-        .testimonial { background: #fff; border: 1px solid #ddd; padding: 25px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #00a651; }
-        .testimonial-name { font-weight: 700; color: #1a1a2e; margin-top: 15px; font-size: 14px; }
-        .testimonial-title { font-size: 12px; color: #666; }
-        form { background: #fff; border: 1px solid #ddd; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        form h3 { margin-top: 0; border-top: none; }
-        label { display: block; margin-top: 20px; font-weight: 600; color: #333; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
-        textarea { resize: vertical; min-height: 100px; }
-        button { background: #0066cc; color: #fff; padding: 14px 28px; border: none; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: background 0.3s; width: 100%; }
-        button:hover { background: #00509e; }
-        .success-msg { display: none; background: #e8f5e9; border: 1px solid #00a651; padding: 15px; border-radius: 4px; color: #2e7d32; }
-        footer { text-align: center; padding: 40px 20px; color: #999; font-size: 12px; border-top: 1px solid #ddd; }
-        @media (max-width: 768px) { header h1 { font-size: 28px; } h2 { font-size: 22px; } }
+        .vertical-accent {
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-1);
+        }
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .benefit-card {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        .benefit-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .benefit-card h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-base);
+        }
+        .benefit-card p {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--ekwa-gray-700);
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+        }
+        .problem-item {
+            background: #FEF2F2;
+            border-left: 4px solid var(--ekwa-danger);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+        }
+        .problem-item h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            font-size: var(--text-sm);
+        }
+        .problem-item p {
+            font-size: var(--text-xs);
+            line-height: 1.6;
+            color: var(--ekwa-gray-700);
+            font-style: italic;
+        }
+        .testimonial-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--ekwa-success);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-6) 0;
+        }
+        .testimonial-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+        }
+        .testimonial-title {
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-600);
+        }
+        .form-section {
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-3);
+            border: 1px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: var(--text-sm);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ekwa-blue);
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        h2 {
+            color: var(--ekwa-navy);
+            font-weight: 800;
+            font-size: var(--text-3xl);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            padding-bottom: var(--space-3);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-3);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Claim Your Market Before EyeCarePro Does</h1>
-        <p>Geographic exclusivity — only 1 ekwa ophthalmology partner per market</p>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <div class="ekwa-nav__links">
+                <a href="../../../../index.html">All Verticals</a>
+                <a href="../../index.html">Ophthalmology</a>
+            </div>
+            <button class="ekwa-nav__hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile" id="navDrawer">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Ophthalmology</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__badge">Strategic Maneuver</div>
+            <h1>Claim Your Market Before EyeCarePro Does</h1>
+            <p>Geographic exclusivity — only 1 ekwa ophthalmology partner per market</p>
+        </div>
+        <div class="vertical-accent"></div>
     </header>
 
-    <div class="container">
-        <div class="cta-box">
-            <strong>Vision Lock™ Guarantee:</strong> When you partner with ekwa, your ophthalmology market is locked. No competitor in your city gets the same agency strategy. One practice, one market, one dedicated strategy.
+    <!-- Main Content -->
+    <main class="ekwa-section">
+        <div class="ekwa-container">
+            <div class="ekwa-alert ekwa-alert--gold">
+                <strong>Vision Lock™ Guarantee</strong>
+                <p>When you partner with ekwa, your ophthalmology market is locked. No competitor in your city gets the same agency strategy. One practice, one market, one dedicated strategy.</p>
+            </div>
+
+            <h2>The Problem: Scale Without Specialization</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">EyeCarePro boasts 981,000 appointments generated per year. Impressive number. But ask yourself: How many were YOUR practice's? If you're one of 1,000+ practices on their roster, your appointments are 1 of 1,000.</p>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;"><strong>Worse: Your competitor — the other ophthalmology practice three miles away — is likely on EyeCarePro too. You're paying for the same agency strategy. You're fighting the same playbook. You have no differentiation.</strong></p>
+
+            <h2>The Solution: Market Exclusivity + Personalized Strategy</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">ekwa's Vision Lock model is simple: One ophthalmology practice partner per metropolitan area. Your strategy is yours. Your creative is yours. Your competitive advantage is not shared.</p>
+
+            <h2>What You Get With Vision Lock</h2>
+
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h4>Market Lock-In</h4>
+                    <p>Once your market is claimed, it's claimed. No other ophthalmology practice in your city gets the ekwa Vision Lock advantage. Exclusivity = competitive advantage.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4>LASIK Authority Content</h4>
+                    <p>Candidacy quizzes, technology comparisons (SMILE vs. LASIK vs. PRK), surgeon selection guides, recovery timelines. Own the LASIK patient decision journey before they call your competitor.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4>Cataract + Premium IOL</h4>
+                    <p>$2,000–$4,000 content-driven upsell opportunity. We build the patient education content that converts basic cataract patients to premium IOL patients. That's high-margin growth.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4>Dry Eye Authority</h4>
+                    <p>16M+ diagnosed patients in the US. Recurring revenue stream. We build the comprehensive dry eye content program (Lipiflow, IPL, Restasis, Xiidra, lifestyle). Patient returns 4–8x/year.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4>Dedicated Marketing Director</h4>
+                    <p>Not a team member juggling 50 accounts. One person who knows your practice, your goals, your market. Strategic partner, not service vendor.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4>Full-Service Marketing</h4>
+                    <p>SEO, PPC, content, website design, reputation management, social media. Not a point solution. Integrated strategy that drives every channel.</p>
+                </div>
+            </div>
+
+            <h2>Why Practices Switch to Vision Lock</h2>
+
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <h4>Commoditization at Scale</h4>
+                    <p>"EyeCarePro booked us 200 appointments last year, but so did they book my competitor. Why am I paying for the same strategy twice?"</p>
+                </div>
+
+                <div class="problem-item">
+                    <h4>Generic Content</h4>
+                    <p>"Our current agency produces good content, but it's the same content they give to every practice. We need strategy that's OUR strategy, not a template."</p>
+                </div>
+
+                <div class="problem-item">
+                    <h4>Slow Implementation</h4>
+                    <p>"Physician-grade content is important, but not if it takes 3 months to get it published. We need to move fast and test."</p>
+                </div>
+
+                <div class="problem-item">
+                    <h4>Account Manager Overload</h4>
+                    <p>"We're one of 50 practices for our account manager. Response time is slow. Attention to our specific goals is minimal."</p>
+                </div>
+            </div>
+
+            <h2>Testimonials From Ophthalmologists Using Vision Lock</h2>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"We were with EyeCarePro for 3 years. Good company, but we felt commoditized. Once we learned that our competitor three miles away was getting the same strategy, we knew we had to change. Vision Lock has been a game-changer. Our account manager knows our practice, our LASIK target market, our dry eye growth strategy. We're not one of 1,000. We're number one."</div>
+                <div class="testimonial-author">Dr. Sarah Mitchell, MD</div>
+                <div class="testimonial-title">SightFirst LASIK Center — Phoenix, AZ</div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"The dry eye content program ekwa built for us has been incredible. We went from treating dry eye as a side service to building a $400K/year recurring revenue stream. The patient education content converts, and patients keep coming back. This is what specialized marketing looks like."</div>
+                <div class="testimonial-author">Dr. James Chen, MD, MBA</div>
+                <div class="testimonial-title">Comprehensive Eye Care Group — Boston, MA</div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"The premium IOL education content has changed our cataract surgery conversion rates. Patients now understand the difference between basic, toric, and multifocal IOLs before their consultation. We've increased premium IOL adoption from 22% to 41% in six months. That's a $600K revenue impact."</div>
+                <div class="testimonial-author">Dr. Patricia Jones, MD</div>
+                <div class="testimonial-title">Vision Excellence Surgical Center — Dallas, TX</div>
+            </div>
+
+            <h2>Vision Lock Pricing & Commitment</h2>
+
+            <div class="ekwa-alert ekwa-alert--info">
+                <strong>Base Package: $2,400/month</strong>
+                <p>$28,800 annually | Includes: Dedicated marketing director, SEO strategy, quarterly content roadmap, weekly check-ins, full-service marketing (SEO, PPC, content, design, reputation, social).</p>
+                <p style="margin-top: var(--space-3);"><strong>12-month commitment</strong> to ensure market lock-in and strategy continuity. Geographic exclusivity applies for the duration of the contract and 90 days after termination.</p>
+            </div>
+
+            <h2>Is Vision Lock Right For You?</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;"><strong>You're an ideal Vision Lock candidate if:</strong></p>
+            <ul style="font-size: var(--text-sm); padding-left: var(--space-5); line-height: 1.8; margin-bottom: var(--space-6);">
+                <li>Board-certified ophthalmologist or group practice with 1–3 surgeons</li>
+                <li>Annual revenue $1.5M–$6M (single to multi-location)</li>
+                <li>LASIK and/or cataract surgery as primary revenue drivers</li>
+                <li>Currently with EyeCarePro, iMatrix, DoctorLogic, or Tebra/PatientPop</li>
+                <li>Feeling commoditized by your current agency</li>
+                <li>Ready to invest in specialized ophthalmology marketing</li>
+            </ul>
+
+            <h2>Next Step: Vision Lock Consultation</h2>
+            <p style="font-size: var(--text-base); margin: var(--space-4) 0;">Fill out the form below and we'll schedule a 15-minute discovery call. We'll discuss your market, your goals, your current marketing performance, and whether Vision Lock is the right move for your practice.</p>
+
+            <div class="form-section">
+                <h3 style="color: var(--ekwa-navy); margin-bottom: var(--space-6);">Vision Lock Market Availability Check</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Title *</label>
+                        <input type="text" name="title" placeholder="e.g., MD, Practice Manager, CEO" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Name *</label>
+                        <input type="text" name="practice_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City/Metro Area *</label>
+                        <input type="text" name="location" placeholder="e.g., Phoenix, AZ or Boston, MA" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Procedure Focus *</label>
+                        <select name="procedure_focus" required>
+                            <option value="">— Select —</option>
+                            <option value="LASIK">LASIK/Refractive Surgery</option>
+                            <option value="Cataract">Cataract Surgery</option>
+                            <option value="Comprehensive">Comprehensive Ophthalmology</option>
+                            <option value="Multi-Specialty">Multi-Specialty Eye Center</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current Marketing Agency *</label>
+                        <select name="current_agency" required>
+                            <option value="">— Select —</option>
+                            <option value="EyeCarePro">EyeCarePro</option>
+                            <option value="EyeMDPro">EyeMDPro</option>
+                            <option value="iMatrix">iMatrix</option>
+                            <option value="Tebra">Tebra/PatientPop</option>
+                            <option value="DoctorLogic">DoctorLogic</option>
+                            <option value="Fuel Online">Fuel Online</option>
+                            <option value="Other">Other</option>
+                            <option value="None">Not currently marketing</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What's your biggest marketing challenge right now?</label>
+                        <textarea name="challenge" placeholder="e.g., Can't differentiate from competitors, not getting quality leads, agency doesn't understand ophthalmology..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="source" value="vision-lock-landing">
+                    <input type="hidden" name="vertical" value="ophthalmology">
+
+                    <button type="submit" class="ekwa-btn ekwa-btn--primary" style="width: 100%;">Check Market Availability →</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--ekwa-gray-600);">By submitting, you agree to be contacted about Vision Lock and ophthalmology marketing. We respect your privacy.</p>
+            </div>
         </div>
+    </main>
 
-        <h2>The Problem: Scale Without Specialization</h2>
-        <p>EyeCarePro boasts 981,000 appointments generated per year. Impressive number. But ask yourself: How many were YOUR practice's? If you're one of 1,000+ practices on their roster, your appointments are 1 of 1,000.</p>
-        <p style="margin-top: 15px;">Worse: Your competitor — the other ophthalmology practice three miles away — is likely on EyeCarePro too. You're paying for the same agency strategy. You're fighting the same playbook. You have no differentiation.</p>
-
-        <h2>The Solution: Market Exclusivity + Personalized Strategy</h2>
-        <p>ekwa's Vision Lock model is simple: One ophthalmology practice partner per metropolitan area. Your strategy is yours. Your creative is yours. Your competitive advantage is not shared.</p>
-
-        <h3>What You Get With Vision Lock</h3>
-        <div class="grid-2">
-            <div class="card">
-                <h4>Market Lock-In</h4>
-                <p>Once your market is claimed, it's claimed. No other ophthalmology practice in your city gets the ekwa Vision Lock advantage. Exclusivity = competitive advantage.</p>
-            </div>
-            <div class="card">
-                <h4>LASIK Authority Content</h4>
-                <p>Candidacy quizzes, technology comparisons (SMILE vs. LASIK vs. PRK), surgeon selection guides, recovery timelines. Own the LASIK patient decision journey before they call your competitor.</p>
-            </div>
-            <div class="card">
-                <h4>Cataract Surgery + Premium IOL</h4>
-                <p>$2,000–$4,000 content-driven upsell opportunity. We build the patient education content that converts basic cataract patients to premium IOL patients. That's high-margin growth.</p>
-            </div>
-            <div class="card">
-                <h4>Dry Eye Authority</h4>
-                <p>16M+ diagnosed patients in the US. Recurring revenue stream. We build the comprehensive dry eye content program (Lipiflow, IPL, Restasis, Xiidra, lifestyle). Patient returns 4–8x/year.</p>
-            </div>
-            <div class="card">
-                <h4>Dedicated Marketing Director</h4>
-                <p>Not a team member juggling 50 accounts. One person who knows your practice, your goals, your market. Strategic partner, not service vendor.</p>
-            </div>
-            <div class="card">
-                <h4>Full-Service Marketing</h4>
-                <p>SEO, PPC, content, website design, reputation management, social media. Not a point solution. Integrated strategy that drives every channel.</p>
-            </div>
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <p>&copy; 2026 ekwa.com | Healthcare Digital Marketing | Ophthalmology Competitive Intelligence</p>
+            <p>Vision Lock™ is a strategic maneuver in ekwa's Ophthalmology Vertical Expansion | Confidential</p>
         </div>
-
-        <h2>Why Practices Switch to Vision Lock</h2>
-        <div class="grid-2">
-            <div class="card">
-                <h4>Commoditization at Scale</h4>
-                <p>"EyeCarePro booked us 200 appointments last year, but so did they book my competitor. Why am I paying for the same strategy twice?"</p>
-            </div>
-            <div class="card">
-                <h4>Generic Content</h4>
-                <p>"Our current agency produces good content, but it's the same content they give to every practice. We need strategy that's OUR strategy, not a template."</p>
-            </div>
-            <div class="card">
-                <h4>Slow Implementation</h4>
-                <p>"Physician-grade content is important, but not if it takes 3 months to get it published. We need to move fast and test."</p>
-            </div>
-            <div class="card">
-                <h4>Account Manager Overload</h4>
-                <p>"We're one of 50 practices for our account manager. Response time is slow. Attention to our specific goals is minimal."</p>
-            </div>
-        </div>
-
-        <h2>Testimonials From Ophthalmologists Using Vision Lock</h2>
-
-        <div class="testimonial">
-            <p>"We were with EyeCarePro for 3 years. Good company, but we felt commoditized. Once we learned that our competitor three miles away was getting the same strategy, we knew we had to change. Vision Lock has been a game-changer. Our account manager knows our practice, our LASIK target market, our dry eye growth strategy. We're not one of 1,000. We're number one."</p>
-            <div class="testimonial-name">Dr. Sarah Mitchell, MD</div>
-            <div class="testimonial-title">Founder, SightFirst LASIK Center — Phoenix, AZ</div>
-        </div>
-
-        <div class="testimonial">
-            <p>"The dry eye content program ekwa built for us has been incredible. We went from treating dry eye as a side service to building a $400K/year recurring revenue stream. The patient education content converts, and patients keep coming back. This is what specialized marketing looks like."</p>
-            <div class="testimonial-name">Dr. James Chen, MD, MBA</div>
-            <div class="testimonial-title">Medical Director, Comprehensive Eye Care Group — Boston, MA</div>
-        </div>
-
-        <div class="testimonial">
-            <p>"The premium IOL education content has changed our cataract surgery conversion rates. Patients now understand the difference between basic, toric, and multifocal IOLs before their consultation. We've increased premium IOL adoption from 22% to 41% in six months. That's a $600K revenue impact."</p>
-            <div class="testimonial-name">Dr. Patricia Jones, MD</div>
-            <div class="testimonial-title">Owner, Vision Excellence Surgical Center — Dallas, TX</div>
-        </div>
-
-        <h2>Vision Lock Pricing & Commitment</h2>
-        <p><strong>Base Package: $2,400/month</strong> ($28,800 annually)</p>
-        <p style="margin-top: 10px;">Includes: Dedicated marketing director, SEO strategy, quarterly content roadmap, weekly check-ins, full-service marketing (SEO, PPC, content, design, reputation, social).</p>
-        <p style="margin-top: 15px;"><strong>12-month commitment</strong> to ensure market lock-in and strategy continuity. Geographic exclusivity applies for the duration of the contract and 90 days after termination.</p>
-
-        <h2>Is Vision Lock Right For You?</h2>
-        <p><strong>You're an ideal Vision Lock candidate if:</strong></p>
-        <ul style="margin: 15px 0; padding-left: 20px;">
-            <li>Board-certified ophthalmologist or group practice with 1–3 surgeons</li>
-            <li>Annual revenue $1.5M–$6M (single to multi-location)</li>
-            <li>LASIK and/or cataract surgery as primary revenue drivers</li>
-            <li>Currently with EyeCarePro, iMatrix, DoctorLogic, or Tebra/PatientPop</li>
-            <li>Feeling commoditized by your current agency</li>
-            <li>Ready to invest in specialized ophthalmology marketing</li>
-        </ul>
-
-        <h2>Next Step: Vision Lock Consultation</h2>
-        <p>Fill out the form below and we'll schedule a 15-minute discovery call. We'll discuss your market, your goals, your current marketing performance, and whether Vision Lock is the right move for your practice.</p>
-
-        <form id="contactForm">
-            <h3>Vision Lock Market Availability Check</h3>
-            <label>Full Name *</label>
-            <input type="text" name="name" required>
-
-            <label>Title *</label>
-            <input type="text" name="title" placeholder="e.g., MD, Practice Manager, CEO" required>
-
-            <label>Practice Name *</label>
-            <input type="text" name="practice_name" required>
-
-            <label>City/Metro Area *</label>
-            <input type="text" name="location" placeholder="e.g., Phoenix, AZ or Boston, MA" required>
-
-            <label>Phone *</label>
-            <input type="tel" name="phone" required>
-
-            <label>Email *</label>
-            <input type="email" name="email" required>
-
-            <label>Primary Procedure Focus *</label>
-            <select name="procedure_focus" required>
-                <option value="">— Select —</option>
-                <option value="LASIK">LASIK/Refractive Surgery</option>
-                <option value="Cataract">Cataract Surgery</option>
-                <option value="Comprehensive">Comprehensive Ophthalmology</option>
-                <option value="Multi-Specialty">Multi-Specialty Eye Center</option>
-            </select>
-
-            <label>Current Marketing Agency *</label>
-            <select name="current_agency" required>
-                <option value="">— Select —</option>
-                <option value="EyeCarePro">EyeCarePro</option>
-                <option value="EyeMDPro">EyeMDPro</option>
-                <option value="iMatrix">iMatrix</option>
-                <option value="Tebra">Tebra/PatientPop</option>
-                <option value="DoctorLogic">DoctorLogic</option>
-                <option value="Fuel Online">Fuel Online</option>
-                <option value="Other">Other</option>
-                <option value="None">Not currently marketing</option>
-            </select>
-
-            <label>What's your biggest marketing challenge right now?</label>
-            <textarea name="challenge" placeholder="e.g., Can't differentiate from competitors, not getting quality leads, agency doesn't understand ophthalmology..."></textarea>
-
-            <input type="hidden" name="source" value="vision-lock-landing">
-            <input type="hidden" name="vertical" value="ophthalmology">
-
-            <button type="submit">Check Market Availability →</button>
-            <div class="success-msg" id="successMsg">Thank you! We'll follow up within 24 hours to confirm your market availability and schedule a consultation.</div>
-        </form>
-
-        <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #666;">By submitting, you agree to be contacted about Vision Lock and ophthalmology marketing. We respect your privacy.</p>
-    </div>
-
-    <footer>
-        <p>ekwa.com | Healthcare Digital Marketing | Ophthalmology Competitive Intelligence</p>
-        <p>Vision Lock™ is a strategic maneuver in ekwa's Ophthalmology Vertical Expansion | Confidential</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('navDrawer');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navDrawer.classList.toggle('open');
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('https://formspree.io/f/YOUR_FORM_ID', {
@@ -208,9 +396,9 @@
                 body: new FormData(this),
                 headers: { 'Accept': 'application/json' }
             }).then(() => {
-                document.getElementById('contactForm').style.display = 'none';
-                document.getElementById('successMsg').style.display = 'block';
-            }).catch(err => console.error('Form submission error:', err));
+                alert('Thank you! We will follow up within 24 hours to confirm your market availability and schedule a consultation.');
+                this.reset();
+            }).catch(err => console.error('Error:', err));
         });
     </script>
 </body>

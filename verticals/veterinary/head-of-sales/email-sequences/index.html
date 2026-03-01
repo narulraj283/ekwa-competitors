@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinary Email Sequences - Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --vertical-accent: #2A9D8F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .sequences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .sequence-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sequence-card:hover {
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .sequence-card-header {
+            background: var(--vertical-accent);
+            color: white;
+            padding: 25px;
+            border-bottom: 4px solid #1f6d63;
+        }
+        
+        .sequence-card-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .sequence-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .sequence-card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sequence-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .email-count {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-weight: 600;
+            color: var(--vertical-accent);
+            font-size: 0.9em;
+        }
+        
+        .sequence-button {
+            background: var(--vertical-accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .sequence-button:hover {
+            background: #1f6d63;
+            transform: translateX(2px);
+        }
+        
+        .ekwa-nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .ekwa-nav a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+        
+        .ekwa-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Veterinary Vertical</a>
+        <a href="#">Email Sequences</a>
+    </nav>
+
+    <div class="header">
+        <h1>Veterinary Email Sequences</h1>
+        <p>Convert prospects into clients with targeted messaging</p>
+    </div>
+
+    <div class="container">
+        <div class="sequences-grid">
+            <!-- Lead Nurture -->
+            <div class="sequence-card">
+                <div class="sequence-card-header">
+                    <h2>Lead Nurture</h2>
+                    <span class="sequence-badge">3 Emails</span>
+                </div>
+                <div class="sequence-card-body">
+                    <p class="sequence-description">
+                        Engage prospects by highlighting how independent vet practices can differentiate from corporate chains through personalized care and trust-based relationships.
+                    </p>
+                    <div class="email-count">Days 1, 3, 7</div>
+                    <a href="lead-nurture.html" class="sequence-button">View Sequence</a>
+                </div>
+            </div>
+
+            <!-- Post MSM -->
+            <div class="sequence-card">
+                <div class="sequence-card-header">
+                    <h2>Post MSM</h2>
+                    <span class="sequence-badge">4 Emails</span>
+                </div>
+                <div class="sequence-card-body">
+                    <p class="sequence-description">
+                        Follow up after a discovery meeting to maintain momentum and guide prospects toward decision.
+                    </p>
+                    <div class="email-count">Days 1, 3, 7, 14</div>
+                    <a href="post-msm.html" class="sequence-button">View Sequence</a>
+                </div>
+            </div>
+
+            <!-- No-Show -->
+            <div class="sequence-card">
+                <div class="sequence-card-header">
+                    <h2>No-Show</h2>
+                    <span class="sequence-badge">2 Emails</span>
+                </div>
+                <div class="sequence-card-body">
+                    <p class="sequence-description">
+                        Re-engage prospects who missed a scheduled meeting with a gentle reminder and opportunity to reschedule.
+                    </p>
+                    <div class="email-count">Strategic Follow-up</div>
+                    <a href="no-show.html" class="sequence-button">View Sequence</a>
+                </div>
+            </div>
+
+            <!-- Stalled -->
+            <div class="sequence-card">
+                <div class="sequence-card-header">
+                    <h2>Stalled</h2>
+                    <span class="sequence-badge">3 Emails</span>
+                </div>
+                <div class="sequence-card-body">
+                    <p class="sequence-description">
+                        Revive interest in prospects who have gone quiet by addressing potential objections and demonstrating value.
+                    </p>
+                    <div class="email-count">Multi-Touch Campaign</div>
+                    <a href="stalled.html" class="sequence-button">View Sequence</a>
+                </div>
+            </div>
+
+            <!-- Provider Switch -->
+            <div class="sequence-card">
+                <div class="sequence-card-header">
+                    <h2>Provider Switch</h2>
+                    <span class="sequence-badge">3 Emails</span>
+                </div>
+                <div class="sequence-card-body">
+                    <p class="sequence-description">
+                        Target practices ready to switch from their current provider with veterinary-specific expertise and local pack optimization.
+                    </p>
+                    <div class="email-count">Conversion Focused</div>
+                    <a href="provider-switch.html" class="sequence-button">View Sequence</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../../../../">Home</a>
+            <a href="../../../../about/">About</a>
+            <a href="../../../../contact/">Contact</a>
+        </div>
+    </div>
+</body>
+</html>

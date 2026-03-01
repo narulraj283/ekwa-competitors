@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurture Sequence - Med Spa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+        .page-header p {
+            margin: 0;
+            opacity: 0.95;
+        }
+        .email-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #9B5DE5;
+        }
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+        .email-header h2 {
+            color: #1C305D;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .email-day {
+            background-color: #9B5DE5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .email-body {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            border: 1px solid #e0e0e0;
+        }
+        .email-body strong {
+            color: #1C305D;
+        }
+        .copy-btn {
+            display: inline-block;
+            background-color: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #1C305D;
+        }
+        .copy-confirmation {
+            display: none;
+            color: #C9A227;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            color: #3B74BB;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Ekwa</h1>
+        <a href="index.html">← Back to All Sequences</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to All Sequences</a>
+        
+        <div class="page-header">
+            <h1>Lead Nurture Sequence</h1>
+            <p>3 emails over 7 days • Build credibility and uncover pain points</p>
+        </div>
+
+        <!-- Email 1 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 1: Initial Outreach</h2>
+                <span class="email-day">Day 1</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Quick question about {{contact.company}}'s patient acquisition
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I was researching {{contact.company}} and noticed you're in the med spa space. Med spas are unique — balancing medical credibility with luxury brand positioning is tricky.
+
+Here's what I'm curious about: Is your current marketing attracting patients who are looking for results, or is it bringing in bargain-hunters?
+
+The reason I ask is that we work exclusively with medical practices, and I've noticed a pattern. The med spas that lead with physician credibility and medical expertise convert 2-3x better than those leading purely on the spa experience.
+
+Ekwa specializes in positioning med spas as medical-grade, results-focused practices — not discount competitors. We handle everything from SEO to conversion-focused website design to patient journey tracking.
+
+Would you be open to a quick 15-minute call to see if there's a fit?
+
+Looking forward to connecting,
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email1-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email1-body" style="display: none;">Hi {{contact.firstname}},
+
+I was researching {{contact.company}} and noticed you're in the med spa space. Med spas are unique — balancing medical credibility with luxury brand positioning is tricky.
+
+Here's what I'm curious about: Is your current marketing attracting patients who are looking for results, or is it bringing in bargain-hunters?
+
+The reason I ask is that we work exclusively with medical practices, and I've noticed a pattern. The med spas that lead with physician credibility and medical expertise convert 2-3x better than those leading purely on the spa experience.
+
+Ekwa specializes in positioning med spas as medical-grade, results-focused practices — not discount competitors. We handle everything from SEO to conversion-focused website design to patient journey tracking.
+
+Would you be open to a quick 15-minute call to see if there's a fit?
+
+Looking forward to connecting,
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 2: Value-Add Insight</h2>
+                <span class="email-day">Day 3</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> What we're seeing with med spa marketing in 2026
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I wanted to follow up on my last email. I mentioned something that we're seeing consistently across the med spa industry right now:
+
+<strong>Med spas that lead with physician/medical credibility convert 2-3x better than those leading with spa experience.</strong>
+
+This matters because patient expectations have shifted. People aren't just looking for relaxation — they want proven results backed by medical expertise. They want to trust that a board-certified provider is behind their treatment.
+
+When your marketing emphasizes the medical foundation of your practice, it attracts higher-quality, higher-commitment patients. These are the patients who:
+- Stick with treatment plans (better retention)
+- Refer their friends (organic growth)
+- Pay full price (less negotiation)
+
+The opposite happens when your current marketing partner treats you like a standard spa. You attract deal-seekers, not results-seekers.
+
+I'd love to show you examples of how Ekwa repositions med spa practices to lead with medical credibility. We've done this with dozens of practices across different specialties.
+
+Are you open to seeing how we'd approach {{contact.company}}?
+
+Best,
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email2-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email2-body" style="display: none;">Hi {{contact.firstname}},
+
+I wanted to follow up on my last email. I mentioned something that we're seeing consistently across the med spa industry right now:
+
+Med spas that lead with physician/medical credibility convert 2-3x better than those leading with spa experience.
+
+This matters because patient expectations have shifted. People aren't just looking for relaxation — they want proven results backed by medical expertise. They want to trust that a board-certified provider is behind their treatment.
+
+When your marketing emphasizes the medical foundation of your practice, it attracts higher-quality, higher-commitment patients. These are the patients who:
+- Stick with treatment plans (better retention)
+- Refer their friends (organic growth)
+- Pay full price (less negotiation)
+
+The opposite happens when your current marketing partner treats you like a standard spa. You attract deal-seekers, not results-seekers.
+
+I'd love to show you examples of how Ekwa repositions med spa practices to lead with medical credibility. We've done this with dozens of practices across different specialties.
+
+Are you open to seeing how we'd approach {{contact.company}}?
+
+Best,
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 3 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 3: Exclusivity Close</h2>
+                <span class="email-day">Day 7</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Last message — closing our conversation
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+This is my last message in this sequence, so I wanted to make it count.
+
+If you've been interested in exploring how Ekwa positions med spa practices for better patient quality and higher conversions, now's the time to reach out. We're selective about which practices we work with, and my calendar fills up fast.
+
+The practices that tend to see the biggest wins with us are those ready to make a real shift in how they market themselves — moving away from the "discount spa" positioning and toward "medical-grade results."
+
+If that resonates with you, let's talk. If not, I respect that, and you can unsubscribe here with no hard feelings.
+
+Looking forward to connecting,
+{{owner.firstname}}
+Ekwa Marketing
+
+[Unsubscribe Link]
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email3-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email3-body" style="display: none;">Hi {{contact.firstname}},
+
+This is my last message in this sequence, so I wanted to make it count.
+
+If you've been interested in exploring how Ekwa positions med spa practices for better patient quality and higher conversions, now's the time to reach out. We're selective about which practices we work with, and my calendar fills up fast.
+
+The practices that tend to see the biggest wins with us are those ready to make a real shift in how they market themselves — moving away from the "discount spa" positioning and toward "medical-grade results."
+
+If that resonates with you, let's talk. If not, I respect that, and you can unsubscribe here with no hard feelings.
+
+Looking forward to connecting,
+{{owner.firstname}}
+Ekwa Marketing
+
+[Unsubscribe Link]</div>
+        </div>
+    </div>
+
+    <script>
+        function copySectionToClipboard(button, sectionId) {
+            const element = document.getElementById(sectionId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const confirmation = button.nextElementSibling;
+                confirmation.style.display = 'inline-block';
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

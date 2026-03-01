@@ -3,89 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Group Marketing | ekwa DSO</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Dental Group Marketing | ekwa DSO Frontier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --navy: #1a2f4d;
-            --gold: #d4a574;
-            --light-bg: #f5f5f5;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--white);
-        }
-
-        /* NAVIGATION */
-        nav {
-            background-color: var(--navy);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--gold);
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .cta-button-nav {
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button-nav:hover {
-            background-color: #e8b896;
-        }
-
-        /* HERO SECTION */
+        /* Page-specific overrides */
         .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, #0f1f35 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
+            padding: var(--space-16) var(--space-6);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -98,7 +25,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
             border-radius: 50%;
             z-index: 0;
         }
@@ -111,342 +38,254 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            font-weight: 700;
+            font-size: var(--text-5xl);
+            margin-bottom: var(--space-6);
+            line-height: 1.1;
+            font-weight: 800;
+            color: var(--ekwa-white);
         }
 
-        .hero .highlight {
-            color: var(--gold);
+        .hero h1 .highlight {
+            color: var(--ekwa-gold);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-8);
+            color: rgba(255,255,255,0.85);
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
-        .hero-cta {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-right: 1rem;
-            border: none;
-            cursor: pointer;
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        .hero-secondary {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--gold);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border: 2px solid var(--gold);
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .hero-secondary:hover {
-            background-color: var(--gold);
-            color: var(--navy);
-        }
-
-        /* SECTION STYLES */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--navy);
-            text-align: center;
-        }
-
-        section.alt-bg {
-            background-color: var(--light-bg);
-        }
-
-        .section-intro {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* THE CHALLENGE SECTION */
         .challenge-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
         .challenge-card {
-            background: var(--white);
-            border-left: 5px solid var(--gold);
-            padding: 2rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            background: var(--ekwa-white);
+            border-left: 4px solid var(--ekwa-gold);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            border: 1px solid var(--ekwa-gray-200);
         }
 
         .challenge-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .challenge-card h3 {
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+            font-weight: 700;
         }
 
         .challenge-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            color: var(--ekwa-gray-600);
+            font-size: var(--text-sm);
+            line-height: 1.6;
         }
 
-        /* ADVANTAGE SECTION */
         .advantage-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
+            gap: var(--space-8);
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
         .advantage-item {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--space-4);
         }
 
         .advantage-icon {
             width: 50px;
             height: 50px;
-            background-color: var(--gold);
+            background-color: var(--ekwa-gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: bold;
+            color: var(--ekwa-white);
+            font-size: var(--text-2xl);
+            font-weight: 800;
             flex-shrink: 0;
         }
 
         .advantage-content h3 {
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-2);
+            font-size: var(--text-base);
+            font-weight: 700;
         }
 
         .advantage-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            color: var(--ekwa-gray-600);
+            font-size: var(--text-sm);
+            line-height: 1.6;
         }
 
-        /* COMPARISON TABLE */
-        .comparison-table {
-            max-width: 1200px;
+        .comparison-table-wrap {
+            max-width: var(--max-width);
             margin: 0 auto;
             overflow-x: auto;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        .ekwa-table {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            box-shadow: var(--shadow-md);
         }
 
-        thead {
-            background-color: var(--navy);
-            color: var(--white);
-        }
-
-        th {
-            padding: 1.5rem;
-            text-align: left;
-            font-weight: 600;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-
-        th:last-child {
-            border-right: none;
-        }
-
-        td {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-        }
-
-        td:last-child {
-            border-right: none;
-        }
-
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
+        .ekwa-table th {
+            background-color: var(--ekwa-navy);
         }
 
         .feature-check {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1.2rem;
+            color: var(--ekwa-success);
+            font-weight: 800;
+            font-size: var(--text-lg);
         }
 
         .feature-x {
-            color: #e74c3c;
-            font-weight: bold;
-            font-size: 1.2rem;
+            color: var(--ekwa-danger);
+            font-weight: 800;
+            font-size: var(--text-lg);
         }
 
         .ekwa-highlight {
-            background-color: rgba(212, 165, 116, 0.15);
-            font-weight: 600;
-            color: var(--navy);
+            background-color: rgba(201, 162, 39, 0.1);
+            font-weight: 700;
+            color: var(--ekwa-navy);
         }
 
-        /* SERVICES SECTION */
         .services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
+            gap: var(--space-6);
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
         .service-block {
-            background: linear-gradient(135deg, var(--navy) 0%, #0f1f35 100%);
-            color: var(--white);
-            padding: 2.5rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, var(--ekwa-navy) 0%, var(--ekwa-blue) 100%);
+            color: var(--ekwa-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-block h3 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            color: var(--ekwa-gold);
+            margin-bottom: var(--space-4);
+            font-size: var(--text-lg);
+            font-weight: 700;
         }
 
         .service-block ul {
             list-style: none;
-            padding-left: 0;
         }
 
         .service-block li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: var(--text-sm);
         }
 
         .service-block li:last-child {
             border-bottom: none;
-            margin-bottom: 0;
         }
 
         .service-block li::before {
             content: '✓ ';
-            color: var(--gold);
-            font-weight: bold;
-            margin-right: 0.5rem;
+            color: var(--ekwa-gold);
+            font-weight: 800;
+            margin-right: var(--space-2);
         }
 
-        /* PRICING SECTION */
         .pricing-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
         .pricing-card {
-            background: var(--white);
-            border: 2px solid #e0e0e0;
-            border-radius: 4px;
-            padding: 2.5rem;
+            background: var(--ekwa-white);
+            border: 2px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
             text-align: center;
-            transition: all 0.3s;
+            transition: all var(--transition-base);
             position: relative;
         }
 
         .pricing-card:nth-child(2) {
-            border: 2px solid var(--gold);
+            border: 2px solid var(--ekwa-gold);
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.2);
+            box-shadow: var(--shadow-lg);
         }
 
         .pricing-card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .pricing-card h3 {
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-3);
+            font-size: var(--text-xl);
+            font-weight: 800;
         }
 
         .pricing-card .locations {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            color: var(--ekwa-gray-600);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-4);
         }
 
         .pricing-card .price {
-            font-size: 2.5rem;
-            color: var(--gold);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-size: var(--text-4xl);
+            color: var(--ekwa-gold);
+            font-weight: 800;
+            margin-bottom: var(--space-1);
         }
 
         .pricing-card .per-month {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
+            color: var(--ekwa-gray-500);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-6);
         }
 
         .pricing-card ul {
             list-style: none;
             text-align: left;
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-6);
         }
 
         .pricing-card li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            border-bottom: 1px solid #e0e0e0;
+            padding: var(--space-2) 0;
+            color: var(--ekwa-gray-600);
+            font-size: var(--text-sm);
+            border-bottom: 1px solid var(--ekwa-gray-200);
         }
 
         .pricing-card li:last-child {
@@ -455,101 +294,85 @@
 
         .pricing-card li::before {
             content: '✓ ';
-            color: var(--gold);
-            font-weight: bold;
-            margin-right: 0.5rem;
+            color: var(--ekwa-gold);
+            font-weight: 800;
+            margin-right: var(--space-2);
         }
 
-        .pricing-cta {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .pricing-cta:hover {
-            background-color: #e8b896;
-        }
-
-        /* FORM SECTION */
         .form-section {
-            background-color: var(--white);
-            padding: 4rem 2rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background-color: var(--ekwa-white);
+            padding: var(--space-10) var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             max-width: 700px;
-            margin: 3rem auto;
-            border-top: 4px solid var(--gold);
+            margin: var(--space-8) auto;
+            border: 1px solid var(--ekwa-gray-200);
+            border-top: 4px solid var(--ekwa-gold);
         }
 
         .form-section h3 {
-            font-size: 28px;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: var(--text-2xl);
+            color: var(--ekwa-navy);
+            margin-bottom: var(--space-2);
+            font-weight: 800;
             text-align: center;
         }
 
         .form-section p {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-size: 16px;
+            color: var(--ekwa-gray-600);
+            margin-bottom: var(--space-6);
+            font-size: var(--text-base);
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-5);
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--navy);
-            font-size: 14px;
+            margin-bottom: var(--space-2);
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s;
+            padding: var(--space-3) var(--space-4);
+            border: 2px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            transition: border-color var(--transition-fast);
             font-family: inherit;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+            border-color: var(--ekwa-navy);
+            box-shadow: 0 0 0 3px rgba(28, 48, 93, 0.1);
         }
 
         .form-submit {
             width: 100%;
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 14px;
+            background-color: var(--ekwa-navy);
+            color: var(--ekwa-white);
+            padding: var(--space-3);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--radius-md);
             font-weight: 700;
-            font-size: 16px;
+            font-size: var(--text-base);
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
+            transition: all var(--transition-fast);
+            margin-top: var(--space-2);
         }
 
         .form-submit:hover {
-            background-color: #e8b896;
-            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+            background-color: var(--ekwa-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
         }
 
         .form-submit:disabled {
@@ -558,104 +381,78 @@
         }
 
         .form-legal {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 1rem;
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-500);
+            margin-top: var(--space-3);
             text-align: center;
         }
 
         .form-success {
             display: none;
-            padding: 1.5rem;
-            background-color: #d4f8e8;
-            border: 2px solid #27ae60;
-            border-radius: 4px;
-            color: #27ae60;
-            font-weight: 600;
+            padding: var(--space-4);
+            background-color: #F0FDF4;
+            border: 2px solid var(--ekwa-success);
+            border-radius: var(--radius-md);
+            color: var(--ekwa-success);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
         }
 
         .form-error {
             display: none;
-            padding: 1.5rem;
-            background-color: #fadbd8;
-            border: 2px solid #e74c3c;
-            border-radius: 4px;
-            color: #e74c3c;
-            font-weight: 600;
+            padding: var(--space-4);
+            background-color: #FEF2F2;
+            border: 2px solid var(--ekwa-danger);
+            border-radius: var(--radius-md);
+            color: var(--ekwa-danger);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
         }
 
-        /* CTA SECTION */
-        .final-cta {
-            background: linear-gradient(135deg, var(--navy) 0%, #0f1f35 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
+        section {
+            padding: var(--space-16) var(--space-6);
+        }
+
+        section h2 {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-4);
+            color: var(--ekwa-navy);
             text-align: center;
+            font-weight: 800;
         }
 
-        .final-cta h2 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
+        section.alt-bg {
+            background-color: var(--ekwa-gray-100);
         }
 
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-        }
-
-        .final-cta-button {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 1rem 3rem;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .final-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 3rem 2rem;
+        .section-intro {
             text-align: center;
-            font-size: 0.9rem;
-            border-top: 3px solid var(--gold);
+            color: var(--ekwa-gray-600);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-10);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .challenge-grid,
-            .advantage-grid,
-            .pricing-grid,
-            .services-grid {
+            .challenge-grid {
                 grid-template-columns: 1fr;
             }
 
             .advantage-grid {
-                gap: 2rem;
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
 
             .pricing-card:nth-child(2) {
@@ -663,519 +460,411 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
+                font-size: var(--text-3xl);
             }
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .nav-links a, .cta-button-nav {
-                text-align: center;
+            section {
+                padding: var(--space-10) var(--space-4);
             }
 
             .hero {
-                padding: 3rem 1rem;
+                padding: var(--space-10) var(--space-4);
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: var(--text-2xl);
             }
 
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-cta, .hero-secondary {
-                display: block;
-                margin: 0.5rem 0;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            table {
-                font-size: 0.85rem;
-            }
-
-            th, td {
-                padding: 1rem 0.75rem;
-            }
-
-            .service-block {
-                padding: 1.5rem;
-            }
-
-            .pricing-card {
-                padding: 1.5rem;
-            }
-
-            .pricing-card .price {
-                font-size: 2rem;
-            }
-
-            .form-section {
-                max-width: 100%;
+            .hero-buttons {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-    <div class="nav-logo">ekwa</div>
-    <ul class="nav-links">
-        <li><a href="#challenge">The Challenge</a></li>
-        <li><a href="#advantages">Our Advantage</a></li>
-        <li><a href="#comparison">vs. Competitors</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact" onclick="scrollToForm(event)" class="cta-button-nav">Book a Call</a></li>
-    </ul>
-</nav>
-
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Marketing Built for <span class="highlight">Growing Dental Groups</span></h1>
-        <p>Your 8-location group deserves a marketing partner who understands every market—without the corporate bloat.</p>
-        <button onclick="scrollToForm(event)" class="hero-cta">Schedule a DSO Strategy Session</button>
-        <button onclick="scrollToForm(event)" class="hero-secondary">See a Demo</button>
-    </div>
-</section>
-
-<!-- THE CHALLENGE SECTION -->
-<section class="alt-bg" id="challenge">
-    <h2>The 3–15 Location Challenge</h2>
-    <p class="section-intro">You're too big for a single-practice agency and too specific for enterprise platforms. Sound familiar?</p>
-
-    <div class="challenge-grid">
-        <div class="challenge-card">
-            <h3>🎨 Brand Chaos</h3>
-            <p>Managing 5+ different marketing agencies means inconsistent branding across your locations. No one's talking to each other.</p>
-        </div>
-        <div class="challenge-card">
-            <h3>📍 Local Opacity</h3>
-            <p>Each location needs hyper-local SEO, Google Business Profiles, and community presence—but you need unified reporting.</p>
-        </div>
-        <div class="challenge-card">
-            <h3>💰 Budget Sprawl</h3>
-            <p>Enterprise platforms charge $10K–$25K/month. You're overpaying for features you don't need and losing margin.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ADVANTAGE SECTION -->
-<section id="advantages">
-    <h2>ekwa's DSO Advantage</h2>
-    <p class="section-intro">One agency. One strategy. Every market covered.</p>
-
-    <div class="advantage-grid">
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>Exclusivity Across All Markets</h3>
-                <p>We work with ONE dental group per geographic region. That means no conflicts, no competitor intelligence leaks, and a strategy built 100% for you.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>Dedicated Team Per Location Cluster</h3>
-                <p>You get a team of experts—not a software algorithm. Same people managing your strategy every quarter, learning your market nuances.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>Unified Reporting Dashboard</h3>
-                <p>See how all your locations are performing in one view. New patients, CAC, rankings, reviews—all integrated. No spreadsheet hell.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>16+ Years of Dental-Only Expertise</h3>
-                <p>We don't do healthcare marketing generically. We understand insurance, patient journeys, scheduling bottlenecks, and what drives new patient growth in dentistry.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>Local SEO + Unified Brand</h3>
-                <p>Each location gets optimized local SEO, GBP management, and community presence. But your core brand message stays consistent across all markets.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <div class="advantage-icon">✓</div>
-            <div class="advantage-content">
-                <h3>Pricing That Scales With You</h3>
-                <p>Pay per-location, not per-platform. 6 locations? $9K–$15K/month. Growing to 10? We adjust automatically. No surprise bills.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- COMPARISON TABLE -->
-<section id="comparison" class="alt-bg">
-    <h2>How ekwa Compares</h2>
-    <p class="section-intro">Three options. One clear winner for growing dental groups.</p>
-
-    <div class="comparison-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>Enterprise Platforms<br>(PatientPop/Tebra)</th>
-                    <th>Multiple Single-Practice Agencies</th>
-                    <th class="ekwa-highlight">ekwa for DSOs</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Pricing (6 locations)</strong></td>
-                    <td>$15K–$25K/month</td>
-                    <td>$36K–$48K/month</td>
-                    <td class="ekwa-highlight">$9K–$15K/month</td>
-                </tr>
-                <tr>
-                    <td><strong>Exclusivity (no conflicts)</strong></td>
-                    <td><span class="feature-x">✗</span></td>
-                    <td><span class="feature-x">✗</span></td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Unified Reporting</strong></td>
-                    <td><span class="feature-check">✓</span></td>
-                    <td><span class="feature-x">✗</span></td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Dedicated Human Team</strong></td>
-                    <td><span class="feature-x">✗</span> (Software-driven)</td>
-                    <td><span class="feature-check">✓</span> (But fragmented)</td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span> (Unified)</td>
-                </tr>
-                <tr>
-                    <td><strong>Dental Specialization</strong></td>
-                    <td><span class="feature-x">✗</span> (Generic healthcare)</td>
-                    <td><span class="feature-check">✓</span> (But inconsistent)</td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Local SEO Per Location</strong></td>
-                    <td><span class="feature-check">✓</span></td>
-                    <td><span class="feature-check">✓</span></td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Quarterly Strategic Reviews</strong></td>
-                    <td><span class="feature-x">✗</span></td>
-                    <td><span class="feature-x">✗</span></td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Scales With Your Growth</strong></td>
-                    <td><span class="feature-check">✓</span></td>
-                    <td><span class="feature-check">✓</span></td>
-                    <td class="ekwa-highlight"><span class="feature-check">✓</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- SERVICES SECTION -->
-<section id="services">
-    <h2>What's Included</h2>
-    <p class="section-intro">Everything your multi-location group needs to dominate local search and grow.</p>
-
-    <div class="services-grid">
-        <div class="service-block">
-            <h3>Local SEO & Search</h3>
-            <ul>
-                <li>Per-location keyword strategy & optimization</li>
-                <li>Google Business Profile management (all locations)</li>
-                <li>Local link building & citations</li>
-                <li>Monthly SEO reporting per location</li>
-                <li>Competitive local analysis</li>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <ul class="ekwa-nav__links">
+                <li><a href="../../../../index.html">All Verticals</a></li>
+                <li><a href="../../index.html">Dentistry</a></li>
+                <li><a href="../" class="nav-cta">Back</a></li>
             </ul>
+            <button class="ekwa-nav__hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-
-        <div class="service-block">
-            <h3>Content & Social</h3>
-            <ul>
-                <li>Monthly content calendar (unified brand + local variants)</li>
-                <li>Location-specific blog posts & guides</li>
-                <li>Social media strategy & posting (group-wide)</li>
-                <li>Patient education content</li>
-                <li>Seasonal campaign planning</li>
-            </ul>
+        <div class="ekwa-nav__mobile">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Dentistry</a>
+            <a href="../">Back</a>
         </div>
+    </nav>
 
-        <div class="service-block">
-            <h3>Reputation & Reviews</h3>
-            <ul>
-                <li>Multi-location review management protocol</li>
-                <li>Response management (positive & negative)</li>
-                <li>Reputation monitoring dashboard</li>
-                <li>Review generation campaigns</li>
-                <li>Online listing audits & corrections</li>
-            </ul>
-        </div>
-
-        <div class="service-block">
-            <h3>Paid Search & Ads</h3>
-            <ul>
-                <li>Google Ads management (per location + brand)</li>
-                <li>Social media ad campaigns</li>
-                <li>Geo-targeted audience segmentation</li>
-                <li>Monthly ad performance reporting</li>
-                <li>Budget optimization across locations</li>
-            </ul>
-        </div>
-
-        <div class="service-block">
-            <h3>Reporting & Analytics</h3>
-            <ul>
-                <li>Unified multi-location dashboard</li>
-                <li>New patient tracking & attribution</li>
-                <li>CAC (cost per acquisition) per location</li>
-                <li>Custom KPI reporting</li>
-                <li>Quarterly business reviews</li>
-            </ul>
-        </div>
-
-        <div class="service-block">
-            <h3>Strategy & Growth</h3>
-            <ul>
-                <li>Dedicated account team</li>
-                <li>Quarterly strategic planning</li>
-                <li>Market-specific recommendations</li>
-                <li>Competitive analysis reports</li>
-                <li>Growth roadmap planning</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- PRICING SECTION -->
-<section class="alt-bg" id="pricing">
-    <h2>Simple, Transparent Pricing</h2>
-    <p class="section-intro">Per-location pricing that scales with your growth. No surprise fees.</p>
-
-    <div class="pricing-grid">
-        <div class="pricing-card">
-            <h3>Starter</h3>
-            <div class="locations">3–5 Locations</div>
-            <div class="price">$1,800</div>
-            <div class="per-month">per location/month</div>
-            <ul>
-                <li>Local SEO per location</li>
-                <li>Monthly content calendar</li>
-                <li>GBP management</li>
-                <li>Basic reporting</li>
-                <li>Monthly strategy call</li>
-            </ul>
-            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
-        </div>
-
-        <div class="pricing-card">
-            <h3>Growth</h3>
-            <div class="locations">6–10 Locations</div>
-            <div class="price">$1,500</div>
-            <div class="per-month">per location/month</div>
-            <ul>
-                <li>Everything in Starter, plus:</li>
-                <li>Paid search management</li>
-                <li>Social media management</li>
-                <li>Reputation at scale</li>
-                <li>Advanced reporting</li>
-                <li>Bi-weekly strategy calls</li>
-            </ul>
-            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
-        </div>
-
-        <div class="pricing-card">
-            <h3>Scale</h3>
-            <div class="locations">11–15 Locations</div>
-            <div class="price">$1,200</div>
-            <div class="per-month">per location/month</div>
-            <ul>
-                <li>Everything in Growth, plus:</li>
-                <li>Dedicated account team</li>
-                <li>Quarterly in-person visits</li>
-                <li>Competitive analysis</li>
-                <li>Regional campaigns</li>
-                <li>PR/earned media strategy</li>
-            </ul>
-            <button onclick="scrollToForm(event)" class="pricing-cta">Get Started</button>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT/FORM SECTION -->
-<!-- FORMSPREE SETUP: Replace YOUR_FORM_ID with your form ID from formspree.io/register -->
-<section id="contact" class="alt-bg">
-    <div class="form-section">
-        <h3>Get Your Custom DSO Growth Projection</h3>
-        <p>Schedule a free consultation with our DSO team. We'll audit your current marketing, identify quick wins, and show you exactly how we'd help your group grow.</p>
-
-        <form id="dsoForm" onsubmit="handleDSOFormSubmit(event)">
-            <div class="form-success" id="dsoFormSuccess">✅ Our DSO team will reach out within one business day with a custom growth projection.</div>
-            <div class="form-error" id="dsoFormError"></div>
-
-            <div class="form-group">
-                <label for="group-name">Group Name</label>
-                <input type="text" id="group-name" name="group_name" placeholder="e.g., Smile Dental Group" required>
+    <!-- Page Header (Hero) -->
+    <header class="ekwa-page-header hero">
+        <div class="hero-content">
+            <h1>Dental Group <span class="highlight">Marketing</span> Reimagined</h1>
+            <p>Multi-location strategy that compounds across all your practices. Scale faster than competitors. Unified brand, local optimization, group-wide growth.</p>
+            <div class="hero-buttons">
+                <button class="ekwa-btn ekwa-btn--primary" onclick="scrollToForm(event)">Get Growth Projection</button>
+                <button class="ekwa-btn ekwa-btn--outline-white" onclick="scrollToSection('#pricing')">See Pricing</button>
             </div>
+        </div>
+    </header>
 
-            <div class="form-group">
-                <label for="contact-name">Your Name</label>
-                <input type="text" id="contact-name" name="contact_name" placeholder="e.g., Dr. James Smith" required>
+    <!-- Main Content -->
+    <main class="ekwa-container">
+        <!-- The Challenge Section -->
+        <section id="challenge">
+            <h2>The DSO Paradox</h2>
+            <p class="section-intro">You've built a network. Now you need marketing that scales with it—not against it.</p>
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>Fragmented Efforts</h3>
+                    <p>Each location has different marketing tactics. No unified strategy. Marketing spend is scattered across agencies that don't talk to each other.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>No Leverage</h3>
+                    <p>You're paying location-level prices even at group scale. Agencies won't coordinate. Your network's size advantage disappears.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Slow Growth</h3>
+                    <p>Each location grows in isolation. Best practices at Location A don't reach Location D. Replicating success takes months.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="title">Your Title</label>
-                <input type="text" id="title" name="title" placeholder="e.g., Practice Owner / Executive Director" required>
+        <!-- Advantages Section -->
+        <section id="advantages" class="alt-bg">
+            <h2>ekwa DSO Frontier</h2>
+            <p class="section-intro">Coordinated, group-wide marketing that compounds across all locations.</p>
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">📊</div>
+                    <div class="advantage-content">
+                        <h3>Unified Reporting</h3>
+                        <p>One dashboard across all locations. Real-time new patient tracking, cost-per-acquisition by location, group-wide ROI. Zero confusion.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🎯</div>
+                    <div class="advantage-content">
+                        <h3>Replicable Systems</h3>
+                        <p>What works at Location A gets implemented at Locations B, C, D within weeks. Best practices spread fast. Growth compounds.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">💰</div>
+                    <div class="advantage-content">
+                        <h3>Group-Scale Pricing</h3>
+                        <p>Per-location pricing drops as you scale. 3-5 locations? $1,800/mo. 11-15? $1,200/mo. Your size is your advantage.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🤝</div>
+                    <div class="advantage-content">
+                        <h3>Dedicated Group Team</h3>
+                        <p>Your group gets a team—not an account manager juggling 200 clients. We know every location, every market, every challenge.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="dso-email">Email Address</label>
-                <input type="email" id="dso-email" name="email" placeholder="james@smiledentalgroup.com" required>
+        <!-- Comparison Section -->
+        <section id="comparison">
+            <h2>How We Compare</h2>
+            <p class="section-intro">Most dental marketing agencies treat DSOs like collections of individual practices. We don't.</p>
+            <div class="comparison-table-wrap">
+                <table class="ekwa-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Generic Dental Agency</th>
+                            <th class="ekwa-highlight">ekwa DSO Frontier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Group Coordination</strong></td>
+                            <td><span class="feature-x">✗</span></td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Unified strategy across all locations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unified Reporting</strong></td>
+                            <td><span class="feature-x">✗</span> Location-by-location only</td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Group-wide + location detail</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dedicated Group Team</strong></td>
+                            <td><span class="feature-x">✗</span> Account manager + pool of contractors</td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Full-time group team</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Group-Scale Pricing</strong></td>
+                            <td><span class="feature-x">✗</span> Same per-location fee regardless of size</td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Pricing decreases with scale</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best Practice Replication</strong></td>
+                            <td><span class="feature-x">✗</span> Each location reinvents the wheel</td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Deploy proven tactics group-wide in weeks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regional Campaigns</strong></td>
+                            <td><span class="feature-x">✗</span></td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> Coordinate multi-location campaigns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quarterly Strategy Reviews</strong></td>
+                            <td><span class="feature-x">✗</span></td>
+                            <td class="ekwa-highlight"><span class="feature-check">✓</span> In-person visits (11+ locations)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="dso-phone">Phone Number</label>
-                <input type="tel" id="dso-phone" name="phone" placeholder="(555) 123-4567" required>
+        <!-- Services Section -->
+        <section id="services" class="alt-bg">
+            <h2>What's Included</h2>
+            <p class="section-intro">Services scale with your group. Starter plans include local fundamentals. Growth/Scale plans add paid, social, and reputation at scale.</p>
+            <div class="services-grid">
+                <div class="service-block">
+                    <h3>Core Services (All Plans)</h3>
+                    <ul>
+                        <li>Local SEO per location</li>
+                        <li>Google Business Profile management</li>
+                        <li>Monthly content calendar (unified strategy)</li>
+                        <li>Review monitoring + response</li>
+                        <li>Basic monthly reporting</li>
+                        <li>Quarterly strategy calls</li>
+                        <li>Unified messaging across locations</li>
+                    </ul>
+                </div>
+                <div class="service-block">
+                    <h3>Growth + Scale Plans</h3>
+                    <ul>
+                        <li>Everything in Starter, plus:</li>
+                        <li>Paid search management (multi-location)</li>
+                        <li>Social media management + posting</li>
+                        <li>Reputation at scale (monitoring + outreach)</li>
+                        <li>Advanced analytics + CAC tracking</li>
+                        <li>Bi-weekly strategy calls (Growth)</li>
+                        <li>Quarterly in-person visits (Scale)</li>
+                        <li>PR/earned media strategy (Scale)</li>
+                        <li>Competitive analysis by market</li>
+                        <li>Regional multi-location campaigns</li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="locations">Number of Locations</label>
-                <select id="locations" name="locations" required>
-                    <option value="">Select number of locations...</option>
-                    <option value="3-5">3-5 Locations</option>
-                    <option value="6-10">6-10 Locations</option>
-                    <option value="11-15">11-15 Locations</option>
-                    <option value="16+">16+ Locations</option>
-                </select>
+        <!-- Pricing Section -->
+        <section id="pricing" class="alt-bg">
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="section-intro">Per-location pricing that scales with your growth. No surprise fees.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="locations">3–5 Locations</div>
+                    <div class="price">$1,800</div>
+                    <div class="per-month">per location/month</div>
+                    <ul>
+                        <li>Local SEO per location</li>
+                        <li>Monthly content calendar</li>
+                        <li>GBP management</li>
+                        <li>Basic reporting</li>
+                        <li>Monthly strategy call</li>
+                    </ul>
+                    <button onclick="scrollToForm(event)" class="ekwa-btn ekwa-btn--primary">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Growth</h3>
+                    <div class="locations">6–10 Locations</div>
+                    <div class="price">$1,500</div>
+                    <div class="per-month">per location/month</div>
+                    <ul>
+                        <li>Everything in Starter, plus:</li>
+                        <li>Paid search management</li>
+                        <li>Social media management</li>
+                        <li>Reputation at scale</li>
+                        <li>Advanced reporting</li>
+                        <li>Bi-weekly strategy calls</li>
+                    </ul>
+                    <button onclick="scrollToForm(event)" class="ekwa-btn ekwa-btn--primary">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Scale</h3>
+                    <div class="locations">11–15 Locations</div>
+                    <div class="price">$1,200</div>
+                    <div class="per-month">per location/month</div>
+                    <ul>
+                        <li>Everything in Growth, plus:</li>
+                        <li>Dedicated account team</li>
+                        <li>Quarterly in-person visits</li>
+                        <li>Competitive analysis</li>
+                        <li>Regional campaigns</li>
+                        <li>PR/earned media strategy</li>
+                    </ul>
+                    <button onclick="scrollToForm(event)" class="ekwa-btn ekwa-btn--primary">Get Started</button>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="budget">Current Monthly Marketing Budget</label>
-                <select id="budget" name="budget" required>
-                    <option value="">Select budget range...</option>
-                    <option value="Under $5K">Under $5K</option>
-                    <option value="$5K-$10K">$5K-$10K</option>
-                    <option value="$10K-$20K">$10K-$20K</option>
-                    <option value="$20K+">$20K+</option>
-                </select>
+        <!-- Contact/Form Section -->
+        <section id="contact">
+            <div class="form-section">
+                <h3>Get Your Custom DSO Growth Projection</h3>
+                <p>Schedule a free consultation with our DSO team. We'll audit your current marketing, identify quick wins, and show you exactly how we'd help your group grow.</p>
+
+                <form id="dsoForm" onsubmit="handleDSOFormSubmit(event)">
+                    <div class="form-success" id="dsoFormSuccess">✅ Our DSO team will reach out within one business day with a custom growth projection.</div>
+                    <div class="form-error" id="dsoFormError"></div>
+
+                    <div class="form-group">
+                        <label for="group-name">Group Name</label>
+                        <input type="text" id="group-name" name="group_name" placeholder="e.g., Smile Dental Group" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" name="contact_name" placeholder="e.g., Dr. James Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Your Title</label>
+                        <input type="text" id="title" name="title" placeholder="e.g., Practice Owner / Executive Director" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dso-email">Email Address</label>
+                        <input type="email" id="dso-email" name="email" placeholder="james@smiledentalgroup.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dso-phone">Phone Number</label>
+                        <input type="tel" id="dso-phone" name="phone" placeholder="(555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locations">Number of Locations</label>
+                        <select id="locations" name="locations" required>
+                            <option value="">Select number of locations...</option>
+                            <option value="3-5">3-5 Locations</option>
+                            <option value="6-10">6-10 Locations</option>
+                            <option value="11-15">11-15 Locations</option>
+                            <option value="16+">16+ Locations</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Current Monthly Marketing Budget</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range...</option>
+                            <option value="Under $5K">Under $5K</option>
+                            <option value="$5K-$10K">$5K-$10K</option>
+                            <option value="$10K-$20K">$10K-$20K</option>
+                            <option value="$20K+">$20K+</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="source" value="dso-frontier-landing">
+
+                    <button type="submit" class="form-submit">Request Growth Projection</button>
+
+                    <div class="form-legal">We'll review your information and reach out within one business day with custom recommendations.</div>
+                </form>
             </div>
+        </section>
+    </main>
 
-            <input type="hidden" name="source" value="dso-frontier-landing">
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <div>ekwa.com — Dental Marketing Partners. All rights reserved.</div>
+            <div>© 2026 ekwa. <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact</a></div>
+        </div>
+    </footer>
 
-            <button type="submit" class="form-submit">Request Growth Projection</button>
+    <script>
+        const DSO_FORMSPREE_ID = 'YOUR_FORM_ID';
 
-            <div class="form-legal">We'll review your information and reach out within one business day with custom recommendations.</div>
-        </form>
-    </div>
-</section>
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.ekwa-nav__hamburger');
+            const mobileNav = document.querySelector('.ekwa-nav__mobile');
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        }
 
-<!-- FOOTER -->
-<footer>
-    <p>&copy; 2026 ekwa.com — Dental Marketing Partners. All rights reserved.</p>
-    <p style="margin-top: 1rem;">
-        <a href="#privacy">Privacy Policy</a> |
-        <a href="#terms">Terms of Service</a> |
-        <a href="#contact">Contact</a>
-    </p>
-</footer>
+        function scrollToForm(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
 
-<script>
-    // FORMSPREE CONFIGURATION
-    const DSO_FORMSPREE_ID = 'YOUR_FORM_ID';
+        function scrollToSection(selector) {
+            event.preventDefault();
+            const section = document.querySelector(selector);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
 
-    function scrollToForm(event) {
-        event.preventDefault();
-        const contactSection = document.getElementById('contact');
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+        async function handleDSOFormSubmit(event) {
+            event.preventDefault();
 
-    async function handleDSOFormSubmit(event) {
-        event.preventDefault();
+            const form = document.getElementById('dsoForm');
+            const submitBtn = form.querySelector('.form-submit');
+            const successMsg = document.getElementById('dsoFormSuccess');
+            const errorMsg = document.getElementById('dsoFormError');
 
-        const form = document.getElementById('dsoForm');
-        const submitBtn = form.querySelector('.form-submit');
-        const successMsg = document.getElementById('dsoFormSuccess');
-        const errorMsg = document.getElementById('dsoFormError');
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
 
-        // Reset messages
-        successMsg.style.display = 'none';
-        errorMsg.style.display = 'none';
+            const formData = new FormData(form);
 
-        // Collect form data
-        const formData = new FormData(form);
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
 
-        // Disable submit button
-        submitBtn.disabled = true;
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+            try {
+                const response = await fetch(`https://formspree.io/f/${DSO_FORMSPREE_ID}`, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-        try {
-            // POST to Formspree
-            const response = await fetch(`https://formspree.io/f/${DSO_FORMSPREE_ID}`, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+                if (response.ok) {
+                    successMsg.style.display = 'block';
+                    form.reset();
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
+                    errorMsg.style.display = 'block';
                 }
-            });
-
-            if (response.ok) {
-                // Success
-                successMsg.style.display = 'block';
-                form.reset();
-                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                // Error from Formspree
+            } catch (error) {
+                console.error('Error:', error);
                 errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
                 errorMsg.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             }
-        } catch (error) {
-            console.error('Error:', error);
-            errorMsg.textContent = 'Something went wrong. Please email us at hello@ekwa.com';
-            errorMsg.style.display = 'block';
-        } finally {
-            // Re-enable submit button
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>

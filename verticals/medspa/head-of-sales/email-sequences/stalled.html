@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stalled Opportunity Sequence - Med Spa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #1C305D;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+        .page-header p {
+            margin: 0;
+            opacity: 0.95;
+        }
+        .email-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #9B5DE5;
+        }
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+        .email-header h2 {
+            color: #1C305D;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .email-day {
+            background-color: #9B5DE5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .email-body {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            border: 1px solid #e0e0e0;
+        }
+        .email-body strong {
+            color: #1C305D;
+        }
+        .copy-btn {
+            display: inline-block;
+            background-color: #3B74BB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #1C305D;
+        }
+        .copy-confirmation {
+            display: none;
+            color: #C9A227;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            color: #3B74BB;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Ekwa</h1>
+        <a href="index.html">← Back to All Sequences</a>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to All Sequences</a>
+        
+        <div class="page-header">
+            <h1>Stalled Opportunity Sequence</h1>
+            <p>3 emails over 21 days • Revive stuck deals with value-add content</p>
+        </div>
+
+        <!-- Email 1 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 1: Value Reaffirmation</h2>
+                <span class="email-day">Day 1</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Checking in on {{contact.company}} — adding some value while we talk
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I know we've been in conversations about Ekwa for a bit, and things may have slowed down on your end — that's totally normal. Decisions like this take time, especially when you're balancing a busy practice.
+
+I didn't want to disappear. Instead, I thought I'd add some real value while we figure out next steps.
+
+I've put together a quick analysis of what's working for top-performing med spas in 2026. It covers:
+- How the best med spas position themselves (medical vs. spa-first messaging)
+- The treatment mix strategies that drive 20%+ revenue increases
+- How patient retention programs lock in recurring revenue
+
+This is based on our work with dozens of practices. I think you'll find it useful even if we don't move forward together.
+
+Interested? I can send it over today.
+
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email1-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email1-body" style="display: none;">Hi {{contact.firstname}},
+
+I know we've been in conversations about Ekwa for a bit, and things may have slowed down on your end — that's totally normal. Decisions like this take time, especially when you're balancing a busy practice.
+
+I didn't want to disappear. Instead, I thought I'd add some real value while we figure out next steps.
+
+I've put together a quick analysis of what's working for top-performing med spas in 2026. It covers:
+- How the best med spas position themselves (medical vs. spa-first messaging)
+- The treatment mix strategies that drive 20%+ revenue increases
+- How patient retention programs lock in recurring revenue
+
+This is based on our work with dozens of practices. I think you'll find it useful even if we don't move forward together.
+
+Interested? I can send it over today.
+
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 2: Case Study / Social Proof</h2>
+                <span class="email-day">Day 7</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> How another med spa like yours increased revenue 30% in 6 months
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+I wanted to share something specific because I think it applies directly to what you're trying to accomplish at {{contact.company}}.
+
+One of our clients — a med spa with a similar profile to yours — was in a plateau. Good practice, good reputation, but they weren't growing fast enough. Their current marketing partner (generic agency) was treating them like a standard aesthetic business, not a medical practice.
+
+Here's what changed when they switched to Ekwa:
+
+<strong>First 90 days:</strong>
+- New patient inquiries up 45%
+- Conversion rate improved (better quality patients asking the right questions)
+- Website became a patient education tool, not just a booking form
+
+<strong>By 6 months:</strong>
+- Treatment mix optimization increased average patient value by 22%
+- Membership programs created predictable recurring revenue
+- Repeat patient rate improved from 35% to 58%
+- Overall revenue up 30%
+
+This wasn't luck. This was because we positioned them as a medical practice first, luxury experience second. We built systems around patient retention and lifetime value.
+
+I believe we could do something similar for {{contact.company}}. The question is: are you ready to make the shift?
+
+{{owner.firstname}}
+Ekwa Marketing
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email2-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email2-body" style="display: none;">Hi {{contact.firstname}},
+
+I wanted to share something specific because I think it applies directly to what you're trying to accomplish at {{contact.company}}.
+
+One of our clients — a med spa with a similar profile to yours — was in a plateau. Good practice, good reputation, but they weren't growing fast enough. Their current marketing partner (generic agency) was treating them like a standard aesthetic business, not a medical practice.
+
+Here's what changed when they switched to Ekwa:
+
+First 90 days:
+- New patient inquiries up 45%
+- Conversion rate improved (better quality patients asking the right questions)
+- Website became a patient education tool, not just a booking form
+
+By 6 months:
+- Treatment mix optimization increased average patient value by 22%
+- Membership programs created predictable recurring revenue
+- Repeat patient rate improved from 35% to 58%
+- Overall revenue up 30%
+
+This wasn't luck. This was because we positioned them as a medical practice first, luxury experience second. We built systems around patient retention and lifetime value.
+
+I believe we could do something similar for {{contact.company}}. The question is: are you ready to make the shift?
+
+{{owner.firstname}}
+Ekwa Marketing</div>
+        </div>
+
+        <!-- Email 3 -->
+        <div class="email-card">
+            <div class="email-header">
+                <h2>Email 3: Final Closing Push</h2>
+                <span class="email-day">Day 21</span>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <strong>Subject:</strong> Final thought on working together
+            </div>
+
+            <div class="email-body">
+<strong>Hi {{contact.firstname}},</strong>
+
+This is my last outreach on this for now. I wanted to be direct about what I think is happening.
+
+You're a good operator — {{contact.company}} is solid. But I suspect you're frustrated because your marketing isn't reflecting the quality of what you're doing. Generic agencies don't understand med spas. They treat you like a spa instead of a medical practice, and your results suffer.
+
+Ekwa is different. We specialize in medical practices. We understand positioning, patient psychology, retention strategy, and revenue optimization. We'd approach {{contact.company}} differently, and the results would show.
+
+If you're ready to explore what that looks like, I'm available. If you're happy with where things are, I totally respect that. You can unsubscribe below with no hard feelings.
+
+My door is open if you change your mind.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Schedule a Call] [Unsubscribe Link]
+            </div>
+
+            <button class="copy-btn" onclick="copySectionToClipboard(this, 'email3-body')">Copy Email Body</button>
+            <span class="copy-confirmation" style="display: none;">Copied to clipboard!</span>
+
+            <div id="email3-body" style="display: none;">Hi {{contact.firstname}},
+
+This is my last outreach on this for now. I wanted to be direct about what I think is happening.
+
+You're a good operator — {{contact.company}} is solid. But I suspect you're frustrated because your marketing isn't reflecting the quality of what you're doing. Generic agencies don't understand med spas. They treat you like a spa instead of a medical practice, and your results suffer.
+
+Ekwa is different. We specialize in medical practices. We understand positioning, patient psychology, retention strategy, and revenue optimization. We'd approach {{contact.company}} differently, and the results would show.
+
+If you're ready to explore what that looks like, I'm available. If you're happy with where things are, I totally respect that. You can unsubscribe below with no hard feelings.
+
+My door is open if you change your mind.
+
+{{owner.firstname}}
+Ekwa Marketing
+
+[Schedule a Call] [Unsubscribe Link]</div>
+        </div>
+    </div>
+
+    <script>
+        function copySectionToClipboard(button, sectionId) {
+            const element = document.getElementById(sectionId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const confirmation = button.nextElementSibling;
+                confirmation.style.display = 'inline-block';
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

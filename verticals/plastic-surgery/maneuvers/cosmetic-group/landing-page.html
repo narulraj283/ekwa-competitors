@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <title>Cosmetic Group - Multi-Surgeon Practice Marketing Platform</title>
+    <link rel="stylesheet" href="../../../../../assets/css/ekwa-brand.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        body { font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+        .accent-bar { height: 6px; background: #E63946; }
 
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0066cc 100%);
+            background: linear-gradient(135deg, #1C305D 0%, #3B74BB 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -19,8 +22,8 @@
         .hero p { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto 30px; }
         .cta-button {
             display: inline-block;
-            background: #00a651;
-            color: white;
+            background: #C9A227;
+            color: #1C305D;
             padding: 14px 32px;
             border-radius: 6px;
             text-decoration: none;
@@ -28,22 +31,22 @@
             transition: all 0.3s;
             font-size: 16px;
         }
-        .cta-button:hover { background: #008a41; transform: translateY(-2px); }
+        .cta-button:hover { background: #E63946; color: white; transform: translateY(-2px); }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
         section { margin: 60px 0; }
-        h2 { color: #0066cc; font-size: 28px; margin-bottom: 20px; }
-        h3 { color: #1a1a2e; font-size: 18px; margin-top: 25px; margin-bottom: 12px; }
+        h2 { color: #3B74BB; font-size: 28px; margin-bottom: 20px; }
+        h3 { color: #1C305D; font-size: 18px; margin-top: 25px; margin-bottom: 12px; }
 
         .challenge-box {
             background: #ffe8e8;
-            border-left: 4px solid #d32f2f;
+            border-left: 4px solid #E63946;
             padding: 20px;
             border-radius: 4px;
             margin: 25px 0;
         }
-        .challenge-box h3 { margin-top: 0; color: #d32f2f; }
+        .challenge-box h3 { margin-top: 0; color: #E63946; }
 
         .feature-grid {
             display: grid;
@@ -55,10 +58,10 @@
             background: white;
             padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #00a651;
+            border-left: 4px solid #C9A227;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        .feature-card h3 { margin-top: 0; color: #0066cc; }
+        .feature-card h3 { margin-top: 0; color: #3B74BB; }
         .feature-card p { color: #666; line-height: 1.7; }
 
         .benefit-grid {
@@ -71,20 +74,20 @@
             background: #f0f4f8;
             padding: 20px;
             border-radius: 6px;
-            border-top: 3px solid #0066cc;
+            border-top: 3px solid #3B74BB;
         }
-        .benefit-card h4 { color: #0066cc; margin-bottom: 8px; }
+        .benefit-card h4 { color: #3B74BB; margin-bottom: 8px; }
         .benefit-card p { font-size: 13px; color: #666; }
 
         .testimonial {
             background: #f0f4f8;
             padding: 25px;
-            border-left: 4px solid #f5a623;
+            border-left: 4px solid #E63946;
             margin: 20px 0;
             border-radius: 4px;
         }
         .testimonial-quote { font-style: italic; color: #444; margin-bottom: 10px; font-size: 15px; }
-        .testimonial-attr { font-weight: 600; color: #0066cc; font-size: 13px; }
+        .testimonial-attr { font-weight: 600; color: #3B74BB; font-size: 13px; }
 
         .form-section {
             background: white;
@@ -92,28 +95,29 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             margin-top: 50px;
+            border-top: 4px solid #E63946;
         }
         .form-section h2 { margin-top: 0; }
 
         form { max-width: 600px; }
         .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
-        label { font-weight: 600; margin-bottom: 6px; color: #1a1a2e; font-size: 14px; }
+        label { font-weight: 600; margin-bottom: 6px; color: #1C305D; font-size: 14px; }
         input, textarea, select {
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
-            font-family: inherit;
+            font-family: 'Montserrat', inherit;
         }
         input:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+            border-color: #3B74BB;
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
         }
         textarea { resize: vertical; min-height: 100px; }
 
         .form-submit {
-            background: #0066cc;
+            background: #3B74BB;
             color: white;
             padding: 14px 28px;
             border: none;
@@ -123,9 +127,7 @@
             font-size: 14px;
             transition: all 0.3s;
         }
-        .form-submit:hover { background: #1a1a2e; }
-
-        footer { text-align: center; padding: 20px; color: #999; font-size: 12px; margin-top: 40px; }
+        .form-submit:hover { background: #1C305D; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 28px; }
@@ -135,10 +137,31 @@
     </style>
 </head>
 <body>
+    <div class="accent-bar"></div>
+    
+    <nav class="ekwa-nav">
+        <div class="nav-container">
+            <div class="nav-logo">ekwa</div>
+            <div class="nav-breadcrumb">
+                <a href="../../../../../index.html">All Verticals</a> / 
+                <a href="../../../index.html">Plastic Surgery</a>
+            </div>
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
+        <h1>Cosmetic Group: Multi-Surgeon Practice Marketing Platform</h1>
+    </div>
+
     <div class="hero">
         <h1>Growing Your Multi-Surgeon Practice? Here's the Marketing OS.</h1>
         <p>Unified brand, differentiated surgeon identities, maximum market coverage. One ekwa team managing all surgeons, all locations.</p>
-        <a href="#inquiry" class="cta-button">Explore Cosmetic Group →</a>
+        <a href="#inquiry" class="cta-button">Explore Cosmetic Group</a>
     </div>
 
     <div class="container">
@@ -333,8 +356,17 @@
         </section>
     </div>
 
-    <footer>
-        ekwa.com | Cosmetic Group™ is a proprietary ekwa program | Confidential
+    <footer class="ekwa-footer">
+        <div class="footer-content">
+            <p>ekwa.com | Cosmetic Group™ is a proprietary ekwa program | &copy; 2026 ekwa. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const nav = document.querySelector('.ekwa-nav');
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

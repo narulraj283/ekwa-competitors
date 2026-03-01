@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Switch Sequence - Ekwa</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --vertical-accent: #2A9D8F;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .header-breadcrumb {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .header-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .header-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ekwa-nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 0;
+        }
+        
+        .ekwa-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ekwa-nav a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin-right: 30px;
+            font-weight: 500;
+        }
+        
+        .ekwa-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .sequence-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sequence-info h2 {
+            margin-top: 0;
+            color: var(--vertical-accent);
+        }
+        
+        .emails {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .email-item {
+            background: white;
+            border-left: 4px solid var(--vertical-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .email-header {
+            background: linear-gradient(135deg, var(--vertical-accent), #1f6d63);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .email-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        
+        .email-day-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .email-content {
+            padding: 30px;
+        }
+        
+        .email-section {
+            margin-bottom: 25px;
+        }
+        
+        .email-section-title {
+            font-weight: 700;
+            color: var(--vertical-accent);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .email-subject {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-word;
+            margin-bottom: 10px;
+        }
+        
+        .email-body {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--vertical-accent);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .email-body p {
+            margin: 0 0 15px 0;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .copy-button {
+            background: var(--vertical-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background: #1f6d63;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(42, 157, 143, 0.2);
+        }
+        
+        .copy-button.copied {
+            background: #27ae60;
+        }
+        
+        .token-note {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            border-left: 3px solid var(--vertical-accent);
+        }
+        
+        .token-note strong {
+            color: var(--vertical-accent);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-content">
+            <a href="../../../../">Home</a>
+            <a href="../../">Veterinary Vertical</a>
+            <a href="index.html">Email Sequences</a>
+            <a href="#">Provider Switch</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="header-content">
+            <h1>Provider Switch Sequence</h1>
+            <div class="header-breadcrumb">
+                <a href="../../../../">Home</a> > <a href="../../">Veterinary</a> > <a href="index.html">Email Sequences</a> > Provider Switch
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sequence-info">
+            <h2>Sequence Overview</h2>
+            <p><strong>Purpose:</strong> Target practices that are considering switching from their current provider and demonstrate why Ekwa's veterinary-specific expertise is the better choice.</p>
+            <p><strong>Timeline:</strong> 3 emails strategically timed for conversion</p>
+            <p><strong>Positioning:</strong> Many veterinary practices use generic web agencies that don't understand veterinary medicine or pet owner psychology. Ekwa brings veterinary-specific content, breed-specific SEO, and local pack optimization tailored to independent vet practices.</p>
+        </div>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 1: The Realization</h3>
+                    <span class="email-day-badge">Initial Contact</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">Are you getting what you should from your current provider?</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I'm reaching out because I've been noticing a pattern with independent vet practices like {{contact.company}}.</p>
+                            <p>Many of you are working with generic web agencies—the same ones that work with dental offices, law firms, and real estate agents. These agencies don't understand veterinary medicine. They don't know the difference between a wellness visit and a surgical case. They can't explain why breed-specific content matters for local search.</p>
+                            <p>And honestly? It shows in the results.</p>
+                            <p>At Ekwa, we work exclusively with veterinary practices. We understand your business. We know how pet owners search, what they value, and how to position independent vet practices against corporate chains.</p>
+                            <p>If you're with your current provider because you feel locked in—or because they're underperforming—I'd love to show you what a veterinary-focused approach looks like.</p>
+                            <p>Are you open to a conversation?</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email1')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> Uses {{contact.firstName}} and {{contact.company}} for personalization.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 2: Why Ekwa's Different</h3>
+                    <span class="email-day-badge">3-5 Days Later</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">What makes us different from your current provider</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>Following up on my last message—I wanted to spell out what sets Ekwa apart from generic marketing agencies.</p>
+                            <p><strong>Veterinary-Specific Content:</strong> We create content that speaks to pet owner psychology, not just generic web copy. We know how to explain complex procedures in ways that build trust and position {{contact.company}} as the expert.</p>
+                            <p><strong>Breed-Specific SEO:</strong> Pet owners often search by breed ("Golden Retriever skin allergies" or "Labrador hip dysplasia"). We optimize for these high-intent searches that your current provider probably isn't even thinking about.</p>
+                            <p><strong>Local Pack Optimization:</strong> We specialize in getting independent vet practices to rank in Google's local 3-pack—the most valuable real estate on Google. This is where new patients are finding you.</p>
+                            <p><strong>Relationship-Focused Positioning:</strong> We position your practice around the values that drive loyalty: continuity of care, personalized attention, and trust. Not price, not convenience.</p>
+                            <p>This is what veterinary-specific expertise looks like. And it's why our clients outperform practices working with generic agencies.</p>
+                            <p>Let's talk about what {{contact.company}} could be doing differently.</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email2')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> {{contact.firstName}} and {{contact.company}} for targeted messaging.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email-item">
+                <div class="email-header">
+                    <h3>Email 3: The Conversion</h3>
+                    <span class="email-day-badge">5-7 Days Later</span>
+                </div>
+                <div class="email-content">
+                    <div class="email-section">
+                        <div class="email-section-title">Subject Line</div>
+                        <div class="email-subject">Let's make a change</div>
+                    </div>
+
+                    <div class="email-section">
+                        <div class="email-section-title">Email Body</div>
+                        <div class="email-body">
+                            <p>Hi {{contact.firstName}},</p>
+                            <p>I've shared a couple of messages about what makes Ekwa different, and I want to give you a concrete next step.</p>
+                            <p>Here's what I'm proposing: Let's do a quick 20-minute audit of {{contact.company}}'s current digital presence. I'll look at:</p>
+                            <p>• Where you're ranking for key service searches<br>
+                            • What your current provider is (or isn't) doing for SEO<br>
+                            • The biggest opportunities to attract new clients with a veterinary-focused approach<br>
+                            • What a transition would look like (spoiler: it's easier than you think)</p>
+                            <p>No sales pitch. Just a straightforward assessment of what we could do better.</p>
+                            <p>If you're serious about switching and want to see what's possible, I have time next week.</p>
+                            <p>Are you interested?</p>
+                            <p>Best regards,<br>
+                            [Your Name]<br>
+                            Ekwa Marketing</p>
+                        </div>
+                    </div>
+
+                    <button class="copy-button" onclick="copyToClipboard(this, 'email3')">Copy Email Body</button>
+                    <div class="token-note">
+                        <strong>HubSpot Tokens:</strong> Uses {{contact.firstName}} and {{contact.company}} for personalization.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Ekwa Marketing. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../../../../">Home</a>
+            <a href="../../../../about/">About</a>
+            <a href="../../../../contact/">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(button, emailId) {
+            const emailContent = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(emailContent).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

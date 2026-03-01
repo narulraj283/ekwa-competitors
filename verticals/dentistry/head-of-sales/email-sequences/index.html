@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentistry Email Sequences — Ekwa Head of Sales</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        .ekwa-email-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .ekwa-email-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .ekwa-email-card:hover {
+            border-color: #3B74BB;
+            box-shadow: 0 4px 12px rgba(59, 116, 187, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .ekwa-email-card h3 {
+            color: #1C305D;
+            margin: 1rem 0 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .ekwa-email-card p {
+            color: #666;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .ekwa-email-card-link {
+            display: inline-block;
+            color: #3B74BB;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        
+        .ekwa-email-card-link:hover {
+            text-decoration: underline;
+        }
+        
+        .ekwa-badge {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #1C305D;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav-container">
+            <div class="ekwa-nav-brand">Ekwa</div>
+            <div class="ekwa-nav-toggle" id="navToggle">☰</div>
+            <ul class="ekwa-nav-menu" id="navMenu">
+                <li><a href="../index.html">Head of Sales</a></li>
+                <li><a href="../../../index.html">Dentistry Dashboard</a></li>
+                <li><a href="../../../../index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ekwa-page-header">
+        <div class="ekwa-container">
+            <span class="ekwa-badge">🦷 Dentistry Email Sequences</span>
+            <h1>Dentistry Email Sequences</h1>
+            <p>Ready-to-use email sequences for the dental vertical. Each sequence is designed for a specific stage of the sales journey, with HubSpot personalization tokens included.</p>
+        </div>
+    </div>
+
+    <main class="ekwa-container">
+        <div class="ekwa-email-grid">
+            <a href="lead-nurture.html" class="ekwa-email-card">
+                <span class="ekwa-badge">3 Emails</span>
+                <h3>Lead Nurture</h3>
+                <p>Warm up new dental leads who haven't booked a meeting yet. Day 1, 3, and 7 follow-up sequence.</p>
+                <span class="ekwa-email-card-link">View Sequence →</span>
+            </a>
+
+            <a href="post-msm.html" class="ekwa-email-card">
+                <span class="ekwa-badge">4 Emails</span>
+                <h3>Post-MSM Follow-up</h3>
+                <p>Guide prospects toward a decision after their marketing strategy meeting. Day 1, 3, 7, and 14 touches.</p>
+                <span class="ekwa-email-card-link">View Sequence →</span>
+            </a>
+
+            <a href="no-show.html" class="ekwa-email-card">
+                <span class="ekwa-badge">2 Emails</span>
+                <h3>No-Show Recovery</h3>
+                <p>Win back leads who missed their scheduled meeting. Warm and understanding approach.</p>
+                <span class="ekwa-email-card-link">View Sequence →</span>
+            </a>
+
+            <a href="stalled.html" class="ekwa-email-card">
+                <span class="ekwa-badge">3 Emails</span>
+                <h3>Stalled Deal Re-engagement</h3>
+                <p>Re-engage prospects when deals go quiet in the pipeline. Gentle nudges over 21 days.</p>
+                <span class="ekwa-email-card-link">View Sequence →</span>
+            </a>
+
+            <a href="provider-switch.html" class="ekwa-email-card">
+                <span class="ekwa-badge">3 Emails</span>
+                <h3>Provider Switch</h3>
+                <p>Help prospects evaluate switching from their current marketing provider. Education-focused approach.</p>
+                <span class="ekwa-email-card-link">View Sequence →</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="ekwa-footer">
+        <div class="ekwa-container">
+            <p>&copy; 2026 Ekwa. Dental marketing specialists.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('ekwa-nav-menu-active');
+        });
+    </script>
+</body>
+</html>

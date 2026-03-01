@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>DSO ROI Calculator - ekwa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>DSO ROI Calculator - ekwa — Ekwa</title>
+    <meta name="description" content="Ekwa Competitors | Tools & Resources">
+    <meta name="canonical" content="https://ekwacompetitors.narenlife.com/">
+    
+    <link rel="stylesheet" href="../../../assets/css/ekwa-brand.css">
     
     <style>
+        
+        
+        /* Page-specific overrides (if any) */
+        body {
+            font-family: var(--font-primary);
+        }
+        
+        /* Preserve calculator/tool specific styles */
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,18 +27,18 @@
         }
 
         :root {
-            --ekwa: #1B4F72;
-            --gold: #C9A84C;
+            --ekwa: var(--ekwa-navy);
+            --gold: var(--ekwa-gold);
             --green: #1E8449;
             --light-bg: #F8F9FA;
             --border: #E0E0E0;
             --text-primary: #1a1a1a;
-            --text-secondary: #666666;
+            --text-secondary: var(--ekwa-gray-500)666;
             --white: #ffffff;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-primary);
             background-color: var(--light-bg);
             color: var(--text-primary);
             line-height: 1.6;
@@ -133,7 +145,7 @@
 
         input[type="number"],
         input[type="range"] {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-primary);
         }
 
         input[type="number"] {
@@ -509,7 +521,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 6px;
             font-size: 14px;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-primary);
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--white);
         }
@@ -551,7 +563,7 @@
             border-radius: 6px;
             font-size: 14px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-primary);
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
@@ -572,17 +584,9 @@
             padding: 20px 0;
         }
 
-        .back-link {
-            color: var(--ekwa);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
+        
 
-        .back-link:hover {
-            opacity: 0.7;
-        }
+        
 
         /* Animations */
         @keyframes fadeIn {
@@ -607,15 +611,69 @@
         .scenario-card:nth-child(3) {
             animation-delay: 0.2s;
         }
+    
+    
+    
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">ekwa</div>
-            <a href="../index.html" class="nav-back">← Back to Dashboard</a>
-        </div>
-    </header>
+<nav class="ekwa-nav">
+  <div class="ekwa-nav__inner">
+    <a href="../../../index.html" class="ekwa-nav__brand">
+      <div class="ekwa-nav__logo">E</div>
+      <div>
+        <div class="ekwa-nav__title">ekwa</div>
+        <div class="ekwa-nav__subtitle">Competitors</div>
+      </div>
+    </a>
+    <div class="ekwa-nav__links">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Dentistry</a>
+    </div>
+    <button class="ekwa-nav__hamburger" onclick="toggleMobileMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="ekwa-nav__mobile">
+    <a href="../../../index.html">All Verticals</a>
+    <a href="../index.html">Dentistry</a>
+  </div>
+</nav>
+
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Dentistry</span>
+    </div>
+    <h1>DSO ROI Calculator - ekwa</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+<div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Dentistry</span>
+    </div>
+    <h1>DSO ROI Calculator - ekwa</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+  <div class="ekwa-page-header">
+  <div class="ekwa-container">
+    <div class="ekwa-page-header__breadcrumb">
+      <a href="../../../index.html">ekwa</a> → <span>All Verticals → Dentistry</span>
+    </div>
+    <h1>DSO ROI Calculator - ekwa</h1>
+  </div>
+</div>
+
+<div class="ekwa-container">
+
+    
 
     <div class="container">
         <h1 class="page-title">DSO ROI Calculator</h1>
@@ -674,10 +732,7 @@
                 <div class="scenario-cards">
                     <!-- Conservative Card -->
                     <div class="scenario-card conservative">
-                        <div class="scenario-header">
-                            <span class="scenario-name">Conservative</span>
-                            <span class="scenario-growth">+15% Growth</span>
-                        </div>
+                        
 
                         <div class="scenario-metric">
                             <div class="metric-label">Additional Patients/Year</div>
@@ -720,10 +775,7 @@
 
                     <!-- Moderate Card -->
                     <div class="scenario-card moderate">
-                        <div class="scenario-header">
-                            <span class="scenario-name">Moderate</span>
-                            <span class="scenario-growth">+30% Growth</span>
-                        </div>
+                        
 
                         <div class="scenario-metric">
                             <div class="metric-label">Additional Patients/Year</div>
@@ -766,10 +818,7 @@
 
                     <!-- Aggressive Card -->
                     <div class="scenario-card aggressive">
-                        <div class="scenario-header">
-                            <span class="scenario-name">Aggressive</span>
-                            <span class="scenario-growth">+50% Growth</span>
-                        </div>
+                        
 
                         <div class="scenario-metric">
                             <div class="metric-label">Additional Patients/Year</div>
@@ -815,7 +864,7 @@
                 <div class="projection-section">
                     <h3 class="projection-title">3-Year Projection (Moderate Scenario)</h3>
                     <div class="table-responsive">
-                        <table>
+                        <div class="ekwa-table-wrap"><div class="ekwa-table-wrap"><div class="ekwa-table-wrap"><table>
                             <thead>
                                 <tr>
                                     <th>Year</th>
@@ -855,7 +904,7 @@
                                     <td><span class="table-number">$1,014,400</span></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div></div></div>
                     </div>
                 </div>
             </div>
@@ -1037,5 +1086,963 @@
         // Initial calculation
         updateCalculations();
     </script>
+
+</div>
+
+
+
+<script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script>
+
+
+</div>
+
+<script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script>
+<script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script>
+
+
+
+</div>
+
+<footer class="ekwa-footer">
+  <div class="ekwa-footer__inner">
+    <div>&copy; 2026 Ekwa | Internal Tools</div>
+    <a href="../../../index.html">Back to Verticals</a>
+  </div>
+</footer>
+
+<script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script><script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script><script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script><script>
+        // Elements
+        const locationsInput = document.getElementById('locations');
+        const locationValue = document.getElementById('locationValue');
+        const monthlySpendInput = document.getElementById('monthlySpend');
+        const newPatientsInput = document.getElementById('newPatients');
+        const patientValueInput = document.getElementById('patientValue');
+
+        // Calculated outputs
+        const totalSpendEl = document.getElementById('totalSpend');
+        const ekwaMonthlyEl = document.getElementById('ekwaMonthly');
+        const totalPatientsEl = document.getElementById('totalPatients');
+        const costPerAcqEl = document.getElementById('costPerAcq');
+
+        // Function to calculate ekwa monthly cost based on tier
+        function getEkwaMonthly(locations) {
+            if (locations >= 16) return locations * 1000;
+            if (locations >= 11) return locations * 1200;
+            if (locations >= 6) return locations * 1500;
+            return locations * 1800;
+        }
+
+        // Function to calculate payback period in months
+        function getPaybackPeriod(monthlyInvestment, monthlyProfit) {
+            if (monthlyProfit <= 0) return 13; // Beyond year 1
+            return Math.ceil(monthlyInvestment / monthlyProfit);
+        }
+
+        // Main calculation function
+        function updateCalculations() {
+            const locations = parseInt(locationsInput.value);
+            const monthlySpend = parseFloat(monthlySpendInput.value);
+            const newPatients = parseFloat(newPatientsInput.value);
+            const patientValue = parseFloat(patientValueInput.value);
+
+            // Update location value display
+            locationValue.textContent = locations;
+
+            // Calculate current metrics
+            const totalSpend = locations * monthlySpend;
+            const ekwaMonthly = getEkwaMonthly(locations);
+            const totalPatients = locations * newPatients;
+            const costPerAcq = totalSpend / totalPatients;
+
+            // Update calculated fields
+            totalSpendEl.textContent = '$' + totalSpend.toLocaleString();
+            ekwaMonthlyEl.textContent = '$' + ekwaMonthly.toLocaleString();
+            totalPatientsEl.textContent = Math.round(totalPatients);
+            costPerAcqEl.textContent = '$' + Math.round(costPerAcq);
+
+            // Calculate scenarios
+            const scenarios = {
+                conservative: 0.15,
+                moderate: 0.30,
+                aggressive: 0.50
+            };
+
+            Object.entries(scenarios).forEach(([scenario, growthRate]) => {
+                const additionalPatientsYear = totalPatients * 12 * growthRate;
+                const revenueYear1 = additionalPatientsYear * patientValue;
+                const investmentYear1 = ekwaMonthly * 12;
+                const profitYear1 = revenueYear1 - investmentYear1;
+                const paybackMonths = getPaybackPeriod(ekwaMonthly, revenueYear1 / 12);
+                
+                // 24-month ROI calculation
+                const roi24Month = ((revenueYear1 * 2 - investmentYear1 * 2) / (investmentYear1 * 2)) * 100;
+
+                // Update card
+                document.getElementById(scenario + 'Patients').textContent = Math.round(additionalPatientsYear);
+                document.getElementById(scenario + 'Revenue').textContent = '$' + Math.round(revenueYear1).toLocaleString();
+                document.getElementById(scenario + 'Investment').textContent = '$' + investmentYear1.toLocaleString();
+                document.getElementById(scenario + 'Profit').textContent = '$' + Math.round(profitYear1).toLocaleString();
+                
+                let profitSubtext = '';
+                if (profitYear1 < 0) {
+                    const breakeven = Math.ceil(Math.abs(profitYear1) / (revenueYear1 / 12));
+                    profitSubtext = 'Break-even: Month ' + breakeven;
+                } else {
+                    profitSubtext = 'Break-even: Month ' + paybackMonths;
+                }
+                document.getElementById(scenario + 'Profit').parentElement.querySelector('.metric-subvalue').textContent = profitSubtext;
+
+                const roiDisplay = Math.round(roi24Month);
+                document.getElementById(scenario + 'ROI').textContent = roiDisplay + '%';
+                document.getElementById(scenario + 'Percent').textContent = roiDisplay + '%';
+                
+                // Clamp progress bar at 100%
+                const progressWidth = Math.min(roiDisplay, 100);
+                document.getElementById(scenario + 'Bar').style.width = progressWidth + '%';
+            });
+
+            // Update projection table (uses moderate scenario)
+            const moderateGrowth = 0.30;
+            const year1Patients = Math.round(totalPatients * 12 * moderateGrowth);
+            const year2Patients = Math.round(totalPatients * 12 * moderateGrowth * 2);
+            const year3Patients = Math.round(totalPatients * 12 * moderateGrowth * 3);
+            const investmentAnnual = ekwaMonthly * 12;
+            const revenueYear1 = year1Patients * patientValue;
+            const revenueYear2 = year2Patients * patientValue;
+            const revenueYear3 = year3Patients * patientValue;
+            const cumulativeYear1 = revenueYear1 - investmentAnnual;
+            const cumulativeYear2 = cumulativeYear1 + (revenueYear2 - investmentAnnual);
+            const cumulativeYear3 = cumulativeYear2 + (revenueYear3 - investmentAnnual);
+
+            // Update table rows (find tbody and update)
+            const tbody = document.querySelector('table tbody');
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows[1].querySelectorAll('td')[1].textContent = year1Patients.toLocaleString();
+            rows[1].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[1].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear1).toLocaleString();
+            rows[1].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear1).toLocaleString();
+
+            rows[2].querySelectorAll('td')[1].textContent = year2Patients.toLocaleString();
+            rows[2].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[2].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear2).toLocaleString();
+            rows[2].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear2).toLocaleString();
+
+            rows[3].querySelectorAll('td')[1].textContent = year3Patients.toLocaleString();
+            rows[3].querySelectorAll('td')[2].textContent = '$' + investmentAnnual.toLocaleString();
+            rows[3].querySelectorAll('td')[3].textContent = '$' + Math.round(revenueYear3).toLocaleString();
+            rows[3].querySelectorAll('td')[4].textContent = '$' + Math.round(cumulativeYear3).toLocaleString();
+        }
+
+        // Event listeners
+        locationsInput.addEventListener('input', updateCalculations);
+        monthlySpendInput.addEventListener('input', updateCalculations);
+        newPatientsInput.addEventListener('input', updateCalculations);
+        patientValueInput.addEventListener('input', updateCalculations);
+
+        // Initial calculation
+        updateCalculations();
+    </script>
+
+
+<script>
+function toggleMobileMenu(btn) {
+  btn.classList.toggle('open');
+  const menu = btn.nextElementSibling;
+  if (menu) menu.classList.toggle('open');
+}
+</script>
 </body>
 </html>

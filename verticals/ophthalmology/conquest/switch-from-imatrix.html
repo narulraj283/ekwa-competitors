@@ -5,201 +5,378 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>Upgrading from iMatrix? Eye Practices on What Changes at $99/Month vs. Premium</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #f5a623 0%, #1a1a2e 100%); color: #fff; padding: 50px 20px; text-align: center; }
-        header h1 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
-        header p { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .comparison { background: #fff; border: 1px solid #ddd; margin: 25px 0; border-radius: 8px; overflow: hidden; }
-        .comparison table { width: 100%; border-collapse: collapse; }
-        .comparison th { background: #1a1a2e; color: #fff; padding: 15px; text-align: left; font-size: 14px; }
-        .comparison td { padding: 15px; border-bottom: 1px solid #eee; font-size: 13px; }
-        .comparison tr:hover { background: #f5f5f5; }
-        .imatrix-cell { background: #fff5e6; }
-        .ekwa-cell { background: #e8f0fe; font-weight: 600; color: #0066cc; }
-        h2 { font-size: 26px; color: #1a1a2e; margin: 35px 0 20px; padding-top: 20px; border-top: 2px solid #0066cc; }
-        .card { background: #fff; border-left: 4px solid #0066cc; padding: 20px; margin: 20px 0; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card h3 { color: #0066cc; font-size: 16px; margin-bottom: 10px; }
-        .card p { font-size: 13px; color: #555; }
-        form { background: #e8f0fe; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        form h3 { color: #0066cc; margin-bottom: 20px; }
-        label { display: block; margin-top: 15px; font-weight: 600; color: #333; font-size: 13px; }
-        input, select, textarea { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
-        button { background: #0066cc; color: #fff; padding: 12px 24px; border: none; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; }
-        button:hover { background: #00509e; }
-        footer { text-align: center; padding: 30px 20px; color: #999; font-size: 11px; border-top: 1px solid #ddd; margin-top: 40px; }
+        .ekwa-section--comparison {
+            background: var(--ekwa-gray-100);
+        }
+        .comparison-table {
+            background: var(--ekwa-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--ekwa-success);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin: var(--space-6) 0;
+        }
+        .testimonial-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--ekwa-gray-800);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+        }
+        .testimonial-title {
+            font-size: var(--text-xs);
+            color: var(--ekwa-gray-600);
+        }
+        .financial-box {
+            background: var(--ekwa-white);
+            border: 1px solid var(--ekwa-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+        .financial-box h4 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        .financial-box ul {
+            padding-left: var(--space-5);
+        }
+        .financial-box li {
+            margin-bottom: var(--space-2);
+            line-height: 1.6;
+            font-size: var(--text-sm);
+        }
+        .form-section {
+            background: var(--ekwa-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--ekwa-navy);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-3);
+            border: 1px solid var(--ekwa-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            font-size: var(--text-sm);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ekwa-blue);
+            box-shadow: 0 0 0 3px rgba(59, 116, 187, 0.1);
+        }
+        .card-highlight {
+            background: var(--ekwa-white);
+            border-left: 4px solid var(--ekwa-blue);
+            padding: var(--space-5);
+            border-radius: var(--radius-md);
+            margin: var(--space-4) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .card-highlight h3 {
+            color: var(--ekwa-navy);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        .card-highlight p {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--ekwa-gray-700);
+            margin-bottom: var(--space-2);
+        }
+        .vertical-accent {
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-1);
+        }
+        h2 {
+            color: var(--ekwa-navy);
+            font-weight: 800;
+            font-size: var(--text-3xl);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            padding-bottom: var(--space-3);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #40916C;
+            margin-top: var(--space-3);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Upgrading from iMatrix?</h1>
-        <p>Eye Practices Share What Happens When You Move From $99/Month to Strategy-Driven Marketing</p>
+    <!-- Navigation -->
+    <nav class="ekwa-nav">
+        <div class="ekwa-nav__inner">
+            <a href="../../../../index.html" class="ekwa-nav__brand">
+                <div class="ekwa-nav__logo">E</div>
+                <div>
+                    <div class="ekwa-nav__title">ekwa</div>
+                    <div class="ekwa-nav__subtitle">Competitive Intel</div>
+                </div>
+            </a>
+            <div class="ekwa-nav__links">
+                <a href="../../../../index.html">All Verticals</a>
+                <a href="../../index.html">Ophthalmology</a>
+            </div>
+            <button class="ekwa-nav__hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="ekwa-nav__mobile" id="navDrawer">
+            <a href="../../../../index.html">All Verticals</a>
+            <a href="../../index.html">Ophthalmology</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="ekwa-page-header">
+        <div class="ekwa-container">
+            <div class="ekwa-page-header__badge">Conquest Asset</div>
+            <h1>Upgrading from iMatrix?</h1>
+            <p>Eye Practices Share What Happens When You Move From $99/Month to Strategy-Driven Marketing</p>
+        </div>
+        <div class="vertical-accent"></div>
     </header>
 
-    <div class="container">
-        <h2>iMatrix vs. ekwa: What You're Trading Up</h2>
-        <div class="comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th style="background: #f5a623;">iMatrix</th>
-                        <th style="background: #0066cc;">ekwa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Monthly Cost</strong></td>
-                        <td class="imatrix-cell">$99–$299/month</td>
-                        <td class="ekwa-cell">$2,200–$3,400/month</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Service Model</strong></td>
-                        <td class="imatrix-cell">Self-service platform (you manage)</td>
-                        <td class="ekwa-cell">Fully managed (we manage it for you)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Account Manager</strong></td>
-                        <td class="imatrix-cell">No; you're self-supported</td>
-                        <td class="ekwa-cell">Dedicated marketing director (one person, YOUR practice)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Strategy & Optimization</strong></td>
-                        <td class="imatrix-cell">Minimal; you DIY</td>
-                        <td class="ekwa-cell">Custom strategy, continuous optimization, A/B testing</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Website Quality</strong></td>
-                        <td class="imatrix-cell">Template-based (100K practices use same design)</td>
-                        <td class="ekwa-cell">Custom design, ophthalmology-specific, conversion-optimized</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Content Creation</strong></td>
-                        <td class="imatrix-cell">Platform doesn't include content</td>
-                        <td class="ekwa-cell">Monthly content roadmap + creation + publication</td>
-                    </tr>
-                    <tr>
-                        <td><strong>SEO Strategy</strong></td>
-                        <td class="imatrix-cell">Basic on-page; limited optimization</td>
-                        <td class="ekwa-cell">Full SEO (technical, on-page, content, link building)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paid Media (Google Ads, Social)</strong></td>
-                        <td class="imatrix-cell">No</td>
-                        <td class="ekwa-cell">Yes; full-service PPC, social, YouTube</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ophthalmology Specialization</strong></td>
-                        <td class="imatrix-cell">Multi-specialty platform (generic)</td>
-                        <td class="ekwa-cell">100% ophthalmology focus</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dry Eye Program</strong></td>
-                        <td class="imatrix-cell">Not available</td>
-                        <td class="ekwa-cell">Dedicated recurring revenue program</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Premium IOL Upsell</strong></td>
-                        <td class="imatrix-cell">Not included</td>
-                        <td class="ekwa-cell">Content-driven upsell strategy</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Main Content -->
+    <main class="ekwa-section">
+        <div class="ekwa-container">
+            <h2>iMatrix vs. ekwa: What You're Trading Up</h2>
+            
+            <div class="comparison-table">
+                <div style="overflow-x: auto;">
+                    <table class="ekwa-table ekwa-table--striped">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>iMatrix</th>
+                                <th>ekwa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Monthly Cost</strong></td>
+                                <td>$99–$299/month</td>
+                                <td><strong>$2,200–$3,400/month</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Service Model</strong></td>
+                                <td>Self-service platform (you manage)</td>
+                                <td><strong>Fully managed (we manage it for you)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Account Manager</strong></td>
+                                <td>No; you're self-supported</td>
+                                <td><strong>Dedicated marketing director (one person, YOUR practice)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Strategy & Optimization</strong></td>
+                                <td>Minimal; you DIY</td>
+                                <td><strong>Custom strategy, continuous optimization, A/B testing</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Website Quality</strong></td>
+                                <td>Template-based (100K practices use same design)</td>
+                                <td><strong>Custom design, ophthalmology-specific, conversion-optimized</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Creation</strong></td>
+                                <td>Platform doesn't include content</td>
+                                <td><strong>Monthly content roadmap + creation + publication</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>SEO Strategy</strong></td>
+                                <td>Basic on-page; limited optimization</td>
+                                <td><strong>Full SEO (technical, on-page, content, link building)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paid Media (Google Ads, Social)</strong></td>
+                                <td>No</td>
+                                <td><strong>Yes; full-service PPC, social, YouTube</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ophthalmology Specialization</strong></td>
+                                <td>Multi-specialty platform (generic)</td>
+                                <td><strong>100% ophthalmology focus</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dry Eye Program</strong></td>
+                                <td>Not available</td>
+                                <td><strong>Dedicated recurring revenue program</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Premium IOL Upsell</strong></td>
+                                <td>Not included</td>
+                                <td><strong>Content-driven upsell strategy</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>The iMatrix Reality: Outgrowing Commodity Service</h2>
+            <p style="margin: var(--space-4) 0; font-size: var(--text-base);">iMatrix serves 100,000+ healthcare practices at $99–$299/month. The math is simple: at that price point, they can't afford to provide strategy. You get a website platform and basic tools. Everything else is on you.</p>
+
+            <div class="card-highlight">
+                <h3>The DIY Trap</h3>
+                <p>iMatrix's business model relies on self-service. You're supposed to learn their platform, update your website, manage your own SEO, hire your own paid media team, create your own content. If you're a busy ophthalmologist, this isn't happening.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>Result:</strong> Your website stays static. Content doesn't get updated. SEO suffers. Patients see you as an old, generic practice. Meanwhile, competitors with dedicated agencies are outranking you.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>The Generic Design Problem</h3>
+                <p>At $99/month, iMatrix uses templates. 100,000+ healthcare practices use the same design layout. Your website looks like every other iMatrix client's. There's no differentiation, no custom branding, no conversion optimization.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Approach:</strong> Custom website design specific to your practice, your procedures, your market. Conversion-optimized for LASIK booking, cataract consultations, dry eye scheduling.</p>
+            </div>
+
+            <div class="card-highlight">
+                <h3>The Paid Media Void</h3>
+                <p>iMatrix doesn't offer paid media. Google Ads, Facebook ads, YouTube ads — not available. That means high-intent patients searching "LASIK near me" or "cataract surgeon" aren't seeing your practice in paid search results. Organic only.</p>
+                <p style="margin-top: var(--space-3); font-style: italic; color: var(--ekwa-gray-600);"><strong>ekwa's Approach:</strong> Integrated paid media strategy. Google Ads for "LASIK [city]," Facebook retargeting for website visitors, YouTube for procedure explainers. Captures high-intent patients immediately.</p>
+            </div>
+
+            <h2>What Ophthalmology Practices Find When They Upgrade From iMatrix</h2>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"We used iMatrix for 18 months. Website looked generic, we were manually updating everything, and we weren't getting new patient volume. Switched to ekwa and the difference was immediate. They have a plan, they update the website, they do paid ads, they create content. We went from 12 LASIK consultations/month to 28 in 6 months. That's $180K additional annual revenue from moving to a real marketing partner."</div>
+                <div class="testimonial-author">Dr. Lisa Anderson, MD</div>
+                <div class="testimonial-title">Clear Vision LASIK, Nashville</div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="testimonial-text">"iMatrix was a DIY platform. That was the whole business model. But I'm a doctor, not a marketer. I don't have time to manage my own website, update content, run paid ads. ekwa took that off my plate. We pay more, but we get more — strategy, management, results. 100% worth it."</div>
+                <div class="testimonial-author">Dr. Robert Chen, MD</div>
+                <div class="testimonial-title">Comprehensive Eye Center, Denver</div>
+            </div>
+
+            <h2>The Financial Picture</h2>
+            
+            <div class="financial-box">
+                <h4>Cost Comparison</h4>
+                <p style="margin-bottom: var(--space-3);">At first glance, upgrading from iMatrix ($99/month) to ekwa ($2,200/month) looks expensive:</p>
+                <ul>
+                    <li><strong>iMatrix:</strong> $99/month × 12 = $1,188/year</li>
+                    <li><strong>ekwa:</strong> $2,400/month × 12 = $28,800/year</li>
+                    <li><strong>Difference:</strong> +$27,612/year</li>
+                </ul>
+            </div>
+
+            <div class="financial-box">
+                <h4>Expected ROI</h4>
+                <p style="margin-bottom: var(--space-3);">But look at the ROI:</p>
+                <ul>
+                    <li>28% average procedure volume increase (6–12 months)</li>
+                    <li>At $4,500 average LASIK case value: +$60K–$120K annual revenue</li>
+                    <li><strong>Net profit Year 1: $32K–$92K</strong> (after ekwa investment)</li>
+                    <li><strong>3-year cumulative: $150K+</strong></li>
+                </ul>
+            </div>
+
+            <h2>Next Step: Upgrade Path Analysis</h2>
+            <p style="margin: var(--space-4) 0; font-size: var(--text-base);">We'll review your iMatrix website, identify missed revenue opportunities, and show you the ROI of upgrading to a full-service ophthalmology marketing strategy.</p>
+
+            <div class="form-section">
+                <h3 style="color: var(--ekwa-navy); margin-bottom: var(--space-6);">iMatrix to ekwa Upgrade Request</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Name *</label>
+                        <input type="text" name="practice_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City/State *</label>
+                        <input type="text" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What's the main limitation of iMatrix for your practice?</label>
+                        <textarea name="challenge" placeholder="e.g., Generic design, no paid ads, I'm managing everything myself, not getting new patients..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="source" value="conquest-imatrix">
+                    <input type="hidden" name="competitor" value="iMatrix">
+                    <input type="hidden" name="vertical" value="ophthalmology">
+
+                    <button type="submit" class="ekwa-btn ekwa-btn--primary" style="width: 100%;">Get Upgrade ROI Analysis →</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--ekwa-gray-600);">By submitting, you'll receive a custom upgrade analysis and ROI projection.</p>
+            </div>
         </div>
+    </main>
 
-        <h2>The iMatrix Reality: Outgrowing Commodity Service</h2>
-        <p style="margin: 20px 0; font-size: 13px;">iMatrix serves 100,000+ healthcare practices at $99–$299/month. The math is simple: at that price point, they can't afford to provide strategy. You get a website platform and basic tools. Everything else is on you.</p>
-
-        <div class="card">
-            <h3>The DIY Trap</h3>
-            <p>iMatrix's business model relies on self-service. You're supposed to learn their platform, update your website, manage your own SEO, hire your own paid media team, create your own content. If you're a busy ophthalmologist, this isn't happening.</p>
-            <p style="margin-top: 10px;"><strong>Result:</strong> Your website stays static. Content doesn't get updated. SEO suffers. Patients see you as an old, generic practice. Meanwhile, competitors with dedicated agencies are outranking you.</p>
+    <!-- Footer -->
+    <footer class="ekwa-footer">
+        <div class="ekwa-footer__inner">
+            <p>&copy; 2026 ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
+            <p>This page targets iMatrix users ready to outgrow commodity service and invest in strategy-driven marketing.</p>
         </div>
-
-        <div class="card">
-            <h3>The Generic Design Problem</h3>
-            <p>At $99/month, iMatrix uses templates. 100,000+ healthcare practices use the same design layout. Your website looks like every other iMatrix client's. There's no differentiation, no custom branding, no conversion optimization.</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Approach:</strong> Custom website design specific to your practice, your procedures, your market. Conversion-optimized for LASIK booking, cataract consultations, dry eye scheduling.</p>
-        </div>
-
-        <div class="card">
-            <h3>The Paid Media Void</h3>
-            <p>iMatrix doesn't offer paid media. Google Ads, Facebook ads, YouTube ads — not available. That means high-intent patients searching "LASIK near me" or "cataract surgeon" aren't seeing your practice in paid search results. Organic only.</p>
-            <p style="margin-top: 10px;"><strong>ekwa's Approach:</strong> Integrated paid media strategy. Google Ads for "LASIK [city]," Facebook retargeting for website visitors, YouTube for procedure explainers. Captures high-intent patients immediately.</p>
-        </div>
-
-        <h2>What Ophthalmology Practices Find When They Upgrade From iMatrix</h2>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"We used iMatrix for 18 months. Website looked generic, we were manually updating everything, and we weren't getting new patient volume. Switched to ekwa and the difference was immediate. They have a plan, they update the website, they do paid ads, they create content. We went from 12 LASIK consultations/month to 28 in 6 months. That's $180K additional annual revenue from moving to a real marketing partner."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. Lisa Anderson, Clear Vision LASIK, Nashville</p>
-        </div>
-
-        <div style="background: #e8f0fe; padding: 25px; border-radius: 8px; margin: 25px 0;">
-            <p style="font-size: 13px; color: #333; line-height: 1.8;">
-                <strong>"iMatrix was a DIY platform. That was the whole business model. But I'm a doctor, not a marketer. I don't have time to manage my own website, update content, run paid ads. ekwa took that off my plate. We pay more, but we get more — strategy, management, results. 100% worth it."</strong>
-            </p>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;">— Dr. Robert Chen, Comprehensive Eye Center, Denver</p>
-        </div>
-
-        <h2>The Financial Picture</h2>
-        <p style="margin: 20px 0; font-size: 13px;">At first glance, upgrading from iMatrix ($99/month) to ekwa ($2,200/month) looks expensive:</p>
-        <ul style="font-size: 13px; padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>iMatrix:</strong> $99/month × 12 = $1,188/year</li>
-            <li><strong>ekwa:</strong> $2,400/month × 12 = $28,800/year</li>
-            <li><strong>Difference:</strong> +$27,612/year</li>
-        </ul>
-        <p style="font-size: 13px;"><strong>But look at the ROI:</strong></p>
-        <ul style="font-size: 13px; padding-left: 20px;">
-            <li>28% average procedure volume increase (6–12 months)</li>
-            <li>At $4,500 average LASIK case value: +$60K–$120K annual revenue</li>
-            <li>Net profit Year 1: $32K–$92K (after ekwa investment)</li>
-            <li>3-year cumulative: $150K+</li>
-        </ul>
-
-        <h2>Next Step: Upgrade Path Analysis</h2>
-        <p style="margin: 20px 0; font-size: 13px;">We'll review your iMatrix website, identify missed revenue opportunities, and show you the ROI of upgrading to a full-service ophthalmology marketing strategy.</p>
-
-        <form id="contactForm">
-            <h3>iMatrix to ekwa Upgrade Request</h3>
-            <label>Full Name *</label>
-            <input type="text" name="name" required>
-
-            <label>Practice Name *</label>
-            <input type="text" name="practice_name" required>
-
-            <label>City/State *</label>
-            <input type="text" name="location" required>
-
-            <label>Phone *</label>
-            <input type="tel" name="phone" required>
-
-            <label>Email *</label>
-            <input type="email" name="email" required>
-
-            <label>What's the main limitation of iMatrix for your practice?</label>
-            <textarea name="challenge" placeholder="e.g., Generic design, no paid ads, I'm managing everything myself, not getting new patients..."></textarea>
-
-            <input type="hidden" name="source" value="conquest-imatrix">
-            <input type="hidden" name="competitor" value="iMatrix">
-            <input type="hidden" name="vertical" value="ophthalmology">
-
-            <button type="submit">Get Upgrade ROI Analysis →</button>
-        </form>
-
-        <p style="text-align: center; margin-top: 20px; font-size: 11px; color: #999;">By submitting, you'll receive a custom upgrade analysis and ROI projection.</p>
-    </div>
-
-    <footer>
-        <p>ekwa.com | Ophthalmology Competitive Intelligence | Conquest Asset</p>
-        <p>This page targets iMatrix users ready to outgrow commodity service and invest in strategy-driven marketing.</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('navDrawer');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navDrawer.classList.toggle('open');
+        });
+
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('https://formspree.io/f/YOUR_FORM_ID', {

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Switch Sequence - Ophthalmology</title>
+    <link rel="stylesheet" href="../../../../assets/css/ekwa-brand.css">
+    <style>
+        :root {
+            --ekwa-green: #40916C;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-light: #e0e0e0;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--ekwa-green);
+        }
+
+        .breadcrumb {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+        }
+
+        .meta-icon {
+            font-size: 1.2em;
+        }
+
+        .emails {
+            margin-bottom: 50px;
+        }
+
+        .email {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, var(--ekwa-green), #2d6a52);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .email-number {
+            font-size: 2em;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .email-timing {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .email-content {
+            padding: 30px;
+        }
+
+        .email-field {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--ekwa-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .field-value {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--ekwa-green);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .email-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--ekwa-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .copy-btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .copy-btn.copied {
+            background-color: #4caf50;
+        }
+
+        .notes {
+            background-color: #fffbf0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .notes strong {
+            color: #e65100;
+        }
+
+        footer {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 2px solid var(--ekwa-green);
+        }
+
+        footer a {
+            color: var(--ekwa-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--ekwa-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: #2d6a52;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--ekwa-green);
+            border: 2px solid var(--ekwa-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f8f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html">← Back to All Sequences</a>
+            </div>
+            <h1>Provider Switch Sequence</h1>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📧</span>
+                    <span>3 Emails</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Days 1, 4, 8</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎯</span>
+                    <span>Provider Transition</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="emails">
+            <!-- Email 1 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">1</div>
+                    <div class="email-timing">Send: Day 1</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">{{contact.firstname}}, your EHR provider isn't your marketing specialist</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I've been talking to a lot of ophthalmology practices that use EHR-bundled marketing solutions. Most of them say the same thing:
+
+"It's fine. We get some traffic. It works."
+
+But "fine" and "works" aren't the same as "optimized" or "winning."
+
+Here's the thing: When your EHR vendor handles your marketing, they're doing it as a one-size-fits-all feature, not a specialized service. They're not building SEO frameworks specifically for the unique ophthalmology patient journey. They're not creating procedure-specific content that converts elective patients. They're not emphasizing physician credentialing and expertise in the way that builds practice authority.
+
+You're not getting a bad solution. You're getting a generic one.
+
+And in a competitive market like ophthalmology, generic costs you patient acquisition.
+
+{{contact.company}} could be winning more of both the LASIK and routine care patient searches. We know how to make that happen.
+
+Curious if this resonates?
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Opens with the core differentiation: EHR-bundled solutions are "adequate but not excellent." Positions Ekwa's specialized approach without criticizing their current provider.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 2 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">2</div>
+                    <div class="email-timing">Send: Day 4</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">What specialized ophthalmology marketing actually looks like</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I want to show you the difference between generic marketing and specialized ophthalmology marketing. These aren't hypothetical — they're real things we build for practices like {{contact.company}}.
+
+Generic Approach (EHR-bundled):
+• Standard SEO targeting "eye doctor near me"
+• Basic website content about your services
+• General local search optimization
+• Results: Adequate traffic, mixed quality leads
+
+Specialized Ophthalmology Approach (Ekwa):
+• Dual-track SEO: "LASIK surgeon near me" + "eye doctor near me"
+• Procedure-specific content frameworks (LASIK, SMILE, PRK, cataracts, etc.)
+• Physician credentialing pages that build trust and authority
+• Patient education content that moves decision-making forward
+• Medical sophistication in copy and positioning that attracts the right patients
+• Results: 40-60% more new patient inquiries, higher procedure consultation rates
+
+The second one costs a bit more. But it captures 20-30 more patients per month.
+
+You do the math on what that's worth to {{contact.company}}.
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Provides tangible comparison of approaches. Specific benefits (procedure-specific content, credentialing, medical sophistication) show what "specialized" actually means in practice.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+
+            <!-- Email 3 -->
+            <div class="email">
+                <div class="email-header">
+                    <div class="email-number">3</div>
+                    <div class="email-timing">Send: Day 8</div>
+                </div>
+                <div class="email-content">
+                    <div class="email-field">
+                        <div class="field-label">Subject Line</div>
+                        <div class="field-value">Let me show you what we'd do for {{contact.company}}</div>
+                    </div>
+
+                    <div class="email-field">
+                        <div class="field-label">Body Copy</div>
+                        <div class="field-value email-body">Hi {{contact.firstname}},
+
+I've sent a couple of emails about moving from a generic EHR-bundled solution to specialized ophthalmology marketing, and I think I've made the case.
+
+Here's what I'd love to do: Walk you through exactly what we'd build for {{contact.company}}.
+
+Specifically, I want to show you:
+1. A competitive analysis of your local market for both LASIK and routine eye care searches
+2. An audit of your current SEO positioning vs. what's possible
+3. A 90-day roadmap to increase new patient inquiries by 30-40%
+
+This isn't a sales pitch. It's a strategy session. You'll walk away with valuable insight about your market whether we work together or not.
+
+Most practices we do this with are surprised at what we find. I think you will be too.
+
+Does sometime next week work for you?
+
+Best,
+{{user.firstname}}</div>
+                    </div>
+
+                    <div class="notes">
+                        <strong>Note:</strong> Final email moving to action. Offers specific value (market analysis, audit, roadmap) in a strategy session format to lower objection to meeting.
+                    </div>
+
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy Body</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-secondary">Back to All Sequences</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Provider Switch Sequence for Ophthalmology Sales</strong></p>
+        <p>Use these templates to target practices currently using EHR-bundled marketing solutions</p>
+        <p><a href="../../../../index.html">← Back to Home</a></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(button) {
+            const text = button.parentElement.querySelector('.field-value.email-body')?.textContent || 
+                         button.parentElement.querySelector('.field-value')?.textContent;
+            if (text) {
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
